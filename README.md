@@ -137,6 +137,51 @@ python -m src.validate_kg
 
 Validation is independent of conversion: when `conversion = false`, point `knowledge_graph` at an existing `.ttl` file.
 
+## Benchmark generation
+
+Create intentionally corrupted datasets for evaluation:
+
+```bash
+python -m src.generate_benchmark
+```
+
+Configure `benchmark.ini`:
+
+```ini
+[benchmark]
+input = dataset/DomesticDeclarations.sample_5declarations.xes
+output_dir = benchmarks
+seed = 42
+
+[r1]
+enabled = true
+count = 3
+
+[r2]
+enabled = true
+count = 2
+
+[r3]
+enabled = true
+percent = 5
+```
+
+Use either `count` or `percent` per rule (not both). `percent` is relative to total XES lines, then capped by eligible items.
+
+Each run writes `benchmarks/bench_r1_r2_r3_<timestamp>/` with:
+
+| File | Description |
+|------|-------------|
+| `*.corrupted.xes` | XES after R2 timestamp removals |
+| `*.corrupted.prov.ttl` | KG with R1/R2/R3 faults injected |
+| `statistics.json` | Requested/applied counts and every corruption record |
+
+Notes:
+
+- **R2** removes `time:timestamp` from XES events before conversion
+- **R1** removes `wf:belongsToCase` on the KG (that link is created by conversion)
+- **R3** breaks activity times on the KG while keeping `wasInformedBy` (conversion re-sorts XES times, so pure XES edits cannot create R3 violations)
+
 ## Validation
 
 SPARQL rules live in `src/validation_rules.py` and are executed by `src/validate_kg.py`.
