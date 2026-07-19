@@ -1,0 +1,89 @@
+{
+  "run_name": "out_conv_vis_val_r1_r2_r3_20260719_121238",
+  "run_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238",
+  "started_at": "2026-07-19T09:12:38.014734+00:00",
+  "finished_at": "2026-07-19T09:12:38.211454+00:00",
+  "total_duration_seconds": 0.196706,
+  "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.sample_5declarations.xes",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238\\DomesticDeclarations.sample_5declarations.prov.ttl",
+  "enabled": {
+    "conversion": true,
+    "visualization": true,
+    "validation": true,
+    "rules": [
+      "R1",
+      "R2",
+      "R3"
+    ]
+  },
+  "outputs": {
+    "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238\\DomesticDeclarations.sample_5declarations.prov.ttl",
+    "visualization": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238\\DomesticDeclarations.sample_5declarations.prov.html",
+    "validation_report": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238\\validation.json",
+    "statistics": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238\\statistics.json"
+  },
+  "stages": {
+    "conversion": {
+      "status": "completed",
+      "duration_seconds": 0.018299,
+      "details": "Built knowledge graph with 344 triples from 5 traces at C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238\\DomesticDeclarations.sample_5declarations.prov.ttl"
+    },
+    "visualization": {
+      "status": "completed",
+      "duration_seconds": 0.016928,
+      "details": "Interactive visualization written to C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238\\DomesticDeclarations.sample_5declarations.prov.html"
+    },
+    "validation": {
+      "status": "passed",
+      "duration_seconds": 0.145699,
+      "details": "Validation PASSED; report at C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238\\validation.json"
+    }
+  },
+  "graph_load_seconds": 0.014174,
+  "conversion": {
+    "xes_lines_parsed": 197,
+    "declaration_count": 5,
+    "trace_count": 5,
+    "event_count": 22,
+    "triple_count": 344,
+    "agent_count": 2,
+    "skipped_traces": 0,
+    "skipped_events": 0,
+    "warning_count": 15,
+    "duration_seconds": 0.018299,
+    "output_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238\\DomesticDeclarations.sample_5declarations.prov.ttl"
+  },
+  "validation": {
+    "status": "PASSED",
+    "duration_seconds": 0.145699,
+    "total_violations": 0,
+    "rules_run": [
+      "R1",
+      "R2",
+      "R3"
+    ],
+    "rules": [
+      {
+        "rule_id": "R1",
+        "name": "ACTIVITY_BELONGS_TO_CASE",
+        "status": "PASSED",
+        "violation_count": 0,
+        "duration_seconds": 0.130783
+      },
+      {
+        "rule_id": "R2",
+        "name": "ACTIVITY_HAS_STARTED_AT_TIME",
+        "status": "PASSED",
+        "violation_count": 0,
+        "duration_seconds": 0.006767
+      },
+      {
+        "rule_id": "R3",
+        "name": "WAS_INFORMED_BY_TEMPORAL_CONSISTENCY",
+        "status": "PASSED",
+        "violation_count": 0,
+        "duration_seconds": 0.008108
+      }
+    ]
+  }
+}

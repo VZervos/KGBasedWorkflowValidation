@@ -1,0 +1,43 @@
+{
+  "status": "PASSED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238\\DomesticDeclarations.sample_5declarations.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\out_conv_vis_val_r1_r2_r3_20260719_121238\\validation.json",
+  "started_at": "2026-07-19T09:12:38.064641+00:00",
+  "finished_at": "2026-07-19T09:12:38.210353+00:00",
+  "duration_seconds": 0.145699,
+  "total_violations": 0,
+  "rules_run": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "results": [
+    {
+      "rule_id": "R1",
+      "name": "ACTIVITY_BELONGS_TO_CASE",
+      "description": "Every prov:Activity must have exactly one wf:belongsToCase link (integrity: each event belongs to exactly one case).",
+      "status": "PASSED",
+      "violation_count": 0,
+      "duration_seconds": 0.130783,
+      "violations": []
+    },
+    {
+      "rule_id": "R2",
+      "name": "ACTIVITY_HAS_STARTED_AT_TIME",
+      "description": "Every prov:Activity must have prov:startedAtTime.",
+      "status": "PASSED",
+      "violation_count": 0,
+      "duration_seconds": 0.006767,
+      "violations": []
+    },
+    {
+      "rule_id": "R3",
+      "name": "WAS_INFORMED_BY_TEMPORAL_CONSISTENCY",
+      "description": "If activity B prov:wasInformedBy activity A, then A.startedAtTime must be less than or equal to B.startedAtTime.",
+      "status": "PASSED",
+      "violation_count": 0,
+      "duration_seconds": 0.008108,
+      "violations": []
+    }
+  ]
+}

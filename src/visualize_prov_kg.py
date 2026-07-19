@@ -10,10 +10,8 @@ from rdflib import Graph, URIRef
 from rdflib.namespace import PROV, RDF, RDFS
 
 from src.pipeline_config import load_pipeline_config
-from src.xes_mapping import xes_attr_predicate
 from src.xes_to_prov_kg import WF
 
-ATTRIBUTE_NS = "http://www.xes-standard.org/attribute/"
 NODE_STYLES = {
     PROV.Entity: {"color": "#97C2FC", "shape": "box", "group": "Entity"},
     PROV.Activity: {"color": "#FB7E81", "shape": "ellipse", "group": "Activity"},
@@ -94,15 +92,17 @@ def build_pyvis_network(graph: Graph, config: VisualizationConfig) -> Network:
 
 def run_from_config() -> Path:
     config = load_pipeline_config()
-    if not config.output_path.is_file():
-        raise FileNotFoundError(f"Knowledge graph not found: {config.output_path}")
+    if not config.knowledge_graph_path.is_file():
+        raise FileNotFoundError(
+            f"Knowledge graph not found: {config.knowledge_graph_path}"
+        )
 
     graph = Graph()
-    graph.parse(config.output_path)
+    graph.parse(config.knowledge_graph_path)
     output_path = visualize_prov_kg(
         graph,
         VisualizationConfig(
-            input_path=config.output_path,
+            input_path=config.knowledge_graph_path,
             output_path=config.visualization_path,
         ),
     )
@@ -137,7 +137,7 @@ def _node_type(graph: Graph, node: URIRef):
 
 def _node_label(graph: Graph, node: URIRef) -> str:
     for predicate in graph.predicates(node, None):
-        if str(predicate).endswith(xes_attr_predicate("concept:name")):
+        if str(predicate).endswith("xes-attr_concept_name"):
             value = graph.value(node, predicate)
             if value is not None:
                 return str(value)

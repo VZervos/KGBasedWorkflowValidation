@@ -1,6 +1,6 @@
 # KG-Based Workflow Validation
 
-Convert XES event logs into a PROV-O provenance knowledge graph and visualize it.
+Convert XES event logs into a PROV-O provenance knowledge graph, visualize it, and validate it with SPARQL rules.
 
 ## Workflow
 
@@ -10,6 +10,7 @@ Convert XES event logs into a PROV-O provenance knowledge graph and visualize it
 | 2 | Extraction of entities and relations | `conversion` |
 | 3 | Triples | `conversion` |
 | 4 | Knowledge graph | `output` |
+| 5 | SPARQL validation rules | `validation` |
 
 Optional: `visualization` produces an interactive HTML graph.
 
@@ -36,9 +37,9 @@ Run the pipeline with one command:
 python -m src.run_pipeline
 ```
 
-By default this converts the configured XES file into a PROV-O knowledge graph. Add `visualization` to `stages` to also produce an interactive HTML graph.
+By default, enable the steps you want with `true`/`false` flags in `config.ini`.
 
-Outputs are written under `output/`.
+Outputs are written under a new run folder inside `output_dir`, named from the enabled stages/rules and a timestamp, e.g. `output/out_conv_vis_val_r1_r2_r3_20260719_120530/`.
 
 ## Configuration
 
@@ -46,61 +47,121 @@ All settings are in `config.ini`:
 
 ```ini
 [pipeline]
-input = dataset/DomesticDeclarations.sample.xes
-output = output/DomesticDeclarations.sample.prov.ttl
-stages = conversion, visualization
+input = dataset/DomesticDeclarations.sample_5declarations.xes
+output_dir = output
+
+conversion = true
+visualization = true
+validation = true
+
+[validation]
+R1 = true
+R2 = true
+R3 = true
 ```
 
 | Option | Description |
 |--------|-------------|
-| `input` | Path to the XES event log (`.xes` or `.xes.gz`) |
-| `output` | Path for the PROV-O knowledge graph (`.ttl`) |
-| `stages` | Comma-separated stages: `conversion`, `visualization` |
+| `input` | Path to the XES event log (`.xes` or `.xes.gz`); required when `conversion = true` |
+| `output_dir` | Base directory for run folders |
+| `knowledge_graph` | Existing `.ttl` path; required when `conversion = false` |
+| `conversion` | `true`/`false` — run XES → PROV-O conversion |
+| `visualization` | `true`/`false` — write interactive HTML |
+| `validation` | `true`/`false` — run SPARQL validation rules |
 
-The visualization path is derived from `output` (same name with `.html` suffix).
+Under `[validation]`, each rule is toggled independently (`R1 = true`, etc.). When `validation = true`, at least one rule must be enabled.
+
+Each run folder contains:
+
+| File | Description |
+|------|-------------|
+| `*.prov.ttl` | PROV-O knowledge graph |
+| `*.prov.html` | Interactive visualization (if enabled) |
+| `validation.json` | Validation report (if enabled) |
+| `statistics.json` | Counts, timings, and violation totals |
 
 ### Common examples
 
-**Demo on sample data**
+**Full demo**
 
 ```ini
-input = dataset/DomesticDeclarations.sample.xes
-output = output/DomesticDeclarations.sample.prov.ttl
-stages = conversion, visualization
+conversion = true
+visualization = true
+validation = true
 ```
 
-**Build KG from the full event log**
+**Build KG only**
 
 ```ini
 input = dataset/DomesticDeclarations.xes.gz
-output = output/DomesticDeclarations.prov.ttl
-stages = conversion
+output_dir = output
+conversion = true
+visualization = false
+validation = false
+```
+
+**Validate an existing KG**
+
+```ini
+output_dir = output
+knowledge_graph = output/out_conv_.../file.prov.ttl
+conversion = false
+visualization = false
+validation = true
+
+[validation]
+R1 = true
+R2 = true
+R3 = true
 ```
 
 **Visualize an existing KG**
 
 ```ini
-input = dataset/DomesticDeclarations.sample.xes
-output = output/DomesticDeclarations.sample.prov.ttl
-stages = visualization
+output_dir = output
+knowledge_graph = output/out_conv_.../file.prov.ttl
+conversion = false
+visualization = true
+validation = false
 ```
 
 ## Running individual steps
 
-Each step reads the same `[pipeline]` section from `config.ini`:
+Each step reads `config.ini` and creates its own run folder:
 
 ```bash
 python -m src.xes_to_prov_kg
 python -m src.visualize_prov_kg
+python -m src.validate_kg
 ```
 
+Validation is independent of conversion: when `conversion = false`, point `knowledge_graph` at an existing `.ttl` file.
+
+## Validation
+
+SPARQL rules live in `src/validation_rules.py` and are executed by `src/validate_kg.py`.
+
+Currently implemented:
+
+| Rule | Description |
+|------|-------------|
+| R1 | Every `prov:Activity` must have exactly one `wf:belongsToCase` |
+| R2 | Every `prov:Activity` must have `prov:startedAtTime` |
+| R3 | If `B prov:wasInformedBy A`, then `A.startedAtTime <= B.startedAtTime` |
+
+The runner writes a JSON report with overall status, per-rule results, and any violating activity IRIs. If all rules pass, the report and console log both say so.
+
+Enable or disable each rule in `config.ini` under `[validation]`.
+
+Planned next rules: ordering constraints (submitted → approved → payment) and multi-hop payment provenance.
 ## XES mapping
 
 Conversion uses **XES-standard defaults** discovered from each file:
 
 - Reads declared `<extension>` entries from the XES header
 - Infers attribute types from XML tags (`string`, `date`, `float`, …)
-- Resolves identity keys with fallbacks (`id`, `concept:name`, `name`, …)
+- Resolves identity from primary XES keys (`id`, `concept:name`, `time:timestamp`, `org:resource`, `org:role`)
+- Does not invent defaults for missing fields; warns on the console and leaves gaps for validation
 - Maps standard keys to PROV-O (`concept:name`, `time:timestamp`, `org:resource`, `org:role`)
 
 Domain attributes such as `Amount` and `BudgetNumber` are copied automatically from the XES file.
@@ -130,8 +191,9 @@ KGBasedWorkflowValidation/
 ├── output/
 ├── src/
 │   ├── xes_to_prov_kg.py       # XES → PROV-O conversion (streaming)
-│   ├── xes_mapping.py          # XES mapping profiles and discovery
 │   ├── visualize_prov_kg.py    # HTML visualization
+│   ├── validation_rules.py     # SPARQL validation rules
+│   ├── validate_kg.py          # Independent validation runner
 │   ├── pipeline_config.py
 │   └── run_pipeline.py         # Main pipeline runner
 └── requirements.txt
@@ -160,7 +222,7 @@ Design choices:
 - **Full XES attribute preservation** — every XES attribute on traces and events is copied to `attr:xes-attr_*` predicates, including custom domain fields. Standard keys (`time:timestamp`, `org:resource`, etc.) are additionally mapped to PROV-O relations.
 - **Explicit event ids** — the resolved event id is stored as `attr:xes-attr_id` on each activity, not only in the activity URI.
 - **Readable XES attributes** — XES keys are stored as `attr:xes-attr_<key>` predicates with colons and semicolons replaced by underscores (e.g. `time:timestamp` → `attr:xes-attr_time_timestamp`).
-- **Agent identity** — unique resources are used as agent IDs; generic resources such as `STAFF MEMBER` are disambiguated with `resource::role` when the same resource appears with multiple roles.
+- **Agent identity** — agent URIs are based on `org:resource` only. Missing resource/role values are not replaced with defaults; construction warns and omits incomplete associations so validation can detect them.
 
 Case attributes (`Amount`, `BudgetNumber`, `DeclarationNumber`, etc.) stay on the case entity.
 
@@ -173,7 +235,11 @@ Case attributes (`Amount`, `BudgetNumber`, `DeclarationNumber`, etc.) stay on th
 
 ## Outputs
 
+Each pipeline run writes into `output/out_<stages>_<rules>_<timestamp>/`:
+
 | File | Description |
 |------|-------------|
 | `*.prov.ttl` | PROV-O knowledge graph |
 | `*.prov.html` | Interactive visualization |
+| `validation.json` | SPARQL validation report |
+| `statistics.json` | Run statistics (lines, traces/events/triples, stage/rule timings, violations) |
