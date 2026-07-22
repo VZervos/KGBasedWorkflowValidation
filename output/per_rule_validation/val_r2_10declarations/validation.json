@@ -1,0 +1,54 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r2_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r2_10declarations\\validation.json",
+  "started_at": "2026-07-22T09:48:52.346588+00:00",
+  "finished_at": "2026-07-22T09:48:52.355516+00:00",
+  "duration_seconds": 0.010576,
+  "total_violations": 5,
+  "rules_run": [
+    "R2"
+  ],
+  "results": [
+    {
+      "rule_id": "R2",
+      "name": "ACTIVITY_HAS_STARTED_AT_TIME",
+      "description": "Every prov:Activity must have prov:startedAtTime.",
+      "status": "FAILED",
+      "violation_count": 5,
+      "duration_seconds": 0.010562,
+      "violations": [
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86716_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86731_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_86724_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_86793_0"
+          }
+        }
+      ]
+    }
+  ]
+}

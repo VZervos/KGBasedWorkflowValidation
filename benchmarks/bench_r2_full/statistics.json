@@ -1,0 +1,1001 @@
+{
+  "run_name": "bench_r2_full",
+  "run_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r2_full",
+  "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.xes.gz",
+  "seed": 42,
+  "xes_line_count": 468572,
+  "started_at": "2026-07-22T09:52:44.999504+00:00",
+  "finished_at": "2026-07-22T09:55:27.927479+00:00",
+  "notes": {
+    "r1": "wf:belongsToCase is created during conversion, so R1 faults are injected on the generated KG by removing belongsToCase links.",
+    "r2": "time:timestamp attributes are removed from random XES events before conversion, so activities lack prov:startedAtTime.",
+    "r3": "prov:wasAssociatedWith is created during conversion, so R3 faults are injected on the KG by removing agent associations.",
+    "r4": "R4 faults are injected on the KG by randomly either breaking wasInformedBy temporal order (later.startedAtTime < earlier) or removing startedAtTime while keeping endedAtTime.",
+    "r5": "Payment Handled activities that use SYSTEM get a random invalid attr:xes-attr_org_resource (known roles, empty, or invented BOGUS_RESOURCE_* values).",
+    "r5b": "Payment Handled activities have their org:role rewritten to EMPLOYEE.",
+    "r6": "Payment Handled activities with a valid provenance chain are corrupted by randomly choosing one of: scramble milestone wasInformedBy order; insert a bogus intermediate activity; or remove Payment Handled's wasInformedBy link(s).",
+    "percent": "When percent is set, target count = floor(percent/100 * xes_line_count), capped by the number of eligible items for that rule."
+  },
+  "requested": {
+    "r1": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r2": {
+      "enabled": true,
+      "count": 100,
+      "percent": null
+    },
+    "r3": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r4": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r5": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r5b": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r6": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    }
+  },
+  "applied": {
+    "r1": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r2": {
+      "eligible": 56437,
+      "target": 100,
+      "applied": 100
+    },
+    "r3": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r4": {
+      "eligible": 45936,
+      "target": 0,
+      "applied": 0
+    },
+    "r5": {
+      "eligible": 10044,
+      "target": 0,
+      "applied": 0
+    },
+    "r5b": {
+      "eligible": 10044,
+      "target": 0,
+      "applied": 0
+    },
+    "r6": {
+      "eligible": 9985,
+      "target": 0,
+      "applied": 0
+    }
+  },
+  "corruption_count": 100,
+  "corruptions": [
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 123041",
+        "event_id": "st_step 123044_0",
+        "removed_values": "2018-09-20T19:30:18.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 96433",
+        "event_id": "dd_declaration 96433_19",
+        "removed_values": "2017-10-17T17:21:57.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 89602",
+        "event_id": "dd_declaration 89602_20",
+        "removed_values": "2017-03-16T17:31:06.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 131287",
+        "event_id": "st_step 131291_0",
+        "removed_values": "2018-11-08T14:37:41.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 109087",
+        "event_id": "dd_declaration 109087_19",
+        "removed_values": "2018-03-15T22:15:37.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 101014",
+        "event_id": "st_step 101017_0",
+        "removed_values": "2018-02-26T08:57:18.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 110589",
+        "event_id": "dd_declaration 110589_19",
+        "removed_values": "2018-02-13T14:33:36.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 90676",
+        "event_id": "st_step 90678_0",
+        "removed_values": "2017-12-06T11:26:55.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 139088",
+        "event_id": "dd_declaration 139088_19",
+        "removed_values": "2018-11-15T09:56:40.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 96039",
+        "event_id": "st_step 96041_0",
+        "removed_values": "2017-09-25T17:50:23.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 131371",
+        "event_id": "st_step 131373_0",
+        "removed_values": "2018-10-15T14:24:17.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 140216",
+        "event_id": "st_step 140225_0",
+        "removed_values": "2018-11-16T13:04:35.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 119410",
+        "event_id": "st_step 119412_0",
+        "removed_values": "2018-07-12T14:49:36.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 87391",
+        "event_id": "dd_declaration 87391_19",
+        "removed_values": "2017-08-29T11:04:32.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 112806",
+        "event_id": "dd_declaration 112806_20",
+        "removed_values": "2018-08-30T17:31:12.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 114731",
+        "event_id": "st_step 114734_0",
+        "removed_values": "2018-07-27T09:46:21.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 89112",
+        "event_id": "st_step 89116_0",
+        "removed_values": "2017-04-04T11:32:08.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 89850",
+        "event_id": "dd_declaration 89850_19",
+        "removed_values": "2017-03-24T14:25:04.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 94414",
+        "event_id": "st_step 94416_0",
+        "removed_values": "2017-09-06T13:19:32.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 110513",
+        "event_id": "st_step 110518_0",
+        "removed_values": "2018-02-08T15:17:04.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 100343",
+        "event_id": "st_step 100346_0",
+        "removed_values": "2018-02-15T10:57:05.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 117516",
+        "event_id": "dd_declaration 117516_19",
+        "removed_values": "2018-06-28T09:25:57.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 122722",
+        "event_id": "st_step 122726_0",
+        "removed_values": "2018-09-02T11:28:24.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 90246",
+        "event_id": "st_step 90249_0",
+        "removed_values": "2017-03-14T15:51:35.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 110800",
+        "event_id": "st_step 110803_0",
+        "removed_values": "2018-07-16T13:33:09.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 109814",
+        "event_id": "st_step 109816_0",
+        "removed_values": "2018-01-31T11:29:59.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 130800",
+        "event_id": "st_step 130803_0",
+        "removed_values": "2018-10-29T08:13:22.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 142146",
+        "event_id": "st_step 142148_0",
+        "removed_values": "2018-09-27T09:47:27.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 138068",
+        "event_id": "dd_declaration 138068_19",
+        "removed_values": "2018-10-24T14:16:58.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 118962",
+        "event_id": "dd_declaration 118962_20",
+        "removed_values": "2018-07-16T17:31:24.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 114979",
+        "event_id": "st_step 114981_0",
+        "removed_values": "2018-05-25T11:04:50.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 110542",
+        "event_id": "dd_declaration 110542_20",
+        "removed_values": "2018-02-19T17:31:31.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 126235",
+        "event_id": "st_step 126237_0",
+        "removed_values": "2018-06-05T15:30:58.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 128085",
+        "event_id": "st_step 128090_0",
+        "removed_values": "2018-08-21T13:31:50.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 99601",
+        "event_id": "st_step 99604_0",
+        "removed_values": "2018-03-12T09:33:15.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 130967",
+        "event_id": "st_step 130974_0",
+        "removed_values": "2018-12-06T11:19:53.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 88826",
+        "event_id": "dd_declaration 88826_19",
+        "removed_values": "2017-03-06T14:47:34.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 132153",
+        "event_id": "dd_declaration 132153_20",
+        "removed_values": "2018-11-22T17:31:32.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 135111",
+        "event_id": "st_step 135115_0",
+        "removed_values": "2018-12-05T11:13:15.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 98741",
+        "event_id": "st_step 98743_0",
+        "removed_values": "2018-01-11T08:26:21.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 138016",
+        "event_id": "st_step 138019_0",
+        "removed_values": "2018-10-18T10:45:17.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 123436",
+        "event_id": "st_step 123440_0",
+        "removed_values": "2018-05-27T17:14:08.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 108429",
+        "event_id": "dd_declaration 108429_20",
+        "removed_values": "2018-04-19T17:31:30.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 102554",
+        "event_id": "st_step 102560_0",
+        "removed_values": "2018-03-12T08:51:56.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 99126",
+        "event_id": "st_step 99130_0",
+        "removed_values": "2018-01-08T10:51:35.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 110313",
+        "event_id": "dd_declaration 110313_19",
+        "removed_values": "2018-02-08T11:15:31.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 141931",
+        "event_id": "st_step 141935_0",
+        "removed_values": "2018-11-19T09:58:50.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 108205",
+        "event_id": "st_step 108208_0",
+        "removed_values": "2018-04-10T21:35:24.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 96251",
+        "event_id": "dd_declaration 96251_19",
+        "removed_values": "2017-09-28T12:15:39.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 96298",
+        "event_id": "st_step 96301_0",
+        "removed_values": "2017-09-05T00:15:15.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 115215",
+        "event_id": "st_step 115219_0",
+        "removed_values": "2018-05-29T10:03:35.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 91021",
+        "event_id": "st_step 91024_0",
+        "removed_values": "2017-09-13T09:48:41.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 104213",
+        "event_id": "st_step 104218_0",
+        "removed_values": "2018-04-24T08:02:13.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 131011",
+        "event_id": "dd_declaration 131011_20",
+        "removed_values": "2018-12-20T17:31:28.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 103749",
+        "event_id": "dd_declaration 103749_19",
+        "removed_values": "2018-04-16T15:54:56.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 122767",
+        "event_id": "dd_declaration 122767_20",
+        "removed_values": "2018-09-13T17:31:14.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 105484",
+        "event_id": "st_step 105488_0",
+        "removed_values": "2018-03-05T10:06:56.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 137073",
+        "event_id": "st_step 137077_0",
+        "removed_values": "2018-12-05T14:33:47.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 89126",
+        "event_id": "st_step 89129_0",
+        "removed_values": "2017-04-24T22:23:07.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 136280",
+        "event_id": "st_step 136282_0",
+        "removed_values": "2018-11-05T09:46:59.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 115950",
+        "event_id": "st_step 115955_0",
+        "removed_values": "2018-06-08T12:17:17.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 118991",
+        "event_id": "st_step 118993_0",
+        "removed_values": "2018-07-06T10:40:34.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 94138",
+        "event_id": "dd_declaration 94138_20",
+        "removed_values": "2017-11-20T17:30:57.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 115410",
+        "event_id": "st_step 115415_0",
+        "removed_values": "2018-04-30T10:50:12.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 95762",
+        "event_id": "st_step 95765_0",
+        "removed_values": "2017-07-12T13:43:51.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 119490",
+        "event_id": "st_step 119497_0",
+        "removed_values": "2018-07-11T14:03:20.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 110040",
+        "event_id": "st_step 110044_0",
+        "removed_values": "2018-03-21T07:54:49.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 142781",
+        "event_id": "dd_declaration 142781_19",
+        "removed_values": "2018-12-13T13:20:30.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 111839",
+        "event_id": "st_step 111846_0",
+        "removed_values": "2018-09-16T22:39:04.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 120721",
+        "event_id": "st_step 120723_0",
+        "removed_values": "2018-09-11T15:09:13.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 99880",
+        "event_id": "st_step 99883_0",
+        "removed_values": "2018-07-12T11:50:35.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 122287",
+        "event_id": "st_step 122291_0",
+        "removed_values": "2018-08-02T13:10:55.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 101220",
+        "event_id": "st_step 101224_0",
+        "removed_values": "2018-02-01T14:24:44.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 136354",
+        "event_id": "st_step 136357_0",
+        "removed_values": "2018-10-22T11:19:59.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 95468",
+        "event_id": "dd_declaration 95468_19",
+        "removed_values": "2017-06-26T16:37:49.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 90040",
+        "event_id": "dd_declaration 90040_20",
+        "removed_values": "2017-05-08T17:31:14.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 134797",
+        "event_id": "dd_declaration 134797_19",
+        "removed_values": "2018-10-04T08:36:45.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 97448",
+        "event_id": "dd_declaration 97448_20",
+        "removed_values": "2018-02-22T17:30:39.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 133264",
+        "event_id": "dd_declaration 133264_19",
+        "removed_values": "2018-11-26T13:12:29.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 109479",
+        "event_id": "st_step 109482_0",
+        "removed_values": "2018-03-18T23:20:08.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 95775",
+        "event_id": "dd_declaration 95775_20",
+        "removed_values": "2017-07-20T17:30:57.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 131487",
+        "event_id": "st_step 131491_0",
+        "removed_values": "2018-12-20T14:02:55.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 106070",
+        "event_id": "st_step 106075_0",
+        "removed_values": "2018-02-14T12:21:17.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 96483",
+        "event_id": "st_step 96485_0",
+        "removed_values": "2017-09-22T10:08:38.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 116110",
+        "event_id": "dd_declaration 116110_20",
+        "removed_values": "2018-05-14T17:31:21.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 102554",
+        "event_id": "dd_declaration 102554_20",
+        "removed_values": "2018-03-19T17:30:53.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 124616",
+        "event_id": "st_step 124620_0",
+        "removed_values": "2018-06-06T17:15:10.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 112130",
+        "event_id": "st_step 112134_0",
+        "removed_values": "2018-09-20T15:14:37.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 137854",
+        "event_id": "st_step 137855_0",
+        "removed_values": "2018-12-13T11:36:54.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 115653",
+        "event_id": "dd_declaration 115653_20",
+        "removed_values": "2018-04-30T17:31:10.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 99165",
+        "event_id": "dd_declaration 99165_19",
+        "removed_values": "2018-01-18T16:44:00.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 124385",
+        "event_id": "dd_declaration 124385_20",
+        "removed_values": "2018-04-30T17:31:10.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 99350",
+        "event_id": "st_step 99353_0",
+        "removed_values": "2018-04-18T12:04:11.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 102092",
+        "event_id": "st_step 102094_0",
+        "removed_values": "2018-02-05T12:58:29.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 134146",
+        "event_id": "dd_declaration 134146_19",
+        "removed_values": "2018-10-15T15:42:45.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 107223",
+        "event_id": "dd_declaration 107223_20",
+        "removed_values": "2018-03-08T17:30:58.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 138084",
+        "event_id": "dd_declaration 138084_20",
+        "removed_values": "2018-10-29T17:31:15.000+01:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 141101",
+        "event_id": "st_step 141104_0",
+        "removed_values": "2018-10-12T10:06:14.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 137166",
+        "event_id": "st_step 137169_0",
+        "removed_values": "2018-09-26T09:37:56.000+02:00"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_time_timestamp",
+      "details": {
+        "trace_id": "declaration 93497",
+        "event_id": "dd_declaration 93497_19",
+        "removed_values": "2017-06-28T12:36:43.000+02:00"
+      }
+    }
+  ],
+  "outputs": {
+    "corrupted_xes": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r2_full\\DomesticDeclarations.corrupted.xes",
+    "corrupted_knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r2_full\\DomesticDeclarations.corrupted.prov.ttl",
+    "statistics": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r2_full\\statistics.json"
+  }
+}

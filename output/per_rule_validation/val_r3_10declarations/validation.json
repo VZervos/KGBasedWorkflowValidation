@@ -1,0 +1,54 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r3_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r3_10declarations\\validation.json",
+  "started_at": "2026-07-22T09:48:52.477081+00:00",
+  "finished_at": "2026-07-22T09:48:52.486056+00:00",
+  "duration_seconds": 0.009181,
+  "total_violations": 5,
+  "rules_run": [
+    "R3"
+  ],
+  "results": [
+    {
+      "rule_id": "R3",
+      "name": "ACTIVITY_HAS_AGENT",
+      "description": "Every prov:Activity must have prov:wasAssociatedWith an agent.",
+      "status": "FAILED",
+      "violation_count": 5,
+      "duration_seconds": 0.009163,
+      "violations": [
+        {
+          "issue": "missing_agent_association",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19"
+          }
+        },
+        {
+          "issue": "missing_agent_association",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_86719_0"
+          }
+        },
+        {
+          "issue": "missing_agent_association",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_86726_0"
+          }
+        },
+        {
+          "issue": "missing_agent_association",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_86733_0"
+          }
+        },
+        {
+          "issue": "missing_agent_association",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_86799_0"
+          }
+        }
+      ]
+    }
+  ]
+}

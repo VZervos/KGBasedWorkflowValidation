@@ -1,0 +1,159 @@
+{
+  "datasets": [
+    "10declarations",
+    "full"
+  ],
+  "rules": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R5B",
+    "R6"
+  ],
+  "results": [
+    {
+      "dataset": "10declarations",
+      "rule": "R1",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\10declarations\\bench_r1_20260722_124851",
+      "applied": 5,
+      "violations": 5,
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match"
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R2",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\10declarations\\bench_r2_20260722_124852",
+      "applied": 5,
+      "violations": 5,
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match"
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R3",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\10declarations\\bench_r3_20260722_124852",
+      "applied": 5,
+      "violations": 5,
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match"
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R4",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\10declarations\\bench_r4_20260722_124852",
+      "applied": 5,
+      "violations": 5,
+      "status": "PASS",
+      "ok": true,
+      "note": "violations 5 >= applied 5"
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R5",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\10declarations\\bench_r5_20260722_124852",
+      "applied": 5,
+      "violations": 5,
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match"
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R5B",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\10declarations\\bench_r5b_20260722_124852",
+      "applied": 5,
+      "violations": 5,
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match"
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R6",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\10declarations\\bench_r6_20260722_124852",
+      "applied": 5,
+      "violations": 5,
+      "status": "PASS",
+      "ok": true,
+      "note": "violations 5 >= applied 5"
+    },
+    {
+      "dataset": "full",
+      "rule": "R1",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\full\\bench_r1_20260722_124852",
+      "applied": 100,
+      "violations": 100,
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match"
+    },
+    {
+      "dataset": "full",
+      "rule": "R2",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\full\\bench_r2_20260722_125244",
+      "applied": 100,
+      "violations": 100,
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match"
+    },
+    {
+      "dataset": "full",
+      "rule": "R3",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\full\\bench_r3_20260722_125616",
+      "applied": 100,
+      "violations": 100,
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match"
+    },
+    {
+      "dataset": "full",
+      "rule": "R4",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\full\\bench_r4_20260722_125956",
+      "applied": 100,
+      "violations": 139,
+      "status": "PASS",
+      "ok": true,
+      "note": "violations 139 >= applied 100"
+    },
+    {
+      "dataset": "full",
+      "rule": "R5",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\full\\bench_r5_20260722_130350",
+      "applied": 100,
+      "violations": 100,
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match"
+    },
+    {
+      "dataset": "full",
+      "rule": "R5B",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\full\\bench_r5b_20260722_130715",
+      "applied": 100,
+      "violations": 100,
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match"
+    },
+    {
+      "dataset": "full",
+      "rule": "R6",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\full\\bench_r6_20260722_131048",
+      "applied": 100,
+      "violations": 109,
+      "status": "PASS",
+      "ok": true,
+      "note": "violations 109 >= applied 100"
+    }
+  ],
+  "passed": 14,
+  "failed": 0
+}

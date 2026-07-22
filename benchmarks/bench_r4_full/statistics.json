@@ -1,0 +1,1209 @@
+{
+  "run_name": "bench_r4_full",
+  "run_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r4_full",
+  "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.xes.gz",
+  "seed": 42,
+  "xes_line_count": 468572,
+  "started_at": "2026-07-22T10:35:13.429548+00:00",
+  "finished_at": "2026-07-22T10:36:45.509567+00:00",
+  "conversion": {
+    "trace_count": 10500,
+    "event_count": 56437,
+    "triple_count": 849664,
+    "agent_count": 2,
+    "duration_seconds": 37.63436,
+    "xes_lines_parsed": 468566
+  },
+  "notes": {
+    "r1": "wf:belongsToCase is created during conversion, so R1 faults are injected on the generated KG by removing belongsToCase links.",
+    "r2": "time:timestamp attributes are removed from random XES events before conversion, so activities lack prov:startedAtTime.",
+    "r3": "prov:wasAssociatedWith is created during conversion, so R3 faults are injected on the KG by removing agent associations.",
+    "r4": "R4 faults are injected on the KG by breaking wasInformedBy temporal order (later.startedAtTime < earlier).",
+    "r5": "Payment Handled activities that use SYSTEM get a random invalid attr:xes-attr_org_resource (known roles, empty, or invented BOGUS_RESOURCE_* values).",
+    "r5b": "Payment Handled activities have their org:role rewritten to EMPLOYEE.",
+    "r6": "Payment Handled activities with a valid provenance chain are corrupted by randomly choosing one of: scramble milestone wasInformedBy order; insert a bogus intermediate activity; or remove Payment Handled's wasInformedBy link(s).",
+    "percent": "When percent is set, target count = floor(percent/100 * xes_line_count), capped by the number of eligible items for that rule."
+  },
+  "requested": {
+    "r1": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r2": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r3": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r4": {
+      "enabled": true,
+      "count": 100,
+      "percent": null
+    },
+    "r5": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r5b": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r6": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    }
+  },
+  "applied": {
+    "r1": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r2": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r3": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r4": {
+      "eligible": 45937,
+      "target": 100,
+      "applied": 100
+    },
+    "r5": {
+      "eligible": 10044,
+      "target": 0,
+      "applied": 0
+    },
+    "r5b": {
+      "eligible": 10044,
+      "target": 0,
+      "applied": 0
+    },
+    "r6": {
+      "eligible": 10035,
+      "target": 0,
+      "applied": 0
+    }
+  },
+  "corruption_count": 100,
+  "corruptions": [
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_134204_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_134203_0",
+        "later_time_before": "2018-12-13T08:21:09+01:00",
+        "earlier_time": "2018-12-11T12:26:55+01:00",
+        "later_time_after": "2018-12-11T11:31:57+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_91453_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_91452_0",
+        "later_time_before": "2017-12-08T11:49:16+01:00",
+        "earlier_time": "2017-12-08T11:46:16+01:00",
+        "later_time_after": "2017-12-08T11:24:43+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_89729_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_89730_0",
+        "later_time_before": "2017-03-29T10:49:29+02:00",
+        "earlier_time": "2017-03-29T10:49:19+02:00",
+        "later_time_after": "2017-03-29T10:21:55+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_108468_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_108472_0",
+        "later_time_before": "2018-04-17T09:34:29+02:00",
+        "earlier_time": "2018-04-17T09:01:37+02:00",
+        "later_time_after": "2018-04-17T08:43:20+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_106980_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_106980_19",
+        "later_time_before": "2018-04-05T17:30:51+02:00",
+        "earlier_time": "2018-03-28T18:51:11+02:00",
+        "later_time_after": "2018-03-28T18:46:39+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_102594_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_102594_19",
+        "later_time_before": "2018-03-19T17:30:53+01:00",
+        "earlier_time": "2018-03-15T09:09:54+01:00",
+        "later_time_after": "2018-03-15T08:55:29+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_108997_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_108996_0",
+        "later_time_before": "2018-01-23T09:01:39+01:00",
+        "earlier_time": "2018-01-22T15:19:10+01:00",
+        "later_time_after": "2018-01-22T14:40:26+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_87487_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_87486_0",
+        "later_time_before": "2017-12-05T10:25:19+01:00",
+        "earlier_time": "2017-11-30T23:46:05+01:00",
+        "later_time_after": "2017-11-30T22:46:15+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_138599_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_138602_0",
+        "later_time_before": "2018-12-12T15:40:00+01:00",
+        "earlier_time": "2018-12-12T15:38:51+01:00",
+        "later_time_after": "2018-12-12T14:49:50+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_132715_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_132717_0",
+        "later_time_before": "2018-10-15T14:29:25+02:00",
+        "earlier_time": "2018-10-08T00:21:11+02:00",
+        "later_time_after": "2018-10-07T23:59:42+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_93239_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_93241_0",
+        "later_time_before": "2017-10-11T13:49:03+02:00",
+        "earlier_time": "2017-10-11T09:34:52+02:00",
+        "later_time_after": "2017-10-11T09:20:21+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_139862_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_139864_0",
+        "later_time_before": "2018-11-12T21:52:13+01:00",
+        "earlier_time": "2018-11-09T18:03:37+01:00",
+        "later_time_after": "2018-11-09T17:18:52+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_120513_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_120513_19",
+        "later_time_before": "2018-07-23T17:31:10+02:00",
+        "earlier_time": "2018-07-20T11:49:55+02:00",
+        "later_time_after": "2018-07-20T11:15:50+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_94397_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_94401_0",
+        "later_time_before": "2017-05-01T10:56:30+02:00",
+        "earlier_time": "2017-04-25T09:37:51+02:00",
+        "later_time_after": "2017-04-25T09:10:50+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_92899_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_92901_0",
+        "later_time_before": "2017-04-21T09:23:56+02:00",
+        "earlier_time": "2017-04-20T05:15:06+02:00",
+        "later_time_after": "2017-04-20T04:31:12+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_92197_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_92198_0",
+        "later_time_before": "2017-10-31T15:41:29+01:00",
+        "earlier_time": "2017-10-31T15:35:35+01:00",
+        "later_time_after": "2017-10-31T15:04:15+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_99295_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_99297_0",
+        "later_time_before": "2018-11-14T09:04:36+01:00",
+        "earlier_time": "2018-11-07T19:19:12+01:00",
+        "later_time_after": "2018-11-07T19:09:26+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_106597_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_106597_19",
+        "later_time_before": "2018-03-26T17:31:13+02:00",
+        "earlier_time": "2018-03-22T07:35:07+01:00",
+        "later_time_after": "2018-03-22T07:17:02+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_114360_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_114359_0",
+        "later_time_before": "2018-09-13T13:39:08+02:00",
+        "earlier_time": "2018-09-13T13:38:26+02:00",
+        "later_time_after": "2018-09-13T13:28:54+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_136006_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_136006_19",
+        "later_time_before": "2018-11-22T17:31:32+01:00",
+        "earlier_time": "2018-11-19T16:35:10+01:00",
+        "later_time_after": "2018-11-19T16:18:19+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_89767_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_89766_0",
+        "later_time_before": "2017-04-05T11:04:30+02:00",
+        "earlier_time": "2017-04-05T11:04:21+02:00",
+        "later_time_after": "2017-04-05T10:13:29+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_134092_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_134092_19",
+        "later_time_before": "2018-10-22T17:31:24+02:00",
+        "earlier_time": "2018-10-18T08:12:30+02:00",
+        "later_time_after": "2018-10-18T07:34:10+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_101307_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_101307_19",
+        "later_time_before": "2018-03-01T17:31:25+01:00",
+        "earlier_time": "2018-02-26T16:14:43+01:00",
+        "later_time_after": "2018-02-26T15:37:55+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_129434_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_129436_0",
+        "later_time_before": "2018-12-13T10:16:07+01:00",
+        "earlier_time": "2018-12-04T09:31:38+01:00",
+        "later_time_after": "2018-12-04T09:13:41+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_130620_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_130622_0",
+        "later_time_before": "2018-10-18T15:51:09+02:00",
+        "earlier_time": "2018-10-06T12:23:31+02:00",
+        "later_time_after": "2018-10-06T11:32:31+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_127119_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_127118_0",
+        "later_time_before": "2018-07-02T11:58:32+02:00",
+        "earlier_time": "2018-07-02T11:58:14+02:00",
+        "later_time_after": "2018-07-02T11:18:19+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_109129_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_109128_0",
+        "later_time_before": "2018-03-11T16:59:22+01:00",
+        "earlier_time": "2018-03-11T16:55:48+01:00",
+        "later_time_after": "2018-03-11T16:26:33+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_119580_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_119580_19",
+        "later_time_before": "2018-07-19T17:32:02+02:00",
+        "earlier_time": "2018-07-15T19:23:58+02:00",
+        "later_time_after": "2018-07-15T18:44:07+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_136256_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_136258_0",
+        "later_time_before": "2018-11-01T11:36:32+01:00",
+        "earlier_time": "2018-11-01T11:35:52+01:00",
+        "later_time_after": "2018-11-01T11:08:36+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_104136_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_104136_19",
+        "later_time_before": "2018-04-19T17:31:30+02:00",
+        "earlier_time": "2018-04-16T13:43:59+02:00",
+        "later_time_after": "2018-04-16T13:19:16+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_89247_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_89247_19",
+        "later_time_before": "2017-02-06T17:31:41+01:00",
+        "earlier_time": "2017-02-01T12:20:45+01:00",
+        "later_time_after": "2017-02-01T12:05:46+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_100041_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_100040_0",
+        "later_time_before": "2018-02-01T16:47:22+01:00",
+        "earlier_time": "2018-02-01T14:17:38+01:00",
+        "later_time_after": "2018-02-01T14:08:11+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_131956_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_131954_0",
+        "later_time_before": "2018-12-21T12:11:55+01:00",
+        "earlier_time": "2018-12-21T12:11:51+01:00",
+        "later_time_after": "2018-12-21T11:37:03+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_118128_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_118128_19",
+        "later_time_before": "2018-07-05T17:31:33+02:00",
+        "earlier_time": "2018-07-04T08:18:32+02:00",
+        "later_time_after": "2018-07-04T07:44:50+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_124168_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_124170_0",
+        "later_time_before": "2018-05-29T07:49:03+02:00",
+        "earlier_time": "2018-05-27T14:37:55+02:00",
+        "later_time_after": "2018-05-27T14:31:42+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_99316_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_99318_0",
+        "later_time_before": "2018-04-16T11:10:53+02:00",
+        "earlier_time": "2018-04-16T10:08:41+02:00",
+        "later_time_after": "2018-04-16T09:17:05+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_109792_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_109792_19",
+        "later_time_before": "2018-02-08T17:31:10+01:00",
+        "earlier_time": "2018-02-06T08:45:42+01:00",
+        "later_time_after": "2018-02-06T08:42:29+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_107277_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_107279_0",
+        "later_time_before": "2018-03-08T10:16:38+01:00",
+        "earlier_time": "2018-03-08T09:44:20+01:00",
+        "later_time_after": "2018-03-08T08:45:32+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_121446_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_121450_0",
+        "later_time_before": "2018-05-29T11:21:21+02:00",
+        "earlier_time": "2018-05-24T15:47:08+02:00",
+        "later_time_after": "2018-05-24T15:39:38+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_92392_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_92393_0",
+        "later_time_before": "2017-11-21T22:19:47+01:00",
+        "earlier_time": "2017-11-21T22:13:34+01:00",
+        "later_time_after": "2017-11-21T22:03:07+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_87243_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_87244_0",
+        "later_time_before": "2017-10-29T19:19:45+01:00",
+        "earlier_time": "2017-10-29T19:19:43+01:00",
+        "later_time_after": "2017-10-29T18:36:52+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_126802_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_126806_0",
+        "later_time_before": "2018-06-15T18:56:00+02:00",
+        "earlier_time": "2018-06-13T11:09:49+02:00",
+        "later_time_after": "2018-06-13T10:58:53+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_94998_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_94999_0",
+        "later_time_before": "2017-11-21T10:56:16+01:00",
+        "earlier_time": "2017-11-07T17:36:02+01:00",
+        "later_time_after": "2017-11-07T16:41:57+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_126221_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_126225_0",
+        "later_time_before": "2018-06-06T08:10:36+02:00",
+        "earlier_time": "2018-06-05T11:22:41+02:00",
+        "later_time_after": "2018-06-05T10:36:13+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_124189_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_124189_19",
+        "later_time_before": "2018-05-31T17:31:11+02:00",
+        "earlier_time": "2018-05-29T16:08:22+02:00",
+        "later_time_after": "2018-05-29T15:39:32+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_139149_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_139151_0",
+        "later_time_before": "2018-11-15T09:59:57+01:00",
+        "earlier_time": "2018-11-13T13:54:35+01:00",
+        "later_time_after": "2018-11-13T13:13:52+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_108103_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_108101_0",
+        "later_time_before": "2018-04-09T12:38:25+02:00",
+        "earlier_time": "2018-04-06T15:34:22+02:00",
+        "later_time_after": "2018-04-06T15:30:01+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_88171_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_88171_19",
+        "later_time_before": "2017-06-01T17:30:51+02:00",
+        "earlier_time": "2017-05-29T10:47:44+02:00",
+        "later_time_after": "2017-05-29T10:21:27+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_110864_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_110865_0",
+        "later_time_before": "2018-07-19T20:27:45+02:00",
+        "earlier_time": "2018-07-19T20:26:13+02:00",
+        "later_time_after": "2018-07-19T20:00:09+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_128991_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_128989_0",
+        "later_time_before": "2018-10-03T10:17:12+02:00",
+        "earlier_time": "2018-10-02T10:18:58+02:00",
+        "later_time_after": "2018-10-02T09:38:17+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_105073_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_105074_0",
+        "later_time_before": "2018-01-10T13:34:48+01:00",
+        "earlier_time": "2018-01-10T13:26:56+01:00",
+        "later_time_after": "2018-01-10T12:54:58+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_125819_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_125819_19",
+        "later_time_before": "2018-06-21T17:31:07+02:00",
+        "earlier_time": "2018-06-16T10:19:32+02:00",
+        "later_time_after": "2018-06-16T09:43:24+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_87679_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_87680_0",
+        "later_time_before": "2017-09-22T10:29:16+02:00",
+        "earlier_time": "2017-09-22T10:29:05+02:00",
+        "later_time_after": "2017-09-22T10:11:55+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_130044_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_130044_19",
+        "later_time_before": "2018-10-18T17:31:16+02:00",
+        "earlier_time": "2018-10-17T08:22:14+02:00",
+        "later_time_after": "2018-10-17T07:44:27+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_115960_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_115959_0",
+        "later_time_before": "2018-04-23T12:29:54+02:00",
+        "earlier_time": "2018-04-23T12:29:45+02:00",
+        "later_time_after": "2018-04-23T11:30:59+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_133269_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_133273_0",
+        "later_time_before": "2018-11-26T13:11:35+01:00",
+        "earlier_time": "2018-11-22T13:45:55+01:00",
+        "later_time_after": "2018-11-22T13:45:07+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_134863_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_134865_0",
+        "later_time_before": "2018-11-16T13:51:48+01:00",
+        "earlier_time": "2018-11-16T13:49:39+01:00",
+        "later_time_after": "2018-11-16T13:03:12+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_124017_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_124018_0",
+        "later_time_before": "2018-06-05T11:39:25+02:00",
+        "earlier_time": "2018-06-05T11:39:19+02:00",
+        "later_time_after": "2018-06-05T10:50:06+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_135952_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_135954_0",
+        "later_time_before": "2018-11-02T09:10:42+01:00",
+        "earlier_time": "2018-11-01T14:16:41+01:00",
+        "later_time_after": "2018-11-01T14:08:51+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_107993_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_107994_0",
+        "later_time_before": "2018-03-13T05:15:17+01:00",
+        "earlier_time": "2018-03-06T15:30:45+01:00",
+        "later_time_after": "2018-03-06T14:44:12+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_96155_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_96158_0",
+        "later_time_before": "2017-08-29T10:49:44+02:00",
+        "earlier_time": "2017-08-25T11:45:51+02:00",
+        "later_time_after": "2017-08-25T11:09:11+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_95165_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_95167_0",
+        "later_time_before": "2017-05-31T10:56:26+02:00",
+        "earlier_time": "2017-05-31T01:04:43+02:00",
+        "later_time_after": "2017-05-31T00:13:27+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_143379_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_143378_0",
+        "later_time_before": "2018-12-06T18:23:12+01:00",
+        "earlier_time": "2018-12-06T18:23:07+01:00",
+        "later_time_after": "2018-12-06T18:04:54+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_107125_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_107129_0",
+        "later_time_before": "2018-03-19T12:41:52+01:00",
+        "earlier_time": "2018-03-19T09:06:49+01:00",
+        "later_time_after": "2018-03-19T08:14:20+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_99824_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_99823_0",
+        "later_time_before": "2018-04-20T14:39:52+02:00",
+        "earlier_time": "2018-04-20T10:45:44+02:00",
+        "later_time_after": "2018-04-20T10:01:58+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_87768_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_87770_0",
+        "later_time_before": "2017-09-26T11:55:02+02:00",
+        "earlier_time": "2017-09-25T17:57:00+02:00",
+        "later_time_after": "2017-09-25T17:33:46+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_103388_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_103392_0",
+        "later_time_before": "2018-03-22T09:58:43+01:00",
+        "earlier_time": "2018-03-21T10:26:21+01:00",
+        "later_time_after": "2018-03-21T10:18:44+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_93548_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_93548_19",
+        "later_time_before": "2017-11-23T17:30:57+01:00",
+        "earlier_time": "2017-11-20T08:47:26+01:00",
+        "later_time_after": "2017-11-20T08:27:23+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_127261_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_127260_0",
+        "later_time_before": "2018-06-13T10:51:30+02:00",
+        "earlier_time": "2018-06-12T21:29:15+02:00",
+        "later_time_after": "2018-06-12T20:59:34+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_104459_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_104462_0",
+        "later_time_before": "2018-04-25T12:58:26+02:00",
+        "earlier_time": "2018-04-19T11:47:11+02:00",
+        "later_time_after": "2018-04-19T11:36:23+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_127429_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_127430_0",
+        "later_time_before": "2018-07-16T15:00:58+02:00",
+        "earlier_time": "2018-07-13T16:22:00+02:00",
+        "later_time_after": "2018-07-13T15:51:01+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_130505_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_130507_0",
+        "later_time_before": "2018-11-26T13:11:44+01:00",
+        "earlier_time": "2018-11-26T13:10:56+01:00",
+        "later_time_after": "2018-11-26T13:10:42+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_126678_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_126678_19",
+        "later_time_before": "2018-06-11T17:31:18+02:00",
+        "earlier_time": "2018-06-07T15:00:01+02:00",
+        "later_time_after": "2018-06-07T14:10:43+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_101947_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_101947_19",
+        "later_time_before": "2018-02-08T17:31:10+01:00",
+        "earlier_time": "2018-02-07T14:38:41+01:00",
+        "later_time_after": "2018-02-07T13:38:53+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_123200_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_123201_0",
+        "later_time_before": "2018-06-08T11:54:31+02:00",
+        "earlier_time": "2018-06-08T09:13:30+02:00",
+        "later_time_after": "2018-06-08T08:24:22+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_122544_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_122542_0",
+        "later_time_before": "2018-06-05T13:37:25+02:00",
+        "earlier_time": "2018-06-01T18:10:09+02:00",
+        "later_time_after": "2018-06-01T17:52:10+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_99279_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_99283_0",
+        "later_time_before": "2018-03-08T09:13:33+01:00",
+        "earlier_time": "2018-03-07T11:34:33+01:00",
+        "later_time_after": "2018-03-07T11:00:22+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_140899_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_140901_0",
+        "later_time_before": "2018-12-17T14:12:17+01:00",
+        "earlier_time": "2018-12-17T11:37:40+01:00",
+        "later_time_after": "2018-12-17T10:45:39+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_108154_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_108154_19",
+        "later_time_before": "2018-04-19T17:31:30+02:00",
+        "earlier_time": "2018-04-16T09:40:01+02:00",
+        "later_time_after": "2018-04-16T09:27:49+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_131786_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_131786_19",
+        "later_time_before": "2019-01-03T11:59:15+01:00",
+        "earlier_time": "2018-12-20T13:57:52+01:00",
+        "later_time_after": "2018-12-20T13:23:12+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_132184_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_132188_0",
+        "later_time_before": "2018-12-06T14:17:12+01:00",
+        "earlier_time": "2018-12-03T09:19:52+01:00",
+        "later_time_after": "2018-12-03T09:12:36+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_94363_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_94364_0",
+        "later_time_before": "2017-09-05T09:01:54+02:00",
+        "earlier_time": "2017-09-05T09:01:50+02:00",
+        "later_time_after": "2017-09-05T08:02:24+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_132074_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_132076_0",
+        "later_time_before": "2018-11-19T16:10:00+01:00",
+        "earlier_time": "2018-11-19T05:15:27+01:00",
+        "later_time_after": "2018-11-19T04:32:45+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_142299_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_142300_0",
+        "later_time_before": "2018-11-26T10:58:05+01:00",
+        "earlier_time": "2018-11-26T10:58:01+01:00",
+        "later_time_after": "2018-11-26T10:37:38+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_102285_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_102286_0",
+        "later_time_before": "2018-02-07T11:52:53+01:00",
+        "earlier_time": "2018-02-07T11:52:49+01:00",
+        "later_time_after": "2018-02-07T10:55:21+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_130269_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_130268_0",
+        "later_time_before": "2018-10-01T10:58:22+02:00",
+        "earlier_time": "2018-10-01T10:58:15+02:00",
+        "later_time_after": "2018-10-01T10:14:37+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_97773_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_97772_0",
+        "later_time_before": "2018-03-27T08:13:35+02:00",
+        "earlier_time": "2018-03-27T00:33:00+02:00",
+        "later_time_after": "2018-03-26T23:58:20+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_101968_19",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_101972_0",
+        "later_time_before": "2018-02-09T12:42:28+01:00",
+        "earlier_time": "2018-02-06T20:34:35+01:00",
+        "later_time_after": "2018-02-06T19:53:00+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_111085_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_111087_0",
+        "later_time_before": "2018-07-24T12:18:31+02:00",
+        "earlier_time": "2018-07-24T09:02:18+02:00",
+        "later_time_after": "2018-07-24T08:48:43+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_116896_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_116895_0",
+        "later_time_before": "2018-06-12T15:36:18+02:00",
+        "earlier_time": "2018-06-12T14:51:40+02:00",
+        "later_time_after": "2018-06-12T14:41:13+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_103539_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_103540_0",
+        "later_time_before": "2018-04-16T07:15:41+02:00",
+        "earlier_time": "2018-04-16T07:15:30+02:00",
+        "later_time_after": "2018-04-16T06:49:58+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_137324_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_137322_0",
+        "later_time_before": "2018-12-03T09:40:38+01:00",
+        "earlier_time": "2018-12-03T09:15:04+01:00",
+        "later_time_after": "2018-12-03T08:23:00+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_139362_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_139364_0",
+        "later_time_before": "2018-12-17T15:13:29+01:00",
+        "earlier_time": "2018-12-17T15:13:15+01:00",
+        "later_time_after": "2018-12-17T15:02:13+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_133093_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_133095_0",
+        "later_time_before": "2018-10-12T13:55:05+02:00",
+        "earlier_time": "2018-10-12T13:52:21+02:00",
+        "later_time_after": "2018-10-12T13:15:31+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_106189_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_106190_0",
+        "later_time_before": "2018-03-20T08:46:01+01:00",
+        "earlier_time": "2018-03-16T15:18:35+01:00",
+        "later_time_after": "2018-03-16T14:25:25+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_131973_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_131973_19",
+        "later_time_before": "2018-12-20T17:31:28+01:00",
+        "earlier_time": "2018-12-18T09:27:39+01:00",
+        "later_time_after": "2018-12-18T08:51:26+01:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_115856_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_115858_0",
+        "later_time_before": "2018-05-15T14:28:42+02:00",
+        "earlier_time": "2018-05-15T11:21:17+02:00",
+        "later_time_after": "2018-05-15T11:21:14+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_93506_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_93504_0",
+        "later_time_before": "2017-06-26T17:03:39+02:00",
+        "earlier_time": "2017-06-26T16:45:28+02:00",
+        "later_time_after": "2017-06-26T16:04:34+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_109439_20",
+        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_109439_19",
+        "later_time_before": "2018-04-19T17:31:30+02:00",
+        "earlier_time": "2018-04-16T10:39:36+02:00",
+        "later_time_after": "2018-04-16T10:17:28+02:00"
+      }
+    },
+    {
+      "rule_id": "R4",
+      "action": "broke_wasInformedBy_temporal_order",
+      "details": {
+        "later_activity": "http://kg.workflow.validation/activity/st_step_90911_0",
+        "earlier_activity": "http://kg.workflow.validation/activity/st_step_90910_0",
+        "later_time_before": "2017-04-20T23:32:11+02:00",
+        "earlier_time": "2017-04-20T23:31:20+02:00",
+        "later_time_after": "2017-04-20T22:57:58+02:00"
+      }
+    }
+  ],
+  "outputs": {
+    "corrupted_xes": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r4_full\\DomesticDeclarations.corrupted.xes",
+    "corrupted_knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r4_full\\DomesticDeclarations.corrupted.prov.ttl",
+    "statistics": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r4_full\\statistics.json"
+  }
+}

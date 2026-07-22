@@ -1,0 +1,1554 @@
+{
+  "run_name": "bench_r6_full",
+  "run_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r6_full",
+  "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.xes.gz",
+  "seed": 42,
+  "xes_line_count": 468572,
+  "started_at": "2026-07-22T10:10:48.719895+00:00",
+  "finished_at": "2026-07-22T10:13:33.432092+00:00",
+  "notes": {
+    "r1": "wf:belongsToCase is created during conversion, so R1 faults are injected on the generated KG by removing belongsToCase links.",
+    "r2": "time:timestamp attributes are removed from random XES events before conversion, so activities lack prov:startedAtTime.",
+    "r3": "prov:wasAssociatedWith is created during conversion, so R3 faults are injected on the KG by removing agent associations.",
+    "r4": "R4 faults are injected on the KG by randomly either breaking wasInformedBy temporal order (later.startedAtTime < earlier) or removing startedAtTime while keeping endedAtTime.",
+    "r5": "Payment Handled activities that use SYSTEM get a random invalid attr:xes-attr_org_resource (known roles, empty, or invented BOGUS_RESOURCE_* values).",
+    "r5b": "Payment Handled activities have their org:role rewritten to EMPLOYEE.",
+    "r6": "Payment Handled activities with a valid provenance chain are corrupted by randomly choosing one of: scramble milestone wasInformedBy order; insert a bogus intermediate activity; or remove Payment Handled's wasInformedBy link(s).",
+    "percent": "When percent is set, target count = floor(percent/100 * xes_line_count), capped by the number of eligible items for that rule."
+  },
+  "requested": {
+    "r1": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r2": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r3": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r4": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r5": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r5b": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r6": {
+      "enabled": true,
+      "count": 100,
+      "percent": null
+    }
+  },
+  "applied": {
+    "r1": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r2": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r3": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r4": {
+      "eligible": 45937,
+      "target": 0,
+      "applied": 0
+    },
+    "r5": {
+      "eligible": 10044,
+      "target": 0,
+      "applied": 0
+    },
+    "r5b": {
+      "eligible": 10044,
+      "target": 0,
+      "applied": 0
+    },
+    "r6": {
+      "eligible": 10035,
+      "target": 100,
+      "applied": 100
+    }
+  },
+  "corruption_count": 100,
+  "corruptions": [
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_87871_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_87871_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_87874_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_87873_0",
+        "case": "http://kg.workflow.validation/case/declaration_87871",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_87871_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_89680_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_89680_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_89683_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_89682_0",
+        "case": "http://kg.workflow.validation/case/declaration_89680",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_89680_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_100149_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_100149_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_100153_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_100151_0",
+        "case": "http://kg.workflow.validation/case/declaration_100149",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_100149_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_104402_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_104402_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_104404_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_104405_0",
+        "case": "http://kg.workflow.validation/case/declaration_104402",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_883300",
+        "bogus_label": "Nonexistent Workflow Activity",
+        "mode": "skip_request",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_104402_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_104404_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_104402_20 -> http://kg.workflow.validation/activity/bogus_stage_883300 -> http://kg.workflow.validation/activity/st_step_104404_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_109459_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_109459_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_109462_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_109464_0",
+        "case": "http://kg.workflow.validation/case/declaration_109459",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_109459_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_99478_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_99478_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_99481_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_99482_0",
+        "case": "http://kg.workflow.validation/case/declaration_99478",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_479580",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "dead_end",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_99478_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_99481_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_99478_20 -> http://kg.workflow.validation/activity/bogus_stage_479580"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_94823_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_94823_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_94825_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_94829_0",
+        "case": "http://kg.workflow.validation/case/declaration_94823",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_94823_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_143050_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_143050_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_143054_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_143055_0",
+        "case": "http://kg.workflow.validation/case/declaration_143050",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_195325",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "dead_end",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_143050_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_143054_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_143050_20 -> http://kg.workflow.validation/activity/bogus_stage_195325"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_93208_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_93208_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_93211_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_93210_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_93208_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_93211_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_93210_0",
+        "case": "http://kg.workflow.validation/case/declaration_93208",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_93208_20 -> http://kg.workflow.validation/activity/st_step_93211_0 -> http://kg.workflow.validation/activity/dd_declaration_93208_19 -> http://kg.workflow.validation/activity/st_step_93210_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_134415_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_134415_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_134417_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_134419_0",
+        "case": "http://kg.workflow.validation/case/declaration_134415",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_134415_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_118655_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_118655_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_118657_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_118659_0",
+        "case": "http://kg.workflow.validation/case/declaration_118655",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_725380",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "skip_request",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_118655_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_118657_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_118655_20 -> http://kg.workflow.validation/activity/bogus_stage_725380 -> http://kg.workflow.validation/activity/st_step_118657_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_89862_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_89862_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_89865_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_89864_0",
+        "case": "http://kg.workflow.validation/case/declaration_89862",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_724834",
+        "bogus_label": "Fictional Approval Step",
+        "mode": "wrong_order_via_fake",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_89862_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_89869_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_89862_20 -> http://kg.workflow.validation/activity/bogus_stage_724834 -> http://kg.workflow.validation/activity/st_step_89864_0 -> http://kg.workflow.validation/activity/st_step_89865_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_89835_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_89835_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_89839_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_89838_0",
+        "case": "http://kg.workflow.validation/case/declaration_89835",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_680099",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "wrong_order_via_fake",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_89835_19",
+        "request_wasInformedBy": "",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_89835_20 -> http://kg.workflow.validation/activity/bogus_stage_680099 -> http://kg.workflow.validation/activity/st_step_89838_0 -> http://kg.workflow.validation/activity/st_step_89839_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_96366_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_96366_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_96370_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_96372_0",
+        "case": "http://kg.workflow.validation/case/declaration_96366",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_96366_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_109346_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_109346_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_109348_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_109349_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_109346_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_109348_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_109350_0",
+        "case": "http://kg.workflow.validation/case/declaration_109346",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_109346_20 -> http://kg.workflow.validation/activity/st_step_109349_0 -> http://kg.workflow.validation/activity/dd_declaration_109346_19 -> http://kg.workflow.validation/activity/st_step_109348_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_106933_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_106933_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_106937_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_106935_0",
+        "case": "http://kg.workflow.validation/case/declaration_106933",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_106933_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_136354_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_136354_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_136358_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_136357_0",
+        "case": "http://kg.workflow.validation/case/declaration_136354",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_216970",
+        "bogus_label": "Fictional Approval Step",
+        "mode": "skip_request",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_136354_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_136358_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_136354_20 -> http://kg.workflow.validation/activity/bogus_stage_216970 -> http://kg.workflow.validation/activity/st_step_136358_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_143018_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_143018_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_143021_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_143023_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_143018_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_143021_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_143020_0",
+        "case": "http://kg.workflow.validation/case/declaration_143018",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_143018_20 -> http://kg.workflow.validation/activity/st_step_143021_0 -> http://kg.workflow.validation/activity/st_step_143023_0 -> http://kg.workflow.validation/activity/dd_declaration_143018_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_92874_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_92874_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_92877_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_92878_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_92874_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_92877_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_92876_0",
+        "case": "http://kg.workflow.validation/case/declaration_92874",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_92874_20 -> http://kg.workflow.validation/activity/st_step_92878_0 -> http://kg.workflow.validation/activity/dd_declaration_92874_19 -> http://kg.workflow.validation/activity/st_step_92877_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_134177_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_134177_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_134179_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_134180_0",
+        "case": "http://kg.workflow.validation/case/declaration_134177",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_134177_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_101379_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_101379_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_101382_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_101383_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_101379_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_101382_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_101381_0",
+        "case": "http://kg.workflow.validation/case/declaration_101379",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_101379_20 -> http://kg.workflow.validation/activity/st_step_101383_0 -> http://kg.workflow.validation/activity/st_step_101382_0 -> http://kg.workflow.validation/activity/dd_declaration_101379_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_139387_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_139387_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_139389_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_139392_0",
+        "case": "http://kg.workflow.validation/case/declaration_139387",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_139387_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_110987_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_110987_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_110991_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_110990_0",
+        "case": "http://kg.workflow.validation/case/declaration_110987",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_982554",
+        "bogus_label": "Nonexistent Workflow Activity",
+        "mode": "wrong_order_via_fake",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_110987_19",
+        "request_wasInformedBy": "",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_110987_20 -> http://kg.workflow.validation/activity/bogus_stage_982554 -> http://kg.workflow.validation/activity/st_step_110990_0 -> http://kg.workflow.validation/activity/st_step_110991_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_102947_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_102947_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_102951_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_102949_0",
+        "case": "http://kg.workflow.validation/case/declaration_102947",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_102947_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_114356_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_114356_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_114358_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_114359_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_114356_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_114358_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_114360_0",
+        "case": "http://kg.workflow.validation/case/declaration_114356",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_114356_20 -> http://kg.workflow.validation/activity/st_step_114358_0 -> http://kg.workflow.validation/activity/dd_declaration_114356_19 -> http://kg.workflow.validation/activity/st_step_114359_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_132368_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_132368_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_132370_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_132373_0",
+        "case": "http://kg.workflow.validation/case/declaration_132368",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_899550",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "wrong_order_via_fake",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_132368_19",
+        "request_wasInformedBy": "",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_132368_20 -> http://kg.workflow.validation/activity/bogus_stage_899550 -> http://kg.workflow.validation/activity/st_step_132373_0 -> http://kg.workflow.validation/activity/st_step_132370_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_96874_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_96874_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_96876_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_96879_0",
+        "case": "http://kg.workflow.validation/case/declaration_96874",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_96874_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_91299_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_91299_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_91301_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_91302_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_91299_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_91301_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_91302_0",
+        "case": "http://kg.workflow.validation/case/declaration_91299",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_91299_20 -> http://kg.workflow.validation/activity/st_step_91302_0 -> http://kg.workflow.validation/activity/dd_declaration_91299_19 -> http://kg.workflow.validation/activity/st_step_91301_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_101612_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_101612_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_101617_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_101614_0",
+        "case": "http://kg.workflow.validation/case/declaration_101612",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_120422",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "skip_request",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_101612_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_101617_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_101612_20 -> http://kg.workflow.validation/activity/bogus_stage_120422 -> http://kg.workflow.validation/activity/st_step_101617_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_128009_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_128009_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_128011_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_128013_0",
+        "case": "http://kg.workflow.validation/case/declaration_128009",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_351083",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "dead_end",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_128009_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_128011_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_128009_20 -> http://kg.workflow.validation/activity/bogus_stage_351083"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_113240_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_113240_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_113244_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_113242_0",
+        "case": "http://kg.workflow.validation/case/declaration_113240",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_113240_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_96902_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_96902_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_96904_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_96905_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_96902_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_96904_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_96906_0",
+        "case": "http://kg.workflow.validation/case/declaration_96902",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_96902_20 -> http://kg.workflow.validation/activity/st_step_96905_0 -> http://kg.workflow.validation/activity/st_step_96904_0 -> http://kg.workflow.validation/activity/dd_declaration_96902_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_101538_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_101538_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_101541_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_101542_0",
+        "case": "http://kg.workflow.validation/case/declaration_101538",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_101538_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_109131_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_109131_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_109134_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_109135_0",
+        "case": "http://kg.workflow.validation/case/declaration_109131",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_955662",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "wrong_order_via_fake",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_109131_19",
+        "request_wasInformedBy": "",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_109131_20 -> http://kg.workflow.validation/activity/bogus_stage_955662 -> http://kg.workflow.validation/activity/st_step_109135_0 -> http://kg.workflow.validation/activity/st_step_109134_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_123125_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_123125_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_123129_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_123127_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_123125_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_123129_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_123128_0",
+        "case": "http://kg.workflow.validation/case/declaration_123125",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_123125_20 -> http://kg.workflow.validation/activity/st_step_123129_0 -> http://kg.workflow.validation/activity/dd_declaration_123125_19 -> http://kg.workflow.validation/activity/st_step_123127_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_94464_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_94464_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_94466_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_94467_0",
+        "case": "http://kg.workflow.validation/case/declaration_94464",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_94464_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_96126_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_96126_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_96130_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_96128_0",
+        "case": "http://kg.workflow.validation/case/declaration_96126",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_676510",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "skip_request",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_96126_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_96130_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_96126_20 -> http://kg.workflow.validation/activity/bogus_stage_676510 -> http://kg.workflow.validation/activity/st_step_96130_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_120078_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_120078_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_120080_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_120081_0",
+        "case": "http://kg.workflow.validation/case/declaration_120078",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_120078_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_92130_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_92130_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_92132_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_92133_0",
+        "case": "http://kg.workflow.validation/case/declaration_92130",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_92130_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_117045_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_117045_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_117049_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_117048_0",
+        "case": "http://kg.workflow.validation/case/declaration_117045",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_322086",
+        "bogus_label": "Nonexistent Workflow Activity",
+        "mode": "wrong_order_via_fake",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_117045_19",
+        "request_wasInformedBy": "",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_117045_20 -> http://kg.workflow.validation/activity/bogus_stage_322086 -> http://kg.workflow.validation/activity/st_step_117048_0 -> http://kg.workflow.validation/activity/st_step_117049_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_126765_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_126765_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_126768_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_126769_0",
+        "case": "http://kg.workflow.validation/case/declaration_126765",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_126765_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_138737_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_138737_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_138742_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_138740_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_138737_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_138742_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_138739_0",
+        "case": "http://kg.workflow.validation/case/declaration_138737",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_138737_20 -> http://kg.workflow.validation/activity/st_step_138740_0 -> http://kg.workflow.validation/activity/dd_declaration_138737_19 -> http://kg.workflow.validation/activity/st_step_138742_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_104485_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_104485_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_104489_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_104487_0",
+        "case": "http://kg.workflow.validation/case/declaration_104485",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_804314",
+        "bogus_label": "Nonexistent Workflow Activity",
+        "mode": "skip_request",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_104485_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_104489_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_104485_20 -> http://kg.workflow.validation/activity/bogus_stage_804314 -> http://kg.workflow.validation/activity/st_step_104489_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_88413_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_88413_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_88415_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_88417_0",
+        "case": "http://kg.workflow.validation/case/declaration_88413",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_642717",
+        "bogus_label": "Fictional Approval Step",
+        "mode": "dead_end",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_88413_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_88415_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_88413_20 -> http://kg.workflow.validation/activity/bogus_stage_642717"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_122973_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_122973_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_122977_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_122976_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_122973_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_122977_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_122975_0",
+        "case": "http://kg.workflow.validation/case/declaration_122973",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_122973_20 -> http://kg.workflow.validation/activity/st_step_122977_0 -> http://kg.workflow.validation/activity/dd_declaration_122973_19 -> http://kg.workflow.validation/activity/st_step_122976_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_140379_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_140379_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_140382_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_140381_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_140379_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_140382_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_140384_0",
+        "case": "http://kg.workflow.validation/case/declaration_140379",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_140379_20 -> http://kg.workflow.validation/activity/st_step_140381_0 -> http://kg.workflow.validation/activity/dd_declaration_140379_19 -> http://kg.workflow.validation/activity/st_step_140382_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_92100_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_92100_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_92103_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_92102_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_92100_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_92103_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_92102_0",
+        "case": "http://kg.workflow.validation/case/declaration_92100",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_92100_20 -> http://kg.workflow.validation/activity/st_step_92103_0 -> http://kg.workflow.validation/activity/dd_declaration_92100_19 -> http://kg.workflow.validation/activity/st_step_92102_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_117633_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_117633_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_117636_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_117638_0",
+        "case": "http://kg.workflow.validation/case/declaration_117633",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_117633_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_96302_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_96302_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_96304_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_96305_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_96302_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_96304_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_96305_0",
+        "case": "http://kg.workflow.validation/case/declaration_96302",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_96302_20 -> http://kg.workflow.validation/activity/st_step_96305_0 -> http://kg.workflow.validation/activity/st_step_96304_0 -> http://kg.workflow.validation/activity/dd_declaration_96302_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_136527_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_136527_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_136530_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_136529_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_136527_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_136530_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_136531_0",
+        "case": "http://kg.workflow.validation/case/declaration_136527",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_136527_20 -> http://kg.workflow.validation/activity/st_step_136529_0 -> http://kg.workflow.validation/activity/st_step_136530_0 -> http://kg.workflow.validation/activity/dd_declaration_136527_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_112059_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_112059_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_112064_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_112063_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_112059_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_112064_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_112062_0",
+        "case": "http://kg.workflow.validation/case/declaration_112059",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_112059_20 -> http://kg.workflow.validation/activity/st_step_112063_0 -> http://kg.workflow.validation/activity/st_step_112064_0 -> http://kg.workflow.validation/activity/dd_declaration_112059_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_127937_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_127937_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_127939_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_127941_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_127937_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_127939_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_127940_0",
+        "case": "http://kg.workflow.validation/case/declaration_127937",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_127937_20 -> http://kg.workflow.validation/activity/st_step_127941_0 -> http://kg.workflow.validation/activity/dd_declaration_127937_19 -> http://kg.workflow.validation/activity/st_step_127939_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_136903_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_136903_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_136908_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_136906_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_136903_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_136908_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_136905_0",
+        "case": "http://kg.workflow.validation/case/declaration_136903",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_136903_20 -> http://kg.workflow.validation/activity/st_step_136908_0 -> http://kg.workflow.validation/activity/dd_declaration_136903_19 -> http://kg.workflow.validation/activity/st_step_136906_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_100999_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_100999_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_101002_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_101001_0",
+        "case": "http://kg.workflow.validation/case/declaration_100999",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_801474",
+        "bogus_label": "Fictional Approval Step",
+        "mode": "dead_end",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_100999_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_101002_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_100999_20 -> http://kg.workflow.validation/activity/bogus_stage_801474"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_95882_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_95882_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_95884_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_95886_0",
+        "case": "http://kg.workflow.validation/case/declaration_95882",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_95882_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_89208_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_89208_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_89210_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_89211_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_89208_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_89210_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_89211_0",
+        "case": "http://kg.workflow.validation/case/declaration_89208",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_89208_20 -> http://kg.workflow.validation/activity/st_step_89210_0 -> http://kg.workflow.validation/activity/st_step_89211_0 -> http://kg.workflow.validation/activity/dd_declaration_89208_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_110091_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_110091_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_110093_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_110096_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_110091_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_110093_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_110094_0",
+        "case": "http://kg.workflow.validation/case/declaration_110091",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_110091_20 -> http://kg.workflow.validation/activity/st_step_110093_0 -> http://kg.workflow.validation/activity/st_step_110096_0 -> http://kg.workflow.validation/activity/dd_declaration_110091_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_121586_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_121586_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_121588_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_121592_0",
+        "case": "http://kg.workflow.validation/case/declaration_121586",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_299659",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "dead_end",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_121586_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_121588_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_121586_20 -> http://kg.workflow.validation/activity/bogus_stage_299659"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_94418_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_94418_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_94420_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_94421_0",
+        "case": "http://kg.workflow.validation/case/declaration_94418",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_94418_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_106943_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_106943_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_106945_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_106947_0",
+        "case": "http://kg.workflow.validation/case/declaration_106943",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_471507",
+        "bogus_label": "Fictional Approval Step",
+        "mode": "skip_request",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_106943_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_106945_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_106943_20 -> http://kg.workflow.validation/activity/bogus_stage_471507 -> http://kg.workflow.validation/activity/st_step_106945_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_91724_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_91724_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_91727_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_91726_0",
+        "case": "http://kg.workflow.validation/case/declaration_91724",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_864491",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "wrong_order_via_fake",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_91724_19",
+        "request_wasInformedBy": "",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_91724_20 -> http://kg.workflow.validation/activity/bogus_stage_864491 -> http://kg.workflow.validation/activity/st_step_91726_0 -> http://kg.workflow.validation/activity/st_step_91727_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_120085_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_120085_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_120089_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_120087_0",
+        "case": "http://kg.workflow.validation/case/declaration_120085",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_120085_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_96913_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_96913_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_96917_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_96915_0",
+        "case": "http://kg.workflow.validation/case/declaration_96913",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_96913_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_121869_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_121869_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_121871_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_121873_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_121869_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_121871_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_121872_0",
+        "case": "http://kg.workflow.validation/case/declaration_121869",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_121869_20 -> http://kg.workflow.validation/activity/st_step_121873_0 -> http://kg.workflow.validation/activity/st_step_121871_0 -> http://kg.workflow.validation/activity/dd_declaration_121869_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_126526_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_126526_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_126530_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_126528_0",
+        "case": "http://kg.workflow.validation/case/declaration_126526",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_863587",
+        "bogus_label": "Fictional Approval Step",
+        "mode": "dead_end",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_126526_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_126530_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_126526_20 -> http://kg.workflow.validation/activity/bogus_stage_863587"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_105663_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_105663_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_105665_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_105666_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_105663_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_105665_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_105667_0",
+        "case": "http://kg.workflow.validation/case/declaration_105663",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_105663_20 -> http://kg.workflow.validation/activity/st_step_105665_0 -> http://kg.workflow.validation/activity/dd_declaration_105663_19 -> http://kg.workflow.validation/activity/st_step_105666_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_117407_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_117407_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_117410_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_117409_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_117407_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_117410_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_117411_0",
+        "case": "http://kg.workflow.validation/case/declaration_117407",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_117407_20 -> http://kg.workflow.validation/activity/st_step_117410_0 -> http://kg.workflow.validation/activity/st_step_117409_0 -> http://kg.workflow.validation/activity/dd_declaration_117407_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_125518_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_125518_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_125521_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_125520_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_125518_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_125521_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_125522_0",
+        "case": "http://kg.workflow.validation/case/declaration_125518",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_125518_20 -> http://kg.workflow.validation/activity/st_step_125521_0 -> http://kg.workflow.validation/activity/st_step_125520_0 -> http://kg.workflow.validation/activity/dd_declaration_125518_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_107265_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_107265_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_107268_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_107267_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_107265_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_107268_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_107270_0",
+        "case": "http://kg.workflow.validation/case/declaration_107265",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_107265_20 -> http://kg.workflow.validation/activity/st_step_107267_0 -> http://kg.workflow.validation/activity/dd_declaration_107265_19 -> http://kg.workflow.validation/activity/st_step_107268_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_104517_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_104517_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_104519_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_104521_0",
+        "case": "http://kg.workflow.validation/case/declaration_104517",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_361941",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "skip_request",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_104517_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_104519_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_104517_20 -> http://kg.workflow.validation/activity/bogus_stage_361941 -> http://kg.workflow.validation/activity/st_step_104519_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_95995_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_95995_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_95997_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_96001_0",
+        "case": "http://kg.workflow.validation/case/declaration_95995",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_95995_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_131631_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_131631_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_131633_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_131635_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_131631_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_131633_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_131634_0",
+        "case": "http://kg.workflow.validation/case/declaration_131631",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_131631_20 -> http://kg.workflow.validation/activity/st_step_131635_0 -> http://kg.workflow.validation/activity/st_step_131633_0 -> http://kg.workflow.validation/activity/dd_declaration_131631_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_98717_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_98717_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_98719_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_98720_0",
+        "case": "http://kg.workflow.validation/case/declaration_98717",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_98717_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_133647_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_133647_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_133650_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_133649_0",
+        "case": "http://kg.workflow.validation/case/declaration_133647",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_133647_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_104396_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_104396_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_104399_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_104400_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_104396_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_104399_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_104398_0",
+        "case": "http://kg.workflow.validation/case/declaration_104396",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_104396_20 -> http://kg.workflow.validation/activity/st_step_104400_0 -> http://kg.workflow.validation/activity/st_step_104399_0 -> http://kg.workflow.validation/activity/dd_declaration_104396_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_109897_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_109897_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_109900_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_109899_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_109897_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_109900_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_109901_0",
+        "case": "http://kg.workflow.validation/case/declaration_109897",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_109897_20 -> http://kg.workflow.validation/activity/st_step_109900_0 -> http://kg.workflow.validation/activity/dd_declaration_109897_19 -> http://kg.workflow.validation/activity/st_step_109899_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_134717_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_134717_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_134721_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_134720_0",
+        "case": "http://kg.workflow.validation/case/declaration_134717",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_609231",
+        "bogus_label": "Fictional Approval Step",
+        "mode": "dead_end",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_134717_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_134721_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_134717_20 -> http://kg.workflow.validation/activity/bogus_stage_609231"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_118439_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_118439_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_118442_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_118441_0",
+        "case": "http://kg.workflow.validation/case/declaration_118439",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_161483",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "skip_request",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_118439_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_118442_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_118439_20 -> http://kg.workflow.validation/activity/bogus_stage_161483 -> http://kg.workflow.validation/activity/st_step_118442_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_99387_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_99387_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_99390_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_99389_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_99387_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_99390_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_99391_0",
+        "case": "http://kg.workflow.validation/case/declaration_99387",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_99387_20 -> http://kg.workflow.validation/activity/st_step_99390_0 -> http://kg.workflow.validation/activity/st_step_99389_0 -> http://kg.workflow.validation/activity/dd_declaration_99387_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_132839_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_132839_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_132841_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_132842_0",
+        "case": "http://kg.workflow.validation/case/declaration_132839",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_922157",
+        "bogus_label": "Fictional Approval Step",
+        "mode": "skip_request",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_132839_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_132841_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_132839_20 -> http://kg.workflow.validation/activity/bogus_stage_922157 -> http://kg.workflow.validation/activity/st_step_132841_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_103335_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_103335_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_103338_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_103339_0",
+        "case": "http://kg.workflow.validation/case/declaration_103335",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_830429",
+        "bogus_label": "Nonexistent Workflow Activity",
+        "mode": "wrong_order_via_fake",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_103335_19",
+        "request_wasInformedBy": "",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_103335_20 -> http://kg.workflow.validation/activity/bogus_stage_830429 -> http://kg.workflow.validation/activity/st_step_103339_0 -> http://kg.workflow.validation/activity/st_step_103338_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_114756_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_114756_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_114758_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_114759_0",
+        "case": "http://kg.workflow.validation/case/declaration_114756",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_114756_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_95288_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_95288_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_95291_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_95290_0",
+        "case": "http://kg.workflow.validation/case/declaration_95288",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_95288_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_106634_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_106634_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_106636_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_106637_0",
+        "case": "http://kg.workflow.validation/case/declaration_106634",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_262316",
+        "bogus_label": "Bogus Intermediate Stage",
+        "mode": "skip_request",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_106634_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_106636_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_106634_20 -> http://kg.workflow.validation/activity/bogus_stage_262316 -> http://kg.workflow.validation/activity/st_step_106636_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_89957_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_89957_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_89960_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_89959_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_89957_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_89960_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_89959_0",
+        "case": "http://kg.workflow.validation/case/declaration_89957",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_89957_20 -> http://kg.workflow.validation/activity/st_step_89959_0 -> http://kg.workflow.validation/activity/st_step_89960_0 -> http://kg.workflow.validation/activity/dd_declaration_89957_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_126105_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_126105_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_126109_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_126107_0",
+        "case": "http://kg.workflow.validation/case/declaration_126105",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_126105_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_121677_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_121677_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_121680_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_121682_0",
+        "case": "http://kg.workflow.validation/case/declaration_121677",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_121677_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_104727_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_104727_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_104729_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_104731_0",
+        "case": "http://kg.workflow.validation/case/declaration_104727",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_104727_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_95903_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_95903_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_95905_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_95906_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_95903_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_95905_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_95906_0",
+        "case": "http://kg.workflow.validation/case/declaration_95903",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_95903_20 -> http://kg.workflow.validation/activity/st_step_95906_0 -> http://kg.workflow.validation/activity/dd_declaration_95903_19 -> http://kg.workflow.validation/activity/st_step_95905_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_108862_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_108862_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_108864_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_108865_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_108862_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_108864_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_108866_0",
+        "case": "http://kg.workflow.validation/case/declaration_108862",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_108862_20 -> http://kg.workflow.validation/activity/st_step_108865_0 -> http://kg.workflow.validation/activity/st_step_108864_0 -> http://kg.workflow.validation/activity/dd_declaration_108862_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_129410_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_129410_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_129413_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_129414_0",
+        "case": "http://kg.workflow.validation/case/declaration_129410",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_129410_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_121936_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_121936_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_121940_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_121938_0",
+        "case": "http://kg.workflow.validation/case/declaration_121936",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_627276",
+        "bogus_label": "Nonexistent Workflow Activity",
+        "mode": "dead_end",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_121936_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_121940_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_121936_20 -> http://kg.workflow.validation/activity/bogus_stage_627276"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_107327_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_107327_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_107330_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_107329_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_107327_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_107330_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_107331_0",
+        "case": "http://kg.workflow.validation/case/declaration_107327",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_107327_20 -> http://kg.workflow.validation/activity/st_step_107329_0 -> http://kg.workflow.validation/activity/st_step_107330_0 -> http://kg.workflow.validation/activity/dd_declaration_107327_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_135869_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_135869_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_135873_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_135874_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_135869_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_135873_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_135871_0",
+        "case": "http://kg.workflow.validation/case/declaration_135869",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_135869_20 -> http://kg.workflow.validation/activity/st_step_135874_0 -> http://kg.workflow.validation/activity/st_step_135873_0 -> http://kg.workflow.validation/activity/dd_declaration_135869_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_127623_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_127623_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_127627_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_127628_0",
+        "case": "http://kg.workflow.validation/case/declaration_127623",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_127623_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_122953_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_122953_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_122957_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_122956_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_122953_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_122957_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_122955_0",
+        "case": "http://kg.workflow.validation/case/declaration_122953",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_122953_20 -> http://kg.workflow.validation/activity/st_step_122957_0 -> http://kg.workflow.validation/activity/dd_declaration_122953_19 -> http://kg.workflow.validation/activity/st_step_122956_0"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "inserted_bogus_payment_stage",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_105199_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_105199_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_105201_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_105202_0",
+        "case": "http://kg.workflow.validation/case/declaration_105199",
+        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_225710",
+        "bogus_label": "Nonexistent Workflow Activity",
+        "mode": "dead_end",
+        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_105199_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_105201_0",
+        "path_after": "http://kg.workflow.validation/activity/dd_declaration_105199_20 -> http://kg.workflow.validation/activity/bogus_stage_225710"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_104497_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_104497_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_104501_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_104499_0",
+        "case": "http://kg.workflow.validation/case/declaration_104497",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_104497_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "removed_payment_wasInformedBy",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_108780_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_108780_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_108782_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_108783_0",
+        "case": "http://kg.workflow.validation/case/declaration_108780",
+        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_108780_19"
+      }
+    },
+    {
+      "rule_id": "R6",
+      "action": "scrambled_payment_provenance_order",
+      "details": {
+        "payment": "http://kg.workflow.validation/activity/dd_declaration_107799_20",
+        "request": "http://kg.workflow.validation/activity/dd_declaration_107799_19",
+        "approval": "http://kg.workflow.validation/activity/st_step_107803_0",
+        "submission": "http://kg.workflow.validation/activity/st_step_107802_0",
+        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_107799_19",
+        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_107803_0",
+        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_107804_0",
+        "case": "http://kg.workflow.validation/case/declaration_107799",
+        "new_order": "http://kg.workflow.validation/activity/dd_declaration_107799_20 -> http://kg.workflow.validation/activity/st_step_107802_0 -> http://kg.workflow.validation/activity/st_step_107803_0 -> http://kg.workflow.validation/activity/dd_declaration_107799_19"
+      }
+    }
+  ],
+  "outputs": {
+    "corrupted_xes": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r6_full\\DomesticDeclarations.corrupted.xes",
+    "corrupted_knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r6_full\\DomesticDeclarations.corrupted.prov.ttl",
+    "statistics": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r6_full\\statistics.json"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r5b_10declarations\\validation.json",
+  "started_at": "2026-07-22T09:48:52.854662+00:00",
+  "finished_at": "2026-07-22T09:48:52.862336+00:00",
+  "duration_seconds": 0.007096,
+  "total_violations": 5,
+  "rules_run": [
+    "R5B"
+  ],
+  "results": [
+    {
+      "rule_id": "R5B",
+      "name": "PAYMENT_HANDLED_NOT_BY_EMPLOYEE",
+      "description": "Every 'Payment Handled' activity must not be associated with role EMPLOYEE (xes-attr:org_role).",
+      "status": "FAILED",
+      "violation_count": 5,
+      "duration_seconds": 0.007082,
+      "violations": [
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86720_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
+            "role": "EMPLOYEE"
+          }
+        }
+      ]
+    }
+  ]
+}

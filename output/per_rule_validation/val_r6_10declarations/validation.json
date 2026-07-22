@@ -1,0 +1,59 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r6_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r6_10declarations\\validation.json",
+  "started_at": "2026-07-22T09:48:52.988820+00:00",
+  "finished_at": "2026-07-22T09:48:52.989827+00:00",
+  "duration_seconds": 0.00093,
+  "total_violations": 5,
+  "rules_run": [
+    "R6"
+  ],
+  "results": [
+    {
+      "rule_id": "R6",
+      "name": "PAYMENT_PROVENANCE_CHAIN",
+      "description": "A payment is valid only if Payment Handled wasInformedBy Request Payment, which wasInformedBy Final Approval, which wasInformedBy Declaration Submission, and all belong to the same case (prov:wasInformedBy+; optional steps such as PRE_APPROVER may appear between these milestones).",
+      "status": "FAILED",
+      "violation_count": 5,
+      "duration_seconds": 0.000918,
+      "violations": [
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86720_20",
+            "case": "http://kg.workflow.validation/case/declaration_86720"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
+            "case": "http://kg.workflow.validation/case/declaration_86735"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
+            "case": "http://kg.workflow.validation/case/declaration_86791"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86795_20",
+            "case": "http://kg.workflow.validation/case/declaration_86795"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
+            "case": "http://kg.workflow.validation/case/declaration_86809"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r5_10declarations\\validation.json",
+  "started_at": "2026-07-22T09:48:52.736769+00:00",
+  "finished_at": "2026-07-22T09:48:52.744294+00:00",
+  "duration_seconds": 0.007307,
+  "total_violations": 5,
+  "rules_run": [
+    "R5"
+  ],
+  "results": [
+    {
+      "rule_id": "R5",
+      "name": "PAYMENT_HANDLED_BY_SYSTEM",
+      "description": "Every 'Payment Handled' activity must be associated with resource SYSTEM (xes-attr:org_resource).",
+      "status": "FAILED",
+      "violation_count": 5,
+      "duration_seconds": 0.007295,
+      "violations": [
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86720_20",
+            "resource": "BOGUS_RESOURCE_2535"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
+            "resource": "BOGUS_RESOURCE_7912"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_20",
+            "resource": "BOGUS_RESOURCE_2679"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
+            "resource": "BOGUS_RESOURCE_9279"
+          }
+        }
+      ]
+    }
+  ]
+}

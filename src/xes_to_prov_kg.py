@@ -251,11 +251,9 @@ def _emit_trace(
                 role_pred = _attr(ROLE_KEY)
                 if Literal(role) not in set(graph.objects(agent, role_pred)):
                     graph.add((agent, role_pred, Literal(role)))
-                    _warn(
-                        f"Agent '{resource}' already exists; "
-                        f"adding additional role '{role}'.",
-                        stats,
-                    )
+                    # Count only: printing this on every event floods I/O on large logs.
+                    if stats is not None:
+                        stats.warning_count += 1
             graph.add((activity, PROV.wasAssociatedWith, agent))
         else:
             _warn(

@@ -1,0 +1,624 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r2_full\\DomesticDeclarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r2_full\\validation.json",
+  "started_at": "2026-07-22T09:56:09.372847+00:00",
+  "finished_at": "2026-07-22T09:56:16.924999+00:00",
+  "duration_seconds": 7.55118,
+  "total_violations": 100,
+  "rules_run": [
+    "R2"
+  ],
+  "results": [
+    {
+      "rule_id": "R2",
+      "name": "ACTIVITY_HAS_STARTED_AT_TIME",
+      "description": "Every prov:Activity must have prov:startedAtTime.",
+      "status": "FAILED",
+      "violation_count": 100,
+      "duration_seconds": 7.551149,
+      "violations": [
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_102554_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_103749_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_107223_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_108429_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_109087_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110313_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110542_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110589_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_112806_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_115653_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_116110_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_117516_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_118962_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_122767_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_124385_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_131011_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_132153_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_133264_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_134146_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_134797_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_138068_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_138084_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_139088_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_142781_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_87391_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_88826_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89602_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89850_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_90040_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93497_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_94138_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_95468_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_95775_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96251_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96433_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_97448_20"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_99165_19"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_100346_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_101017_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_101224_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_102094_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_102560_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_104218_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_105488_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_106075_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_108208_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_109482_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_109816_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_110044_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_110518_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_110803_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_111846_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_112134_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_114734_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_114981_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_115219_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_115415_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_115955_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_118993_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_119412_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_119497_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_120723_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_122291_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_122726_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_123044_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_123440_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_124620_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_126237_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_128090_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_130803_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_130974_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_131291_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_131373_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_131491_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_135115_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_136282_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_136357_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_137077_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_137169_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_137855_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_138019_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_140225_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_141104_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_141935_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_142148_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_89116_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_89129_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_90249_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_90678_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_91024_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_94416_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_95765_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_96041_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_96301_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_96485_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_98743_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_99130_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_99353_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_99604_0"
+          }
+        },
+        {
+          "issue": "missing_startedAtTime",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_99883_0"
+          }
+        }
+      ]
+    }
+  ]
+}

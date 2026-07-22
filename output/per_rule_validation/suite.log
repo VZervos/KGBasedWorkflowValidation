@@ -1,0 +1,169 @@
+
+=== Dataset: 10declarations ===
+  [R1] generating benchmark...
+  [R1] validating...
+  [R1] PASS: applied=5, violations=5 (exact match)
+  [R2] generating benchmark...
+Warning: Trace 'declaration 86791', event 'st_step 86793_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 86795', event 'dd_declaration 86795_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 86731', event 'dd_declaration 86731_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 86716', event 'dd_declaration 86716_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 86720', event 'st_step 86724_0': missing 'time:timestamp'.
+  [R2] validating...
+  [R2] PASS: applied=5, violations=5 (exact match)
+  [R3] generating benchmark...
+  [R3] validating...
+  [R3] PASS: applied=5, violations=5 (exact match)
+  [R4] generating benchmark...
+  [R4] validating...
+  [R4] PASS: applied=5, violations=5 (violations 5 >= applied 5)
+  [R5] generating benchmark...
+  [R5] validating...
+  [R5] PASS: applied=5, violations=5 (exact match)
+  [R5B] generating benchmark...
+  [R5B] validating...
+  [R5B] PASS: applied=5, violations=5 (exact match)
+  [R6] generating benchmark...
+  [R6] validating...
+  [R6] PASS: applied=5, violations=5 (violations 5 >= applied 5)
+
+=== Dataset: full ===
+  [R1] generating benchmark...
+  [R1] validating...
+  [R1] PASS: applied=100, violations=100 (exact match)
+  [R2] generating benchmark...
+Warning: Trace 'declaration 88826', event 'dd_declaration 88826_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 89602', event 'dd_declaration 89602_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 90246', event 'st_step 90249_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 89850', event 'dd_declaration 89850_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 89112', event 'st_step 89116_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 89126', event 'st_step 89129_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 90040', event 'dd_declaration 90040_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 95468', event 'dd_declaration 95468_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 93497', event 'dd_declaration 93497_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 95762', event 'st_step 95765_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 95775', event 'dd_declaration 95775_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 87391', event 'dd_declaration 87391_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 96298', event 'st_step 96301_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 94414', event 'st_step 94416_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 91021', event 'st_step 91024_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 96483', event 'st_step 96485_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 96251', event 'dd_declaration 96251_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 96039', event 'st_step 96041_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 96433', event 'dd_declaration 96433_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 94138', event 'dd_declaration 94138_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 90676', event 'st_step 90678_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 99126', event 'st_step 99130_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 98741', event 'st_step 98743_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 99165', event 'dd_declaration 99165_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 101220', event 'st_step 101224_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 109814', event 'st_step 109816_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 102092', event 'st_step 102094_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 110313', event 'dd_declaration 110313_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 110513', event 'st_step 110518_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 110542', event 'dd_declaration 110542_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 110589', event 'dd_declaration 110589_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 97448', event 'dd_declaration 97448_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 100343', event 'st_step 100346_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 106070', event 'st_step 106075_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 101014', event 'st_step 101017_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 105484', event 'st_step 105488_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 107223', event 'dd_declaration 107223_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 109087', event 'dd_declaration 109087_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 102554', event 'st_step 102560_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 102554', event 'dd_declaration 102554_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 99601', event 'st_step 99604_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 109479', event 'st_step 109482_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 110040', event 'st_step 110044_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 108205', event 'st_step 108208_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 108429', event 'dd_declaration 108429_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 103749', event 'dd_declaration 103749_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 99350', event 'st_step 99353_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 104213', event 'st_step 104218_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 99880', event 'st_step 99883_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 115653', event 'dd_declaration 115653_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 124385', event 'dd_declaration 124385_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 115410', event 'st_step 115415_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 115215', event 'st_step 115219_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 116110', event 'dd_declaration 116110_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 114979', event 'st_step 114981_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 114731', event 'st_step 114734_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 123436', event 'st_step 123440_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 126235', event 'st_step 126237_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 124616', event 'st_step 124620_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 115950', event 'st_step 115955_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 117516', event 'dd_declaration 117516_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 118991', event 'st_step 118993_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 118962', event 'dd_declaration 118962_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 119410', event 'st_step 119412_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 119490', event 'st_step 119497_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 110800', event 'st_step 110803_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 122287', event 'st_step 122291_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 128085', event 'st_step 128090_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 112806', event 'dd_declaration 112806_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 122722', event 'st_step 122726_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 122767', event 'dd_declaration 122767_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 120721', event 'st_step 120723_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 111839', event 'st_step 111846_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 112130', event 'st_step 112134_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 123041', event 'st_step 123044_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 137166', event 'st_step 137169_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 142146', event 'st_step 142148_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 134797', event 'dd_declaration 134797_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 134146', event 'dd_declaration 134146_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 131371', event 'st_step 131373_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 141101', event 'st_step 141104_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 138016', event 'st_step 138019_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 138068', event 'dd_declaration 138068_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 138084', event 'dd_declaration 138084_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 136354', event 'st_step 136357_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 130800', event 'st_step 130803_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 136280', event 'st_step 136282_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 139088', event 'dd_declaration 139088_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 140216', event 'st_step 140225_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 131287', event 'st_step 131291_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 132153', event 'dd_declaration 132153_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 141931', event 'st_step 141935_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 133264', event 'dd_declaration 133264_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 135111', event 'st_step 135115_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 137073', event 'st_step 137077_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 130967', event 'st_step 130974_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 142781', event 'dd_declaration 142781_19': missing 'time:timestamp'.
+Warning: Trace 'declaration 137854', event 'st_step 137855_0': missing 'time:timestamp'.
+Warning: Trace 'declaration 131011', event 'dd_declaration 131011_20': missing 'time:timestamp'.
+Warning: Trace 'declaration 131487', event 'st_step 131491_0': missing 'time:timestamp'.
+  [R2] validating...
+  [R2] PASS: applied=100, violations=100 (exact match)
+  [R3] generating benchmark...
+  [R3] validating...
+  [R3] PASS: applied=100, violations=100 (exact match)
+  [R4] generating benchmark...
+  [R4] validating...
+  [R4] PASS: applied=100, violations=139 (violations 139 >= applied 100)
+  [R5] generating benchmark...
+  [R5] validating...
+  [R5] PASS: applied=100, violations=100 (exact match)
+  [R5B] generating benchmark...
+  [R5B] validating...
+  [R5B] PASS: applied=100, violations=100 (exact match)
+  [R6] generating benchmark...
+  [R6] validating...
+  [R6] PASS: applied=100, violations=109 (violations 109 >= applied 100)
+
+=== Summary ===
+OK 10declarations/R1: applied=5, violations=5 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\10declarations\bench_r1_20260722_124851
+OK 10declarations/R2: applied=5, violations=5 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\10declarations\bench_r2_20260722_124852
+OK 10declarations/R3: applied=5, violations=5 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\10declarations\bench_r3_20260722_124852
+OK 10declarations/R4: applied=5, violations=5 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\10declarations\bench_r4_20260722_124852
+OK 10declarations/R5: applied=5, violations=5 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\10declarations\bench_r5_20260722_124852
+OK 10declarations/R5B: applied=5, violations=5 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\10declarations\bench_r5b_20260722_124852
+OK 10declarations/R6: applied=5, violations=5 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\10declarations\bench_r6_20260722_124852
+OK full/R1: applied=100, violations=100 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\full\bench_r1_20260722_124852
+OK full/R2: applied=100, violations=100 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\full\bench_r2_20260722_125244
+OK full/R3: applied=100, violations=100 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\full\bench_r3_20260722_125616
+OK full/R4: applied=100, violations=139 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\full\bench_r4_20260722_125956
+OK full/R5: applied=100, violations=100 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\full\bench_r5_20260722_130350
+OK full/R5B: applied=100, violations=100 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\full\bench_r5b_20260722_130715
+OK full/R6: applied=100, violations=109 -> C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\benchmarks\full\bench_r6_20260722_131048
+
+Passed 14/14. Summary: C:\Valantis\JetBrains\projects\isl\KGBasedWorkflowValidation\output\per_rule_validation\suite_summary.json

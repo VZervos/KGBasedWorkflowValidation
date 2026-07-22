@@ -1,0 +1,724 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r1_full\\DomesticDeclarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r1_full\\validation.json",
+  "started_at": "2026-07-22T09:52:32.412984+00:00",
+  "finished_at": "2026-07-22T09:52:44.991638+00:00",
+  "duration_seconds": 12.578857,
+  "total_violations": 100,
+  "rules_run": [
+    "R1"
+  ],
+  "results": [
+    {
+      "rule_id": "R1",
+      "name": "ACTIVITY_BELONGS_TO_CASE",
+      "description": "Every prov:Activity must have exactly one wf:belongsToCase link (integrity: each event belongs to exactly one case).",
+      "status": "FAILED",
+      "violation_count": 100,
+      "duration_seconds": 12.578822,
+      "violations": [
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100343_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_102092_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_102554_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_105484_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_106070_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_108205_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_109479_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_109814_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110800_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_111839_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_114979_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_115410_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_115950_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_118991_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_120721_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_122287_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_122722_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_123041_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_123436_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_124616_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_128085_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_130800_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_130967_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_131287_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_131487_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_135111_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_136354_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_137073_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_137166_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_138016_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_141101_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_141931_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89126_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_90246_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_90676_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91021_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_94414_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_95762_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96039_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96298_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96483_19",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_99126_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_99350_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_99601_20",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_101017_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_101224_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_102559_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_103753_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_104217_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_107225_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_108431_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_109092_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_110043_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_110317_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_110516_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_110546_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_110593_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_112132_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_112811_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_114735_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_115218_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_115656_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_116115_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_117519_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_118970_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_119414_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_119492_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_122772_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_124387_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_126237_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_131013_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_131373_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_132156_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_133268_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_134150_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_134801_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_136282_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_137857_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_138071_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_138087_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_139095_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_140219_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_142148_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_142785_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_87394_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_88828_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_89115_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_89605_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_89853_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_90043_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_93500_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_94142_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_95472_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_95778_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_96253_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_96437_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_97451_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_98743_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_99169_0",
+            "caseCount": "0"
+          }
+        },
+        {
+          "issue": "missing_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_99885_0",
+            "caseCount": "0"
+          }
+        }
+      ]
+    }
+  ]
+}

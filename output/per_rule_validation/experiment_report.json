@@ -1,0 +1,1601 @@
+{
+  "generated_at": "2026-07-22T10:40:18.090305+00:00",
+  "r4_regeneration": [
+    {
+      "dataset": "10declarations",
+      "rule": "R4",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r4_10declarations",
+      "applied": 5,
+      "violations": 5,
+      "ok": true,
+      "load_seconds": null,
+      "validation_seconds": 0.141342,
+      "conversion": {
+        "trace_count": 10,
+        "event_count": 52,
+        "triple_count": 787,
+        "agent_count": 2,
+        "duration_seconds": 0.036969,
+        "xes_lines_parsed": 441
+      },
+      "bench_run_name": "bench_r4_10declarations"
+    },
+    {
+      "dataset": "full",
+      "rule": "R4",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r4_full",
+      "applied": 100,
+      "violations": 100,
+      "ok": true,
+      "load_seconds": null,
+      "validation_seconds": 15.903968,
+      "conversion": {
+        "trace_count": 10500,
+        "event_count": 56437,
+        "triple_count": 849664,
+        "agent_count": 2,
+        "duration_seconds": 37.63436,
+        "xes_lines_parsed": 468566
+      },
+      "bench_run_name": "bench_r4_full"
+    }
+  ],
+  "baseline_r6_payments": [
+    {
+      "declaration": "90815",
+      "payment": "http://kg.workflow.validation/activity/dd_declaration_90815_20",
+      "reason": "Supervisor REJECTED (no FINAL_APPROVED); has Request Payment"
+    },
+    {
+      "declaration": "95149",
+      "payment": "http://kg.workflow.validation/activity/dd_declaration_95149_20",
+      "reason": "Only SAVED \u2192 Request Payment \u2192 Payment Handled (no submission / final approval)"
+    },
+    {
+      "declaration": "115669",
+      "payment": "http://kg.workflow.validation/activity/dd_declaration_115669_20",
+      "reason": "Missing Request Payment between final approval and payment"
+    },
+    {
+      "declaration": "124535",
+      "payment": "http://kg.workflow.validation/activity/dd_declaration_124535_20",
+      "reason": "Missing Request Payment (reject/resubmit then pay)"
+    },
+    {
+      "declaration": "136996",
+      "payment": "http://kg.workflow.validation/activity/dd_declaration_136996_20",
+      "reason": "Missing Request Payment"
+    },
+    {
+      "declaration": "138147",
+      "payment": "http://kg.workflow.validation/activity/dd_declaration_138147_20",
+      "reason": "Missing Request Payment"
+    },
+    {
+      "declaration": "138710",
+      "payment": "http://kg.workflow.validation/activity/dd_declaration_138710_20",
+      "reason": "Missing Request Payment"
+    },
+    {
+      "declaration": "141310",
+      "payment": "http://kg.workflow.validation/activity/dd_declaration_141310_20",
+      "reason": "Missing Request Payment"
+    },
+    {
+      "declaration": "142992",
+      "payment": "http://kg.workflow.validation/activity/dd_declaration_142992_20",
+      "reason": "Missing Request Payment"
+    }
+  ],
+  "cases": [
+    {
+      "dataset": "10declarations",
+      "rule": "R1",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r1_10declarations",
+      "bench_run_name": "bench_r1_10declarations",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10,
+      "events": 52,
+      "triples": 787,
+      "conversion_seconds": 0.036969,
+      "load_seconds": 0.016743,
+      "validation_seconds": 0.372956,
+      "injected": 5,
+      "violations_detected": 5,
+      "precision_recall": {
+        "true_positives": 5,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R1",
+          "action": "removed_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_86719_0",
+            "removed_cases": "http://kg.workflow.validation/case/declaration_86716",
+            "case_count_before": "1"
+          }
+        },
+        {
+          "rule_id": "R1",
+          "action": "removed_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_86799_0",
+            "removed_cases": "http://kg.workflow.validation/case/declaration_86795",
+            "case_count_before": "1"
+          }
+        },
+        {
+          "rule_id": "R1",
+          "action": "removed_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19",
+            "removed_cases": "http://kg.workflow.validation/case/declaration_86791",
+            "case_count_before": "1"
+          }
+        }
+      ],
+      "xes_line_count": 442
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R2",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r2_10declarations",
+      "bench_run_name": "bench_r2_10declarations",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10,
+      "events": 52,
+      "triples": 787,
+      "conversion_seconds": 0.036969,
+      "load_seconds": 0.016743,
+      "validation_seconds": 0.010562,
+      "injected": 5,
+      "violations_detected": 5,
+      "precision_recall": {
+        "true_positives": 5,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 86716",
+            "event_id": "dd_declaration 86716_20",
+            "removed_values": "2017-01-16T17:32:14.000+01:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 86795",
+            "event_id": "dd_declaration 86795_19",
+            "removed_values": "2017-03-06T14:07:25.000+01:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 86791",
+            "event_id": "st_step 86793_0",
+            "removed_values": "2017-01-09T11:27:48.000+01:00"
+          }
+        }
+      ],
+      "xes_line_count": 442
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R3",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r3_10declarations",
+      "bench_run_name": "bench_r3_10declarations",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10,
+      "events": 52,
+      "triples": 787,
+      "conversion_seconds": 0.036969,
+      "load_seconds": 0.016743,
+      "validation_seconds": 0.009163,
+      "injected": 5,
+      "violations_detected": 5,
+      "precision_recall": {
+        "true_positives": 5,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R3",
+          "action": "removed_wasAssociatedWith",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_86719_0",
+            "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+          }
+        },
+        {
+          "rule_id": "R3",
+          "action": "removed_wasAssociatedWith",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_86799_0",
+            "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+          }
+        },
+        {
+          "rule_id": "R3",
+          "action": "removed_wasAssociatedWith",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19",
+            "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+          }
+        }
+      ],
+      "xes_line_count": 442
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R4",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r4_10declarations",
+      "bench_run_name": "bench_r4_10declarations",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10,
+      "events": 52,
+      "triples": 787,
+      "conversion_seconds": 0.036969,
+      "load_seconds": 0.016743,
+      "validation_seconds": 0.141342,
+      "injected": 5,
+      "violations_detected": 5,
+      "precision_recall": {
+        "true_positives": 5,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R4",
+          "action": "broke_wasInformedBy_temporal_order",
+          "details": {
+            "later_activity": "http://kg.workflow.validation/activity/st_step_86729_0",
+            "earlier_activity": "http://kg.workflow.validation/activity/st_step_86728_0",
+            "later_time_before": "2017-01-09T15:57:24+01:00",
+            "earlier_time": "2017-01-09T15:57:21+01:00",
+            "later_time_after": "2017-01-09T15:42:06+01:00"
+          }
+        },
+        {
+          "rule_id": "R4",
+          "action": "broke_wasInformedBy_temporal_order",
+          "details": {
+            "later_activity": "http://kg.workflow.validation/activity/dd_declaration_86800_20",
+            "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_86800_19",
+            "later_time_before": "2017-02-13T17:32:14+01:00",
+            "earlier_time": "2017-02-09T16:00:15+01:00",
+            "later_time_after": "2017-02-09T15:50:43+01:00"
+          }
+        },
+        {
+          "rule_id": "R4",
+          "action": "broke_wasInformedBy_temporal_order",
+          "details": {
+            "later_activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19",
+            "earlier_activity": "http://kg.workflow.validation/activity/st_step_86793_0",
+            "later_time_before": "2017-01-10T09:34:44+01:00",
+            "earlier_time": "2017-01-09T11:27:48+01:00",
+            "later_time_after": "2017-01-09T10:37:31+01:00"
+          }
+        }
+      ],
+      "xes_line_count": 442
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R5",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5_10declarations",
+      "bench_run_name": "bench_r5_10declarations",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10,
+      "events": 52,
+      "triples": 787,
+      "conversion_seconds": 0.036969,
+      "load_seconds": 0.016743,
+      "validation_seconds": 0.007295,
+      "injected": 5,
+      "violations_detected": 5,
+      "precision_recall": {
+        "true_positives": 5,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R5",
+          "action": "changed_payment_resource_from_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_20",
+            "resource_before": "SYSTEM",
+            "resource_after": "BOGUS_RESOURCE_2679"
+          }
+        },
+        {
+          "rule_id": "R5",
+          "action": "changed_payment_resource_from_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
+            "resource_before": "SYSTEM",
+            "resource_after": "Fictional Payment Handler"
+          }
+        },
+        {
+          "rule_id": "R5",
+          "action": "changed_payment_resource_from_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
+            "resource_before": "SYSTEM",
+            "resource_after": "BOGUS_RESOURCE_7912"
+          }
+        }
+      ],
+      "xes_line_count": 442
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R5B",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_10declarations",
+      "bench_run_name": "bench_r5b_10declarations",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10,
+      "events": 52,
+      "triples": 787,
+      "conversion_seconds": 0.036969,
+      "load_seconds": 0.016743,
+      "validation_seconds": 0.007082,
+      "injected": 5,
+      "violations_detected": 5,
+      "precision_recall": {
+        "true_positives": 5,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R5B",
+          "action": "set_payment_role_to_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_20",
+            "role_before": "UNDEFINED",
+            "role_after": "EMPLOYEE"
+          }
+        },
+        {
+          "rule_id": "R5B",
+          "action": "set_payment_role_to_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
+            "role_before": "UNDEFINED",
+            "role_after": "EMPLOYEE"
+          }
+        },
+        {
+          "rule_id": "R5B",
+          "action": "set_payment_role_to_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
+            "role_before": "UNDEFINED",
+            "role_after": "EMPLOYEE"
+          }
+        }
+      ],
+      "xes_line_count": 442
+    },
+    {
+      "dataset": "10declarations",
+      "rule": "R6",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r6_10declarations",
+      "bench_run_name": "bench_r6_10declarations",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10,
+      "events": 52,
+      "triples": 787,
+      "conversion_seconds": 0.036969,
+      "load_seconds": 0.016743,
+      "validation_seconds": 0.000918,
+      "injected": 5,
+      "violations_detected": 5,
+      "precision_recall": {
+        "true_positives": 5,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R6",
+          "action": "scrambled_payment_provenance_order",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86795_20",
+            "request": "http://kg.workflow.validation/activity/dd_declaration_86795_19",
+            "approval": "http://kg.workflow.validation/activity/st_step_86797_0",
+            "submission": "http://kg.workflow.validation/activity/st_step_86798_0",
+            "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_86795_19",
+            "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_86797_0",
+            "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_86799_0",
+            "case": "http://kg.workflow.validation/case/declaration_86795",
+            "new_order": "http://kg.workflow.validation/activity/dd_declaration_86795_20 -> http://kg.workflow.validation/activity/st_step_86798_0 -> http://kg.workflow.validation/activity/st_step_86797_0 -> http://kg.workflow.validation/activity/dd_declaration_86795_19"
+          }
+        },
+        {
+          "rule_id": "R6",
+          "action": "removed_payment_wasInformedBy",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
+            "request": "http://kg.workflow.validation/activity/dd_declaration_86791_19",
+            "approval": "http://kg.workflow.validation/activity/st_step_86793_0",
+            "submission": "http://kg.workflow.validation/activity/st_step_86794_0",
+            "case": "http://kg.workflow.validation/case/declaration_86791",
+            "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_86791_19"
+          }
+        },
+        {
+          "rule_id": "R6",
+          "action": "removed_payment_wasInformedBy",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
+            "request": "http://kg.workflow.validation/activity/dd_declaration_86735_19",
+            "approval": "http://kg.workflow.validation/activity/st_step_86737_0",
+            "submission": "http://kg.workflow.validation/activity/st_step_86738_0",
+            "case": "http://kg.workflow.validation/case/declaration_86735",
+            "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_86735_19"
+          }
+        }
+      ],
+      "xes_line_count": 442
+    },
+    {
+      "dataset": "full",
+      "rule": "R1",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r1_full",
+      "bench_run_name": "bench_r1_full",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849664,
+      "conversion_seconds": 37.63436,
+      "load_seconds": 25.696196,
+      "validation_seconds": 12.578822,
+      "injected": 100,
+      "violations_detected": 100,
+      "precision_recall": {
+        "true_positives": 100,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R1",
+          "action": "removed_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_123041_19",
+            "removed_cases": "http://kg.workflow.validation/case/declaration_123041",
+            "case_count_before": "1"
+          }
+        },
+        {
+          "rule_id": "R1",
+          "action": "removed_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_96437_0",
+            "removed_cases": "http://kg.workflow.validation/case/declaration_96433",
+            "case_count_before": "1"
+          }
+        },
+        {
+          "rule_id": "R1",
+          "action": "removed_belongsToCase",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_89605_0",
+            "removed_cases": "http://kg.workflow.validation/case/declaration_89602",
+            "case_count_before": "1"
+          }
+        }
+      ],
+      "xes_line_count": 468572
+    },
+    {
+      "dataset": "full",
+      "rule": "R2",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r2_full",
+      "bench_run_name": "bench_r2_full",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849664,
+      "conversion_seconds": 37.63436,
+      "load_seconds": 25.696196,
+      "validation_seconds": 7.551149,
+      "injected": 100,
+      "violations_detected": 100,
+      "precision_recall": {
+        "true_positives": 100,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 123041",
+            "event_id": "st_step 123044_0",
+            "removed_values": "2018-09-20T19:30:18.000+02:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 96433",
+            "event_id": "dd_declaration 96433_19",
+            "removed_values": "2017-10-17T17:21:57.000+02:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 89602",
+            "event_id": "dd_declaration 89602_20",
+            "removed_values": "2017-03-16T17:31:06.000+01:00"
+          }
+        }
+      ],
+      "xes_line_count": 468572
+    },
+    {
+      "dataset": "full",
+      "rule": "R3",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r3_full",
+      "bench_run_name": "bench_r3_full",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849664,
+      "conversion_seconds": 37.63436,
+      "load_seconds": 25.696196,
+      "validation_seconds": 7.331314,
+      "injected": 100,
+      "violations_detected": 100,
+      "precision_recall": {
+        "true_positives": 100,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R3",
+          "action": "removed_wasAssociatedWith",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_123041_19",
+            "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+          }
+        },
+        {
+          "rule_id": "R3",
+          "action": "removed_wasAssociatedWith",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_96437_0",
+            "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+          }
+        },
+        {
+          "rule_id": "R3",
+          "action": "removed_wasAssociatedWith",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/st_step_89605_0",
+            "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+          }
+        }
+      ],
+      "xes_line_count": 468572
+    },
+    {
+      "dataset": "full",
+      "rule": "R4",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r4_full",
+      "bench_run_name": "bench_r4_full",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849664,
+      "conversion_seconds": 37.63436,
+      "load_seconds": 25.696196,
+      "validation_seconds": 15.903968,
+      "injected": 100,
+      "violations_detected": 100,
+      "precision_recall": {
+        "true_positives": 100,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R4",
+          "action": "broke_wasInformedBy_temporal_order",
+          "details": {
+            "later_activity": "http://kg.workflow.validation/activity/st_step_134204_0",
+            "earlier_activity": "http://kg.workflow.validation/activity/st_step_134203_0",
+            "later_time_before": "2018-12-13T08:21:09+01:00",
+            "earlier_time": "2018-12-11T12:26:55+01:00",
+            "later_time_after": "2018-12-11T11:31:57+01:00"
+          }
+        },
+        {
+          "rule_id": "R4",
+          "action": "broke_wasInformedBy_temporal_order",
+          "details": {
+            "later_activity": "http://kg.workflow.validation/activity/st_step_91453_0",
+            "earlier_activity": "http://kg.workflow.validation/activity/st_step_91452_0",
+            "later_time_before": "2017-12-08T11:49:16+01:00",
+            "earlier_time": "2017-12-08T11:46:16+01:00",
+            "later_time_after": "2017-12-08T11:24:43+01:00"
+          }
+        },
+        {
+          "rule_id": "R4",
+          "action": "broke_wasInformedBy_temporal_order",
+          "details": {
+            "later_activity": "http://kg.workflow.validation/activity/st_step_89729_0",
+            "earlier_activity": "http://kg.workflow.validation/activity/st_step_89730_0",
+            "later_time_before": "2017-03-29T10:49:29+02:00",
+            "earlier_time": "2017-03-29T10:49:19+02:00",
+            "later_time_after": "2017-03-29T10:21:55+02:00"
+          }
+        }
+      ],
+      "xes_line_count": 468572
+    },
+    {
+      "dataset": "full",
+      "rule": "R5",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5_full",
+      "bench_run_name": "bench_r5_full",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849664,
+      "conversion_seconds": 37.63436,
+      "load_seconds": 25.696196,
+      "validation_seconds": 2.155148,
+      "injected": 100,
+      "violations_detected": 100,
+      "precision_recall": {
+        "true_positives": 100,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R5",
+          "action": "changed_payment_resource_from_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91957_20",
+            "resource_before": "SYSTEM",
+            "resource_after": "Fictional Payment Handler"
+          }
+        },
+        {
+          "rule_id": "R5",
+          "action": "changed_payment_resource_from_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89680_20",
+            "resource_before": "SYSTEM",
+            "resource_after": "BOGUS_RESOURCE_8019"
+          }
+        },
+        {
+          "rule_id": "R5",
+          "action": "changed_payment_resource_from_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100137_20",
+            "resource_before": "SYSTEM",
+            "resource_after": "UNDEFINED"
+          }
+        }
+      ],
+      "xes_line_count": 468572
+    },
+    {
+      "dataset": "full",
+      "rule": "R5B",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_full",
+      "bench_run_name": "bench_r5b_full",
+      "status": "PASS",
+      "ok": true,
+      "note": "exact match",
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849664,
+      "conversion_seconds": 37.63436,
+      "load_seconds": 25.696196,
+      "validation_seconds": 0.892148,
+      "injected": 100,
+      "violations_detected": 100,
+      "precision_recall": {
+        "true_positives": 100,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R5B",
+          "action": "set_payment_role_to_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91957_20",
+            "role_before": "UNDEFINED",
+            "role_after": "EMPLOYEE"
+          }
+        },
+        {
+          "rule_id": "R5B",
+          "action": "set_payment_role_to_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89680_20",
+            "role_before": "UNDEFINED",
+            "role_after": "EMPLOYEE"
+          }
+        },
+        {
+          "rule_id": "R5B",
+          "action": "set_payment_role_to_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100137_20",
+            "role_before": "UNDEFINED",
+            "role_after": "EMPLOYEE"
+          }
+        }
+      ],
+      "xes_line_count": 468572
+    },
+    {
+      "dataset": "full",
+      "rule": "R6",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r6_full",
+      "bench_run_name": "bench_r6_full",
+      "status": "PASS",
+      "ok": true,
+      "note": "violations 109 >= applied 100 (+9 pre-existing invalid payments)",
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849664,
+      "conversion_seconds": 37.63436,
+      "load_seconds": 25.696196,
+      "validation_seconds": 2.780305,
+      "injected": 100,
+      "violations_detected": 109,
+      "precision_recall": {
+        "true_positives": 100,
+        "false_positives": 9,
+        "false_negatives": 0,
+        "precision": 0.9174,
+        "recall": 1.0,
+        "note": "FP may include pre-existing faults (notably R6 on full) or collateral edges; entity matching is best-effort from corruption details."
+      },
+      "sample_injected": [
+        {
+          "rule_id": "R6",
+          "action": "removed_payment_wasInformedBy",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_87871_20",
+            "request": "http://kg.workflow.validation/activity/dd_declaration_87871_19",
+            "approval": "http://kg.workflow.validation/activity/st_step_87874_0",
+            "submission": "http://kg.workflow.validation/activity/st_step_87873_0",
+            "case": "http://kg.workflow.validation/case/declaration_87871",
+            "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_87871_19"
+          }
+        },
+        {
+          "rule_id": "R6",
+          "action": "removed_payment_wasInformedBy",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_89680_20",
+            "request": "http://kg.workflow.validation/activity/dd_declaration_89680_19",
+            "approval": "http://kg.workflow.validation/activity/st_step_89683_0",
+            "submission": "http://kg.workflow.validation/activity/st_step_89682_0",
+            "case": "http://kg.workflow.validation/case/declaration_89680",
+            "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_89680_19"
+          }
+        },
+        {
+          "rule_id": "R6",
+          "action": "removed_payment_wasInformedBy",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_100149_20",
+            "request": "http://kg.workflow.validation/activity/dd_declaration_100149_19",
+            "approval": "http://kg.workflow.validation/activity/st_step_100153_0",
+            "submission": "http://kg.workflow.validation/activity/st_step_100151_0",
+            "case": "http://kg.workflow.validation/case/declaration_100149",
+            "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_100149_19"
+          }
+        }
+      ],
+      "xes_line_count": 468572
+    }
+  ],
+  "combined_updated_at": "2026-07-22T11:27:27.688474+00:00",
+  "combined_cases": [
+    {
+      "dataset": "10declarations",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_all_10declarations",
+      "bench_run_name": "bench_all_10declarations",
+      "requested_count_per_rule": 5,
+      "total_injected": 35,
+      "total_detected": 52,
+      "traces": 10,
+      "events": 52,
+      "triples": 772,
+      "conversion_seconds": 0.043792,
+      "load_seconds": 0.017248,
+      "validation_seconds_total": 0.214996,
+      "ok": true,
+      "per_rule": [
+        {
+          "rule": "R1",
+          "applied": 5,
+          "eligible": 52,
+          "detected": 5,
+          "validation_seconds": 0.14395,
+          "precision_recall": {
+            "true_positives": 5,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 5 >= applied 5",
+          "sample_injected": [
+            {
+              "rule_id": "R1",
+              "action": "removed_belongsToCase",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/st_step_86733_0",
+                "removed_cases": "http://kg.workflow.validation/case/declaration_86731",
+                "case_count_before": "1"
+              }
+            },
+            {
+              "rule_id": "R1",
+              "action": "removed_belongsToCase",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/dd_declaration_86731_19",
+                "removed_cases": "http://kg.workflow.validation/case/declaration_86731",
+                "case_count_before": "1"
+              }
+            }
+          ],
+          "issue_counts": {
+            "missing_belongsToCase": 5
+          }
+        },
+        {
+          "rule": "R2",
+          "applied": 5,
+          "eligible": 52,
+          "detected": 7,
+          "validation_seconds": 0.009697,
+          "precision_recall": {
+            "true_positives": 5,
+            "false_positives": 2,
+            "false_negatives": 0,
+            "precision": 0.7143,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 7 >= applied 5 (+2 collateral/baseline)",
+          "sample_injected": [
+            {
+              "rule_id": "R2",
+              "action": "removed_time_timestamp",
+              "details": {
+                "trace_id": "declaration 86716",
+                "event_id": "dd_declaration 86716_20",
+                "removed_values": "2017-01-16T17:32:14.000+01:00"
+              }
+            },
+            {
+              "rule_id": "R2",
+              "action": "removed_time_timestamp",
+              "details": {
+                "trace_id": "declaration 86795",
+                "event_id": "dd_declaration 86795_19",
+                "removed_values": "2017-03-06T14:07:25.000+01:00"
+              }
+            }
+          ],
+          "issue_counts": {
+            "missing_startedAtTime": 7
+          }
+        },
+        {
+          "rule": "R3",
+          "applied": 5,
+          "eligible": 52,
+          "detected": 7,
+          "validation_seconds": 0.017466,
+          "precision_recall": {
+            "true_positives": 5,
+            "false_positives": 2,
+            "false_negatives": 0,
+            "precision": 0.7143,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 7 >= applied 5 (+2 collateral/baseline)",
+          "sample_injected": [
+            {
+              "rule_id": "R3",
+              "action": "removed_wasAssociatedWith",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/st_step_86722_0",
+                "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+              }
+            },
+            {
+              "rule_id": "R3",
+              "action": "removed_wasAssociatedWith",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/st_step_86727_0",
+                "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+              }
+            }
+          ],
+          "issue_counts": {
+            "missing_agent_association": 7
+          }
+        },
+        {
+          "rule": "R4",
+          "applied": 5,
+          "eligible": 34,
+          "detected": 14,
+          "validation_seconds": 0.027364,
+          "precision_recall": {
+            "true_positives": 5,
+            "false_positives": 9,
+            "false_negatives": 0,
+            "precision": 0.3571,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 14 >= applied 5 (+9 collateral/baseline)",
+          "sample_injected": [
+            {
+              "rule_id": "R4",
+              "action": "broke_wasInformedBy_temporal_order",
+              "details": {
+                "later_activity": "http://kg.workflow.validation/activity/dd_declaration_86809_19",
+                "earlier_activity": "http://kg.workflow.validation/activity/st_step_86811_0",
+                "later_time_before": "2017-01-27T10:55:21+01:00",
+                "earlier_time": "2017-01-20T14:44:43+01:00",
+                "later_time_after": "2017-01-20T13:57:58+01:00"
+              }
+            },
+            {
+              "rule_id": "R4",
+              "action": "broke_wasInformedBy_temporal_order",
+              "details": {
+                "later_activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
+                "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19",
+                "later_time_before": "2017-01-12T17:31:22+01:00",
+                "earlier_time": "2017-01-10T09:34:44+01:00",
+                "later_time_after": "2017-01-10T09:12:35+01:00"
+              }
+            }
+          ],
+          "issue_counts": {
+            "missing_startedAtTime_on_informed_activity": 1,
+            "non_monotonic_wasInformedBy": 7,
+            "missing_startedAtTime_on_informing_activity": 6
+          }
+        },
+        {
+          "rule": "R5",
+          "applied": 5,
+          "eligible": 10,
+          "detected": 5,
+          "validation_seconds": 0.00899,
+          "precision_recall": {
+            "true_positives": 5,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 5 >= applied 5",
+          "sample_injected": [
+            {
+              "rule_id": "R5",
+              "action": "changed_payment_resource_from_system",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
+                "resource_before": "SYSTEM",
+                "resource_after": "BOGUS_RESOURCE_1434"
+              }
+            },
+            {
+              "rule_id": "R5",
+              "action": "changed_payment_resource_from_system",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
+                "resource_before": "SYSTEM",
+                "resource_after": "(empty)"
+              }
+            }
+          ],
+          "issue_counts": {
+            "payment_not_handled_by_system": 5
+          }
+        },
+        {
+          "rule": "R5B",
+          "applied": 5,
+          "eligible": 10,
+          "detected": 5,
+          "validation_seconds": 0.006547,
+          "precision_recall": {
+            "true_positives": 5,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 5 >= applied 5",
+          "sample_injected": [
+            {
+              "rule_id": "R5B",
+              "action": "set_payment_role_to_employee",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/dd_declaration_86800_20",
+                "role_before": "UNDEFINED",
+                "role_after": "EMPLOYEE"
+              }
+            },
+            {
+              "rule_id": "R5B",
+              "action": "set_payment_role_to_employee",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
+                "role_before": "UNDEFINED",
+                "role_after": "EMPLOYEE"
+              }
+            }
+          ],
+          "issue_counts": {
+            "payment_handled_by_employee": 5
+          }
+        },
+        {
+          "rule": "R6",
+          "applied": 5,
+          "eligible": 6,
+          "detected": 9,
+          "validation_seconds": 0.000876,
+          "precision_recall": {
+            "true_positives": 5,
+            "false_positives": 4,
+            "false_negatives": 0,
+            "precision": 0.5556,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 9 >= applied 5 (+4 collateral/baseline)",
+          "sample_injected": [
+            {
+              "rule_id": "R6",
+              "action": "scrambled_payment_provenance_order",
+              "details": {
+                "payment": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
+                "request": "http://kg.workflow.validation/activity/dd_declaration_86735_19",
+                "approval": "http://kg.workflow.validation/activity/st_step_86737_0",
+                "submission": "http://kg.workflow.validation/activity/st_step_86738_0",
+                "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_86735_19",
+                "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_86737_0",
+                "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_86738_0",
+                "case": "http://kg.workflow.validation/case/declaration_86735",
+                "new_order": "http://kg.workflow.validation/activity/dd_declaration_86735_20 -> http://kg.workflow.validation/activity/st_step_86738_0 -> http://kg.workflow.validation/activity/dd_declaration_86735_19 -> http://kg.workflow.validation/activity/st_step_86737_0"
+              }
+            },
+            {
+              "rule_id": "R6",
+              "action": "inserted_bogus_payment_stage",
+              "details": {
+                "payment": "http://kg.workflow.validation/activity/dd_declaration_86805_20",
+                "request": "http://kg.workflow.validation/activity/dd_declaration_86805_19",
+                "approval": "http://kg.workflow.validation/activity/st_step_86808_0",
+                "submission": "http://kg.workflow.validation/activity/st_step_86807_0",
+                "case": "http://kg.workflow.validation/case/declaration_86805",
+                "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_733052",
+                "bogus_label": "Fictional Approval Step",
+                "mode": "dead_end",
+                "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_86805_19",
+                "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_86808_0",
+                "path_after": "http://kg.workflow.validation/activity/dd_declaration_86805_20 -> http://kg.workflow.validation/activity/bogus_stage_733052"
+              }
+            }
+          ],
+          "issue_counts": {
+            "invalid_payment_provenance_chain": 9
+          }
+        }
+      ],
+      "validation_report": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_all_10declarations\\validation.json",
+      "sample_injected_all": [
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 86716",
+            "event_id": "dd_declaration 86716_20",
+            "removed_values": "2017-01-16T17:32:14.000+01:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 86795",
+            "event_id": "dd_declaration 86795_19",
+            "removed_values": "2017-03-06T14:07:25.000+01:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 86791",
+            "event_id": "st_step 86793_0",
+            "removed_values": "2017-01-09T11:27:48.000+01:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 86720",
+            "event_id": "st_step 86724_0",
+            "removed_values": "2017-01-19T16:13:16.000+01:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 86731",
+            "event_id": "dd_declaration 86731_20",
+            "removed_values": "2017-01-16T17:32:14.000+01:00"
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "full",
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_all_full",
+      "bench_run_name": "bench_all_full",
+      "requested_count_per_rule": 100,
+      "total_injected": 700,
+      "total_detected": 1121,
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849364,
+      "conversion_seconds": 59.950171,
+      "load_seconds": 46.380162,
+      "validation_seconds_total": 39.363959,
+      "ok": true,
+      "per_rule": [
+        {
+          "rule": "R1",
+          "applied": 100,
+          "eligible": 56437,
+          "detected": 100,
+          "validation_seconds": 8.663144,
+          "precision_recall": {
+            "true_positives": 100,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 100 >= applied 100",
+          "sample_injected": [
+            {
+              "rule_id": "R1",
+              "action": "removed_belongsToCase",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/dd_declaration_113719_20",
+                "removed_cases": "http://kg.workflow.validation/case/declaration_113719",
+                "case_count_before": "1"
+              }
+            },
+            {
+              "rule_id": "R1",
+              "action": "removed_belongsToCase",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/dd_declaration_122927_20",
+                "removed_cases": "http://kg.workflow.validation/case/declaration_122927",
+                "case_count_before": "1"
+              }
+            }
+          ],
+          "issue_counts": {
+            "missing_belongsToCase": 100
+          }
+        },
+        {
+          "rule": "R2",
+          "applied": 100,
+          "eligible": 56437,
+          "detected": 138,
+          "validation_seconds": 4.264984,
+          "precision_recall": {
+            "true_positives": 100,
+            "false_positives": 38,
+            "false_negatives": 0,
+            "precision": 0.7246,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 138 >= applied 100 (+38 collateral/baseline)",
+          "sample_injected": [
+            {
+              "rule_id": "R2",
+              "action": "removed_time_timestamp",
+              "details": {
+                "trace_id": "declaration 123041",
+                "event_id": "st_step 123044_0",
+                "removed_values": "2018-09-20T19:30:18.000+02:00"
+              }
+            },
+            {
+              "rule_id": "R2",
+              "action": "removed_time_timestamp",
+              "details": {
+                "trace_id": "declaration 96433",
+                "event_id": "dd_declaration 96433_19",
+                "removed_values": "2017-10-17T17:21:57.000+02:00"
+              }
+            }
+          ],
+          "issue_counts": {
+            "missing_startedAtTime": 138
+          }
+        },
+        {
+          "rule": "R3",
+          "applied": 100,
+          "eligible": 56437,
+          "detected": 138,
+          "validation_seconds": 4.327135,
+          "precision_recall": {
+            "true_positives": 100,
+            "false_positives": 38,
+            "false_negatives": 0,
+            "precision": 0.7246,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 138 >= applied 100 (+38 collateral/baseline)",
+          "sample_injected": [
+            {
+              "rule_id": "R3",
+              "action": "removed_wasAssociatedWith",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/st_step_125751_0",
+                "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+              }
+            },
+            {
+              "rule_id": "R3",
+              "action": "removed_wasAssociatedWith",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/st_step_96074_0",
+                "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+              }
+            }
+          ],
+          "issue_counts": {
+            "missing_agent_association": 138
+          }
+        },
+        {
+          "rule": "R4",
+          "applied": 100,
+          "eligible": 45783,
+          "detected": 323,
+          "validation_seconds": 16.508885,
+          "precision_recall": {
+            "true_positives": 100,
+            "false_positives": 222,
+            "false_negatives": 0,
+            "precision": 0.3106,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 323 >= applied 100 (+223 collateral/baseline)",
+          "sample_injected": [
+            {
+              "rule_id": "R4",
+              "action": "broke_wasInformedBy_temporal_order",
+              "details": {
+                "later_activity": "http://kg.workflow.validation/activity/dd_declaration_88341_20",
+                "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_88341_19",
+                "later_time_before": "2017-08-14T17:30:53+02:00",
+                "earlier_time": "2017-08-10T13:48:17+02:00",
+                "later_time_after": "2017-08-10T13:33:10+02:00"
+              }
+            },
+            {
+              "rule_id": "R4",
+              "action": "broke_wasInformedBy_temporal_order",
+              "details": {
+                "later_activity": "http://kg.workflow.validation/activity/dd_declaration_121890_19",
+                "earlier_activity": "http://kg.workflow.validation/activity/st_step_121892_0",
+                "later_time_before": "2018-09-28T11:25:39+02:00",
+                "earlier_time": "2018-09-18T08:09:35+02:00",
+                "later_time_after": "2018-09-18T07:12:26+02:00"
+              }
+            }
+          ],
+          "issue_counts": {
+            "missing_startedAtTime_on_informed_activity": 33,
+            "non_monotonic_wasInformedBy": 152,
+            "missing_startedAtTime_on_informing_activity": 138
+          }
+        },
+        {
+          "rule": "R5",
+          "applied": 100,
+          "eligible": 10044,
+          "detected": 100,
+          "validation_seconds": 2.162677,
+          "precision_recall": {
+            "true_positives": 100,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 100 >= applied 100",
+          "sample_injected": [
+            {
+              "rule_id": "R5",
+              "action": "changed_payment_resource_from_system",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/dd_declaration_141738_20",
+                "resource_before": "SYSTEM",
+                "resource_after": "STAFF MEMBER"
+              }
+            },
+            {
+              "rule_id": "R5",
+              "action": "changed_payment_resource_from_system",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/dd_declaration_119640_20",
+                "resource_before": "SYSTEM",
+                "resource_after": "BOGUS_RESOURCE_2638"
+              }
+            }
+          ],
+          "issue_counts": {
+            "payment_not_handled_by_system": 100
+          }
+        },
+        {
+          "rule": "R5B",
+          "applied": 100,
+          "eligible": 10044,
+          "detected": 100,
+          "validation_seconds": 1.008615,
+          "precision_recall": {
+            "true_positives": 100,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 100 >= applied 100",
+          "sample_injected": [
+            {
+              "rule_id": "R5B",
+              "action": "set_payment_role_to_employee",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/dd_declaration_137864_20",
+                "role_before": "UNDEFINED",
+                "role_after": "EMPLOYEE"
+              }
+            },
+            {
+              "rule_id": "R5B",
+              "action": "set_payment_role_to_employee",
+              "details": {
+                "activity": "http://kg.workflow.validation/activity/dd_declaration_121964_20",
+                "role_before": "UNDEFINED",
+                "role_after": "EMPLOYEE"
+              }
+            }
+          ],
+          "issue_counts": {
+            "payment_handled_by_employee": 100
+          }
+        },
+        {
+          "rule": "R6",
+          "applied": 100,
+          "eligible": 9922,
+          "detected": 222,
+          "validation_seconds": 2.428264,
+          "precision_recall": {
+            "true_positives": 100,
+            "false_positives": 122,
+            "false_negatives": 0,
+            "precision": 0.4505,
+            "recall": 1.0
+          },
+          "ok": true,
+          "note": "detected 222 >= applied 100 (+122 collateral/baseline)",
+          "sample_injected": [
+            {
+              "rule_id": "R6",
+              "action": "inserted_bogus_payment_stage",
+              "details": {
+                "payment": "http://kg.workflow.validation/activity/dd_declaration_89078_20",
+                "request": "http://kg.workflow.validation/activity/dd_declaration_89078_19",
+                "approval": "http://kg.workflow.validation/activity/st_step_89080_0",
+                "submission": "http://kg.workflow.validation/activity/st_step_89081_0",
+                "case": "http://kg.workflow.validation/case/declaration_89078",
+                "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_825391",
+                "bogus_label": "Bogus Intermediate Stage",
+                "mode": "skip_request",
+                "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_89078_19",
+                "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_89080_0",
+                "path_after": "http://kg.workflow.validation/activity/dd_declaration_89078_20 -> http://kg.workflow.validation/activity/bogus_stage_825391 -> http://kg.workflow.validation/activity/st_step_89080_0"
+              }
+            },
+            {
+              "rule_id": "R6",
+              "action": "removed_payment_wasInformedBy",
+              "details": {
+                "payment": "http://kg.workflow.validation/activity/dd_declaration_92631_20",
+                "request": "http://kg.workflow.validation/activity/dd_declaration_92631_19",
+                "approval": "http://kg.workflow.validation/activity/st_step_92634_0",
+                "submission": "http://kg.workflow.validation/activity/st_step_92633_0",
+                "case": "http://kg.workflow.validation/case/declaration_92631",
+                "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_92631_19"
+              }
+            }
+          ],
+          "issue_counts": {
+            "invalid_payment_provenance_chain": 222
+          }
+        }
+      ],
+      "validation_report": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_all_full\\validation.json",
+      "sample_injected_all": [
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 123041",
+            "event_id": "st_step 123044_0",
+            "removed_values": "2018-09-20T19:30:18.000+02:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 96433",
+            "event_id": "dd_declaration 96433_19",
+            "removed_values": "2017-10-17T17:21:57.000+02:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 89602",
+            "event_id": "dd_declaration 89602_20",
+            "removed_values": "2017-03-16T17:31:06.000+01:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 131287",
+            "event_id": "st_step 131291_0",
+            "removed_values": "2018-11-08T14:37:41.000+01:00"
+          }
+        },
+        {
+          "rule_id": "R2",
+          "action": "removed_time_timestamp",
+          "details": {
+            "trace_id": "declaration 109087",
+            "event_id": "dd_declaration 109087_19",
+            "removed_values": "2018-03-15T22:15:37.000+01:00"
+          }
+        }
+      ]
+    }
+  ]
+}

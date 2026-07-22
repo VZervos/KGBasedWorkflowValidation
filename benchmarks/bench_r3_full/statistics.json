@@ -1,0 +1,901 @@
+{
+  "run_name": "bench_r3_full",
+  "run_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r3_full",
+  "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.xes.gz",
+  "seed": 42,
+  "xes_line_count": 468572,
+  "started_at": "2026-07-22T09:56:16.931754+00:00",
+  "finished_at": "2026-07-22T09:59:07.126323+00:00",
+  "notes": {
+    "r1": "wf:belongsToCase is created during conversion, so R1 faults are injected on the generated KG by removing belongsToCase links.",
+    "r2": "time:timestamp attributes are removed from random XES events before conversion, so activities lack prov:startedAtTime.",
+    "r3": "prov:wasAssociatedWith is created during conversion, so R3 faults are injected on the KG by removing agent associations.",
+    "r4": "R4 faults are injected on the KG by randomly either breaking wasInformedBy temporal order (later.startedAtTime < earlier) or removing startedAtTime while keeping endedAtTime.",
+    "r5": "Payment Handled activities that use SYSTEM get a random invalid attr:xes-attr_org_resource (known roles, empty, or invented BOGUS_RESOURCE_* values).",
+    "r5b": "Payment Handled activities have their org:role rewritten to EMPLOYEE.",
+    "r6": "Payment Handled activities with a valid provenance chain are corrupted by randomly choosing one of: scramble milestone wasInformedBy order; insert a bogus intermediate activity; or remove Payment Handled's wasInformedBy link(s).",
+    "percent": "When percent is set, target count = floor(percent/100 * xes_line_count), capped by the number of eligible items for that rule."
+  },
+  "requested": {
+    "r1": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r2": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r3": {
+      "enabled": true,
+      "count": 100,
+      "percent": null
+    },
+    "r4": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r5": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r5b": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r6": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    }
+  },
+  "applied": {
+    "r1": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r2": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r3": {
+      "eligible": 56437,
+      "target": 100,
+      "applied": 100
+    },
+    "r4": {
+      "eligible": 45937,
+      "target": 0,
+      "applied": 0
+    },
+    "r5": {
+      "eligible": 10044,
+      "target": 0,
+      "applied": 0
+    },
+    "r5b": {
+      "eligible": 10044,
+      "target": 0,
+      "applied": 0
+    },
+    "r6": {
+      "eligible": 10035,
+      "target": 0,
+      "applied": 0
+    }
+  },
+  "corruption_count": 100,
+  "corruptions": [
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_123041_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_96437_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_89605_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_131287_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_109092_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_101017_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_110593_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_90676_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_139095_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_96039_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_131373_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_140219_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_119414_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_87394_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_112811_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_114735_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_89115_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_89853_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_94414_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_110516_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_100343_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_117519_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_122722_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_90246_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_110800_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_109814_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_130800_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_142148_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_138071_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_118970_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_114979_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_110546_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_126237_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_128085_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_99601_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_130967_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_88828_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_132156_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_135111_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_98743_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_138016_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_123436_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_108431_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_102554_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_99126_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_110317_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_141931_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_108205_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_96253_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_96298_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_115218_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_91021_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_104217_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_131013_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_103753_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_122772_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_105484_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_137073_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_89126_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_136282_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_115950_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_118991_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_94142_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_115410_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_95762_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_119492_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_110043_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_142785_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_111839_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_120721_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_99885_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_122287_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_101224_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_136354_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_95472_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_90043_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_134801_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_97451_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_133268_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_109479_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_95778_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_131487_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_106070_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_96483_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_116115_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_102559_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_124616_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_112132_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_137857_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_115656_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_99169_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_124387_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_99350_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_102092_19",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_134150_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_107225_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_138087_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_141101_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_137166_20",
+        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+      }
+    },
+    {
+      "rule_id": "R3",
+      "action": "removed_wasAssociatedWith",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/st_step_93500_0",
+        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+      }
+    }
+  ],
+  "outputs": {
+    "corrupted_xes": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r3_full\\DomesticDeclarations.corrupted.xes",
+    "corrupted_knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r3_full\\DomesticDeclarations.corrupted.prov.ttl",
+    "statistics": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r3_full\\statistics.json"
+  }
+}

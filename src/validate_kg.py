@@ -12,12 +12,13 @@ from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
-from rdflib import Graph
+from rdflib import Graph, Literal
+from rdflib.namespace import PROV, RDF, RDFS
 from rdflib.query import ResultRow
 
 from src.pipeline_config import load_pipeline_config
 from src.validation_rules import VALIDATION_RULES, ValidationRule
-from src.xes_to_prov_kg import load_graph
+from src.xes_to_prov_kg import WF, load_graph
 
 
 @dataclass(frozen=True)
@@ -63,13 +64,85 @@ def _row_bindings(row: ResultRow) -> dict[str, str]:
     return bindings
 
 
+def _ancestors(graph: Graph, start) -> set:
+    seen: set = set()
+    stack = [start]
+    while stack:
+        node = stack.pop()
+        if node in seen:
+            continue
+        seen.add(node)
+        for earlier in graph.objects(node, PROV.wasInformedBy):
+            stack.append(earlier)
+    return seen
+
+
+def _has_valid_payment_chain(graph: Graph, payment) -> bool:
+    """Same semantics as R6 SPARQL, but O(edges) BFS instead of SPARQL property paths."""
+    cases = list(graph.objects(payment, WF.belongsToCase))
+    if len(cases) != 1:
+        return False
+    case = cases[0]
+    request_label = Literal("Request Payment")
+    approval_label = Literal("Declaration FINAL_APPROVED by SUPERVISOR")
+    submission_label = Literal("Declaration SUBMITTED by EMPLOYEE")
+
+    for request in _ancestors(graph, payment):
+        if request_label not in set(graph.objects(request, RDFS.label)):
+            continue
+        if case not in set(graph.objects(request, WF.belongsToCase)):
+            continue
+        for approval in _ancestors(graph, request):
+            if approval_label not in set(graph.objects(approval, RDFS.label)):
+                continue
+            if case not in set(graph.objects(approval, WF.belongsToCase)):
+                continue
+            for submission in _ancestors(graph, approval):
+                if submission_label not in set(graph.objects(submission, RDFS.label)):
+                    continue
+                if case in set(graph.objects(submission, WF.belongsToCase)):
+                    return True
+    return False
+
+
+def _run_r6_python(graph: Graph) -> list[RuleViolation]:
+    payment_label = Literal("Payment Handled")
+    violations: list[RuleViolation] = []
+    for payment in graph.subjects(RDF.type, PROV.Activity):
+        if payment_label not in set(graph.objects(payment, RDFS.label)):
+            continue
+        cases = list(graph.objects(payment, WF.belongsToCase))
+        if not cases:
+            violations.append(
+                RuleViolation(
+                    issue="invalid_payment_provenance_chain",
+                    details={"payment": str(payment), "case": "(missing)"},
+                )
+            )
+            continue
+        # One violation per payment if no valid chain for its primary case.
+        case = cases[0]
+        if not _has_valid_payment_chain(graph, payment):
+            violations.append(
+                RuleViolation(
+                    issue="invalid_payment_provenance_chain",
+                    details={"payment": str(payment), "case": str(case)},
+                )
+            )
+    return violations
+
+
 def _run_rule(graph: Graph, rule: ValidationRule) -> RuleResult:
     started = time.perf_counter()
-    violations: list[RuleViolation] = []
-    for row in graph.query(rule.query):
-        details = _row_bindings(row)
-        issue = details.pop("issue", "violation")
-        violations.append(RuleViolation(issue=issue, details=details))
+    # rdflib property paths are too slow on large graphs for R6.
+    if rule.rule_id == "R6":
+        violations = _run_r6_python(graph)
+    else:
+        violations = []
+        for row in graph.query(rule.query):
+            details = _row_bindings(row)
+            issue = details.pop("issue", "violation")
+            violations.append(RuleViolation(issue=issue, details=details))
     duration = round(time.perf_counter() - started, 6)
 
     return RuleResult(

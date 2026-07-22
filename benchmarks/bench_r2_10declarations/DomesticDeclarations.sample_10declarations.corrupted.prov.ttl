@@ -1,0 +1,812 @@
+@prefix attr: <http://www.xes-standard.org/attribute/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wf: <http://kg.workflow.validation/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://kg.workflow.validation/activity/dd_declaration_86716_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86716> ;
+    prov:endedAtTime "2017-01-13T14:09:36+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-13T14:09:36+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86716> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86718_0> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86716_19" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-13T14:09:36+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86720_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:endedAtTime "2017-01-26T17:30:39+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-26T17:30:39+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86720_19> ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86720_20" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-26T17:30:39+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86731_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86731> ;
+    prov:endedAtTime "2017-01-11T14:37:18+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-11T14:37:18+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86731> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86734_0> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86731_19" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-11T14:37:18+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86735_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86735> ;
+    prov:endedAtTime "2017-01-16T17:32:14+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-16T17:32:14+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86735> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86735_19> ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86735_20" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-16T17:32:14+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86791_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86791> ;
+    prov:endedAtTime "2017-01-12T17:31:22+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-12T17:31:22+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86791> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86791_19> ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86791_20" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-12T17:31:22+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86795_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86795> ;
+    prov:endedAtTime "2017-03-13T17:30:59+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-03-13T17:30:59+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86795> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86797_0> ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86795_20" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-03-13T17:30:59+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86800_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86800> ;
+    prov:endedAtTime "2017-02-13T17:32:14+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-02-13T17:32:14+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86800> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86800_19> ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86800_20" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-02-13T17:32:14+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86805_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86805> ;
+    prov:endedAtTime "2017-01-30T17:31:35+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-30T17:31:35+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86805> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86805_19> ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86805_20" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-30T17:31:35+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86809_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:endedAtTime "2017-01-30T17:31:35+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-30T17:31:35+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86809_19> ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86809_20" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-30T17:31:35+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86816_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86816> ;
+    prov:endedAtTime "2017-01-16T17:32:14+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-16T17:32:14+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86816> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86816_19> ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86816_20" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-16T17:32:14+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86720_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:endedAtTime "2017-01-23T13:04:01+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-23T13:04:01+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86722_0> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86720_19" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-23T13:04:01+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86735_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86735> ;
+    prov:endedAtTime "2017-01-11T14:37:18+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-11T14:37:18+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86735> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86737_0> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86735_19" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-11T14:37:18+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86791_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86791> ;
+    prov:endedAtTime "2017-01-10T09:34:44+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-10T09:34:44+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86791> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86794_0> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86791_19" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-10T09:34:44+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86800_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86800> ;
+    prov:endedAtTime "2017-02-09T16:00:15+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-02-09T16:00:15+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86800> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86803_0> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86800_19" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-02-09T16:00:15+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86805_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86805> ;
+    prov:endedAtTime "2017-01-25T10:31:31+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-25T10:31:31+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86805> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86808_0> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86805_19" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-25T10:31:31+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86809_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:endedAtTime "2017-01-27T10:55:21+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-27T10:55:21+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86811_0> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86809_19" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-27T10:55:21+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86816_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86816> ;
+    prov:endedAtTime "2017-01-11T09:04:31+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-11T09:04:31+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86816> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86818_0> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86816_19" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" ;
+    attr:xes-attr_time_timestamp "2017-01-11T09:04:31+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86718_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86716> ;
+    prov:endedAtTime "2017-01-09T15:11:23+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T15:11:23+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86716> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86719_0> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86718_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" ;
+    attr:xes-attr_time_timestamp "2017-01-09T15:11:23+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86719_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86716> ;
+    prov:endedAtTime "2017-01-09T15:10:05+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T15:10:05+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86716> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86716_20> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86719_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-09T15:10:05+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86722_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:endedAtTime "2017-01-23T08:52:57+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-23T08:52:57+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86723_0> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86722_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" ;
+    attr:xes-attr_time_timestamp "2017-01-23T08:52:57+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86723_0> a prov:Activity ;
+    rdfs:label "Declaration APPROVED by PRE_APPROVER" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:endedAtTime "2017-01-19T16:13:46+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-19T16:13:46+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86727_0> ;
+    attr:xes-attr_concept_name "Declaration APPROVED by PRE_APPROVER" ;
+    attr:xes-attr_id "st_step 86723_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "PRE_APPROVER" ;
+    attr:xes-attr_time_timestamp "2017-01-19T16:13:46+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86725_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:endedAtTime "2017-01-17T16:51:42+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-17T16:51:42+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86730_0> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86725_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-17T16:51:42+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86726_0> a prov:Activity ;
+    rdfs:label "Declaration REJECTED by PRE_APPROVER" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:endedAtTime "2017-01-17T16:51:54+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-17T16:51:54+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86725_0> ;
+    attr:xes-attr_concept_name "Declaration REJECTED by PRE_APPROVER" ;
+    attr:xes-attr_id "st_step 86726_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "PRE_APPROVER" ;
+    attr:xes-attr_time_timestamp "2017-01-17T16:51:54+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86727_0> a prov:Activity ;
+    rdfs:label "Declaration REJECTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:endedAtTime "2017-01-19T12:19:38+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-19T12:19:38+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86726_0> ;
+    attr:xes-attr_concept_name "Declaration REJECTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86727_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-19T12:19:38+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86728_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:endedAtTime "2017-01-09T15:57:21+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T15:57:21+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86724_0> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86728_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-09T15:57:21+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86729_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:endedAtTime "2017-01-09T15:57:24+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T15:57:24+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86728_0> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86729_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" ;
+    attr:xes-attr_time_timestamp "2017-01-09T15:57:24+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86730_0> a prov:Activity ;
+    rdfs:label "Declaration REJECTED by MISSING" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:endedAtTime "2017-01-10T13:08:27+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-10T13:08:27+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86729_0> ;
+    attr:xes-attr_concept_name "Declaration REJECTED by MISSING" ;
+    attr:xes-attr_id "st_step 86730_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "MISSING" ;
+    attr:xes-attr_time_timestamp "2017-01-10T13:08:27+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86733_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86731> ;
+    prov:endedAtTime "2017-01-09T11:24:20+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T11:24:20+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86731> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86731_20> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86733_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-09T11:24:20+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86734_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86731> ;
+    prov:endedAtTime "2017-01-09T11:37:23+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T11:37:23+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86731> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86733_0> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86734_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" ;
+    attr:xes-attr_time_timestamp "2017-01-09T11:37:23+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86737_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86735> ;
+    prov:endedAtTime "2017-01-09T11:37:18+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T11:37:18+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86735> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86738_0> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86737_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" ;
+    attr:xes-attr_time_timestamp "2017-01-09T11:37:18+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86794_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86791> ;
+    prov:endedAtTime "2017-01-09T09:49:50+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T09:49:50+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86791> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86793_0> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86794_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-09T09:49:50+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86797_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86795> ;
+    prov:endedAtTime "2017-02-23T08:14:45+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-02-23T08:14:45+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86795> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86799_0> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86797_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" ;
+    attr:xes-attr_time_timestamp "2017-02-23T08:14:45+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86798_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86795> ;
+    prov:endedAtTime "2017-01-09T10:26:14+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T10:26:14+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86795> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86795_19> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86798_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-09T10:26:14+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86799_0> a prov:Activity ;
+    rdfs:label "Declaration APPROVED by PRE_APPROVER" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86795> ;
+    prov:endedAtTime "2017-02-22T10:29:21+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-02-22T10:29:21+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86795> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86798_0> ;
+    attr:xes-attr_concept_name "Declaration APPROVED by PRE_APPROVER" ;
+    attr:xes-attr_id "st_step 86799_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "PRE_APPROVER" ;
+    attr:xes-attr_time_timestamp "2017-02-22T10:29:21+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86802_0> a prov:Activity ;
+    rdfs:label "Declaration APPROVED by PRE_APPROVER" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86800> ;
+    prov:endedAtTime "2017-02-02T18:58:50+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-02-02T18:58:50+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86800> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86804_0> ;
+    attr:xes-attr_concept_name "Declaration APPROVED by PRE_APPROVER" ;
+    attr:xes-attr_id "st_step 86802_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "PRE_APPROVER" ;
+    attr:xes-attr_time_timestamp "2017-02-02T18:58:50+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86803_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86800> ;
+    prov:endedAtTime "2017-02-09T05:15:04+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-02-09T05:15:04+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86800> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86802_0> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86803_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" ;
+    attr:xes-attr_time_timestamp "2017-02-09T05:15:04+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86808_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86805> ;
+    prov:endedAtTime "2017-01-09T11:41:23+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T11:41:23+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86805> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86807_0> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86808_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" ;
+    attr:xes-attr_time_timestamp "2017-01-09T11:41:23+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86811_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:endedAtTime "2017-01-20T14:44:43+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-20T14:44:43+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86812_0> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86811_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" ;
+    attr:xes-attr_time_timestamp "2017-01-20T14:44:43+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86812_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:endedAtTime "2017-01-20T14:43:27+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-20T14:43:27+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86815_0> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86812_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-20T14:43:27+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86813_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:endedAtTime "2017-01-09T12:14:49+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T12:14:49+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86814_0> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86813_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" ;
+    attr:xes-attr_time_timestamp "2017-01-09T12:14:49+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86815_0> a prov:Activity ;
+    rdfs:label "Declaration REJECTED by MISSING" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:endedAtTime "2017-01-10T15:35:19+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-10T15:35:19+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86813_0> ;
+    attr:xes-attr_concept_name "Declaration REJECTED by MISSING" ;
+    attr:xes-attr_id "st_step 86815_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "MISSING" ;
+    attr:xes-attr_time_timestamp "2017-01-10T15:35:19+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86818_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86816> ;
+    prov:endedAtTime "2017-01-09T14:52:05+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T14:52:05+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86816> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86819_0> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86818_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" ;
+    attr:xes-attr_time_timestamp "2017-01-09T14:52:05+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/dd_declaration_86716_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86716> ;
+    prov:used <http://kg.workflow.validation/case/declaration_86716> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86716_20" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" .
+
+<http://kg.workflow.validation/activity/dd_declaration_86731_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86731> ;
+    prov:used <http://kg.workflow.validation/case/declaration_86731> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86731_20" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" .
+
+<http://kg.workflow.validation/activity/dd_declaration_86795_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86795> ;
+    prov:used <http://kg.workflow.validation/case/declaration_86795> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86795_19" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" .
+
+<http://kg.workflow.validation/activity/st_step_86724_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86724_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" .
+
+<http://kg.workflow.validation/activity/st_step_86738_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86735> ;
+    prov:endedAtTime "2017-01-09T11:30:26+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T11:30:26+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86735> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86738_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-09T11:30:26+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86793_0> a prov:Activity ;
+    rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86791> ;
+    prov:used <http://kg.workflow.validation/case/declaration_86791> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    attr:xes-attr_concept_name "Declaration FINAL_APPROVED by SUPERVISOR" ;
+    attr:xes-attr_id "st_step 86793_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "SUPERVISOR" .
+
+<http://kg.workflow.validation/activity/st_step_86804_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86800> ;
+    prov:endedAtTime "2017-01-09T11:13:33+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T11:13:33+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86800> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86804_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-09T11:13:33+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86807_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86805> ;
+    prov:endedAtTime "2017-01-09T11:40:47+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T11:40:47+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86805> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86807_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-09T11:40:47+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86814_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:endedAtTime "2017-01-09T12:14:36+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T12:14:36+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86809> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86814_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-09T12:14:36+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/activity/st_step_86819_0> a prov:Activity ;
+    rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+    wf:belongsToCase <http://kg.workflow.validation/case/declaration_86816> ;
+    prov:endedAtTime "2017-01-09T14:51:44+01:00"^^xsd:dateTime ;
+    prov:startedAtTime "2017-01-09T14:51:44+01:00"^^xsd:dateTime ;
+    prov:used <http://kg.workflow.validation/case/declaration_86816> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
+    attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
+    attr:xes-attr_id "st_step 86819_0" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE" ;
+    attr:xes-attr_time_timestamp "2017-01-09T14:51:44+01:00"^^xsd:dateTime .
+
+<http://kg.workflow.validation/case/declaration_86716> a prov:Entity ;
+    rdfs:label "declaration 86716" ;
+    prov:wasGeneratedBy <http://kg.workflow.validation/activity/dd_declaration_86716_20> ;
+    attr:xes-attr_Amount 2.276552e+01 ;
+    attr:xes-attr_BudgetNumber "budget 86566" ;
+    attr:xes-attr_DeclarationNumber "declaration number 86717" ;
+    attr:xes-attr_concept_name "declaration 86716" ;
+    attr:xes-attr_id "declaration 86716" .
+
+<http://kg.workflow.validation/case/declaration_86731> a prov:Entity ;
+    rdfs:label "declaration 86731" ;
+    prov:wasGeneratedBy <http://kg.workflow.validation/activity/dd_declaration_86731_20> ;
+    attr:xes-attr_Amount 1.13862e+02 ;
+    attr:xes-attr_BudgetNumber "budget 86566" ;
+    attr:xes-attr_DeclarationNumber "declaration number 86732" ;
+    attr:xes-attr_concept_name "declaration 86731" ;
+    attr:xes-attr_id "declaration 86731" .
+
+<http://kg.workflow.validation/case/declaration_86735> a prov:Entity ;
+    rdfs:label "declaration 86735" ;
+    prov:wasGeneratedBy <http://kg.workflow.validation/activity/st_step_86738_0> ;
+    attr:xes-attr_Amount 1.344042e+02 ;
+    attr:xes-attr_BudgetNumber "budget 86566" ;
+    attr:xes-attr_DeclarationNumber "declaration number 86736" ;
+    attr:xes-attr_concept_name "declaration 86735" ;
+    attr:xes-attr_id "declaration 86735" .
+
+<http://kg.workflow.validation/case/declaration_86791> a prov:Entity ;
+    rdfs:label "declaration 86791" ;
+    prov:wasGeneratedBy <http://kg.workflow.validation/activity/st_step_86793_0> ;
+    attr:xes-attr_Amount 2.68512e+01 ;
+    attr:xes-attr_BudgetNumber "budget 86566" ;
+    attr:xes-attr_DeclarationNumber "declaration number 86792" ;
+    attr:xes-attr_concept_name "declaration 86791" ;
+    attr:xes-attr_id "declaration 86791" .
+
+<http://kg.workflow.validation/case/declaration_86805> a prov:Entity ;
+    rdfs:label "declaration 86805" ;
+    prov:wasGeneratedBy <http://kg.workflow.validation/activity/st_step_86807_0> ;
+    attr:xes-attr_Amount 4.435852e+02 ;
+    attr:xes-attr_BudgetNumber "budget 86566" ;
+    attr:xes-attr_DeclarationNumber "declaration number 86806" ;
+    attr:xes-attr_concept_name "declaration 86805" ;
+    attr:xes-attr_id "declaration 86805" .
+
+<http://kg.workflow.validation/case/declaration_86816> a prov:Entity ;
+    rdfs:label "declaration 86816" ;
+    prov:wasGeneratedBy <http://kg.workflow.validation/activity/st_step_86819_0> ;
+    attr:xes-attr_Amount 2.995168e+01 ;
+    attr:xes-attr_BudgetNumber "budget 86566" ;
+    attr:xes-attr_DeclarationNumber "declaration number 86817" ;
+    attr:xes-attr_concept_name "declaration 86816" ;
+    attr:xes-attr_id "declaration 86816" .
+
+<http://kg.workflow.validation/case/declaration_86795> a prov:Entity ;
+    rdfs:label "declaration 86795" ;
+    prov:wasGeneratedBy <http://kg.workflow.validation/activity/dd_declaration_86795_19> ;
+    attr:xes-attr_Amount 1.824642e+02 ;
+    attr:xes-attr_BudgetNumber "budget 86566" ;
+    attr:xes-attr_DeclarationNumber "declaration number 86796" ;
+    attr:xes-attr_concept_name "declaration 86795" ;
+    attr:xes-attr_id "declaration 86795" .
+
+<http://kg.workflow.validation/case/declaration_86800> a prov:Entity ;
+    rdfs:label "declaration 86800" ;
+    prov:wasGeneratedBy <http://kg.workflow.validation/activity/st_step_86804_0> ;
+    attr:xes-attr_Amount 3.206461e+02 ;
+    attr:xes-attr_BudgetNumber "budget 86566" ;
+    attr:xes-attr_DeclarationNumber "declaration number 86801" ;
+    attr:xes-attr_concept_name "declaration 86800" ;
+    attr:xes-attr_id "declaration 86800" .
+
+<http://kg.workflow.validation/case/declaration_86809> a prov:Entity ;
+    rdfs:label "declaration 86809" ;
+    prov:wasGeneratedBy <http://kg.workflow.validation/activity/st_step_86814_0> ;
+    attr:xes-attr_Amount 3.334409e+02 ;
+    attr:xes-attr_BudgetNumber "budget 86566" ;
+    attr:xes-attr_DeclarationNumber "declaration number 86810" ;
+    attr:xes-attr_concept_name "declaration 86809" ;
+    attr:xes-attr_id "declaration 86809" .
+
+<http://kg.workflow.validation/agent/SYSTEM> a prov:Agent ;
+    rdfs:label "SYSTEM" ;
+    attr:xes-attr_org_resource "SYSTEM" ;
+    attr:xes-attr_org_role "UNDEFINED" .
+
+<http://kg.workflow.validation/case/declaration_86720> a prov:Entity ;
+    rdfs:label "declaration 86720" ;
+    prov:wasGeneratedBy <http://kg.workflow.validation/activity/st_step_86724_0> ;
+    attr:xes-attr_Amount 1.056041e+02 ;
+    attr:xes-attr_BudgetNumber "budget 86566" ;
+    attr:xes-attr_DeclarationNumber "declaration number 86721" ;
+    attr:xes-attr_concept_name "declaration 86720" ;
+    attr:xes-attr_id "declaration 86720" .
+
+<http://kg.workflow.validation/agent/STAFF_MEMBER> a prov:Agent ;
+    rdfs:label "STAFF MEMBER" ;
+    attr:xes-attr_org_resource "STAFF MEMBER" ;
+    attr:xes-attr_org_role "EMPLOYEE",
+        "MISSING",
+        "PRE_APPROVER",
+        "SUPERVISOR" .
+

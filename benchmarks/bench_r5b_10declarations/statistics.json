@@ -1,0 +1,146 @@
+{
+  "run_name": "bench_r5b_10declarations",
+  "run_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_10declarations",
+  "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.sample_10declarations.xes",
+  "seed": 42,
+  "xes_line_count": 442,
+  "started_at": "2026-07-22T09:48:52.751319+00:00",
+  "finished_at": "2026-07-22T09:48:52.833290+00:00",
+  "notes": {
+    "r1": "wf:belongsToCase is created during conversion, so R1 faults are injected on the generated KG by removing belongsToCase links.",
+    "r2": "time:timestamp attributes are removed from random XES events before conversion, so activities lack prov:startedAtTime.",
+    "r3": "prov:wasAssociatedWith is created during conversion, so R3 faults are injected on the KG by removing agent associations.",
+    "r4": "R4 faults are injected on the KG by randomly either breaking wasInformedBy temporal order (later.startedAtTime < earlier) or removing startedAtTime while keeping endedAtTime.",
+    "r5": "Payment Handled activities that use SYSTEM get a random invalid attr:xes-attr_org_resource (known roles, empty, or invented BOGUS_RESOURCE_* values).",
+    "r5b": "Payment Handled activities have their org:role rewritten to EMPLOYEE.",
+    "r6": "Payment Handled activities with a valid provenance chain are corrupted by randomly choosing one of: scramble milestone wasInformedBy order; insert a bogus intermediate activity; or remove Payment Handled's wasInformedBy link(s).",
+    "percent": "When percent is set, target count = floor(percent/100 * xes_line_count), capped by the number of eligible items for that rule."
+  },
+  "requested": {
+    "r1": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r2": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r3": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r4": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r5": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r5b": {
+      "enabled": true,
+      "count": 5,
+      "percent": null
+    },
+    "r6": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    }
+  },
+  "applied": {
+    "r1": {
+      "eligible": 52,
+      "target": 0,
+      "applied": 0
+    },
+    "r2": {
+      "eligible": 52,
+      "target": 0,
+      "applied": 0
+    },
+    "r3": {
+      "eligible": 52,
+      "target": 0,
+      "applied": 0
+    },
+    "r4": {
+      "eligible": 42,
+      "target": 0,
+      "applied": 0
+    },
+    "r5": {
+      "eligible": 10,
+      "target": 0,
+      "applied": 0
+    },
+    "r5b": {
+      "eligible": 10,
+      "target": 5,
+      "applied": 5
+    },
+    "r6": {
+      "eligible": 10,
+      "target": 0,
+      "applied": 0
+    }
+  },
+  "corruption_count": 5,
+  "corruptions": [
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_86720_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    }
+  ],
+  "outputs": {
+    "corrupted_xes": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.xes",
+    "corrupted_knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
+    "statistics": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_10declarations\\statistics.json"
+  }
+}

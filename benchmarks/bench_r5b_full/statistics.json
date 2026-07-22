@@ -1,0 +1,1001 @@
+{
+  "run_name": "bench_r5b_full",
+  "run_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_full",
+  "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.xes.gz",
+  "seed": 42,
+  "xes_line_count": 468572,
+  "started_at": "2026-07-22T10:07:15.956535+00:00",
+  "finished_at": "2026-07-22T10:10:02.553887+00:00",
+  "notes": {
+    "r1": "wf:belongsToCase is created during conversion, so R1 faults are injected on the generated KG by removing belongsToCase links.",
+    "r2": "time:timestamp attributes are removed from random XES events before conversion, so activities lack prov:startedAtTime.",
+    "r3": "prov:wasAssociatedWith is created during conversion, so R3 faults are injected on the KG by removing agent associations.",
+    "r4": "R4 faults are injected on the KG by randomly either breaking wasInformedBy temporal order (later.startedAtTime < earlier) or removing startedAtTime while keeping endedAtTime.",
+    "r5": "Payment Handled activities that use SYSTEM get a random invalid attr:xes-attr_org_resource (known roles, empty, or invented BOGUS_RESOURCE_* values).",
+    "r5b": "Payment Handled activities have their org:role rewritten to EMPLOYEE.",
+    "r6": "Payment Handled activities with a valid provenance chain are corrupted by randomly choosing one of: scramble milestone wasInformedBy order; insert a bogus intermediate activity; or remove Payment Handled's wasInformedBy link(s).",
+    "percent": "When percent is set, target count = floor(percent/100 * xes_line_count), capped by the number of eligible items for that rule."
+  },
+  "requested": {
+    "r1": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r2": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r3": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r4": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r5": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    },
+    "r5b": {
+      "enabled": true,
+      "count": 100,
+      "percent": null
+    },
+    "r6": {
+      "enabled": false,
+      "count": null,
+      "percent": null
+    }
+  },
+  "applied": {
+    "r1": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r2": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r3": {
+      "eligible": 56437,
+      "target": 0,
+      "applied": 0
+    },
+    "r4": {
+      "eligible": 45937,
+      "target": 0,
+      "applied": 0
+    },
+    "r5": {
+      "eligible": 10044,
+      "target": 0,
+      "applied": 0
+    },
+    "r5b": {
+      "eligible": 10044,
+      "target": 100,
+      "applied": 100
+    },
+    "r6": {
+      "eligible": 10035,
+      "target": 0,
+      "applied": 0
+    }
+  },
+  "corruption_count": 100,
+  "corruptions": [
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_91957_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_89680_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_100137_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_104396_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_103011_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_109588_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_92195_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_132509_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_93204_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_142953_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_122319_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_89862_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_89835_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_93056_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_97606_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_110392_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_141613_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_142997_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_92874_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_135509_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_108346_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_132492_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_111426_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_103341_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_114348_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_142835_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_96918_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_91299_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_105638_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_120508_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_113226_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_96891_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_101533_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_102521_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_115903_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_93885_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_96220_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_127115_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_91591_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_126015_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_113539_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_137530_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_104146_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_93171_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_112182_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_142606_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_92092_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_126251_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_94406_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_136517_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_115715_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_126072_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_137089_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_100994_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_94189_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_92704_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_110081_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_112005_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_96315_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_106938_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_94558_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_118091_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_96902_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_121857_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_117866_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_101731_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_126447_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_113327_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_108830_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_99009_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_91196_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_131498_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_102157_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_132044_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_107580_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_101758_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_128889_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_118431_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_104763_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_143184_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_109366_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_124766_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_90488_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_110120_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_89957_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_112457_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_119078_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_99019_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_95500_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_106138_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_130558_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_114726_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_106177_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_141555_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_121152_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_119724_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_100473_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_98346_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_104962_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_98103_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
+      }
+    }
+  ],
+  "outputs": {
+    "corrupted_xes": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_full\\DomesticDeclarations.corrupted.xes",
+    "corrupted_knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_full\\DomesticDeclarations.corrupted.prov.ttl",
+    "statistics": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_full\\statistics.json"
+  }
+}
