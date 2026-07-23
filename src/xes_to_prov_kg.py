@@ -148,7 +148,9 @@ def _iter_traces(
 
             events = []
             skipped = 0
-            for child in elem.findall("event"):
+            for child in elem:
+                if _tag(child) != "event":
+                    continue
                 event = _parse_event(child, trace_id, stats)
                 if event:
                     events.append(event)

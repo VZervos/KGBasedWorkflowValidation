@@ -1,0 +1,94 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "c:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r4_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
+  "report_path": "c:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\_smoke.json",
+  "started_at": "2026-07-23T09:37:26.865983+00:00",
+  "finished_at": "2026-07-23T09:37:26.866983+00:00",
+  "duration_seconds": 0.0011,
+  "total_violations": 10,
+  "rules_run": [
+    "R4"
+  ],
+  "results": [
+    {
+      "rule_id": "R4",
+      "name": "REQUEST_PAYMENT_SUCCESSION",
+      "description": "In each case, 'Request Payment' and 'Payment Handled' must form a succession: every request is followed by a payment, and every payment is preceded by a request (DECLARE succession).",
+      "status": "FAILED",
+      "violation_count": 10,
+      "duration_seconds": 0.001087,
+      "violations": [
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86720",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86720_20"
+          }
+        },
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86735",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_20"
+          }
+        },
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86791",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20"
+          }
+        },
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86795",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_20"
+          }
+        },
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86809",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_20"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86720",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86720_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86735",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86791",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86795",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86809",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_19"
+          }
+        }
+      ]
+    }
+  ]
+}

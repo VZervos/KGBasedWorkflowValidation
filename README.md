@@ -187,53 +187,53 @@ Rules live in `src/validation_rules.py` and are executed by `src/validate_kg.py`
 2. For each enabled rule, collect violation rows.
 3. Aggregate into `validation.json` (overall status, per-rule status/counts/timings, and detailed findings).
 
-**R1–R5B** are SPARQL `SELECT` queries: **each answer row = one violation**, with an `issue` code and entity bindings (activity, times, resource, …).
+**R1–R5B** are SPARQL `SELECT` queries: **each answer row = one violation**, with an `issue` code and entity bindings.
 
 **R6** has the same intended semantics as a SPARQL property-path query, but on large graphs it is evaluated with an equivalent **in-memory BFS / ancestor search** over `prov:wasInformedBy`, because RDFLib property paths are too slow at full-dataset scale.
 
 ### Rules overview
 
-Activity labels and roles match the BPI Challenge 2020 *Domestic Declarations* log.
+Activity labels match the BPI Challenge 2020 *Domestic Declarations* log.
+**R1–R4** are control-flow rules aligned with DECLARE templates so the same faults can be checked with PM4Py DECLARE on XES and with SPARQL on the KG. **R5–R6** are KG-only domain rules.
 
-| Rule | Name | Focus | Violation issue(s) |
-|------|------|-------|--------------------|
-| **R1** | `ACTIVITY_BELONGS_TO_CASE` | Case membership | `missing_belongsToCase`, `multiple_belongsToCase` |
-| **R2** | `ACTIVITY_HAS_STARTED_AT_TIME` | Timing | `missing_startedAtTime` |
-| **R3** | `ACTIVITY_HAS_AGENT` | Agency | `missing_agent_association` |
-| **R4** | `WAS_INFORMED_BY_TEMPORAL_CONSISTENCY` | Temporal order on edges | `non_monotonic_wasInformedBy`, `missing_startedAtTime_on_informed_activity`, `missing_startedAtTime_on_informing_activity` |
-| **R5** | `PAYMENT_HANDLED_BY_SYSTEM` | Payment resource | `payment_not_handled_by_system` |
-| **R5B** | `PAYMENT_HANDLED_NOT_BY_EMPLOYEE` | Payment role | `payment_handled_by_employee` |
-| **R6** | `PAYMENT_PROVENANCE_CHAIN` | Payment path | `invalid_payment_provenance_chain` |
+| Rule | Name | DECLARE template | Violation issue(s) |
+|------|------|------------------|--------------------|
+| **R1** | `SUBMISSION_EXISTENCE` | `existence` | `missing_submission_existence` |
+| **R2** | `APPROVAL_REQUEST_RESPONSE` | `response` | `missing_response_request_after_approval` |
+| **R3** | `REQUEST_BEFORE_PAYMENT` | `precedence` | `missing_precedence_request_before_payment` |
+| **R4** | `REQUEST_PAYMENT_SUCCESSION` | `succession` | `missing_succession_response_payment_after_request`, `missing_succession_precedence_request_before_payment` |
+| **R5** | `PAYMENT_HANDLED_BY_SYSTEM` | (KG-only) | `payment_not_handled_by_system` |
+| **R5B** | `PAYMENT_HANDLED_NOT_BY_EMPLOYEE` | (KG-only) | `payment_handled_by_employee` |
+| **R6** | `PAYMENT_PROVENANCE_CHAIN` | (KG-only) | `invalid_payment_provenance_chain` |
+
+Canonical DECLARE model for R1–R4: `DECLARE_MODEL_R1_R4` in `src/validation_rules.py`.
 
 ### How each rule is validated
 
-#### R1 — case membership
+#### R1 — submission existence (DECLARE `existence`)
 
-- **Mechanism:** SPARQL over all `prov:Activity` nodes; count `wf:belongsToCase` links per activity.
-- **Fails when:** count ≠ 1 (missing or multiple case links).
-- **Reports:** the activity IRI and `caseCount`.
+- **Mechanism:** SPARQL over cases; require an activity labelled `Declaration SUBMITTED by EMPLOYEE`.
+- **Fails when:** a case has no submission activity.
+- **Reports:** the case IRI.
 
-#### R2 — start timestamp
+#### R2 — approval → request response (DECLARE `response`)
 
-- **Mechanism:** SPARQL; select activities with no `prov:startedAtTime`.
-- **Fails when:** an activity has no start time.
-- **Reports:** the activity IRI.
+- **Mechanism:** for each final approval, require a same-case `Request Payment` with `request wasInformedBy+ approval`.
+- **Fails when:** approval exists but no later request is reachable in the provenance chain.
+- **Reports:** case and approval IRIs.
 
-#### R3 — agent association
+#### R3 — request before payment (DECLARE `precedence`)
 
-- **Mechanism:** SPARQL; select activities with no `prov:wasAssociatedWith`.
-- **Fails when:** an activity has no associated agent.
-- **Reports:** the activity IRI.
+- **Mechanism:** for each `Payment Handled`, require a same-case `Request Payment` with `payment wasInformedBy+ request`.
+- **Fails when:** payment has no request ancestor.
+- **Reports:** case and payment IRIs.
 
-#### R4 — temporal consistency of control flow
+#### R4 — request/payment succession (DECLARE `succession`)
 
-- **Mechanism:** SPARQL over every `prov:wasInformedBy` edge from later activity *B* to earlier activity *A*.
-- **Fails when:**
-  - both have start times and `B.startedAtTime < A.startedAtTime` (`non_monotonic_wasInformedBy`), or
-  - *B* is missing `startedAtTime` (`missing_startedAtTime_on_informed_activity`), or
-  - *A* is missing `startedAtTime` (`missing_startedAtTime_on_informing_activity`).
-- **Reports:** later/earlier activity IRIs and available timestamps.
-- **Note:** one missing timestamp on a mid-chain activity can produce **multiple** R4 rows (one per adjacent edge).
+- **Mechanism:** both halves of succession: every request must be followed by a payment, and every payment must be preceded by a request (via `wasInformedBy+`).
+- **Fails when:** either direction is missing.
+- **Reports:** case and the violating request or payment IRI.
+- **Note:** one Request/Payment order swap can produce **two** R4 rows.
 
 #### R5 — payment handled by SYSTEM
 
@@ -287,19 +287,28 @@ python -m src.generate_benchmark
 
 Configuration is in `benchmark.ini` (separate from `config.ini`).
 
+### DECLARE baseline comparison (R1–R4)
+
+R1–R4 map 1:1 onto a fixed DECLARE model (`DECLARE_MODEL_R1_R4`). Compare KG SPARQL
+with PM4Py DECLARE on the same corrupted XES / converted KG:
+
+```bash
+python scripts/run_declare_baseline_comparison.py
+```
+
+Outputs land in `output/declare_baseline_comparison/`. R5/R5B/R6 stay KG-only.
+
 ### How injection works
 
 1. Load a clean XES log.
-2. Apply **XES-level** corruptions that must happen before conversion (**R2** only).
-3. Convert the (possibly R2-corrupted) XES into a PROV-O KG.
-4. Apply **KG-level** corruptions (**R1, R3, R5, R5B, R6, then R4**).
-   R4 runs last so temporal breaks remain on the final `wasInformedBy` topology after R6 rewiring.
+2. Apply **XES-level** control-flow corruptions for enabled **R1–R4**.
+3. Convert the corrupted XES into a PROV-O KG.
+4. Apply **KG-level** corruptions for enabled **R5, R5B, R6**.
 5. Write outputs under a stable name: `benchmarks/bench_<rule>_<label>/`
    (or `benchmarks/bench_all_<label>/` when multiple rules are enabled).
-   Set optional `label` in `[benchmark]` (defaults to the `output_dir` folder name),
-   e.g. `label = full` → `bench_r1_full`.
 
-Links such as `wf:belongsToCase`, `prov:wasAssociatedWith`, and `prov:wasInformedBy` are created during conversion, so those faults are injected on the KG (not only in raw XES).
+Because R1–R4 faults live in XES, re-converting the corrupted XES preserves them.
+R5–R6 faults live only in the KG file.
 
 ### Targeting (`count` / `percent`)
 
@@ -315,10 +324,10 @@ Use **either** `count` **or** `percent`, not both. Shared `seed` makes sampling 
 
 | Rule | Layer | Eligible items | Corruption action |
 |------|-------|----------------|-------------------|
-| **R1** | KG | Activities with ≥1 `wf:belongsToCase` | Remove all `wf:belongsToCase` links |
-| **R2** | XES | Events with `time:timestamp` | Remove timestamp(s) → missing `prov:startedAtTime` after conversion |
-| **R3** | KG | Activities with `prov:wasAssociatedWith` | Remove agent association(s) |
-| **R4** | KG | `wasInformedBy` edges where both ends have `startedAtTime` | Break temporal order (`later.startedAtTime < earlier`) |
+| **R1** | XES | Traces with `Declaration SUBMITTED by EMPLOYEE` | Remove the submission event |
+| **R2** | XES | Traces with final approval and `Request Payment` | Remove `Request Payment` |
+| **R3** | XES | Traces with both Request and Payment | Swap identity attrs (keep timestamps) so payment precedes request |
+| **R4** | XES | Traces with both Request and Payment | Remove `Payment Handled` (breaks succession without undoing R3) |
 | **R5** | KG | `Payment Handled` with resource `SYSTEM` | Rewrite resource to a random invalid value |
 | **R5B** | KG | `Payment Handled` whose role is not already `EMPLOYEE` | Set role to `EMPLOYEE` |
 | **R6** | KG | `Payment Handled` that currently satisfy the R6 chain | Scramble order, insert a bogus stage, or remove payment `wasInformedBy` links |
@@ -352,13 +361,14 @@ enabled = false
 
 | File | Description |
 |------|-------------|
-| `*.corrupted.xes` | XES after R2 (unchanged otherwise) |
-| `*.corrupted.prov.ttl` | KG after conversion + enabled KG corruptions |
+| `*.corrupted.xes` | XES after enabled R1–R4 corruptions |
+| `*.corrupted.prov.ttl` | KG after conversion + enabled R5–R6 corruptions |
 | `statistics.json` | Requested/applied counts, eligible sizes, every corruption record |
 
 ### Evaluating a benchmark
 
-Point the pipeline at the **corrupted KG** with conversion off (re-converting from corrupted XES would rebuild a clean graph and erase R1/R3/R4/R5/R5B/R6 faults):
+For **R1–R4**, you may validate either the corrupted XES with DECLARE or the converted KG with SPARQL.
+For **R5–R6**, point the pipeline at the **corrupted KG** with conversion off (re-converting from XES would erase those KG-only faults):
 
 ```ini
 [pipeline]
@@ -377,7 +387,8 @@ When several rules are injected together, corruptions can create **collateral** 
 |--------|---------|
 | `scripts/run_per_rule_benchmark_suite.py` | One isolated benchmark per rule + verify detection |
 | `scripts/run_combined_benchmark_experiment.py` | All rules in one benchmark + verify + extend report |
-| `scripts/regenerate_r4_and_report.py` | Rebuild R4 (break_order-only) and refresh suite summary |
+| `scripts/run_declare_baseline_comparison.py` | PM4Py DECLARE vs KG on 10-decl R1–R4 |
+| `scripts/regenerate_r4_and_report.py` | Legacy helper (R4 no longer uses timestamp break-order) |
 | `scripts/extract_declaration_samples.py` | Extract N full declaration traces into sample XES files |
 | `scripts/extract_xes_samples.py` | Extract small event/trace samples for demos |
 | `scripts/rename_experiment_artifacts.py` | Rename older suite output folders to stable names |
@@ -420,5 +431,5 @@ KGBasedWorkflowValidation/
 
 - Conversion streams trace-by-trace (does not keep the full XES/KG in memory while writing).
 - Validation loads the serialized Turtle graph into memory.
-- Full-log conversion and loading typically take tens of seconds; per-rule validation cost follows rule complexity (`O(A)` for R1–R3, `O(E)` for R4, `O(P)` for R5/R5B, `O(P · E_case)` for R6).
+- Full-log conversion and loading typically take tens of seconds; validation cost follows rule complexity (case/label scans for R1–R4, `O(P)` for R5/R5B, `O(P · E_case)` for R6).
 - Visualizing the **full** graph can be slow; prefer per-case or small-sample HTML.

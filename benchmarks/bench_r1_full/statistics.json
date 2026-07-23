@@ -4,13 +4,21 @@
   "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.xes.gz",
   "seed": 42,
   "xes_line_count": 468572,
-  "started_at": "2026-07-22T09:48:52.992999+00:00",
-  "finished_at": "2026-07-22T09:51:54.817200+00:00",
+  "started_at": "2026-07-23T10:21:24.972444+00:00",
+  "finished_at": "2026-07-23T10:24:13.802524+00:00",
+  "conversion": {
+    "trace_count": 10500,
+    "event_count": 56331,
+    "triple_count": 848194,
+    "agent_count": 2,
+    "duration_seconds": 71.122808,
+    "xes_lines_parsed": 467824
+  },
   "notes": {
-    "r1": "wf:belongsToCase is created during conversion, so R1 faults are injected on the generated KG by removing belongsToCase links.",
-    "r2": "time:timestamp attributes are removed from random XES events before conversion, so activities lack prov:startedAtTime.",
-    "r3": "prov:wasAssociatedWith is created during conversion, so R3 faults are injected on the KG by removing agent associations.",
-    "r4": "R4 faults are injected on the KG by randomly either breaking wasInformedBy temporal order (later.startedAtTime < earlier) or removing startedAtTime while keeping endedAtTime.",
+    "r1": "R1 (DECLARE existence): remove Declaration SUBMITTED by EMPLOYEE from selected XES traces before conversion.",
+    "r2": "R2 (DECLARE response): remove Request Payment from traces that have Declaration FINAL_APPROVED by SUPERVISOR.",
+    "r3": "R3 (DECLARE precedence): swap Request Payment / Payment Handled identity attributes while keeping timestamps, so conversion order places payment before request.",
+    "r4": "R4 (DECLARE succession): remove Payment Handled from traces that still have Request Payment (distinct from R3 swap, so combined injection does not cancel R3).",
     "r5": "Payment Handled activities that use SYSTEM get a random invalid attr:xes-attr_org_resource (known roles, empty, or invented BOGUS_RESOURCE_* values).",
     "r5b": "Payment Handled activities have their org:role rewritten to EMPLOYEE.",
     "r6": "Payment Handled activities with a valid provenance chain are corrupted by randomly choosing one of: scramble milestone wasInformedBy order; insert a bogus intermediate activity; or remove Payment Handled's wasInformedBy link(s).",
@@ -55,22 +63,22 @@
   },
   "applied": {
     "r1": {
-      "eligible": 56437,
+      "eligible": 10365,
       "target": 100,
       "applied": 100
     },
     "r2": {
-      "eligible": 56437,
+      "eligible": 10038,
       "target": 0,
       "applied": 0
     },
     "r3": {
-      "eligible": 56437,
+      "eligible": 9941,
       "target": 0,
       "applied": 0
     },
     "r4": {
-      "eligible": 45937,
+      "eligible": 9941,
       "target": 0,
       "applied": 0
     },
@@ -85,7 +93,7 @@
       "applied": 0
     },
     "r6": {
-      "eligible": 9960,
+      "eligible": 9939,
       "target": 0,
       "applied": 0
     }
@@ -94,902 +102,1002 @@
   "corruptions": [
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_123041_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_123041",
-        "case_count_before": "1"
+        "trace_id": "declaration 94206",
+        "event_ids": "st_step 94208_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_96437_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_96433",
-        "case_count_before": "1"
+        "trace_id": "declaration 89000",
+        "event_ids": "st_step 89003_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_89605_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_89602",
-        "case_count_before": "1"
+        "trace_id": "declaration 104162",
+        "event_ids": "st_step 104164_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_131287_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_131287",
-        "case_count_before": "1"
+        "trace_id": "declaration 110660",
+        "event_ids": "st_step 110663_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_109092_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_109087",
-        "case_count_before": "1"
+        "trace_id": "declaration 99606",
+        "event_ids": "st_step 99613_0; st_step 99608_0",
+        "removed_count": "2",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_101017_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_101014",
-        "case_count_before": "1"
+        "trace_id": "declaration 104947",
+        "event_ids": "st_step 104953_0; st_step 104950_0",
+        "removed_count": "2",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_110593_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_110589",
-        "case_count_before": "1"
+        "trace_id": "declaration 87229",
+        "event_ids": "st_step 87231_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_90676_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_90676",
-        "case_count_before": "1"
+        "trace_id": "declaration 134498",
+        "event_ids": "st_step 134501_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_139095_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_139088",
-        "case_count_before": "1"
+        "trace_id": "declaration 95848",
+        "event_ids": "st_step 95850_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_96039_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_96039",
-        "case_count_before": "1"
+        "trace_id": "declaration 133866",
+        "event_ids": "st_step 133876_0; st_step 133872_0; st_step 133869_0",
+        "removed_count": "3",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_131373_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_131371",
-        "case_count_before": "1"
+        "trace_id": "declaration 121746",
+        "event_ids": "st_step 121748_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_140219_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_140216",
-        "case_count_before": "1"
+        "trace_id": "declaration 93629",
+        "event_ids": "st_step 93631_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_119414_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_119410",
-        "case_count_before": "1"
+        "trace_id": "declaration 89830",
+        "event_ids": "st_step 89834_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_87394_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_87391",
-        "case_count_before": "1"
+        "trace_id": "declaration 94838",
+        "event_ids": "st_step 94842_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_112811_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_112806",
-        "case_count_before": "1"
+        "trace_id": "declaration 106171",
+        "event_ids": "st_step 106175_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_114735_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_114731",
-        "case_count_before": "1"
+        "trace_id": "declaration 103393",
+        "event_ids": "st_step 103397_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_89115_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_89112",
-        "case_count_before": "1"
+        "trace_id": "declaration 141077",
+        "event_ids": "st_step 141083_0; st_step 141081_0",
+        "removed_count": "2",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_89853_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_89850",
-        "case_count_before": "1"
+        "trace_id": "declaration 138137",
+        "event_ids": "st_step 138139_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_94414_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_94414",
-        "case_count_before": "1"
+        "trace_id": "declaration 92870",
+        "event_ids": "st_step 92873_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_110516_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_110513",
-        "case_count_before": "1"
+        "trace_id": "declaration 134860",
+        "event_ids": "st_step 134865_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_100343_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_100343",
-        "case_count_before": "1"
+        "trace_id": "declaration 101014",
+        "event_ids": "st_step 101016_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_117519_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_117516",
-        "case_count_before": "1"
+        "trace_id": "declaration 136747",
+        "event_ids": "st_step 136750_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_122722_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_122722",
-        "case_count_before": "1"
+        "trace_id": "declaration 127454",
+        "event_ids": "st_step 127458_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_90246_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_90246",
-        "case_count_before": "1"
+        "trace_id": "declaration 106769",
+        "event_ids": "st_step 106776_0; st_step 106773_0",
+        "removed_count": "2",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_110800_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_110800",
-        "case_count_before": "1"
+        "trace_id": "declaration 122745",
+        "event_ids": "st_step 122748_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_109814_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_109814",
-        "case_count_before": "1"
+        "trace_id": "declaration 137020",
+        "event_ids": "st_step 137023_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_130800_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_130800",
-        "case_count_before": "1"
+        "trace_id": "declaration 104198",
+        "event_ids": "st_step 104201_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_142148_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_142146",
-        "case_count_before": "1"
+        "trace_id": "declaration 89346",
+        "event_ids": "st_step 89348_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_138071_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_138068",
-        "case_count_before": "1"
+        "trace_id": "declaration 109696",
+        "event_ids": "st_step 109700_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_118970_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_118962",
-        "case_count_before": "1"
+        "trace_id": "declaration 119930",
+        "event_ids": "st_step 119934_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_114979_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_114979",
-        "case_count_before": "1"
+        "trace_id": "declaration 126221",
+        "event_ids": "st_step 126223_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_110546_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_110542",
-        "case_count_before": "1"
+        "trace_id": "declaration 99381",
+        "event_ids": "st_step 99384_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_126237_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_126235",
-        "case_count_before": "1"
+        "trace_id": "declaration 109680",
+        "event_ids": "st_step 109684_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_128085_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_128085",
-        "case_count_before": "1"
+        "trace_id": "declaration 107249",
+        "event_ids": "st_step 107251_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_99601_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_99601",
-        "case_count_before": "1"
+        "trace_id": "declaration 114789",
+        "event_ids": "st_step 114793_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_130967_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_130967",
-        "case_count_before": "1"
+        "trace_id": "declaration 96517",
+        "event_ids": "st_step 96519_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_88828_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_88826",
-        "case_count_before": "1"
+        "trace_id": "declaration 96063",
+        "event_ids": "st_step 96066_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_132156_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_132153",
-        "case_count_before": "1"
+        "trace_id": "declaration 117730",
+        "event_ids": "st_step 117732_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_135111_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_135111",
-        "case_count_before": "1"
+        "trace_id": "declaration 96342",
+        "event_ids": "st_step 96344_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_98743_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_98741",
-        "case_count_before": "1"
+        "trace_id": "declaration 116487",
+        "event_ids": "st_step 116491_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_138016_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_138016",
-        "case_count_before": "1"
+        "trace_id": "declaration 113019",
+        "event_ids": "st_step 113022_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_123436_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_123436",
-        "case_count_before": "1"
+        "trace_id": "declaration 130991",
+        "event_ids": "st_step 130995_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_108431_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_108429",
-        "case_count_before": "1"
+        "trace_id": "declaration 103549",
+        "event_ids": "st_step 103551_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_102554_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_102554",
-        "case_count_before": "1"
+        "trace_id": "declaration 88440",
+        "event_ids": "st_step 88442_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_99126_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_99126",
-        "case_count_before": "1"
+        "trace_id": "declaration 120705",
+        "event_ids": "st_step 120709_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_110317_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_110313",
-        "case_count_before": "1"
+        "trace_id": "declaration 133610",
+        "event_ids": "st_step 133612_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_141931_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_141931",
-        "case_count_before": "1"
+        "trace_id": "declaration 90685",
+        "event_ids": "st_step 90686_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_108205_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_108205",
-        "case_count_before": "1"
+        "trace_id": "declaration 117911",
+        "event_ids": "st_step 117913_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_96253_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_96251",
-        "case_count_before": "1"
+        "trace_id": "declaration 96175",
+        "event_ids": "st_step 96178_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_96298_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_96298",
-        "case_count_before": "1"
+        "trace_id": "declaration 139190",
+        "event_ids": "st_step 139193_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_115218_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_115215",
-        "case_count_before": "1"
+        "trace_id": "declaration 120274",
+        "event_ids": "st_step 120276_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_91021_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_91021",
-        "case_count_before": "1"
+        "trace_id": "declaration 131498",
+        "event_ids": "st_step 131502_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_104217_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_104213",
-        "case_count_before": "1"
+        "trace_id": "declaration 139320",
+        "event_ids": "st_step 139323_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_131013_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_131011",
-        "case_count_before": "1"
+        "trace_id": "declaration 113592",
+        "event_ids": "st_step 113596_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_103753_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_103749",
-        "case_count_before": "1"
+        "trace_id": "declaration 129520",
+        "event_ids": "st_step 129524_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_122772_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_122767",
-        "case_count_before": "1"
+        "trace_id": "declaration 107692",
+        "event_ids": "st_step 107695_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_105484_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_105484",
-        "case_count_before": "1"
+        "trace_id": "declaration 95779",
+        "event_ids": "st_step 95782_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_137073_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_137073",
-        "case_count_before": "1"
+        "trace_id": "declaration 88422",
+        "event_ids": "st_step 88426_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_89126_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_89126",
-        "case_count_before": "1"
+        "trace_id": "declaration 102953",
+        "event_ids": "st_step 102955_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_136282_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_136280",
-        "case_count_before": "1"
+        "trace_id": "declaration 116098",
+        "event_ids": "st_step 116102_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_115950_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_115950",
-        "case_count_before": "1"
+        "trace_id": "declaration 88798",
+        "event_ids": "st_step 88801_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_118991_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_118991",
-        "case_count_before": "1"
+        "trace_id": "declaration 109874",
+        "event_ids": "st_step 109879_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_94142_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_94138",
-        "case_count_before": "1"
+        "trace_id": "declaration 92163",
+        "event_ids": "st_step 92166_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_115410_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_115410",
-        "case_count_before": "1"
+        "trace_id": "declaration 126604",
+        "event_ids": "st_step 126607_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_95762_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_95762",
-        "case_count_before": "1"
+        "trace_id": "declaration 104182",
+        "event_ids": "st_step 104186_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_119492_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_119490",
-        "case_count_before": "1"
+        "trace_id": "declaration 128803",
+        "event_ids": "st_step 128806_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_110043_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_110040",
-        "case_count_before": "1"
+        "trace_id": "declaration 127839",
+        "event_ids": "st_step 127842_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_142785_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_142781",
-        "case_count_before": "1"
+        "trace_id": "declaration 105183",
+        "event_ids": "st_step 105185_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_111839_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_111839",
-        "case_count_before": "1"
+        "trace_id": "declaration 126025",
+        "event_ids": "st_step 126030_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_120721_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_120721",
-        "case_count_before": "1"
+        "trace_id": "declaration 116804",
+        "event_ids": "st_step 116808_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_99885_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_99880",
-        "case_count_before": "1"
+        "trace_id": "declaration 106701",
+        "event_ids": "st_step 106704_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_122287_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_122287",
-        "case_count_before": "1"
+        "trace_id": "declaration 103844",
+        "event_ids": "st_step 103847_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_101224_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_101220",
-        "case_count_before": "1"
+        "trace_id": "declaration 92278",
+        "event_ids": "st_step 92281_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_136354_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_136354",
-        "case_count_before": "1"
+        "trace_id": "declaration 142941",
+        "event_ids": "st_step 142945_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_95472_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_95468",
-        "case_count_before": "1"
+        "trace_id": "declaration 105700",
+        "event_ids": "st_step 105702_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_90043_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_90040",
-        "case_count_before": "1"
+        "trace_id": "declaration 131407",
+        "event_ids": "st_step 131410_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_134801_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_134797",
-        "case_count_before": "1"
+        "trace_id": "declaration 110654",
+        "event_ids": "st_step 110656_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_97451_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_97448",
-        "case_count_before": "1"
+        "trace_id": "declaration 98684",
+        "event_ids": "st_step 98687_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_133268_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_133264",
-        "case_count_before": "1"
+        "trace_id": "declaration 114342",
+        "event_ids": "st_step 114345_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_109479_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_109479",
-        "case_count_before": "1"
+        "trace_id": "declaration 125721",
+        "event_ids": "st_step 125725_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_95778_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_95775",
-        "case_count_before": "1"
+        "trace_id": "declaration 103955",
+        "event_ids": "st_step 103958_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_131487_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_131487",
-        "case_count_before": "1"
+        "trace_id": "declaration 140430",
+        "event_ids": "st_step 140434_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_106070_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_106070",
-        "case_count_before": "1"
+        "trace_id": "declaration 108939",
+        "event_ids": "st_step 108941_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_96483_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_96483",
-        "case_count_before": "1"
+        "trace_id": "declaration 112452",
+        "event_ids": "st_step 112455_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_116115_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_116110",
-        "case_count_before": "1"
+        "trace_id": "declaration 90408",
+        "event_ids": "st_step 90411_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_102559_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_102554",
-        "case_count_before": "1"
+        "trace_id": "declaration 106554",
+        "event_ids": "st_step 106557_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_124616_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_124616",
-        "case_count_before": "1"
+        "trace_id": "declaration 94389",
+        "event_ids": "st_step 94392_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_112132_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_112130",
-        "case_count_before": "1"
+        "trace_id": "declaration 118547",
+        "event_ids": "st_step 118550_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_137857_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_137854",
-        "case_count_before": "1"
+        "trace_id": "declaration 127102",
+        "event_ids": "st_step 127106_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_115656_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_115653",
-        "case_count_before": "1"
+        "trace_id": "declaration 103869",
+        "event_ids": "st_step 103872_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_99169_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_99165",
-        "case_count_before": "1"
+        "trace_id": "declaration 91512",
+        "event_ids": "st_step 91515_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_124387_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_124385",
-        "case_count_before": "1"
+        "trace_id": "declaration 103236",
+        "event_ids": "st_step 103240_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_99350_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_99350",
-        "case_count_before": "1"
+        "trace_id": "declaration 129039",
+        "event_ids": "st_step 129042_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_102092_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_102092",
-        "case_count_before": "1"
+        "trace_id": "declaration 125557",
+        "event_ids": "st_step 125562_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_134150_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_134146",
-        "case_count_before": "1"
+        "trace_id": "declaration 108637",
+        "event_ids": "st_step 108640_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_107225_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_107223",
-        "case_count_before": "1"
+        "trace_id": "declaration 140648",
+        "event_ids": "st_step 140651_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_138087_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_138084",
-        "case_count_before": "1"
+        "trace_id": "declaration 126817",
+        "event_ids": "st_step 126820_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_141101_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_141101",
-        "case_count_before": "1"
+        "trace_id": "declaration 120676",
+        "event_ids": "st_step 120679_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_137166_20",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_137166",
-        "case_count_before": "1"
+        "trace_id": "declaration 100417",
+        "event_ids": "st_step 100421_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "action": "removed_submission_events",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_93500_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_93497",
-        "case_count_before": "1"
+        "trace_id": "declaration 103576",
+        "event_ids": "st_step 103577_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     }
   ],

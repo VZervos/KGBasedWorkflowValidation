@@ -2,9 +2,9 @@
   "status": "FAILED",
   "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r4_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
   "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r4_10declarations\\validation.json",
-  "started_at": "2026-07-22T10:35:13.279104+00:00",
-  "finished_at": "2026-07-22T10:35:13.429548+00:00",
-  "duration_seconds": 0.141362,
+  "started_at": "2026-07-23T10:21:23.705798+00:00",
+  "finished_at": "2026-07-23T10:21:23.706799+00:00",
+  "duration_seconds": 0.001638,
   "total_violations": 5,
   "rules_run": [
     "R4"
@@ -12,55 +12,45 @@
   "results": [
     {
       "rule_id": "R4",
-      "name": "WAS_INFORMED_BY_TEMPORAL_CONSISTENCY",
-      "description": "If activity B prov:wasInformedBy activity A, then both must have prov:startedAtTime and A.startedAtTime must be less than or equal to B.startedAtTime.",
+      "name": "REQUEST_PAYMENT_SUCCESSION",
+      "description": "In each case, 'Request Payment' and 'Payment Handled' must form a succession: every request is followed by a payment, and every payment is preceded by a request (DECLARE succession).",
       "status": "FAILED",
       "violation_count": 5,
-      "duration_seconds": 0.141342,
+      "duration_seconds": 0.001611,
       "violations": [
         {
-          "issue": "non_monotonic_wasInformedBy",
+          "issue": "missing_succession_response_payment_after_request",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_19",
-            "earlier": "http://kg.workflow.validation/activity/st_step_86737_0",
-            "earlierTime": "2017-01-09T11:37:18+01:00",
-            "laterTime": "2017-01-09T10:51:06+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86720",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86720_19"
           }
         },
         {
-          "issue": "non_monotonic_wasInformedBy",
+          "issue": "missing_succession_response_payment_after_request",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19",
-            "earlier": "http://kg.workflow.validation/activity/st_step_86793_0",
-            "earlierTime": "2017-01-09T11:27:48+01:00",
-            "laterTime": "2017-01-09T10:37:31+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86735",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_19"
           }
         },
         {
-          "issue": "non_monotonic_wasInformedBy",
+          "issue": "missing_succession_response_payment_after_request",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86800_20",
-            "earlier": "http://kg.workflow.validation/activity/dd_declaration_86800_19",
-            "earlierTime": "2017-02-09T16:00:15+01:00",
-            "laterTime": "2017-02-09T15:50:43+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86791",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19"
           }
         },
         {
-          "issue": "non_monotonic_wasInformedBy",
+          "issue": "missing_succession_response_payment_after_request",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86805_20",
-            "earlier": "http://kg.workflow.validation/activity/dd_declaration_86805_19",
-            "earlierTime": "2017-01-25T10:31:31+01:00",
-            "laterTime": "2017-01-25T10:24:31+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86795",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_19"
           }
         },
         {
-          "issue": "non_monotonic_wasInformedBy",
+          "issue": "missing_succession_response_payment_after_request",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86729_0",
-            "earlier": "http://kg.workflow.validation/activity/st_step_86728_0",
-            "earlierTime": "2017-01-09T15:57:21+01:00",
-            "laterTime": "2017-01-09T15:42:06+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86809",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_19"
           }
         }
       ]

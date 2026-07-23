@@ -4,21 +4,21 @@
   "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.sample_10declarations.xes",
   "seed": 42,
   "xes_line_count": 442,
-  "started_at": "2026-07-22T11:23:31.084381+00:00",
-  "finished_at": "2026-07-22T11:23:31.190797+00:00",
+  "started_at": "2026-07-23T10:49:06.355791+00:00",
+  "finished_at": "2026-07-23T10:49:06.433421+00:00",
   "conversion": {
     "trace_count": 10,
-    "event_count": 52,
-    "triple_count": 772,
+    "event_count": 37,
+    "triple_count": 588,
     "agent_count": 2,
-    "duration_seconds": 0.043792,
-    "xes_lines_parsed": 436
+    "duration_seconds": 0.033908,
+    "xes_lines_parsed": 336
   },
   "notes": {
-    "r1": "wf:belongsToCase is created during conversion, so R1 faults are injected on the generated KG by removing belongsToCase links.",
-    "r2": "time:timestamp attributes are removed from random XES events before conversion, so activities lack prov:startedAtTime.",
-    "r3": "prov:wasAssociatedWith is created during conversion, so R3 faults are injected on the KG by removing agent associations.",
-    "r4": "R4 faults are injected on the KG by breaking wasInformedBy temporal order (later.startedAtTime < earlier).",
+    "r1": "R1 (DECLARE existence): remove Declaration SUBMITTED by EMPLOYEE from selected XES traces before conversion.",
+    "r2": "R2 (DECLARE response): remove Request Payment from traces that have Declaration FINAL_APPROVED by SUPERVISOR.",
+    "r3": "R3 (DECLARE precedence): swap Request Payment / Payment Handled identity attributes while keeping timestamps, so conversion order places payment before request.",
+    "r4": "R4 (DECLARE succession): remove Payment Handled from traces that still have Request Payment (distinct from R3 swap, so combined injection does not cancel R3).",
     "r5": "Payment Handled activities that use SYSTEM get a random invalid attr:xes-attr_org_resource (known roles, empty, or invented BOGUS_RESOURCE_* values).",
     "r5b": "Payment Handled activities have their org:role rewritten to EMPLOYEE.",
     "r6": "Payment Handled activities with a valid provenance chain are corrupted by randomly choosing one of: scramble milestone wasInformedBy order; insert a bogus intermediate activity; or remove Payment Handled's wasInformedBy link(s).",
@@ -63,207 +63,161 @@
   },
   "applied": {
     "r1": {
-      "eligible": 52,
+      "eligible": 10,
       "target": 5,
       "applied": 5
     },
     "r2": {
-      "eligible": 52,
+      "eligible": 10,
       "target": 5,
       "applied": 5
     },
     "r3": {
-      "eligible": 52,
-      "target": 5,
-      "applied": 5
+      "eligible": 0,
+      "target": 0,
+      "applied": 0
     },
     "r4": {
-      "eligible": 34,
-      "target": 5,
-      "applied": 5
+      "eligible": 2,
+      "target": 2,
+      "applied": 2
     },
     "r5": {
-      "eligible": 10,
+      "eligible": 8,
       "target": 5,
       "applied": 5
     },
     "r5b": {
-      "eligible": 10,
+      "eligible": 8,
       "target": 5,
       "applied": 5
     },
     "r6": {
-      "eligible": 6,
-      "target": 5,
-      "applied": 5
+      "eligible": 0,
+      "target": 0,
+      "applied": 0
     }
   },
-  "corruption_count": 35,
+  "corruption_count": 22,
   "corruptions": [
     {
-      "rule_id": "R2",
-      "action": "removed_time_timestamp",
-      "details": {
-        "trace_id": "declaration 86716",
-        "event_id": "dd_declaration 86716_20",
-        "removed_values": "2017-01-16T17:32:14.000+01:00"
-      }
-    },
-    {
-      "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "rule_id": "R1",
+      "action": "removed_submission_events",
       "details": {
         "trace_id": "declaration 86795",
-        "event_id": "dd_declaration 86795_19",
-        "removed_values": "2017-03-06T14:07:25.000+01:00"
+        "event_ids": "st_step 86798_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
-      "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "rule_id": "R1",
+      "action": "removed_submission_events",
       "details": {
         "trace_id": "declaration 86791",
-        "event_id": "st_step 86793_0",
-        "removed_values": "2017-01-09T11:27:48.000+01:00"
+        "event_ids": "st_step 86794_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
-      "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "rule_id": "R1",
+      "action": "removed_submission_events",
+      "details": {
+        "trace_id": "declaration 86735",
+        "event_ids": "st_step 86738_0",
+        "removed_count": "1",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R1",
+      "action": "removed_submission_events",
       "details": {
         "trace_id": "declaration 86720",
-        "event_id": "st_step 86724_0",
-        "removed_values": "2017-01-19T16:13:16.000+01:00"
+        "event_ids": "st_step 86728_0; st_step 86725_0; st_step 86724_0",
+        "removed_count": "3",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R1",
+      "action": "removed_submission_events",
+      "details": {
+        "trace_id": "declaration 86809",
+        "event_ids": "st_step 86814_0; st_step 86812_0",
+        "removed_count": "2",
+        "activity": "Declaration SUBMITTED by EMPLOYEE"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
+      "details": {
+        "trace_id": "declaration 86800",
+        "event_ids": "dd_declaration 86800_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_request_payment_after_approval",
+      "details": {
+        "trace_id": "declaration 86795",
+        "event_ids": "dd_declaration 86795_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_request_payment_after_approval",
+      "details": {
+        "trace_id": "declaration 86716",
+        "event_ids": "dd_declaration 86716_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_request_payment_after_approval",
+      "details": {
+        "trace_id": "declaration 86735",
+        "event_ids": "dd_declaration 86735_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
+      }
+    },
+    {
+      "rule_id": "R2",
+      "action": "removed_request_payment_after_approval",
       "details": {
         "trace_id": "declaration 86731",
-        "event_id": "dd_declaration 86731_20",
-        "removed_values": "2017-01-16T17:32:14.000+01:00"
+        "event_ids": "dd_declaration 86731_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
-      "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "rule_id": "R4",
+      "action": "removed_payment_handled_for_succession",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_86733_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_86731",
-        "case_count_before": "1"
+        "trace_id": "declaration 86805",
+        "event_ids": "dd_declaration 86805_20",
+        "removed_count": "1",
+        "activity": "Payment Handled"
       }
     },
     {
-      "rule_id": "R1",
-      "action": "removed_belongsToCase",
+      "rule_id": "R4",
+      "action": "removed_payment_handled_for_succession",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_86731_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_86731",
-        "case_count_before": "1"
-      }
-    },
-    {
-      "rule_id": "R1",
-      "action": "removed_belongsToCase",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_19",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_86795",
-        "case_count_before": "1"
-      }
-    },
-    {
-      "rule_id": "R1",
-      "action": "removed_belongsToCase",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_86727_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_86720",
-        "case_count_before": "1"
-      }
-    },
-    {
-      "rule_id": "R1",
-      "action": "removed_belongsToCase",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_86798_0",
-        "removed_cases": "http://kg.workflow.validation/case/declaration_86795",
-        "case_count_before": "1"
-      }
-    },
-    {
-      "rule_id": "R3",
-      "action": "removed_wasAssociatedWith",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_86722_0",
-        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
-      }
-    },
-    {
-      "rule_id": "R3",
-      "action": "removed_wasAssociatedWith",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_86727_0",
-        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
-      }
-    },
-    {
-      "rule_id": "R3",
-      "action": "removed_wasAssociatedWith",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_86816_19",
-        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
-      }
-    },
-    {
-      "rule_id": "R3",
-      "action": "removed_wasAssociatedWith",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_86797_0",
-        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
-      }
-    },
-    {
-      "rule_id": "R3",
-      "action": "removed_wasAssociatedWith",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_86716_19",
-        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
-      }
-    },
-    {
-      "rule_id": "R5",
-      "action": "changed_payment_resource_from_system",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
-        "resource_before": "SYSTEM",
-        "resource_after": "BOGUS_RESOURCE_1434"
-      }
-    },
-    {
-      "rule_id": "R5",
-      "action": "changed_payment_resource_from_system",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
-        "resource_before": "SYSTEM",
-        "resource_after": "(empty)"
-      }
-    },
-    {
-      "rule_id": "R5",
-      "action": "changed_payment_resource_from_system",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_86716_20",
-        "resource_before": "SYSTEM",
-        "resource_after": "UNDEFINED"
-      }
-    },
-    {
-      "rule_id": "R5",
-      "action": "changed_payment_resource_from_system",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_86816_20",
-        "resource_before": "SYSTEM",
-        "resource_after": "BOGUS_RESOURCE_5557"
+        "trace_id": "declaration 86816",
+        "event_ids": "dd_declaration 86816_20",
+        "removed_count": "1",
+        "activity": "Payment Handled"
       }
     },
     {
@@ -272,7 +226,52 @@
       "details": {
         "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_20",
         "resource_before": "SYSTEM",
+        "resource_after": "(empty)"
+      }
+    },
+    {
+      "rule_id": "R5",
+      "action": "changed_payment_resource_from_system",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_86720_20",
+        "resource_before": "SYSTEM",
+        "resource_after": "UNDEFINED"
+      }
+    },
+    {
+      "rule_id": "R5",
+      "action": "changed_payment_resource_from_system",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_86716_20",
+        "resource_before": "SYSTEM",
+        "resource_after": "BOGUS_RESOURCE_5557"
+      }
+    },
+    {
+      "rule_id": "R5",
+      "action": "changed_payment_resource_from_system",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
+        "resource_before": "SYSTEM",
         "resource_after": "EMPLOYEE"
+      }
+    },
+    {
+      "rule_id": "R5",
+      "action": "changed_payment_resource_from_system",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
+        "resource_before": "SYSTEM",
+        "resource_after": "SUPERVISOR"
+      }
+    },
+    {
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
+      "details": {
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_86716_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
       }
     },
     {
@@ -280,24 +279,6 @@
       "action": "set_payment_role_to_employee",
       "details": {
         "activity": "http://kg.workflow.validation/activity/dd_declaration_86800_20",
-        "role_before": "UNDEFINED",
-        "role_after": "EMPLOYEE"
-      }
-    },
-    {
-      "rule_id": "R5B",
-      "action": "set_payment_role_to_employee",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
-        "role_before": "UNDEFINED",
-        "role_after": "EMPLOYEE"
-      }
-    },
-    {
-      "rule_id": "R5B",
-      "action": "set_payment_role_to_employee",
-      "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_86805_20",
         "role_before": "UNDEFINED",
         "role_after": "EMPLOYEE"
       }
@@ -321,134 +302,12 @@
       }
     },
     {
-      "rule_id": "R6",
-      "action": "scrambled_payment_provenance_order",
+      "rule_id": "R5B",
+      "action": "set_payment_role_to_employee",
       "details": {
-        "payment": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
-        "request": "http://kg.workflow.validation/activity/dd_declaration_86735_19",
-        "approval": "http://kg.workflow.validation/activity/st_step_86737_0",
-        "submission": "http://kg.workflow.validation/activity/st_step_86738_0",
-        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_86735_19",
-        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_86737_0",
-        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_86738_0",
-        "case": "http://kg.workflow.validation/case/declaration_86735",
-        "new_order": "http://kg.workflow.validation/activity/dd_declaration_86735_20 -> http://kg.workflow.validation/activity/st_step_86738_0 -> http://kg.workflow.validation/activity/dd_declaration_86735_19 -> http://kg.workflow.validation/activity/st_step_86737_0"
-      }
-    },
-    {
-      "rule_id": "R6",
-      "action": "inserted_bogus_payment_stage",
-      "details": {
-        "payment": "http://kg.workflow.validation/activity/dd_declaration_86805_20",
-        "request": "http://kg.workflow.validation/activity/dd_declaration_86805_19",
-        "approval": "http://kg.workflow.validation/activity/st_step_86808_0",
-        "submission": "http://kg.workflow.validation/activity/st_step_86807_0",
-        "case": "http://kg.workflow.validation/case/declaration_86805",
-        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_733052",
-        "bogus_label": "Fictional Approval Step",
-        "mode": "dead_end",
-        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_86805_19",
-        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_86808_0",
-        "path_after": "http://kg.workflow.validation/activity/dd_declaration_86805_20 -> http://kg.workflow.validation/activity/bogus_stage_733052"
-      }
-    },
-    {
-      "rule_id": "R6",
-      "action": "removed_payment_wasInformedBy",
-      "details": {
-        "payment": "http://kg.workflow.validation/activity/dd_declaration_86800_20",
-        "request": "http://kg.workflow.validation/activity/dd_declaration_86800_19",
-        "approval": "http://kg.workflow.validation/activity/st_step_86803_0",
-        "submission": "http://kg.workflow.validation/activity/st_step_86804_0",
-        "case": "http://kg.workflow.validation/case/declaration_86800",
-        "removed_earlier": "http://kg.workflow.validation/activity/dd_declaration_86800_19"
-      }
-    },
-    {
-      "rule_id": "R6",
-      "action": "inserted_bogus_payment_stage",
-      "details": {
-        "payment": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
-        "request": "http://kg.workflow.validation/activity/dd_declaration_86809_19",
-        "approval": "http://kg.workflow.validation/activity/st_step_86813_0",
-        "submission": "http://kg.workflow.validation/activity/st_step_86814_0",
-        "case": "http://kg.workflow.validation/case/declaration_86809",
-        "bogus_activity": "http://kg.workflow.validation/activity/bogus_stage_662275",
-        "bogus_label": "Bogus Intermediate Stage",
-        "mode": "skip_request",
-        "payment_wasInformedBy_before": "http://kg.workflow.validation/activity/dd_declaration_86809_19",
-        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_86811_0",
-        "path_after": "http://kg.workflow.validation/activity/dd_declaration_86809_20 -> http://kg.workflow.validation/activity/bogus_stage_662275 -> http://kg.workflow.validation/activity/st_step_86813_0"
-      }
-    },
-    {
-      "rule_id": "R6",
-      "action": "scrambled_payment_provenance_order",
-      "details": {
-        "payment": "http://kg.workflow.validation/activity/dd_declaration_86720_20",
-        "request": "http://kg.workflow.validation/activity/dd_declaration_86720_19",
-        "approval": "http://kg.workflow.validation/activity/st_step_86729_0",
-        "submission": "http://kg.workflow.validation/activity/st_step_86728_0",
-        "payment_wasInformedBy": "http://kg.workflow.validation/activity/dd_declaration_86720_19",
-        "request_wasInformedBy": "http://kg.workflow.validation/activity/st_step_86722_0",
-        "approval_wasInformedBy": "http://kg.workflow.validation/activity/st_step_86728_0",
-        "case": "http://kg.workflow.validation/case/declaration_86720",
-        "new_order": "http://kg.workflow.validation/activity/dd_declaration_86720_20 -> http://kg.workflow.validation/activity/st_step_86728_0 -> http://kg.workflow.validation/activity/dd_declaration_86720_19 -> http://kg.workflow.validation/activity/st_step_86729_0"
-      }
-    },
-    {
-      "rule_id": "R4",
-      "action": "broke_wasInformedBy_temporal_order",
-      "details": {
-        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_86809_19",
-        "earlier_activity": "http://kg.workflow.validation/activity/st_step_86811_0",
-        "later_time_before": "2017-01-27T10:55:21+01:00",
-        "earlier_time": "2017-01-20T14:44:43+01:00",
-        "later_time_after": "2017-01-20T13:57:58+01:00"
-      }
-    },
-    {
-      "rule_id": "R4",
-      "action": "broke_wasInformedBy_temporal_order",
-      "details": {
-        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
-        "earlier_activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19",
-        "later_time_before": "2017-01-12T17:31:22+01:00",
-        "earlier_time": "2017-01-10T09:34:44+01:00",
-        "later_time_after": "2017-01-10T09:12:35+01:00"
-      }
-    },
-    {
-      "rule_id": "R4",
-      "action": "broke_wasInformedBy_temporal_order",
-      "details": {
-        "later_activity": "http://kg.workflow.validation/activity/dd_declaration_86805_19",
-        "earlier_activity": "http://kg.workflow.validation/activity/st_step_86808_0",
-        "later_time_before": "2017-01-25T10:31:31+01:00",
-        "earlier_time": "2017-01-09T11:41:23+01:00",
-        "later_time_after": "2017-01-09T10:43:50+01:00"
-      }
-    },
-    {
-      "rule_id": "R4",
-      "action": "broke_wasInformedBy_temporal_order",
-      "details": {
-        "later_activity": "http://kg.workflow.validation/activity/st_step_86726_0",
-        "earlier_activity": "http://kg.workflow.validation/activity/st_step_86725_0",
-        "later_time_before": "2017-01-17T16:51:54+01:00",
-        "earlier_time": "2017-01-17T16:51:42+01:00",
-        "later_time_after": "2017-01-17T15:59:14+01:00"
-      }
-    },
-    {
-      "rule_id": "R4",
-      "action": "broke_wasInformedBy_temporal_order",
-      "details": {
-        "later_activity": "http://kg.workflow.validation/activity/st_step_86813_0",
-        "earlier_activity": "http://kg.workflow.validation/activity/st_step_86814_0",
-        "later_time_before": "2017-01-09T12:14:49+01:00",
-        "earlier_time": "2017-01-09T12:14:36+01:00",
-        "later_time_after": "2017-01-09T11:21:37+01:00"
+        "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
+        "role_before": "UNDEFINED",
+        "role_after": "EMPLOYEE"
       }
     }
   ],

@@ -18,16 +18,16 @@
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-16T17:32:14+01:00"^^xsd:dateTime .
 
-<http://kg.workflow.validation/activity/dd_declaration_86720_20> a prov:Activity ;
-    rdfs:label "Payment Handled" ;
+<http://kg.workflow.validation/activity/dd_declaration_86720_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
     wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
     prov:endedAtTime "2017-01-26T17:30:39+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-01-26T17:30:39+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86720> ;
     prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
-    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86720_19> ;
-    attr:xes-attr_concept_name "Payment Handled" ;
-    attr:xes-attr_id "dd_declaration 86720_20" ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86720_20> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86720_19" ;
     attr:xes-attr_org_resource "SYSTEM" ;
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-26T17:30:39+01:00"^^xsd:dateTime .
@@ -46,44 +46,44 @@
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-16T17:32:14+01:00"^^xsd:dateTime .
 
-<http://kg.workflow.validation/activity/dd_declaration_86735_20> a prov:Activity ;
-    rdfs:label "Payment Handled" ;
+<http://kg.workflow.validation/activity/dd_declaration_86735_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
     wf:belongsToCase <http://kg.workflow.validation/case/declaration_86735> ;
     prov:endedAtTime "2017-01-16T17:32:14+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-01-16T17:32:14+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86735> ;
     prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
-    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86735_19> ;
-    attr:xes-attr_concept_name "Payment Handled" ;
-    attr:xes-attr_id "dd_declaration 86735_20" ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86735_20> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86735_19" ;
     attr:xes-attr_org_resource "SYSTEM" ;
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-16T17:32:14+01:00"^^xsd:dateTime .
 
-<http://kg.workflow.validation/activity/dd_declaration_86791_20> a prov:Activity ;
-    rdfs:label "Payment Handled" ;
+<http://kg.workflow.validation/activity/dd_declaration_86791_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
     wf:belongsToCase <http://kg.workflow.validation/case/declaration_86791> ;
     prov:endedAtTime "2017-01-12T17:31:22+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-01-12T17:31:22+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86791> ;
     prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
-    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86791_19> ;
-    attr:xes-attr_concept_name "Payment Handled" ;
-    attr:xes-attr_id "dd_declaration 86791_20" ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86791_20> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86791_19" ;
     attr:xes-attr_org_resource "SYSTEM" ;
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-12T17:31:22+01:00"^^xsd:dateTime .
 
-<http://kg.workflow.validation/activity/dd_declaration_86795_20> a prov:Activity ;
-    rdfs:label "Payment Handled" ;
+<http://kg.workflow.validation/activity/dd_declaration_86795_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
     wf:belongsToCase <http://kg.workflow.validation/case/declaration_86795> ;
     prov:endedAtTime "2017-03-13T17:30:59+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-03-13T17:30:59+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86795> ;
     prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
-    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86795_19> ;
-    attr:xes-attr_concept_name "Payment Handled" ;
-    attr:xes-attr_id "dd_declaration 86795_20" ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86795_20> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86795_19" ;
     attr:xes-attr_org_resource "SYSTEM" ;
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-03-13T17:30:59+01:00"^^xsd:dateTime .
@@ -116,16 +116,16 @@
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-30T17:31:35+01:00"^^xsd:dateTime .
 
-<http://kg.workflow.validation/activity/dd_declaration_86809_20> a prov:Activity ;
-    rdfs:label "Payment Handled" ;
+<http://kg.workflow.validation/activity/dd_declaration_86809_19> a prov:Activity ;
+    rdfs:label "Request Payment" ;
     wf:belongsToCase <http://kg.workflow.validation/case/declaration_86809> ;
     prov:endedAtTime "2017-01-30T17:31:35+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-01-30T17:31:35+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86809> ;
     prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
-    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86809_19> ;
-    attr:xes-attr_concept_name "Payment Handled" ;
-    attr:xes-attr_id "dd_declaration 86809_20" ;
+    prov:wasInformedBy <http://kg.workflow.validation/activity/dd_declaration_86809_20> ;
+    attr:xes-attr_concept_name "Request Payment" ;
+    attr:xes-attr_id "dd_declaration 86809_19" ;
     attr:xes-attr_org_resource "SYSTEM" ;
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-30T17:31:35+01:00"^^xsd:dateTime .
@@ -158,16 +158,16 @@
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-13T14:09:36+01:00"^^xsd:dateTime .
 
-<http://kg.workflow.validation/activity/dd_declaration_86720_19> a prov:Activity ;
-    rdfs:label "Request Payment" ;
+<http://kg.workflow.validation/activity/dd_declaration_86720_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
     wf:belongsToCase <http://kg.workflow.validation/case/declaration_86720> ;
     prov:endedAtTime "2017-01-23T13:04:01+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-01-23T13:04:01+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86720> ;
     prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
     prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86722_0> ;
-    attr:xes-attr_concept_name "Request Payment" ;
-    attr:xes-attr_id "dd_declaration 86720_19" ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86720_20" ;
     attr:xes-attr_org_resource "SYSTEM" ;
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-23T13:04:01+01:00"^^xsd:dateTime .
@@ -186,43 +186,44 @@
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-11T14:37:18+01:00"^^xsd:dateTime .
 
-<http://kg.workflow.validation/activity/dd_declaration_86735_19> a prov:Activity ;
-    rdfs:label "Request Payment" ;
+<http://kg.workflow.validation/activity/dd_declaration_86735_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
     wf:belongsToCase <http://kg.workflow.validation/case/declaration_86735> ;
     prov:endedAtTime "2017-01-11T14:37:18+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-01-11T14:37:18+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86735> ;
     prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
     prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86737_0> ;
-    attr:xes-attr_concept_name "Request Payment" ;
-    attr:xes-attr_id "dd_declaration 86735_19" ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86735_20" ;
     attr:xes-attr_org_resource "SYSTEM" ;
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-11T14:37:18+01:00"^^xsd:dateTime .
 
-<http://kg.workflow.validation/activity/dd_declaration_86791_19> a prov:Activity ;
-    rdfs:label "Request Payment" ;
+<http://kg.workflow.validation/activity/dd_declaration_86791_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
     wf:belongsToCase <http://kg.workflow.validation/case/declaration_86791> ;
     prov:endedAtTime "2017-01-10T09:34:44+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-01-10T09:34:44+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86791> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
     prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86793_0> ;
-    attr:xes-attr_concept_name "Request Payment" ;
-    attr:xes-attr_id "dd_declaration 86791_19" ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86791_20" ;
     attr:xes-attr_org_resource "SYSTEM" ;
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-10T09:34:44+01:00"^^xsd:dateTime .
 
-<http://kg.workflow.validation/activity/dd_declaration_86795_19> a prov:Activity ;
-    rdfs:label "Request Payment" ;
+<http://kg.workflow.validation/activity/dd_declaration_86795_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
     wf:belongsToCase <http://kg.workflow.validation/case/declaration_86795> ;
     prov:endedAtTime "2017-03-06T14:07:25+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-03-06T14:07:25+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86795> ;
     prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
     prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86797_0> ;
-    attr:xes-attr_concept_name "Request Payment" ;
-    attr:xes-attr_id "dd_declaration 86795_19" ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86795_20" ;
     attr:xes-attr_org_resource "SYSTEM" ;
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-03-06T14:07:25+01:00"^^xsd:dateTime .
@@ -255,16 +256,16 @@
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-25T10:31:31+01:00"^^xsd:dateTime .
 
-<http://kg.workflow.validation/activity/dd_declaration_86809_19> a prov:Activity ;
-    rdfs:label "Request Payment" ;
+<http://kg.workflow.validation/activity/dd_declaration_86809_20> a prov:Activity ;
+    rdfs:label "Payment Handled" ;
     wf:belongsToCase <http://kg.workflow.validation/case/declaration_86809> ;
     prov:endedAtTime "2017-01-27T10:55:21+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-01-27T10:55:21+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86809> ;
     prov:wasAssociatedWith <http://kg.workflow.validation/agent/SYSTEM> ;
     prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86811_0> ;
-    attr:xes-attr_concept_name "Request Payment" ;
-    attr:xes-attr_id "dd_declaration 86809_19" ;
+    attr:xes-attr_concept_name "Payment Handled" ;
+    attr:xes-attr_id "dd_declaration 86809_20" ;
     attr:xes-attr_org_resource "SYSTEM" ;
     attr:xes-attr_org_role "UNDEFINED" ;
     attr:xes-attr_time_timestamp "2017-01-27T10:55:21+01:00"^^xsd:dateTime .
@@ -359,6 +360,7 @@
     prov:endedAtTime "2017-01-17T16:51:54+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-01-17T16:51:54+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86720> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
     prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86725_0> ;
     attr:xes-attr_concept_name "Declaration REJECTED by PRE_APPROVER" ;
     attr:xes-attr_id "st_step 86726_0" ;
@@ -470,6 +472,7 @@
     prov:endedAtTime "2017-02-22T10:29:21+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-02-22T10:29:21+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86795> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
     prov:wasInformedBy <http://kg.workflow.validation/activity/st_step_86798_0> ;
     attr:xes-attr_concept_name "Declaration APPROVED by PRE_APPROVER" ;
     attr:xes-attr_id "st_step 86799_0" ;
@@ -595,6 +598,7 @@
     prov:endedAtTime "2017-01-09T15:10:05+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-01-09T15:10:05+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86716> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
     attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
     attr:xes-attr_id "st_step 86719_0" ;
     attr:xes-attr_org_resource "STAFF MEMBER" ;
@@ -620,6 +624,7 @@
     prov:endedAtTime "2017-01-09T11:24:20+01:00"^^xsd:dateTime ;
     prov:startedAtTime "2017-01-09T11:24:20+01:00"^^xsd:dateTime ;
     prov:used <http://kg.workflow.validation/case/declaration_86731> ;
+    prov:wasAssociatedWith <http://kg.workflow.validation/agent/STAFF_MEMBER> ;
     attr:xes-attr_concept_name "Declaration SUBMITTED by EMPLOYEE" ;
     attr:xes-attr_id "st_step 86733_0" ;
     attr:xes-attr_org_resource "STAFF MEMBER" ;

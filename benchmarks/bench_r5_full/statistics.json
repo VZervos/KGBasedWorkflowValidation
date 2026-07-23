@@ -4,13 +4,21 @@
   "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.xes.gz",
   "seed": 42,
   "xes_line_count": 468572,
-  "started_at": "2026-07-22T10:03:50.138864+00:00",
-  "finished_at": "2026-07-22T10:06:30.504719+00:00",
+  "started_at": "2026-07-23T10:39:34.533759+00:00",
+  "finished_at": "2026-07-23T10:42:53.480429+00:00",
+  "conversion": {
+    "trace_count": 10500,
+    "event_count": 56437,
+    "triple_count": 849664,
+    "agent_count": 2,
+    "duration_seconds": 99.361741,
+    "xes_lines_parsed": 468566
+  },
   "notes": {
-    "r1": "wf:belongsToCase is created during conversion, so R1 faults are injected on the generated KG by removing belongsToCase links.",
-    "r2": "time:timestamp attributes are removed from random XES events before conversion, so activities lack prov:startedAtTime.",
-    "r3": "prov:wasAssociatedWith is created during conversion, so R3 faults are injected on the KG by removing agent associations.",
-    "r4": "R4 faults are injected on the KG by randomly either breaking wasInformedBy temporal order (later.startedAtTime < earlier) or removing startedAtTime while keeping endedAtTime.",
+    "r1": "R1 (DECLARE existence): remove Declaration SUBMITTED by EMPLOYEE from selected XES traces before conversion.",
+    "r2": "R2 (DECLARE response): remove Request Payment from traces that have Declaration FINAL_APPROVED by SUPERVISOR.",
+    "r3": "R3 (DECLARE precedence): swap Request Payment / Payment Handled identity attributes while keeping timestamps, so conversion order places payment before request.",
+    "r4": "R4 (DECLARE succession): remove Payment Handled from traces that still have Request Payment (distinct from R3 swap, so combined injection does not cancel R3).",
     "r5": "Payment Handled activities that use SYSTEM get a random invalid attr:xes-attr_org_resource (known roles, empty, or invented BOGUS_RESOURCE_* values).",
     "r5b": "Payment Handled activities have their org:role rewritten to EMPLOYEE.",
     "r6": "Payment Handled activities with a valid provenance chain are corrupted by randomly choosing one of: scramble milestone wasInformedBy order; insert a bogus intermediate activity; or remove Payment Handled's wasInformedBy link(s).",
@@ -55,22 +63,22 @@
   },
   "applied": {
     "r1": {
-      "eligible": 56437,
+      "eligible": 10365,
       "target": 0,
       "applied": 0
     },
     "r2": {
-      "eligible": 56437,
+      "eligible": 10038,
       "target": 0,
       "applied": 0
     },
     "r3": {
-      "eligible": 56437,
+      "eligible": 10037,
       "target": 0,
       "applied": 0
     },
     "r4": {
-      "eligible": 45937,
+      "eligible": 10037,
       "target": 0,
       "applied": 0
     },

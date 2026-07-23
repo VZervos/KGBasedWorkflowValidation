@@ -25,16 +25,16 @@
 			<string key="org:role" value="SUPERVISOR" />
 		</event>
 		<event>
-			<string key="id" value="dd_declaration 86791_19" />
+			<string key="id" value="dd_declaration 86791_20" />
 			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Request Payment" />
+			<string key="concept:name" value="Payment Handled" />
 			<date key="time:timestamp" value="2017-01-10T09:34:44.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
 		<event>
-			<string key="id" value="dd_declaration 86791_20" />
+			<string key="id" value="dd_declaration 86791_19" />
 			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
+			<string key="concept:name" value="Request Payment" />
 			<date key="time:timestamp" value="2017-01-12T17:31:22.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
@@ -67,16 +67,16 @@
 			<string key="org:role" value="SUPERVISOR" />
 		</event>
 		<event>
-			<string key="id" value="dd_declaration 86795_19" />
+			<string key="id" value="dd_declaration 86795_20" />
 			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Request Payment" />
+			<string key="concept:name" value="Payment Handled" />
 			<date key="time:timestamp" value="2017-03-06T14:07:25.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
 		<event>
-			<string key="id" value="dd_declaration 86795_20" />
+			<string key="id" value="dd_declaration 86795_19" />
 			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
+			<string key="concept:name" value="Request Payment" />
 			<date key="time:timestamp" value="2017-03-13T17:30:59.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
@@ -179,16 +179,16 @@
 			<string key="org:role" value="SUPERVISOR" />
 		</event>
 		<event>
-			<string key="id" value="dd_declaration 86735_19" />
+			<string key="id" value="dd_declaration 86735_20" />
 			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Request Payment" />
+			<string key="concept:name" value="Payment Handled" />
 			<date key="time:timestamp" value="2017-01-11T14:37:18.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
 		<event>
-			<string key="id" value="dd_declaration 86735_20" />
+			<string key="id" value="dd_declaration 86735_19" />
 			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
+			<string key="concept:name" value="Request Payment" />
 			<date key="time:timestamp" value="2017-01-16T17:32:14.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
@@ -270,16 +270,16 @@
 			<string key="org:role" value="SUPERVISOR" />
 		</event>
 		<event>
-			<string key="id" value="dd_declaration 86809_19" />
+			<string key="id" value="dd_declaration 86809_20" />
 			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Request Payment" />
+			<string key="concept:name" value="Payment Handled" />
 			<date key="time:timestamp" value="2017-01-27T10:55:21.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
 		<event>
-			<string key="id" value="dd_declaration 86809_20" />
+			<string key="id" value="dd_declaration 86809_19" />
 			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
+			<string key="concept:name" value="Request Payment" />
 			<date key="time:timestamp" value="2017-01-30T17:31:35.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
@@ -424,16 +424,16 @@
 			<string key="org:role" value="SUPERVISOR" />
 		</event>
 		<event>
-			<string key="id" value="dd_declaration 86720_19" />
+			<string key="id" value="dd_declaration 86720_20" />
 			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Request Payment" />
+			<string key="concept:name" value="Payment Handled" />
 			<date key="time:timestamp" value="2017-01-23T13:04:01.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
 		<event>
-			<string key="id" value="dd_declaration 86720_20" />
+			<string key="id" value="dd_declaration 86720_19" />
 			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
+			<string key="concept:name" value="Request Payment" />
 			<date key="time:timestamp" value="2017-01-26T17:30:39.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>

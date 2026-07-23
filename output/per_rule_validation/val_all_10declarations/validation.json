@@ -2,10 +2,10 @@
   "status": "FAILED",
   "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_all_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
   "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_all_10declarations\\validation.json",
-  "started_at": "2026-07-22T11:23:31.212916+00:00",
-  "finished_at": "2026-07-22T11:23:31.415928+00:00",
-  "duration_seconds": 0.214996,
-  "total_violations": 52,
+  "started_at": "2026-07-23T10:49:06.451967+00:00",
+  "finished_at": "2026-07-23T10:49:06.471443+00:00",
+  "duration_seconds": 0.019621,
+  "total_violations": 40,
   "rules_run": [
     "R1",
     "R2",
@@ -18,278 +18,189 @@
   "results": [
     {
       "rule_id": "R1",
-      "name": "ACTIVITY_BELONGS_TO_CASE",
-      "description": "Every prov:Activity must have exactly one wf:belongsToCase link (integrity: each event belongs to exactly one case).",
+      "name": "SUBMISSION_EXISTENCE",
+      "description": "Every case must contain at least one activity labelled 'Declaration SUBMITTED by EMPLOYEE' (DECLARE existence).",
       "status": "FAILED",
       "violation_count": 5,
-      "duration_seconds": 0.14395,
+      "duration_seconds": 0.000323,
       "violations": [
         {
-          "issue": "missing_belongsToCase",
+          "issue": "missing_submission_existence",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86731_19",
-            "caseCount": "0"
+            "case": "http://kg.workflow.validation/case/declaration_86720"
           }
         },
         {
-          "issue": "missing_belongsToCase",
+          "issue": "missing_submission_existence",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_19",
-            "caseCount": "0"
+            "case": "http://kg.workflow.validation/case/declaration_86735"
           }
         },
         {
-          "issue": "missing_belongsToCase",
+          "issue": "missing_submission_existence",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86727_0",
-            "caseCount": "0"
+            "case": "http://kg.workflow.validation/case/declaration_86791"
           }
         },
         {
-          "issue": "missing_belongsToCase",
+          "issue": "missing_submission_existence",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86733_0",
-            "caseCount": "0"
+            "case": "http://kg.workflow.validation/case/declaration_86795"
           }
         },
         {
-          "issue": "missing_belongsToCase",
+          "issue": "missing_submission_existence",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86798_0",
-            "caseCount": "0"
+            "case": "http://kg.workflow.validation/case/declaration_86809"
           }
         }
       ]
     },
     {
       "rule_id": "R2",
-      "name": "ACTIVITY_HAS_STARTED_AT_TIME",
-      "description": "Every prov:Activity must have prov:startedAtTime.",
+      "name": "APPROVAL_REQUEST_RESPONSE",
+      "description": "If a case has 'Declaration FINAL_APPROVED by SUPERVISOR', then 'Request Payment' must occur later in the same case (DECLARE response; KG: request wasInformedBy+ approval).",
       "status": "FAILED",
-      "violation_count": 7,
-      "duration_seconds": 0.009697,
+      "violation_count": 5,
+      "duration_seconds": 0.000651,
       "violations": [
         {
-          "issue": "missing_startedAtTime",
+          "issue": "missing_response_request_after_approval",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/bogus_stage_662275"
+            "case": "http://kg.workflow.validation/case/declaration_86716",
+            "approval": "http://kg.workflow.validation/activity/st_step_86718_0"
           }
         },
         {
-          "issue": "missing_startedAtTime",
+          "issue": "missing_response_request_after_approval",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/bogus_stage_733052"
+            "case": "http://kg.workflow.validation/case/declaration_86731",
+            "approval": "http://kg.workflow.validation/activity/st_step_86734_0"
           }
         },
         {
-          "issue": "missing_startedAtTime",
+          "issue": "missing_response_request_after_approval",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86716_20"
+            "case": "http://kg.workflow.validation/case/declaration_86795",
+            "approval": "http://kg.workflow.validation/activity/st_step_86797_0"
           }
         },
         {
-          "issue": "missing_startedAtTime",
+          "issue": "missing_response_request_after_approval",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86731_20"
+            "case": "http://kg.workflow.validation/case/declaration_86800",
+            "approval": "http://kg.workflow.validation/activity/st_step_86803_0"
           }
         },
         {
-          "issue": "missing_startedAtTime",
+          "issue": "missing_response_request_after_approval",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_19"
-          }
-        },
-        {
-          "issue": "missing_startedAtTime",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86724_0"
-          }
-        },
-        {
-          "issue": "missing_startedAtTime",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86793_0"
+            "case": "http://kg.workflow.validation/case/declaration_86735",
+            "approval": "http://kg.workflow.validation/activity/st_step_86737_0"
           }
         }
       ]
     },
     {
       "rule_id": "R3",
-      "name": "ACTIVITY_HAS_AGENT",
-      "description": "Every prov:Activity must have prov:wasAssociatedWith an agent.",
+      "name": "REQUEST_BEFORE_PAYMENT",
+      "description": "A 'Payment Handled' activity is valid only if 'Request Payment' occurred earlier in the same case (DECLARE precedence; KG: payment wasInformedBy+ request).",
       "status": "FAILED",
-      "violation_count": 7,
-      "duration_seconds": 0.017466,
+      "violation_count": 5,
+      "duration_seconds": 0.000464,
       "violations": [
         {
-          "issue": "missing_agent_association",
+          "issue": "missing_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/bogus_stage_662275"
+            "case": "http://kg.workflow.validation/case/declaration_86716",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86716_20"
           }
         },
         {
-          "issue": "missing_agent_association",
+          "issue": "missing_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/bogus_stage_733052"
+            "case": "http://kg.workflow.validation/case/declaration_86731",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86731_20"
           }
         },
         {
-          "issue": "missing_agent_association",
+          "issue": "missing_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86716_19"
+            "case": "http://kg.workflow.validation/case/declaration_86735",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86735_20"
           }
         },
         {
-          "issue": "missing_agent_association",
+          "issue": "missing_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86816_19"
+            "case": "http://kg.workflow.validation/case/declaration_86795",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86795_20"
           }
         },
         {
-          "issue": "missing_agent_association",
+          "issue": "missing_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86722_0"
-          }
-        },
-        {
-          "issue": "missing_agent_association",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86727_0"
-          }
-        },
-        {
-          "issue": "missing_agent_association",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86797_0"
+            "case": "http://kg.workflow.validation/case/declaration_86800",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86800_20"
           }
         }
       ]
     },
     {
       "rule_id": "R4",
-      "name": "WAS_INFORMED_BY_TEMPORAL_CONSISTENCY",
-      "description": "If activity B prov:wasInformedBy activity A, then both must have prov:startedAtTime and A.startedAtTime must be less than or equal to B.startedAtTime.",
+      "name": "REQUEST_PAYMENT_SUCCESSION",
+      "description": "In each case, 'Request Payment' and 'Payment Handled' must form a succession: every request is followed by a payment, and every payment is preceded by a request (DECLARE succession).",
       "status": "FAILED",
-      "violation_count": 14,
-      "duration_seconds": 0.027364,
+      "violation_count": 7,
+      "duration_seconds": 0.000648,
       "violations": [
         {
-          "issue": "missing_startedAtTime_on_informed_activity",
+          "issue": "missing_succession_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/bogus_stage_662275",
-            "earlier": "http://kg.workflow.validation/activity/st_step_86813_0",
-            "earlierTime": "2017-01-09T11:21:37+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86716",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86716_20"
           }
         },
         {
-          "issue": "non_monotonic_wasInformedBy",
+          "issue": "missing_succession_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
-            "earlier": "http://kg.workflow.validation/activity/dd_declaration_86791_19",
-            "earlierTime": "2017-01-10T09:34:44+01:00",
-            "laterTime": "2017-01-10T09:12:35+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86731",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86731_20"
           }
         },
         {
-          "issue": "non_monotonic_wasInformedBy",
+          "issue": "missing_succession_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86805_19",
-            "earlier": "http://kg.workflow.validation/activity/st_step_86808_0",
-            "earlierTime": "2017-01-09T11:41:23+01:00",
-            "laterTime": "2017-01-09T10:43:50+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86735",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_20"
           }
         },
         {
-          "issue": "missing_startedAtTime_on_informing_activity",
+          "issue": "missing_succession_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86805_20",
-            "earlier": "http://kg.workflow.validation/activity/bogus_stage_733052",
-            "laterTime": "2017-01-30T17:31:35+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86795",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_20"
           }
         },
         {
-          "issue": "non_monotonic_wasInformedBy",
+          "issue": "missing_succession_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_19",
-            "earlier": "http://kg.workflow.validation/activity/st_step_86811_0",
-            "earlierTime": "2017-01-20T14:44:43+01:00",
-            "laterTime": "2017-01-20T13:57:58+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86800",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86800_20"
           }
         },
         {
-          "issue": "missing_startedAtTime_on_informing_activity",
+          "issue": "missing_succession_response_payment_after_request",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
-            "earlier": "http://kg.workflow.validation/activity/bogus_stage_662275",
-            "laterTime": "2017-01-30T17:31:35+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86805",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86805_19"
           }
         },
         {
-          "issue": "missing_startedAtTime_on_informing_activity",
+          "issue": "missing_succession_response_payment_after_request",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86719_0",
-            "earlier": "http://kg.workflow.validation/activity/dd_declaration_86716_20",
-            "laterTime": "2017-01-09T15:10:05+01:00"
-          }
-        },
-        {
-          "issue": "non_monotonic_wasInformedBy",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86726_0",
-            "earlier": "http://kg.workflow.validation/activity/st_step_86725_0",
-            "earlierTime": "2017-01-17T16:51:42+01:00",
-            "laterTime": "2017-01-17T15:59:14+01:00"
-          }
-        },
-        {
-          "issue": "non_monotonic_wasInformedBy",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86728_0",
-            "earlier": "http://kg.workflow.validation/activity/dd_declaration_86720_19",
-            "earlierTime": "2017-01-23T13:04:01+01:00",
-            "laterTime": "2017-01-09T15:57:21+01:00"
-          }
-        },
-        {
-          "issue": "missing_startedAtTime_on_informing_activity",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86733_0",
-            "earlier": "http://kg.workflow.validation/activity/dd_declaration_86731_20",
-            "laterTime": "2017-01-09T11:24:20+01:00"
-          }
-        },
-        {
-          "issue": "non_monotonic_wasInformedBy",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86738_0",
-            "earlier": "http://kg.workflow.validation/activity/dd_declaration_86735_19",
-            "earlierTime": "2017-01-11T14:37:18+01:00",
-            "laterTime": "2017-01-09T11:30:26+01:00"
-          }
-        },
-        {
-          "issue": "missing_startedAtTime_on_informing_activity",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86794_0",
-            "earlier": "http://kg.workflow.validation/activity/st_step_86793_0",
-            "laterTime": "2017-01-09T09:49:50+01:00"
-          }
-        },
-        {
-          "issue": "missing_startedAtTime_on_informing_activity",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86798_0",
-            "earlier": "http://kg.workflow.validation/activity/dd_declaration_86795_19",
-            "laterTime": "2017-01-09T10:26:14+01:00"
-          }
-        },
-        {
-          "issue": "non_monotonic_wasInformedBy",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86813_0",
-            "earlier": "http://kg.workflow.validation/activity/st_step_86814_0",
-            "earlierTime": "2017-01-09T12:14:36+01:00",
-            "laterTime": "2017-01-09T11:21:37+01:00"
+            "case": "http://kg.workflow.validation/case/declaration_86816",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86816_19"
           }
         }
       ]
@@ -300,41 +211,41 @@
       "description": "Every 'Payment Handled' activity must be associated with resource SYSTEM (xes-attr:org_resource).",
       "status": "FAILED",
       "violation_count": 5,
-      "duration_seconds": 0.00899,
+      "duration_seconds": 0.00828,
       "violations": [
         {
           "issue": "payment_not_handled_by_system",
           "details": {
             "activity": "http://kg.workflow.validation/activity/dd_declaration_86716_20",
+            "resource": "BOGUS_RESOURCE_5557"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86720_20",
             "resource": "UNDEFINED"
           }
         },
         {
           "issue": "payment_not_handled_by_system",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
-            "resource": ""
-          }
-        },
-        {
-          "issue": "payment_not_handled_by_system",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_20",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
             "resource": "EMPLOYEE"
           }
         },
         {
           "issue": "payment_not_handled_by_system",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
-            "resource": "BOGUS_RESOURCE_1434"
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_20",
+            "resource": "SUPERVISOR"
           }
         },
         {
           "issue": "payment_not_handled_by_system",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86816_20",
-            "resource": "BOGUS_RESOURCE_5557"
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_20",
+            "resource": ""
           }
         }
       ]
@@ -345,12 +256,26 @@
       "description": "Every 'Payment Handled' activity must not be associated with role EMPLOYEE (xes-attr:org_role).",
       "status": "FAILED",
       "violation_count": 5,
-      "duration_seconds": 0.006547,
+      "duration_seconds": 0.007759,
       "violations": [
         {
           "issue": "payment_handled_by_employee",
           "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86716_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
             "activity": "http://kg.workflow.validation/activity/dd_declaration_86720_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_86735_20",
             "role": "EMPLOYEE"
           }
         },
@@ -367,20 +292,6 @@
             "activity": "http://kg.workflow.validation/activity/dd_declaration_86800_20",
             "role": "EMPLOYEE"
           }
-        },
-        {
-          "issue": "payment_handled_by_employee",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86805_20",
-            "role": "EMPLOYEE"
-          }
-        },
-        {
-          "issue": "payment_handled_by_employee",
-          "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
-            "role": "EMPLOYEE"
-          }
         }
       ]
     },
@@ -389,14 +300,28 @@
       "name": "PAYMENT_PROVENANCE_CHAIN",
       "description": "A payment is valid only if Payment Handled wasInformedBy Request Payment, which wasInformedBy Final Approval, which wasInformedBy Declaration Submission, and all belong to the same case (prov:wasInformedBy+; optional steps such as PRE_APPROVER may appear between these milestones).",
       "status": "FAILED",
-      "violation_count": 9,
-      "duration_seconds": 0.000876,
+      "violation_count": 8,
+      "duration_seconds": 0.001451,
       "violations": [
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86716_20",
+            "case": "http://kg.workflow.validation/case/declaration_86716"
+          }
+        },
         {
           "issue": "invalid_payment_provenance_chain",
           "details": {
             "payment": "http://kg.workflow.validation/activity/dd_declaration_86720_20",
             "case": "http://kg.workflow.validation/case/declaration_86720"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86731_20",
+            "case": "http://kg.workflow.validation/case/declaration_86731"
           }
         },
         {
@@ -430,29 +355,8 @@
         {
           "issue": "invalid_payment_provenance_chain",
           "details": {
-            "payment": "http://kg.workflow.validation/activity/dd_declaration_86805_20",
-            "case": "http://kg.workflow.validation/case/declaration_86805"
-          }
-        },
-        {
-          "issue": "invalid_payment_provenance_chain",
-          "details": {
             "payment": "http://kg.workflow.validation/activity/dd_declaration_86809_20",
             "case": "http://kg.workflow.validation/case/declaration_86809"
-          }
-        },
-        {
-          "issue": "invalid_payment_provenance_chain",
-          "details": {
-            "payment": "http://kg.workflow.validation/activity/dd_declaration_86716_20",
-            "case": "http://kg.workflow.validation/case/declaration_86716"
-          }
-        },
-        {
-          "issue": "invalid_payment_provenance_chain",
-          "details": {
-            "payment": "http://kg.workflow.validation/activity/dd_declaration_86731_20",
-            "case": "http://kg.workflow.validation/case/declaration_86731"
           }
         }
       ]

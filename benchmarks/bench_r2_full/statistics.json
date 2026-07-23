@@ -4,13 +4,21 @@
   "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.xes.gz",
   "seed": 42,
   "xes_line_count": 468572,
-  "started_at": "2026-07-22T09:52:44.999504+00:00",
-  "finished_at": "2026-07-22T09:55:27.927479+00:00",
+  "started_at": "2026-07-23T10:25:07.042840+00:00",
+  "finished_at": "2026-07-23T10:29:50.645442+00:00",
+  "conversion": {
+    "trace_count": 10500,
+    "event_count": 56337,
+    "triple_count": 848364,
+    "agent_count": 2,
+    "duration_seconds": 174.691051,
+    "xes_lines_parsed": 467866
+  },
   "notes": {
-    "r1": "wf:belongsToCase is created during conversion, so R1 faults are injected on the generated KG by removing belongsToCase links.",
-    "r2": "time:timestamp attributes are removed from random XES events before conversion, so activities lack prov:startedAtTime.",
-    "r3": "prov:wasAssociatedWith is created during conversion, so R3 faults are injected on the KG by removing agent associations.",
-    "r4": "R4 faults are injected on the KG by randomly either breaking wasInformedBy temporal order (later.startedAtTime < earlier) or removing startedAtTime while keeping endedAtTime.",
+    "r1": "R1 (DECLARE existence): remove Declaration SUBMITTED by EMPLOYEE from selected XES traces before conversion.",
+    "r2": "R2 (DECLARE response): remove Request Payment from traces that have Declaration FINAL_APPROVED by SUPERVISOR.",
+    "r3": "R3 (DECLARE precedence): swap Request Payment / Payment Handled identity attributes while keeping timestamps, so conversion order places payment before request.",
+    "r4": "R4 (DECLARE succession): remove Payment Handled from traces that still have Request Payment (distinct from R3 swap, so combined injection does not cancel R3).",
     "r5": "Payment Handled activities that use SYSTEM get a random invalid attr:xes-attr_org_resource (known roles, empty, or invented BOGUS_RESOURCE_* values).",
     "r5b": "Payment Handled activities have their org:role rewritten to EMPLOYEE.",
     "r6": "Payment Handled activities with a valid provenance chain are corrupted by randomly choosing one of: scramble milestone wasInformedBy order; insert a bogus intermediate activity; or remove Payment Handled's wasInformedBy link(s).",
@@ -55,22 +63,22 @@
   },
   "applied": {
     "r1": {
-      "eligible": 56437,
+      "eligible": 10365,
       "target": 0,
       "applied": 0
     },
     "r2": {
-      "eligible": 56437,
+      "eligible": 10038,
       "target": 100,
       "applied": 100
     },
     "r3": {
-      "eligible": 56437,
+      "eligible": 9937,
       "target": 0,
       "applied": 0
     },
     "r4": {
-      "eligible": 45936,
+      "eligible": 9937,
       "target": 0,
       "applied": 0
     },
@@ -85,7 +93,7 @@
       "applied": 0
     },
     "r6": {
-      "eligible": 9985,
+      "eligible": 9935,
       "target": 0,
       "applied": 0
     }
@@ -94,902 +102,1002 @@
   "corruptions": [
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 123041",
-        "event_id": "st_step 123044_0",
-        "removed_values": "2018-09-20T19:30:18.000+02:00"
+        "trace_id": "declaration 87145",
+        "event_ids": "dd_declaration 87145_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 96433",
-        "event_id": "dd_declaration 96433_19",
-        "removed_values": "2017-10-17T17:21:57.000+02:00"
+        "trace_id": "declaration 89680",
+        "event_ids": "dd_declaration 89680_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 89602",
-        "event_id": "dd_declaration 89602_20",
-        "removed_values": "2017-03-16T17:31:06.000+01:00"
+        "trace_id": "declaration 100131",
+        "event_ids": "dd_declaration 100131_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 131287",
-        "event_id": "st_step 131291_0",
-        "removed_values": "2018-11-08T14:37:41.000+01:00"
+        "trace_id": "declaration 102645",
+        "event_ids": "dd_declaration 102645_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 109087",
-        "event_id": "dd_declaration 109087_19",
-        "removed_values": "2018-03-15T22:15:37.000+01:00"
+        "trace_id": "declaration 107140",
+        "event_ids": "dd_declaration 107140_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 101014",
-        "event_id": "st_step 101017_0",
-        "removed_values": "2018-02-26T08:57:18.000+01:00"
+        "trace_id": "declaration 99473",
+        "event_ids": "dd_declaration 99473_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 110589",
-        "event_id": "dd_declaration 110589_19",
-        "removed_values": "2018-02-13T14:33:36.000+01:00"
+        "trace_id": "declaration 94949",
+        "event_ids": "dd_declaration 94949_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 90676",
-        "event_id": "st_step 90678_0",
-        "removed_values": "2017-12-06T11:26:55.000+01:00"
+        "trace_id": "declaration 134866",
+        "event_ids": "dd_declaration 134866_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 139088",
-        "event_id": "dd_declaration 139088_19",
-        "removed_values": "2018-11-15T09:56:40.000+01:00"
+        "trace_id": "declaration 93204",
+        "event_ids": "dd_declaration 93204_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 96039",
-        "event_id": "st_step 96041_0",
-        "removed_values": "2017-09-25T17:50:23.000+02:00"
+        "trace_id": "declaration 132384",
+        "event_ids": "dd_declaration 132384_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 131371",
-        "event_id": "st_step 131373_0",
-        "removed_values": "2018-10-15T14:24:17.000+02:00"
+        "trace_id": "declaration 122324",
+        "event_ids": "dd_declaration 122324_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 140216",
-        "event_id": "st_step 140225_0",
-        "removed_values": "2018-11-16T13:04:35.000+01:00"
+        "trace_id": "declaration 89862",
+        "event_ids": "dd_declaration 89862_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 119410",
-        "event_id": "st_step 119412_0",
-        "removed_values": "2018-07-12T14:49:36.000+02:00"
+        "trace_id": "declaration 89835",
+        "event_ids": "dd_declaration 89835_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 87391",
-        "event_id": "dd_declaration 87391_19",
-        "removed_values": "2017-08-29T11:04:32.000+02:00"
+        "trace_id": "declaration 96335",
+        "event_ids": "dd_declaration 96335_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 112806",
-        "event_id": "dd_declaration 112806_20",
-        "removed_values": "2018-08-30T17:31:12.000+02:00"
+        "trace_id": "declaration 109334",
+        "event_ids": "dd_declaration 109334_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 114731",
-        "event_id": "st_step 114734_0",
-        "removed_values": "2018-07-27T09:46:21.000+02:00"
+        "trace_id": "declaration 106927",
+        "event_ids": "dd_declaration 106927_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 89112",
-        "event_id": "st_step 89116_0",
-        "removed_values": "2017-04-04T11:32:08.000+02:00"
+        "trace_id": "declaration 141618",
+        "event_ids": "dd_declaration 141618_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 89850",
-        "event_id": "dd_declaration 89850_19",
-        "removed_values": "2017-03-24T14:25:04.000+01:00"
+        "trace_id": "declaration 143013",
+        "event_ids": "dd_declaration 143013_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 94414",
-        "event_id": "st_step 94416_0",
-        "removed_values": "2017-09-06T13:19:32.000+02:00"
+        "trace_id": "declaration 92874",
+        "event_ids": "dd_declaration 92874_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 110513",
-        "event_id": "st_step 110518_0",
-        "removed_values": "2018-02-08T15:17:04.000+01:00"
+        "trace_id": "declaration 133439",
+        "event_ids": "dd_declaration 133439_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 100343",
-        "event_id": "st_step 100346_0",
-        "removed_values": "2018-02-15T10:57:05.000+01:00"
+        "trace_id": "declaration 106488",
+        "event_ids": "dd_declaration 106488_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 117516",
-        "event_id": "dd_declaration 117516_19",
-        "removed_values": "2018-06-28T09:25:57.000+02:00"
+        "trace_id": "declaration 132173",
+        "event_ids": "dd_declaration 132173_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 122722",
-        "event_id": "st_step 122726_0",
-        "removed_values": "2018-09-02T11:28:24.000+02:00"
+        "trace_id": "declaration 111435",
+        "event_ids": "dd_declaration 111435_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 90246",
-        "event_id": "st_step 90249_0",
-        "removed_values": "2017-03-14T15:51:35.000+01:00"
+        "trace_id": "declaration 109398",
+        "event_ids": "dd_declaration 109398_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 110800",
-        "event_id": "st_step 110803_0",
-        "removed_values": "2018-07-16T13:33:09.000+02:00"
+        "trace_id": "declaration 121238",
+        "event_ids": "dd_declaration 121238_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 109814",
-        "event_id": "st_step 109816_0",
-        "removed_values": "2018-01-31T11:29:59.000+01:00"
+        "trace_id": "declaration 142849",
+        "event_ids": "dd_declaration 142849_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 130800",
-        "event_id": "st_step 130803_0",
-        "removed_values": "2018-10-29T08:13:22.000+01:00"
+        "trace_id": "declaration 96913",
+        "event_ids": "dd_declaration 96913_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 142146",
-        "event_id": "st_step 142148_0",
-        "removed_values": "2018-09-27T09:47:27.000+02:00"
+        "trace_id": "declaration 91299",
+        "event_ids": "dd_declaration 91299_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 138068",
-        "event_id": "dd_declaration 138068_19",
-        "removed_values": "2018-10-24T14:16:58.000+02:00"
+        "trace_id": "declaration 109781",
+        "event_ids": "dd_declaration 109781_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 118962",
-        "event_id": "dd_declaration 118962_20",
-        "removed_values": "2018-07-16T17:31:24.000+02:00"
+        "trace_id": "declaration 128004",
+        "event_ids": "dd_declaration 128004_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 114979",
-        "event_id": "st_step 114981_0",
-        "removed_values": "2018-05-25T11:04:50.000+02:00"
+        "trace_id": "declaration 123203",
+        "event_ids": "dd_declaration 123203_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 110542",
-        "event_id": "dd_declaration 110542_20",
-        "removed_values": "2018-02-19T17:31:31.000+01:00"
+        "trace_id": "declaration 111685",
+        "event_ids": "dd_declaration 111685_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 126235",
-        "event_id": "st_step 126237_0",
-        "removed_values": "2018-06-05T15:30:58.000+02:00"
+        "trace_id": "declaration 97213",
+        "event_ids": "dd_declaration 97213_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 128085",
-        "event_id": "st_step 128090_0",
-        "removed_values": "2018-08-21T13:31:50.000+02:00"
+        "trace_id": "declaration 109126",
+        "event_ids": "dd_declaration 109126_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 99601",
-        "event_id": "st_step 99604_0",
-        "removed_values": "2018-03-12T09:33:15.000+01:00"
+        "trace_id": "declaration 112775",
+        "event_ids": "dd_declaration 112775_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 130967",
-        "event_id": "st_step 130974_0",
-        "removed_values": "2018-12-06T11:19:53.000+01:00"
+        "trace_id": "declaration 94566",
+        "event_ids": "dd_declaration 94566_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 88826",
-        "event_id": "dd_declaration 88826_19",
-        "removed_values": "2017-03-06T14:47:34.000+01:00"
+        "trace_id": "declaration 96220",
+        "event_ids": "dd_declaration 96220_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 132153",
-        "event_id": "dd_declaration 132153_20",
-        "removed_values": "2018-11-22T17:31:32.000+01:00"
+        "trace_id": "declaration 120066",
+        "event_ids": "dd_declaration 120066_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 135111",
-        "event_id": "st_step 135115_0",
-        "removed_values": "2018-12-05T11:13:15.000+01:00"
+        "trace_id": "declaration 93104",
+        "event_ids": "dd_declaration 93104_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 98741",
-        "event_id": "st_step 98743_0",
-        "removed_values": "2018-01-11T08:26:21.000+01:00"
+        "trace_id": "declaration 126020",
+        "event_ids": "dd_declaration 126020_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 138016",
-        "event_id": "st_step 138019_0",
-        "removed_values": "2018-10-18T10:45:17.000+02:00"
+        "trace_id": "declaration 113545",
+        "event_ids": "dd_declaration 113545_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 123436",
-        "event_id": "st_step 123440_0",
-        "removed_values": "2018-05-27T17:14:08.000+02:00"
+        "trace_id": "declaration 132582",
+        "event_ids": "dd_declaration 132582_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 108429",
-        "event_id": "dd_declaration 108429_20",
-        "removed_values": "2018-04-19T17:31:30.000+02:00"
+        "trace_id": "declaration 98325",
+        "event_ids": "dd_declaration 98325_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 102554",
-        "event_id": "st_step 102560_0",
-        "removed_values": "2018-03-12T08:51:56.000+01:00"
+        "trace_id": "declaration 88413",
+        "event_ids": "dd_declaration 88413_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 99126",
-        "event_id": "st_step 99130_0",
-        "removed_values": "2018-01-08T10:51:35.000+01:00"
+        "trace_id": "declaration 119760",
+        "event_ids": "dd_declaration 119760_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 110313",
-        "event_id": "dd_declaration 110313_19",
-        "removed_values": "2018-02-08T11:15:31.000+01:00"
+        "trace_id": "declaration 142612",
+        "event_ids": "dd_declaration 142612_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 141931",
-        "event_id": "st_step 141935_0",
-        "removed_values": "2018-11-19T09:58:50.000+01:00"
+        "trace_id": "declaration 92087",
+        "event_ids": "dd_declaration 92087_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 108205",
-        "event_id": "st_step 108208_0",
-        "removed_values": "2018-04-10T21:35:24.000+02:00"
+        "trace_id": "declaration 114219",
+        "event_ids": "dd_declaration 114219_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 96251",
-        "event_id": "dd_declaration 96251_19",
-        "removed_values": "2017-09-28T12:15:39.000+02:00"
+        "trace_id": "declaration 96302",
+        "event_ids": "dd_declaration 96302_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 96298",
-        "event_id": "st_step 96301_0",
-        "removed_values": "2017-09-05T00:15:15.000+02:00"
+        "trace_id": "declaration 143106",
+        "event_ids": "dd_declaration 143106_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 115215",
-        "event_id": "st_step 115219_0",
-        "removed_values": "2018-05-29T10:03:35.000+02:00"
+        "trace_id": "declaration 115715",
+        "event_ids": "dd_declaration 115715_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 91021",
-        "event_id": "st_step 91024_0",
-        "removed_values": "2017-09-13T09:48:41.000+02:00"
+        "trace_id": "declaration 113812",
+        "event_ids": "dd_declaration 113812_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 104213",
-        "event_id": "st_step 104218_0",
-        "removed_values": "2018-04-24T08:02:13.000+02:00"
+        "trace_id": "declaration 137094",
+        "event_ids": "dd_declaration 137094_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 131011",
-        "event_id": "dd_declaration 131011_20",
-        "removed_values": "2018-12-20T17:31:28.000+01:00"
+        "trace_id": "declaration 108018",
+        "event_ids": "dd_declaration 108018_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 103749",
-        "event_id": "dd_declaration 103749_19",
-        "removed_values": "2018-04-16T15:54:56.000+02:00"
+        "trace_id": "declaration 95882",
+        "event_ids": "dd_declaration 95882_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 122767",
-        "event_id": "dd_declaration 122767_20",
-        "removed_values": "2018-09-13T17:31:14.000+02:00"
+        "trace_id": "declaration 89208",
+        "event_ids": "dd_declaration 89208_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 105484",
-        "event_id": "st_step 105488_0",
-        "removed_values": "2018-03-05T10:06:56.000+01:00"
+        "trace_id": "declaration 103429",
+        "event_ids": "dd_declaration 103429_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 137073",
-        "event_id": "st_step 137077_0",
-        "removed_values": "2018-12-05T14:33:47.000+01:00"
+        "trace_id": "declaration 112005",
+        "event_ids": "dd_declaration 112005_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 89126",
-        "event_id": "st_step 89129_0",
-        "removed_values": "2017-04-24T22:23:07.000+02:00"
+        "trace_id": "declaration 96315",
+        "event_ids": "dd_declaration 96315_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 136280",
-        "event_id": "st_step 136282_0",
-        "removed_values": "2018-11-05T09:46:59.000+01:00"
+        "trace_id": "declaration 106933",
+        "event_ids": "dd_declaration 106933_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 115950",
-        "event_id": "st_step 115955_0",
-        "removed_values": "2018-06-08T12:17:17.000+02:00"
+        "trace_id": "declaration 91719",
+        "event_ids": "dd_declaration 91719_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 118991",
-        "event_id": "st_step 118993_0",
-        "removed_values": "2018-07-06T10:40:34.000+02:00"
+        "trace_id": "declaration 120078",
+        "event_ids": "dd_declaration 120078_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 94138",
-        "event_id": "dd_declaration 94138_20",
-        "removed_values": "2017-11-20T17:30:57.000+01:00"
+        "trace_id": "declaration 96897",
+        "event_ids": "dd_declaration 96897_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 115410",
-        "event_id": "st_step 115415_0",
-        "removed_values": "2018-04-30T10:50:12.000+02:00"
+        "trace_id": "declaration 121863",
+        "event_ids": "dd_declaration 121863_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 95762",
-        "event_id": "st_step 95765_0",
-        "removed_values": "2017-07-12T13:43:51.000+02:00"
+        "trace_id": "declaration 117871",
+        "event_ids": "dd_declaration 117871_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 119490",
-        "event_id": "st_step 119497_0",
-        "removed_values": "2018-07-11T14:03:20.000+02:00"
+        "trace_id": "declaration 109829",
+        "event_ids": "dd_declaration 109829_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 110040",
-        "event_id": "st_step 110044_0",
-        "removed_values": "2018-03-21T07:54:49.000+01:00"
+        "trace_id": "declaration 126609",
+        "event_ids": "dd_declaration 126609_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 142781",
-        "event_id": "dd_declaration 142781_19",
-        "removed_values": "2018-12-13T13:20:30.000+01:00"
+        "trace_id": "declaration 125949",
+        "event_ids": "dd_declaration 125949_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 111839",
-        "event_id": "st_step 111846_0",
-        "removed_values": "2018-09-16T22:39:04.000+02:00"
+        "trace_id": "declaration 106112",
+        "event_ids": "dd_declaration 106112_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 120721",
-        "event_id": "st_step 120723_0",
-        "removed_values": "2018-09-11T15:09:13.000+02:00"
+        "trace_id": "declaration 99004",
+        "event_ids": "dd_declaration 99004_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 99880",
-        "event_id": "st_step 99883_0",
-        "removed_values": "2018-07-12T11:50:35.000+02:00"
+        "trace_id": "declaration 95995",
+        "event_ids": "dd_declaration 95995_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 122287",
-        "event_id": "st_step 122291_0",
-        "removed_values": "2018-08-02T13:10:55.000+02:00"
+        "trace_id": "declaration 132927",
+        "event_ids": "dd_declaration 132927_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 101220",
-        "event_id": "st_step 101224_0",
-        "removed_values": "2018-02-01T14:24:44.000+01:00"
+        "trace_id": "declaration 105604",
+        "event_ids": "dd_declaration 105604_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 136354",
-        "event_id": "st_step 136357_0",
-        "removed_values": "2018-10-22T11:19:59.000+02:00"
+        "trace_id": "declaration 139180",
+        "event_ids": "dd_declaration 139180_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 95468",
-        "event_id": "dd_declaration 95468_19",
-        "removed_values": "2017-06-26T16:37:49.000+02:00"
+        "trace_id": "declaration 103291",
+        "event_ids": "dd_declaration 103291_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 90040",
-        "event_id": "dd_declaration 90040_20",
-        "removed_values": "2017-05-08T17:31:14.000+02:00"
+        "trace_id": "declaration 100027",
+        "event_ids": "dd_declaration 100027_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 134797",
-        "event_id": "dd_declaration 134797_19",
-        "removed_values": "2018-10-04T08:36:45.000+02:00"
+        "trace_id": "declaration 133703",
+        "event_ids": "dd_declaration 133703_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 97448",
-        "event_id": "dd_declaration 97448_20",
-        "removed_values": "2018-02-22T17:30:39.000+01:00"
+        "trace_id": "declaration 126261",
+        "event_ids": "dd_declaration 126261_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 133264",
-        "event_id": "dd_declaration 133264_19",
-        "removed_values": "2018-11-26T13:12:29.000+01:00"
+        "trace_id": "declaration 104758",
+        "event_ids": "dd_declaration 104758_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 109479",
-        "event_id": "st_step 109482_0",
-        "removed_values": "2018-03-18T23:20:08.000+01:00"
+        "trace_id": "declaration 143189",
+        "event_ids": "dd_declaration 143189_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 95775",
-        "event_id": "dd_declaration 95775_20",
-        "removed_values": "2017-07-20T17:30:57.000+02:00"
+        "trace_id": "declaration 106212",
+        "event_ids": "dd_declaration 106212_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 131487",
-        "event_id": "st_step 131491_0",
-        "removed_values": "2018-12-20T14:02:55.000+01:00"
+        "trace_id": "declaration 123921",
+        "event_ids": "dd_declaration 123921_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 106070",
-        "event_id": "st_step 106075_0",
-        "removed_values": "2018-02-14T12:21:17.000+01:00"
+        "trace_id": "declaration 95288",
+        "event_ids": "dd_declaration 95288_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 96483",
-        "event_id": "st_step 96485_0",
-        "removed_values": "2017-09-22T10:08:38.000+02:00"
+        "trace_id": "declaration 110115",
+        "event_ids": "dd_declaration 110115_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 116110",
-        "event_id": "dd_declaration 116110_20",
-        "removed_values": "2018-05-14T17:31:21.000+02:00"
+        "trace_id": "declaration 89957",
+        "event_ids": "dd_declaration 89957_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 102554",
-        "event_id": "dd_declaration 102554_20",
-        "removed_values": "2018-03-19T17:30:53.000+01:00"
+        "trace_id": "declaration 121952",
+        "event_ids": "dd_declaration 121952_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 124616",
-        "event_id": "st_step 124620_0",
-        "removed_values": "2018-06-06T17:15:10.000+02:00"
+        "trace_id": "declaration 128377",
+        "event_ids": "dd_declaration 128377_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 112130",
-        "event_id": "st_step 112134_0",
-        "removed_values": "2018-09-20T15:14:37.000+02:00"
+        "trace_id": "declaration 104721",
+        "event_ids": "dd_declaration 104721_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 137854",
-        "event_id": "st_step 137855_0",
-        "removed_values": "2018-12-13T11:36:54.000+01:00"
+        "trace_id": "declaration 95903",
+        "event_ids": "dd_declaration 95903_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 115653",
-        "event_id": "dd_declaration 115653_20",
-        "removed_values": "2018-04-30T17:31:10.000+02:00"
+        "trace_id": "declaration 108857",
+        "event_ids": "dd_declaration 108857_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 99165",
-        "event_id": "dd_declaration 99165_19",
-        "removed_values": "2018-01-18T16:44:00.000+01:00"
+        "trace_id": "declaration 130563",
+        "event_ids": "dd_declaration 130563_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 124385",
-        "event_id": "dd_declaration 124385_20",
-        "removed_values": "2018-04-30T17:31:10.000+02:00"
+        "trace_id": "declaration 112447",
+        "event_ids": "dd_declaration 112447_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 99350",
-        "event_id": "st_step 99353_0",
-        "removed_values": "2018-04-18T12:04:11.000+02:00"
+        "trace_id": "declaration 107317",
+        "event_ids": "dd_declaration 107317_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 102092",
-        "event_id": "st_step 102094_0",
-        "removed_values": "2018-02-05T12:58:29.000+01:00"
+        "trace_id": "declaration 141560",
+        "event_ids": "dd_declaration 141560_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 134146",
-        "event_id": "dd_declaration 134146_19",
-        "removed_values": "2018-10-15T15:42:45.000+02:00"
+        "trace_id": "declaration 117496",
+        "event_ids": "dd_declaration 117496_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 107223",
-        "event_id": "dd_declaration 107223_20",
-        "removed_values": "2018-03-08T17:30:58.000+01:00"
+        "trace_id": "declaration 119729",
+        "event_ids": "dd_declaration 119729_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 138084",
-        "event_id": "dd_declaration 138084_20",
-        "removed_values": "2018-10-29T17:31:15.000+01:00"
+        "trace_id": "declaration 99509",
+        "event_ids": "dd_declaration 99509_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 141101",
-        "event_id": "st_step 141104_0",
-        "removed_values": "2018-10-12T10:06:14.000+02:00"
+        "trace_id": "declaration 104491",
+        "event_ids": "dd_declaration 104491_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 137166",
-        "event_id": "st_step 137169_0",
-        "removed_values": "2018-09-26T09:37:56.000+02:00"
+        "trace_id": "declaration 109588",
+        "event_ids": "dd_declaration 109588_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     },
     {
       "rule_id": "R2",
-      "action": "removed_time_timestamp",
+      "action": "removed_request_payment_after_approval",
       "details": {
-        "trace_id": "declaration 93497",
-        "event_id": "dd_declaration 93497_19",
-        "removed_values": "2017-06-28T12:36:43.000+02:00"
+        "trace_id": "declaration 107788",
+        "event_ids": "dd_declaration 107788_19",
+        "removed_count": "1",
+        "activity": "Request Payment"
       }
     }
   ],

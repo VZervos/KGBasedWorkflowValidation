@@ -2,9 +2,9 @@
   "status": "FAILED",
   "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5_full\\DomesticDeclarations.corrupted.prov.ttl",
   "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r5_full\\validation.json",
-  "started_at": "2026-07-22T10:07:13.752964+00:00",
-  "finished_at": "2026-07-22T10:07:15.908807+00:00",
-  "duration_seconds": 2.15518,
+  "started_at": "2026-07-23T10:43:30.191284+00:00",
+  "finished_at": "2026-07-23T10:43:31.550478+00:00",
+  "duration_seconds": 1.359386,
   "total_violations": 100,
   "rules_run": [
     "R5"
@@ -16,7 +16,7 @@
       "description": "Every 'Payment Handled' activity must be associated with resource SYSTEM (xes-attr:org_resource).",
       "status": "FAILED",
       "violation_count": 100,
-      "duration_seconds": 2.155148,
+      "duration_seconds": 1.359365,
       "violations": [
         {
           "issue": "payment_not_handled_by_system",

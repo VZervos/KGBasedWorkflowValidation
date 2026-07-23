@@ -1,0 +1,17 @@
+{
+  "status": "FAILED",
+  "violated_cases": [
+    "declaration 86716",
+    "declaration 86731",
+    "declaration 86735",
+    "declaration 86795",
+    "declaration 86800",
+    "declaration 86805",
+    "declaration 86816"
+  ],
+  "violated_case_count": 7,
+  "deviation_total": 7,
+  "duration_seconds": 0.006521,
+  "method": "pm4py.conformance_declare",
+  "template": "succession"
+}

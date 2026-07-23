@@ -29,7 +29,7 @@ RULE_ID_MAP = {
     "r6": "R6",
 }
 # Rules where one corruption can surface as multiple SPARQL rows.
-MULTI_VIOLATION_RULES = frozenset({"R6"})
+MULTI_VIOLATION_RULES = frozenset({"R2", "R4", "R6"})
 
 # Config files live under benchmarks/; inputs are relative to that directory.
 DATASETS = (

@@ -77,6 +77,132 @@ def _ancestors(graph: Graph, start) -> set:
     return seen
 
 
+def _activities_by_label(graph: Graph, label: Literal) -> list:
+    return [
+        activity
+        for activity in graph.subjects(RDF.type, PROV.Activity)
+        if label in set(graph.objects(activity, RDFS.label))
+    ]
+
+
+def _run_r1_python(graph: Graph) -> list[RuleViolation]:
+    """DECLARE existence: every case must contain a submission activity."""
+    submission = Literal("Declaration SUBMITTED by EMPLOYEE")
+    cases = {case for _act, _p, case in graph.triples((None, WF.belongsToCase, None))}
+    cases_with_submission = {
+        case
+        for act in _activities_by_label(graph, submission)
+        for case in graph.objects(act, WF.belongsToCase)
+    }
+    return [
+        RuleViolation(
+            issue="missing_submission_existence",
+            details={"case": str(case)},
+        )
+        for case in sorted(cases - cases_with_submission, key=str)
+    ]
+
+
+def _run_r2_python(graph: Graph) -> list[RuleViolation]:
+    """DECLARE response: Request Payment must follow FINAL_APPROVED via wasInformedBy+."""
+    approval_label = Literal("Declaration FINAL_APPROVED by SUPERVISOR")
+    request_label = Literal("Request Payment")
+    approvals = _activities_by_label(graph, approval_label)
+    covered: set = set()
+    for request in _activities_by_label(graph, request_label):
+        cases = list(graph.objects(request, WF.belongsToCase))
+        if not cases:
+            continue
+        case = cases[0]
+        for anc in _ancestors(graph, request):
+            if approval_label in set(graph.objects(anc, RDFS.label)):
+                if case in set(graph.objects(anc, WF.belongsToCase)):
+                    covered.add(anc)
+    violations: list[RuleViolation] = []
+    for approval in approvals:
+        if approval in covered:
+            continue
+        cases = list(graph.objects(approval, WF.belongsToCase))
+        if not cases:
+            continue
+        violations.append(
+            RuleViolation(
+                issue="missing_response_request_after_approval",
+                details={"case": str(cases[0]), "approval": str(approval)},
+            )
+        )
+    return violations
+
+
+def _run_r3_python(graph: Graph) -> list[RuleViolation]:
+    """DECLARE precedence: Payment Handled must have Request Payment ancestor."""
+    payment_label = Literal("Payment Handled")
+    request_label = Literal("Request Payment")
+    violations: list[RuleViolation] = []
+    for payment in _activities_by_label(graph, payment_label):
+        cases = list(graph.objects(payment, WF.belongsToCase))
+        if not cases:
+            continue
+        case = cases[0]
+        ok = any(
+            request_label in set(graph.objects(anc, RDFS.label))
+            and case in set(graph.objects(anc, WF.belongsToCase))
+            for anc in _ancestors(graph, payment)
+        )
+        if not ok:
+            violations.append(
+                RuleViolation(
+                    issue="missing_precedence_request_before_payment",
+                    details={"case": str(case), "payment": str(payment)},
+                )
+            )
+    return violations
+
+
+def _run_r4_python(graph: Graph) -> list[RuleViolation]:
+    """DECLARE succession: request→payment and payment←request."""
+    payment_label = Literal("Payment Handled")
+    request_label = Literal("Request Payment")
+    requests = _activities_by_label(graph, request_label)
+    payments = _activities_by_label(graph, payment_label)
+    violations: list[RuleViolation] = []
+
+    covered_requests: set = set()
+    for payment in payments:
+        cases = list(graph.objects(payment, WF.belongsToCase))
+        if not cases:
+            continue
+        case = cases[0]
+        ancs = _ancestors(graph, payment)
+        has_request = False
+        for anc in ancs:
+            if request_label in set(graph.objects(anc, RDFS.label)):
+                if case in set(graph.objects(anc, WF.belongsToCase)):
+                    covered_requests.add(anc)
+                    has_request = True
+        if not has_request:
+            violations.append(
+                RuleViolation(
+                    issue="missing_succession_precedence_request_before_payment",
+                    details={"case": str(case), "activity": str(payment)},
+                )
+            )
+
+    for request in requests:
+        if request in covered_requests:
+            continue
+        cases = list(graph.objects(request, WF.belongsToCase))
+        if not cases:
+            continue
+        violations.append(
+            RuleViolation(
+                issue="missing_succession_response_payment_after_request",
+                details={"case": str(cases[0]), "activity": str(request)},
+            )
+        )
+    return violations
+
+
 def _has_valid_payment_chain(graph: Graph, payment) -> bool:
     """Same semantics as R6 SPARQL, but O(edges) BFS instead of SPARQL property paths."""
     cases = list(graph.objects(payment, WF.belongsToCase))
@@ -134,8 +260,16 @@ def _run_r6_python(graph: Graph) -> list[RuleViolation]:
 
 def _run_rule(graph: Graph, rule: ValidationRule) -> RuleResult:
     started = time.perf_counter()
-    # rdflib property paths are too slow on large graphs for R6.
-    if rule.rule_id == "R6":
+    # rdflib SPARQL (esp. property paths / NOT EXISTS) is too slow on full BPI graphs.
+    if rule.rule_id == "R1":
+        violations = _run_r1_python(graph)
+    elif rule.rule_id == "R2":
+        violations = _run_r2_python(graph)
+    elif rule.rule_id == "R3":
+        violations = _run_r3_python(graph)
+    elif rule.rule_id == "R4":
+        violations = _run_r4_python(graph)
+    elif rule.rule_id == "R6":
         violations = _run_r6_python(graph)
     else:
         violations = []

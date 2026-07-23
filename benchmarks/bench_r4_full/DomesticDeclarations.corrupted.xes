@@ -4364,14 +4364,7 @@
 			<date key="time:timestamp" value="2017-03-31T16:31:53.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 91299_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-04-03T17:31:06.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 94748" />
 		<string key="concept:name" value="declaration 94748" />
@@ -16320,14 +16313,7 @@
 			<date key="time:timestamp" value="2017-03-24T14:28:18.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 89680_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-03-27T17:30:57.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 91622" />
 		<string key="concept:name" value="declaration 91622" />
@@ -17349,14 +17335,7 @@
 			<date key="time:timestamp" value="2017-03-28T08:42:31.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 92874_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-04-03T17:31:06.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 89715" />
 		<string key="concept:name" value="declaration 89715" />
@@ -19568,14 +19547,7 @@
 			<date key="time:timestamp" value="2017-04-13T11:34:26.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 89835_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-04-20T17:31:19.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 93650" />
 		<string key="concept:name" value="declaration 93650" />
@@ -20772,14 +20744,7 @@
 			<date key="time:timestamp" value="2017-04-21T09:23:56.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 89862_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-04-24T17:31:05.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 90896" />
 		<string key="concept:name" value="declaration 90896" />
@@ -20996,14 +20961,7 @@
 			<date key="time:timestamp" value="2017-04-13T11:30:23.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 89957_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-04-20T17:31:19.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 94393" />
 		<string key="concept:name" value="declaration 94393" />
@@ -28801,14 +28759,7 @@
 			<date key="time:timestamp" value="2017-06-27T13:50:43.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 93171_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-06-29T17:30:39.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 88413" />
 		<string key="concept:name" value="declaration 88413" />
@@ -30348,14 +30299,7 @@
 			<date key="time:timestamp" value="2017-05-19T15:41:44.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 92704_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-05-22T17:31:04.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 89208" />
 		<string key="concept:name" value="declaration 89208" />
@@ -36844,14 +36788,7 @@
 			<date key="time:timestamp" value="2017-06-15T10:31:21.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 90488_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-06-19T17:31:13.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 95288" />
 		<string key="concept:name" value="declaration 95288" />
@@ -43438,14 +43375,7 @@
 			<date key="time:timestamp" value="2017-07-12T10:54:24.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 95500_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-07-13T17:31:01.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 95903" />
 		<string key="concept:name" value="declaration 95903" />
@@ -45573,14 +45503,7 @@
 			<date key="time:timestamp" value="2017-07-25T14:03:38.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 94189_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-07-27T17:31:12.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 95882" />
 		<string key="concept:name" value="declaration 95882" />
@@ -46882,14 +46805,7 @@
 			<date key="time:timestamp" value="2017-07-27T11:23:03.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 91196_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-07-31T17:30:45.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 95995" />
 		<string key="concept:name" value="declaration 95995" />
@@ -52048,14 +51964,7 @@
 			<date key="time:timestamp" value="2017-09-07T12:31:34.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 94406_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-09-11T17:31:08.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 96302" />
 		<string key="concept:name" value="declaration 96302" />
@@ -52720,14 +52629,7 @@
 			<date key="time:timestamp" value="2017-09-08T14:33:27.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 96315_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-09-11T17:31:08.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 94418" />
 		<string key="concept:name" value="declaration 94418" />
@@ -57067,14 +56969,7 @@
 			<date key="time:timestamp" value="2017-09-26T12:02:18.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 93204_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-09-28T17:31:04.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 93208" />
 		<string key="concept:name" value="declaration 93208" />
@@ -60791,14 +60686,7 @@
 			<date key="time:timestamp" value="2017-10-10T10:50:22.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 96220_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-10-12T17:31:33.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 96126" />
 		<string key="concept:name" value="declaration 96126" />
@@ -61533,14 +61421,7 @@
 			<date key="time:timestamp" value="2017-10-09T13:42:02.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 93056_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-10-12T17:31:33.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 96366" />
 		<string key="concept:name" value="declaration 96366" />
@@ -63612,14 +63493,7 @@
 			<date key="time:timestamp" value="2017-10-16T08:44:56.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 91591_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-10-19T17:31:01.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 92130" />
 		<string key="concept:name" value="declaration 92130" />
@@ -66524,14 +66398,7 @@
 			<date key="time:timestamp" value="2017-11-06T13:31:40.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 94558_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-11-09T17:30:58.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 91724" />
 		<string key="concept:name" value="declaration 91724" />
@@ -67273,14 +67140,7 @@
 			<date key="time:timestamp" value="2017-10-31T17:55:39.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 93885_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-11-02T17:30:44.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 94570" />
 		<string key="concept:name" value="declaration 94570" />
@@ -67511,14 +67371,7 @@
 			<date key="time:timestamp" value="2017-11-02T16:00:32.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 92195_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-11-06T17:30:54.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 94823" />
 		<string key="concept:name" value="declaration 94823" />
@@ -73111,14 +72964,7 @@
 			<date key="time:timestamp" value="2017-11-21T11:50:08.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 91957_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-11-23T17:30:57.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 87871" />
 		<string key="concept:name" value="declaration 87871" />
@@ -82372,14 +82218,7 @@
 			<date key="time:timestamp" value="2017-12-14T09:16:16.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 92092_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2017-12-18T17:31:20.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 92096" />
 		<string key="concept:name" value="declaration 92096" />
@@ -93271,14 +93110,7 @@
 			<date key="time:timestamp" value="2018-01-18T11:15:44.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 109588_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-01-22T17:31:16.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 104962" />
 		<string key="concept:name" value="declaration 104962" />
@@ -93320,14 +93152,7 @@
 			<date key="time:timestamp" value="2018-01-30T15:38:43.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 104962_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-02-01T17:31:17.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 99478" />
 		<string key="concept:name" value="declaration 99478" />
@@ -96197,14 +96022,7 @@
 			<date key="time:timestamp" value="2018-01-21T08:43:48.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 100473_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-01-25T17:31:07.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 101477" />
 		<string key="concept:name" value="declaration 101477" />
@@ -106032,14 +105850,7 @@
 			<date key="time:timestamp" value="2018-02-01T21:54:06.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 101533_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-02-05T17:31:02.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 99955" />
 		<string key="concept:name" value="declaration 99955" />
@@ -109168,14 +108979,7 @@
 			<date key="time:timestamp" value="2018-02-06T11:54:44.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 105638_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-02-08T17:31:10.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 97224" />
 		<string key="concept:name" value="declaration 97224" />
@@ -111478,14 +111282,7 @@
 			<date key="time:timestamp" value="2018-02-08T11:40:26.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 101731_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-02-12T17:31:20.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 101736" />
 		<string key="concept:name" value="declaration 101736" />
@@ -112052,14 +111849,7 @@
 			<date key="time:timestamp" value="2018-02-01T15:28:51.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 101758_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-02-05T17:31:02.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 109891" />
 		<string key="concept:name" value="declaration 109891" />
@@ -118177,14 +117967,7 @@
 			<date key="time:timestamp" value="2018-02-08T17:19:29.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 102157_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-02-12T17:31:20.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 110292" />
 		<string key="concept:name" value="declaration 110292" />
@@ -135124,14 +134907,7 @@
 			<date key="time:timestamp" value="2018-02-26T13:20:05.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 100994_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-01T17:31:25.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 108023" />
 		<string key="concept:name" value="declaration 108023" />
@@ -140332,14 +140108,7 @@
 			<date key="time:timestamp" value="2018-03-05T15:10:57.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 108346_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-08T17:30:58.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 101374" />
 		<string key="concept:name" value="declaration 101374" />
@@ -148466,14 +148235,7 @@
 			<date key="time:timestamp" value="2018-03-13T09:18:40.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 108830_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-15T17:31:14.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 97356" />
 		<string key="concept:name" value="declaration 97356" />
@@ -149537,14 +149299,7 @@
 			<date key="time:timestamp" value="2018-03-14T19:19:30.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 106138_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-19T17:30:53.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 106143" />
 		<string key="concept:name" value="declaration 106143" />
@@ -150811,14 +150566,7 @@
 			<date key="time:timestamp" value="2018-03-14T11:03:49.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 106177_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-15T17:31:14.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 107322" />
 		<string key="concept:name" value="declaration 107322" />
@@ -152890,14 +152638,7 @@
 			<date key="time:timestamp" value="2018-03-15T12:49:33.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 102521_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-19T17:30:53.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 102526" />
 		<string key="concept:name" value="declaration 102526" />
@@ -155662,14 +155403,7 @@
 			<date key="time:timestamp" value="2018-03-20T20:52:36.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 97606_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-22T17:31:09.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 109340" />
 		<string key="concept:name" value="declaration 109340" />
@@ -156369,14 +156103,7 @@
 			<date key="time:timestamp" value="2018-03-20T09:57:01.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 109366_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-22T17:31:09.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 109371" />
 		<string key="concept:name" value="declaration 109371" />
@@ -157006,14 +156733,7 @@
 			<date key="time:timestamp" value="2018-03-20T20:51:22.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 103341_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-22T17:31:09.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 102936" />
 		<string key="concept:name" value="declaration 102936" />
@@ -159183,14 +158903,7 @@
 			<date key="time:timestamp" value="2018-03-22T08:58:54.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 103011_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-26T17:31:13.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 103357" />
 		<string key="concept:name" value="declaration 103357" />
@@ -162900,14 +162613,7 @@
 			<date key="time:timestamp" value="2018-03-23T11:55:06.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 110081_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-26T17:31:13.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 110086" />
 		<string key="concept:name" value="declaration 110086" />
@@ -163908,14 +163614,7 @@
 			<date key="time:timestamp" value="2018-03-27T10:35:16.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 110120_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-29T17:31:10.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 103457" />
 		<string key="concept:name" value="declaration 103457" />
@@ -166708,14 +166407,7 @@
 			<date key="time:timestamp" value="2018-03-26T16:25:20.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 110392_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-29T17:31:10.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 103823" />
 		<string key="concept:name" value="declaration 103823" />
@@ -166890,14 +166582,7 @@
 			<date key="time:timestamp" value="2018-03-27T12:16:59.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 106938_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-03-29T17:31:10.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 97795" />
 		<string key="concept:name" value="declaration 97795" />
@@ -176060,14 +175745,7 @@
 			<date key="time:timestamp" value="2018-04-06T15:57:12.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 107580_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-04-09T17:30:57.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 102645" />
 		<string key="concept:name" value="declaration 102645" />
@@ -176158,14 +175836,7 @@
 			<date key="time:timestamp" value="2018-04-12T08:23:09.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 104396_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-04-16T17:31:09.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 107586" />
 		<string key="concept:name" value="declaration 107586" />
@@ -177509,14 +177180,7 @@
 			<date key="time:timestamp" value="2018-04-06T16:36:24.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 98103_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-04-09T17:30:57.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 107793" />
 		<string key="concept:name" value="declaration 107793" />
@@ -191460,14 +191124,7 @@
 			<date key="time:timestamp" value="2018-04-24T09:22:02.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 104146_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-04-26T17:30:51.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 104480" />
 		<string key="concept:name" value="declaration 104480" />
@@ -191768,14 +191425,7 @@
 			<date key="time:timestamp" value="2018-04-17T09:40:02.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 98346_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-04-19T17:31:30.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 98352" />
 		<string key="concept:name" value="declaration 98352" />
@@ -193448,14 +193098,7 @@
 			<date key="time:timestamp" value="2018-04-17T15:22:56.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 99009_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-04-19T17:31:30.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 99014" />
 		<string key="concept:name" value="declaration 99014" />
@@ -194029,14 +193672,7 @@
 			<date key="time:timestamp" value="2018-04-30T09:45:35.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 99019_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-05-03T17:31:15.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 99030" />
 		<string key="concept:name" value="declaration 99030" />
@@ -195751,14 +195387,7 @@
 			<date key="time:timestamp" value="2018-04-24T08:18:30.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 104763_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-04-26T17:30:51.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 99381" />
 		<string key="concept:name" value="declaration 99381" />
@@ -199706,14 +199335,7 @@
 			<date key="time:timestamp" value="2018-05-01T07:55:01.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 100137_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-05-03T17:31:15.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 100143" />
 		<string key="concept:name" value="declaration 100143" />
@@ -201792,14 +201414,7 @@
 			<date key="time:timestamp" value="2018-05-01T07:33:05.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 96891_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-05-03T17:31:15.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 96897" />
 		<string key="concept:name" value="declaration 96897" />
@@ -201876,14 +201491,7 @@
 			<date key="time:timestamp" value="2018-04-25T10:06:28.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 96902_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-04-26T17:30:51.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 96907" />
 		<string key="concept:name" value="declaration 96907" />
@@ -202009,14 +201617,7 @@
 			<date key="time:timestamp" value="2018-05-03T12:44:30.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 96918_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-05-07T17:31:13.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 124370" />
 		<string key="concept:name" value="declaration 124370" />
@@ -211060,14 +210661,7 @@
 			<date key="time:timestamp" value="2018-05-08T08:19:53.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 127778_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-05-14T17:31:21.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 121581" />
 		<string key="concept:name" value="declaration 121581" />
@@ -214210,14 +213804,7 @@
 			<date key="time:timestamp" value="2018-05-09T16:47:52.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 115845_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-05-14T17:31:21.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 122773" />
 		<string key="concept:name" value="declaration 122773" />
@@ -231248,14 +230835,7 @@
 			<date key="time:timestamp" value="2018-08-20T12:46:50.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 114731_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-08-23T17:31:14.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 121931" />
 		<string key="concept:name" value="declaration 121931" />
@@ -231836,14 +231416,7 @@
 			<date key="time:timestamp" value="2018-05-31T17:27:25.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 121958_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-06-04T17:31:13.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 112462" />
 		<string key="concept:name" value="declaration 112462" />
@@ -238780,14 +238353,7 @@
 			<date key="time:timestamp" value="2018-06-05T07:36:28.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 123932_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-06-07T17:31:35.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 123937" />
 		<string key="concept:name" value="declaration 123937" />
@@ -248496,14 +248062,7 @@
 			<date key="time:timestamp" value="2018-06-12T13:46:58.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 112780_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-06-14T17:31:30.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 123120" />
 		<string key="concept:name" value="declaration 123120" />
@@ -251499,14 +251058,7 @@
 			<date key="time:timestamp" value="2018-06-14T09:03:49.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 115950_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-06-18T17:31:18.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 113491" />
 		<string key="concept:name" value="declaration 113491" />
@@ -254593,14 +254145,7 @@
 			<date key="time:timestamp" value="2018-06-12T08:43:21.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 126760_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-06-14T17:31:30.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 113550" />
 		<string key="concept:name" value="declaration 113550" />
@@ -263427,14 +262972,7 @@
 			<date key="time:timestamp" value="2018-06-19T07:29:08.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 125954_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-06-21T17:31:07.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 125513" />
 		<string key="concept:name" value="declaration 125513" />
@@ -266346,14 +265884,7 @@
 			<date key="time:timestamp" value="2018-07-10T13:24:05.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 113777_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-07-12T17:31:18.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 113782" />
 		<string key="concept:name" value="declaration 113782" />
@@ -268523,14 +268054,7 @@
 			<date key="time:timestamp" value="2018-06-22T14:15:09.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 125218_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-06-25T17:31:27.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 125223" />
 		<string key="concept:name" value="declaration 125223" />
@@ -271253,14 +270777,7 @@
 			<date key="time:timestamp" value="2018-08-20T12:46:54.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 117374_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-08-23T17:31:14.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 117388" />
 		<string key="concept:name" value="declaration 117388" />
@@ -275586,14 +275103,7 @@
 			<date key="time:timestamp" value="2018-06-27T16:12:39.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 117740_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-06-28T17:31:33.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 117749" />
 		<string key="concept:name" value="declaration 117749" />
@@ -282243,14 +281753,7 @@
 			<date key="time:timestamp" value="2018-07-03T09:18:22.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 117623_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-07-05T17:31:33.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 117628" />
 		<string key="concept:name" value="declaration 117628" />
@@ -283034,14 +282537,7 @@
 			<date key="time:timestamp" value="2018-07-03T00:18:25.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 126267_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-07-05T17:31:33.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 126272" />
 		<string key="concept:name" value="declaration 126272" />
@@ -283524,14 +283020,7 @@
 			<date key="time:timestamp" value="2018-07-14T17:29:40.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 126277_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-07-19T17:32:02.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 118091" />
 		<string key="concept:name" value="declaration 118091" />
@@ -283671,14 +283160,7 @@
 			<date key="time:timestamp" value="2018-07-10T08:13:58.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 118096_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-07-12T17:31:18.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 118444" />
 		<string key="concept:name" value="declaration 118444" />
@@ -296187,14 +295669,7 @@
 			<date key="time:timestamp" value="2018-07-10T09:00:15.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 117969_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-07-12T17:31:18.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 127618" />
 		<string key="concept:name" value="declaration 127618" />
@@ -301031,14 +300506,7 @@
 			<date key="time:timestamp" value="2018-07-12T08:57:42.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 128383_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-07-16T17:31:24.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 127682" />
 		<string key="concept:name" value="declaration 127682" />
@@ -315395,14 +314863,7 @@
 			<date key="time:timestamp" value="2018-08-16T10:37:58.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 111444_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-08-20T17:31:16.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 110982" />
 		<string key="concept:name" value="declaration 110982" />
@@ -317250,14 +316711,7 @@
 			<date key="time:timestamp" value="2018-08-13T07:59:51.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 118650_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-08-16T17:31:23.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 122329" />
 		<string key="concept:name" value="declaration 122329" />
@@ -317894,14 +317348,7 @@
 			<date key="time:timestamp" value="2018-08-13T07:59:52.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 120933_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-08-16T17:31:23.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 119122" />
 		<string key="concept:name" value="declaration 119122" />
@@ -339377,14 +338824,7 @@
 			<date key="time:timestamp" value="2018-09-24T14:00:55.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 121250_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-09-27T17:31:23.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 121256" />
 		<string key="concept:name" value="declaration 121256" />
@@ -342674,14 +342114,7 @@
 			<date key="time:timestamp" value="2018-09-19T11:05:54.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 111833_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-09-20T17:31:16.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 111839" />
 		<string key="concept:name" value="declaration 111839" />
@@ -346972,14 +346405,7 @@
 			<date key="time:timestamp" value="2018-09-27T09:49:40.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 119734_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-10-01T17:31:13.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 122947" />
 		<string key="concept:name" value="declaration 122947" />
@@ -347469,14 +346895,7 @@
 			<date key="time:timestamp" value="2018-09-25T08:59:17.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 122963_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-09-27T17:31:23.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 122968" />
 		<string key="concept:name" value="declaration 122968" />
@@ -349807,14 +349226,7 @@
 			<date key="time:timestamp" value="2018-10-24T20:49:56.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 133712_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-10-29T17:31:15.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 134709" />
 		<string key="concept:name" value="declaration 134709" />
@@ -378871,14 +378283,7 @@
 			<date key="time:timestamp" value="2018-10-24T09:04:47.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 141565_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-10-25T17:31:41.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 135863" />
 		<string key="concept:name" value="declaration 135863" />
@@ -383757,14 +383162,7 @@
 			<date key="time:timestamp" value="2018-10-23T12:27:30.000+02:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 141623_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-10-25T17:31:41.000+02:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 136348" />
 		<string key="concept:name" value="declaration 136348" />
@@ -406318,14 +405716,7 @@
 			<date key="time:timestamp" value="2018-11-12T11:45:08.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 132049_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-11-15T17:31:18.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 132054" />
 		<string key="concept:name" value="declaration 132054" />
@@ -407858,14 +407249,7 @@
 			<date key="time:timestamp" value="2018-11-13T09:48:59.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 142618_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-11-15T17:31:18.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 140374" />
 		<string key="concept:name" value="declaration 140374" />
@@ -414767,14 +414151,7 @@
 			<date key="time:timestamp" value="2018-11-21T08:44:26.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 132178_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-11-22T17:31:32.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 139381" />
 		<string key="concept:name" value="declaration 139381" />
@@ -415089,14 +414466,7 @@
 			<date key="time:timestamp" value="2018-11-19T08:55:17.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 134872_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-11-22T17:31:32.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 134877" />
 		<string key="concept:name" value="declaration 134877" />
@@ -420444,14 +419814,7 @@
 			<date key="time:timestamp" value="2018-11-23T11:16:07.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 143112_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-11-26T17:31:22.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 136522" />
 		<string key="concept:name" value="declaration 136522" />
@@ -424245,14 +423608,7 @@
 			<date key="time:timestamp" value="2018-12-04T10:51:30.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 135443_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-12-06T17:31:33.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 135448" />
 		<string key="concept:name" value="declaration 135448" />
@@ -427535,14 +426891,7 @@
 			<date key="time:timestamp" value="2018-12-06T14:59:06.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 133444_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-12-10T17:31:26.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 134172" />
 		<string key="concept:name" value="declaration 134172" />
@@ -432155,14 +431504,7 @@
 			<date key="time:timestamp" value="2018-12-03T16:25:23.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 136587_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-12-06T17:31:33.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 129401" />
 		<string key="concept:name" value="declaration 129401" />
@@ -440282,14 +439624,7 @@
 			<date key="time:timestamp" value="2018-12-12T08:53:50.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 137099_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-12-13T17:31:07.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 143355" />
 		<string key="concept:name" value="declaration 143355" />
@@ -450061,14 +449396,7 @@
 			<date key="time:timestamp" value="2018-12-12T11:20:56.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 140930_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-12-13T17:31:07.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 132366" />
 		<string key="concept:name" value="declaration 132366" />
@@ -451069,14 +450397,7 @@
 			<date key="time:timestamp" value="2018-12-18T09:54:30.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 129886_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-12-20T17:31:28.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 138530" />
 		<string key="concept:name" value="declaration 138530" />
@@ -460232,14 +459553,7 @@
 			<date key="time:timestamp" value="2018-12-19T15:42:01.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 139365_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2018-12-20T17:31:28.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 139370" />
 		<string key="concept:name" value="declaration 139370" />
@@ -461583,14 +460897,7 @@
 			<date key="time:timestamp" value="2019-01-03T12:21:11.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 141014_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2019-01-07T17:31:12.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 142979" />
 		<string key="concept:name" value="declaration 142979" />
@@ -465937,14 +465244,7 @@
 			<date key="time:timestamp" value="2019-01-08T09:56:28.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
-		<event>
-			<string key="id" value="dd_declaration 132932_20" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Payment Handled" />
-			<date key="time:timestamp" value="2019-01-10T17:31:08.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-	</trace>
+		</trace>
 	<trace>
 		<string key="id" value="declaration 131622" />
 		<string key="concept:name" value="declaration 131622" />

@@ -2,9 +2,9 @@
   "status": "FAILED",
   "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r1_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
   "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r1_10declarations\\validation.json",
-  "started_at": "2026-07-22T09:48:51.856509+00:00",
-  "finished_at": "2026-07-22T09:48:52.230917+00:00",
-  "duration_seconds": 0.372984,
+  "started_at": "2026-07-23T10:21:23.182084+00:00",
+  "finished_at": "2026-07-23T10:21:23.183085+00:00",
+  "duration_seconds": 0.000402,
   "total_violations": 5,
   "rules_run": [
     "R1"
@@ -12,45 +12,40 @@
   "results": [
     {
       "rule_id": "R1",
-      "name": "ACTIVITY_BELONGS_TO_CASE",
-      "description": "Every prov:Activity must have exactly one wf:belongsToCase link (integrity: each event belongs to exactly one case).",
+      "name": "SUBMISSION_EXISTENCE",
+      "description": "Every case must contain at least one activity labelled 'Declaration SUBMITTED by EMPLOYEE' (DECLARE existence).",
       "status": "FAILED",
       "violation_count": 5,
-      "duration_seconds": 0.372956,
+      "duration_seconds": 0.000391,
       "violations": [
         {
-          "issue": "missing_belongsToCase",
+          "issue": "missing_submission_existence",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19",
-            "caseCount": "0"
+            "case": "http://kg.workflow.validation/case/declaration_86720"
           }
         },
         {
-          "issue": "missing_belongsToCase",
+          "issue": "missing_submission_existence",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86719_0",
-            "caseCount": "0"
+            "case": "http://kg.workflow.validation/case/declaration_86735"
           }
         },
         {
-          "issue": "missing_belongsToCase",
+          "issue": "missing_submission_existence",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86726_0",
-            "caseCount": "0"
+            "case": "http://kg.workflow.validation/case/declaration_86791"
           }
         },
         {
-          "issue": "missing_belongsToCase",
+          "issue": "missing_submission_existence",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86733_0",
-            "caseCount": "0"
+            "case": "http://kg.workflow.validation/case/declaration_86795"
           }
         },
         {
-          "issue": "missing_belongsToCase",
+          "issue": "missing_submission_existence",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86799_0",
-            "caseCount": "0"
+            "case": "http://kg.workflow.validation/case/declaration_86809"
           }
         }
       ]

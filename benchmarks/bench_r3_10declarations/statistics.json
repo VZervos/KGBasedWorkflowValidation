@@ -4,13 +4,21 @@
   "input": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\dataset\\DomesticDeclarations.sample_10declarations.xes",
   "seed": 42,
   "xes_line_count": 442,
-  "started_at": "2026-07-22T09:48:52.362443+00:00",
-  "finished_at": "2026-07-22T09:48:52.454619+00:00",
+  "started_at": "2026-07-23T10:21:23.360004+00:00",
+  "finished_at": "2026-07-23T10:21:23.448860+00:00",
+  "conversion": {
+    "trace_count": 10,
+    "event_count": 52,
+    "triple_count": 787,
+    "agent_count": 2,
+    "duration_seconds": 0.036656,
+    "xes_lines_parsed": 441
+  },
   "notes": {
-    "r1": "wf:belongsToCase is created during conversion, so R1 faults are injected on the generated KG by removing belongsToCase links.",
-    "r2": "time:timestamp attributes are removed from random XES events before conversion, so activities lack prov:startedAtTime.",
-    "r3": "prov:wasAssociatedWith is created during conversion, so R3 faults are injected on the KG by removing agent associations.",
-    "r4": "R4 faults are injected on the KG by randomly either breaking wasInformedBy temporal order (later.startedAtTime < earlier) or removing startedAtTime while keeping endedAtTime.",
+    "r1": "R1 (DECLARE existence): remove Declaration SUBMITTED by EMPLOYEE from selected XES traces before conversion.",
+    "r2": "R2 (DECLARE response): remove Request Payment from traces that have Declaration FINAL_APPROVED by SUPERVISOR.",
+    "r3": "R3 (DECLARE precedence): swap Request Payment / Payment Handled identity attributes while keeping timestamps, so conversion order places payment before request.",
+    "r4": "R4 (DECLARE succession): remove Payment Handled from traces that still have Request Payment (distinct from R3 swap, so combined injection does not cancel R3).",
     "r5": "Payment Handled activities that use SYSTEM get a random invalid attr:xes-attr_org_resource (known roles, empty, or invented BOGUS_RESOURCE_* values).",
     "r5b": "Payment Handled activities have their org:role rewritten to EMPLOYEE.",
     "r6": "Payment Handled activities with a valid provenance chain are corrupted by randomly choosing one of: scramble milestone wasInformedBy order; insert a bogus intermediate activity; or remove Payment Handled's wasInformedBy link(s).",
@@ -55,22 +63,22 @@
   },
   "applied": {
     "r1": {
-      "eligible": 52,
+      "eligible": 10,
       "target": 0,
       "applied": 0
     },
     "r2": {
-      "eligible": 52,
+      "eligible": 10,
       "target": 0,
       "applied": 0
     },
     "r3": {
-      "eligible": 52,
+      "eligible": 10,
       "target": 5,
       "applied": 5
     },
     "r4": {
-      "eligible": 42,
+      "eligible": 10,
       "target": 0,
       "applied": 0
     },
@@ -85,7 +93,7 @@
       "applied": 0
     },
     "r6": {
-      "eligible": 10,
+      "eligible": 5,
       "target": 0,
       "applied": 0
     }
@@ -94,42 +102,62 @@
   "corruptions": [
     {
       "rule_id": "R3",
-      "action": "removed_wasAssociatedWith",
+      "action": "swapped_request_payment_for_precedence",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_86719_0",
-        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+        "trace_id": "declaration 86795",
+        "request_event_id_before": "dd_declaration 86795_19",
+        "payment_event_id_before": "dd_declaration 86795_20",
+        "request_event_id_after": "dd_declaration 86795_20",
+        "payment_event_id_after": "dd_declaration 86795_19",
+        "note": "Timestamps stayed on their slots so conversion order places Payment before Request."
       }
     },
     {
       "rule_id": "R3",
-      "action": "removed_wasAssociatedWith",
+      "action": "swapped_request_payment_for_precedence",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_86799_0",
-        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+        "trace_id": "declaration 86791",
+        "request_event_id_before": "dd_declaration 86791_19",
+        "payment_event_id_before": "dd_declaration 86791_20",
+        "request_event_id_after": "dd_declaration 86791_20",
+        "payment_event_id_after": "dd_declaration 86791_19",
+        "note": "Timestamps stayed on their slots so conversion order places Payment before Request."
       }
     },
     {
       "rule_id": "R3",
-      "action": "removed_wasAssociatedWith",
+      "action": "swapped_request_payment_for_precedence",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19",
-        "removed_agents": "http://kg.workflow.validation/agent/SYSTEM"
+        "trace_id": "declaration 86735",
+        "request_event_id_before": "dd_declaration 86735_19",
+        "payment_event_id_before": "dd_declaration 86735_20",
+        "request_event_id_after": "dd_declaration 86735_20",
+        "payment_event_id_after": "dd_declaration 86735_19",
+        "note": "Timestamps stayed on their slots so conversion order places Payment before Request."
       }
     },
     {
       "rule_id": "R3",
-      "action": "removed_wasAssociatedWith",
+      "action": "swapped_request_payment_for_precedence",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_86726_0",
-        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+        "trace_id": "declaration 86720",
+        "request_event_id_before": "dd_declaration 86720_19",
+        "payment_event_id_before": "dd_declaration 86720_20",
+        "request_event_id_after": "dd_declaration 86720_20",
+        "payment_event_id_after": "dd_declaration 86720_19",
+        "note": "Timestamps stayed on their slots so conversion order places Payment before Request."
       }
     },
     {
       "rule_id": "R3",
-      "action": "removed_wasAssociatedWith",
+      "action": "swapped_request_payment_for_precedence",
       "details": {
-        "activity": "http://kg.workflow.validation/activity/st_step_86733_0",
-        "removed_agents": "http://kg.workflow.validation/agent/STAFF_MEMBER"
+        "trace_id": "declaration 86809",
+        "request_event_id_before": "dd_declaration 86809_19",
+        "payment_event_id_before": "dd_declaration 86809_20",
+        "request_event_id_after": "dd_declaration 86809_20",
+        "payment_event_id_after": "dd_declaration 86809_19",
+        "note": "Timestamps stayed on their slots so conversion order places Payment before Request."
       }
     }
   ],

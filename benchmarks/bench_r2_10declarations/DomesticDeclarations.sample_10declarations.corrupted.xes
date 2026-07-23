@@ -21,14 +21,8 @@
 			<string key="id" value="st_step 86793_0" />
 			<string key="org:resource" value="STAFF MEMBER" />
 			<string key="concept:name" value="Declaration FINAL_APPROVED by SUPERVISOR" />
+			<date key="time:timestamp" value="2017-01-09T11:27:48.000+01:00" />
 			<string key="org:role" value="SUPERVISOR" />
-		</event>
-		<event>
-			<string key="id" value="dd_declaration 86791_19" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Request Payment" />
-			<date key="time:timestamp" value="2017-01-10T09:34:44.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
 		</event>
 		<event>
 			<string key="id" value="dd_declaration 86791_20" />
@@ -64,12 +58,6 @@
 			<string key="concept:name" value="Declaration FINAL_APPROVED by SUPERVISOR" />
 			<date key="time:timestamp" value="2017-02-23T08:14:45.000+01:00" />
 			<string key="org:role" value="SUPERVISOR" />
-		</event>
-		<event>
-			<string key="id" value="dd_declaration 86795_19" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Request Payment" />
-			<string key="org:role" value="UNDEFINED" />
 		</event>
 		<event>
 			<string key="id" value="dd_declaration 86795_20" />
@@ -152,6 +140,7 @@
 			<string key="id" value="dd_declaration 86731_20" />
 			<string key="org:resource" value="SYSTEM" />
 			<string key="concept:name" value="Payment Handled" />
+			<date key="time:timestamp" value="2017-01-16T17:32:14.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
 	</trace>
@@ -174,13 +163,6 @@
 			<string key="concept:name" value="Declaration FINAL_APPROVED by SUPERVISOR" />
 			<date key="time:timestamp" value="2017-01-09T11:37:18.000+01:00" />
 			<string key="org:role" value="SUPERVISOR" />
-		</event>
-		<event>
-			<string key="id" value="dd_declaration 86735_19" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Request Payment" />
-			<date key="time:timestamp" value="2017-01-11T14:37:18.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
 		</event>
 		<event>
 			<string key="id" value="dd_declaration 86735_20" />
@@ -267,13 +249,6 @@
 			<string key="org:role" value="SUPERVISOR" />
 		</event>
 		<event>
-			<string key="id" value="dd_declaration 86809_19" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Request Payment" />
-			<date key="time:timestamp" value="2017-01-27T10:55:21.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
-		</event>
-		<event>
 			<string key="id" value="dd_declaration 86809_20" />
 			<string key="org:resource" value="SYSTEM" />
 			<string key="concept:name" value="Payment Handled" />
@@ -347,6 +322,7 @@
 			<string key="id" value="dd_declaration 86716_20" />
 			<string key="org:resource" value="SYSTEM" />
 			<string key="concept:name" value="Payment Handled" />
+			<date key="time:timestamp" value="2017-01-16T17:32:14.000+01:00" />
 			<string key="org:role" value="UNDEFINED" />
 		</event>
 	</trace>
@@ -402,6 +378,7 @@
 			<string key="id" value="st_step 86724_0" />
 			<string key="org:resource" value="STAFF MEMBER" />
 			<string key="concept:name" value="Declaration SUBMITTED by EMPLOYEE" />
+			<date key="time:timestamp" value="2017-01-19T16:13:16.000+01:00" />
 			<string key="org:role" value="EMPLOYEE" />
 		</event>
 		<event>
@@ -417,13 +394,6 @@
 			<string key="concept:name" value="Declaration FINAL_APPROVED by SUPERVISOR" />
 			<date key="time:timestamp" value="2017-01-23T08:52:57.000+01:00" />
 			<string key="org:role" value="SUPERVISOR" />
-		</event>
-		<event>
-			<string key="id" value="dd_declaration 86720_19" />
-			<string key="org:resource" value="SYSTEM" />
-			<string key="concept:name" value="Request Payment" />
-			<date key="time:timestamp" value="2017-01-23T13:04:01.000+01:00" />
-			<string key="org:role" value="UNDEFINED" />
 		</event>
 		<event>
 			<string key="id" value="dd_declaration 86720_20" />

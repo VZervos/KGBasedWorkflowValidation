@@ -1,7 +1,10 @@
 """SPARQL validation rules for PROV-O workflow knowledge graphs.
 
+R1–R4 are control-flow constraints aligned with DECLARE templates so the same
+faults can be checked on XES (PM4Py DECLARE) and on the provenance KG.
+R5–R6 remain domain-specific KG rules outside classic DECLARE scope.
+
 Each rule exposes a SPARQL SELECT that returns one row per violation.
-Additional rules can be appended to VALIDATION_RULES without changing the runner.
 """
 
 from __future__ import annotations
@@ -17,114 +20,146 @@ class ValidationRule:
     query: str
 
 
-# R1: every activity must belong to exactly one case.
-R1_ACTIVITY_BELONGS_TO_CASE = ValidationRule(
+# R1 / DECLARE existence: every case must contain a submission.
+R1_SUBMISSION_EXISTENCE = ValidationRule(
     rule_id="R1",
-    name="ACTIVITY_BELONGS_TO_CASE",
+    name="SUBMISSION_EXISTENCE",
     description=(
-        "Every prov:Activity must have exactly one wf:belongsToCase link "
-        "(integrity: each event belongs to exactly one case)."
+        "Every case must contain at least one activity labelled "
+        "'Declaration SUBMITTED by EMPLOYEE' (DECLARE existence)."
     ),
     query="""
         PREFIX prov: <http://www.w3.org/ns/prov#>
         PREFIX wf: <http://kg.workflow.validation/>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-        SELECT ?activity ?issue ?caseCount
+        SELECT ?case ?issue
         WHERE {
             {
-                SELECT ?activity (COUNT(?case) AS ?caseCount)
-                WHERE {
-                    ?activity a prov:Activity .
-                    OPTIONAL { ?activity wf:belongsToCase ?case }
-                }
-                GROUP BY ?activity
+                SELECT DISTINCT ?case
+                WHERE { ?activity wf:belongsToCase ?case }
             }
-            FILTER(?caseCount != 1)
-            BIND(
-                IF(?caseCount = 0, "missing_belongsToCase", "multiple_belongsToCase")
-                AS ?issue
-            )
+            FILTER NOT EXISTS {
+                ?submission a prov:Activity ;
+                            rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+                            wf:belongsToCase ?case .
+            }
+            BIND("missing_submission_existence" AS ?issue)
         }
-        ORDER BY ?activity
+        ORDER BY ?case
     """,
 )
 
 
-# R2: every activity must have a start timestamp.
-R2_ACTIVITY_HAS_STARTED_AT_TIME = ValidationRule(
+# R2 / DECLARE response: after final approval, Request Payment must eventually follow.
+R2_APPROVAL_REQUEST_RESPONSE = ValidationRule(
     rule_id="R2",
-    name="ACTIVITY_HAS_STARTED_AT_TIME",
-    description="Every prov:Activity must have prov:startedAtTime.",
-    query="""
-        PREFIX prov: <http://www.w3.org/ns/prov#>
-
-        SELECT ?activity ?issue
-        WHERE {
-            ?activity a prov:Activity .
-            FILTER NOT EXISTS { ?activity prov:startedAtTime ?startedAtTime }
-            BIND("missing_startedAtTime" AS ?issue)
-        }
-        ORDER BY ?activity
-    """,
-)
-
-
-# R3: every activity must be associated with an agent.
-R3_ACTIVITY_HAS_AGENT = ValidationRule(
-    rule_id="R3",
-    name="ACTIVITY_HAS_AGENT",
-    description="Every prov:Activity must have prov:wasAssociatedWith an agent.",
-    query="""
-        PREFIX prov: <http://www.w3.org/ns/prov#>
-
-        SELECT ?activity ?issue
-        WHERE {
-            ?activity a prov:Activity .
-            FILTER NOT EXISTS { ?activity prov:wasAssociatedWith ?agent }
-            BIND("missing_agent_association" AS ?issue)
-        }
-        ORDER BY ?activity
-    """,
-)
-
-
-# R4: wasInformedBy must respect temporal order (and both sides need start times).
-R4_WAS_INFORMED_BY_TEMPORAL_CONSISTENCY = ValidationRule(
-    rule_id="R4",
-    name="WAS_INFORMED_BY_TEMPORAL_CONSISTENCY",
+    name="APPROVAL_REQUEST_RESPONSE",
     description=(
-        "If activity B prov:wasInformedBy activity A, then both must have "
-        "prov:startedAtTime and A.startedAtTime must be less than or equal "
-        "to B.startedAtTime."
+        "If a case has 'Declaration FINAL_APPROVED by SUPERVISOR', then "
+        "'Request Payment' must occur later in the same case "
+        "(DECLARE response; KG: request wasInformedBy+ approval)."
     ),
     query="""
         PREFIX prov: <http://www.w3.org/ns/prov#>
+        PREFIX wf: <http://kg.workflow.validation/>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-        SELECT ?activity ?earlier ?earlierTime ?laterTime ?issue
+        SELECT ?case ?approval ?issue
+        WHERE {
+            ?approval a prov:Activity ;
+                      rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+                      wf:belongsToCase ?case .
+            FILTER NOT EXISTS {
+                ?request a prov:Activity ;
+                         rdfs:label "Request Payment" ;
+                         wf:belongsToCase ?case .
+                ?request prov:wasInformedBy+ ?approval .
+            }
+            BIND("missing_response_request_after_approval" AS ?issue)
+        }
+        ORDER BY ?case ?approval
+    """,
+)
+
+
+# R3 / DECLARE precedence: Payment Handled only if Request Payment occurred earlier.
+R3_REQUEST_BEFORE_PAYMENT = ValidationRule(
+    rule_id="R3",
+    name="REQUEST_BEFORE_PAYMENT",
+    description=(
+        "A 'Payment Handled' activity is valid only if 'Request Payment' "
+        "occurred earlier in the same case (DECLARE precedence; KG: payment "
+        "wasInformedBy+ request)."
+    ),
+    query="""
+        PREFIX prov: <http://www.w3.org/ns/prov#>
+        PREFIX wf: <http://kg.workflow.validation/>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+        SELECT ?case ?payment ?issue
+        WHERE {
+            ?payment a prov:Activity ;
+                     rdfs:label "Payment Handled" ;
+                     wf:belongsToCase ?case .
+            FILTER NOT EXISTS {
+                ?request a prov:Activity ;
+                         rdfs:label "Request Payment" ;
+                         wf:belongsToCase ?case .
+                ?payment prov:wasInformedBy+ ?request .
+            }
+            BIND("missing_precedence_request_before_payment" AS ?issue)
+        }
+        ORDER BY ?case ?payment
+    """,
+)
+
+
+# R4 / DECLARE succession: Request Payment and Payment Handled in both directions.
+R4_REQUEST_PAYMENT_SUCCESSION = ValidationRule(
+    rule_id="R4",
+    name="REQUEST_PAYMENT_SUCCESSION",
+    description=(
+        "In each case, 'Request Payment' and 'Payment Handled' must form a "
+        "succession: every request is followed by a payment, and every payment "
+        "is preceded by a request (DECLARE succession)."
+    ),
+    query="""
+        PREFIX prov: <http://www.w3.org/ns/prov#>
+        PREFIX wf: <http://kg.workflow.validation/>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+        SELECT ?case ?activity ?issue
         WHERE {
             {
-                ?activity prov:wasInformedBy ?earlier ;
-                          prov:startedAtTime ?laterTime .
-                ?earlier prov:startedAtTime ?earlierTime .
-                FILTER(?laterTime < ?earlierTime)
-                BIND("non_monotonic_wasInformedBy" AS ?issue)
+                ?request a prov:Activity ;
+                         rdfs:label "Request Payment" ;
+                         wf:belongsToCase ?case .
+                FILTER NOT EXISTS {
+                    ?payment a prov:Activity ;
+                             rdfs:label "Payment Handled" ;
+                             wf:belongsToCase ?case .
+                    ?payment prov:wasInformedBy+ ?request .
+                }
+                BIND(?request AS ?activity)
+                BIND("missing_succession_response_payment_after_request" AS ?issue)
             }
             UNION
             {
-                ?activity prov:wasInformedBy ?earlier .
-                FILTER NOT EXISTS { ?activity prov:startedAtTime ?startedAtTime }
-                OPTIONAL { ?earlier prov:startedAtTime ?earlierTime }
-                BIND("missing_startedAtTime_on_informed_activity" AS ?issue)
-            }
-            UNION
-            {
-                ?activity prov:wasInformedBy ?earlier .
-                FILTER NOT EXISTS { ?earlier prov:startedAtTime ?startedAtTime }
-                OPTIONAL { ?activity prov:startedAtTime ?laterTime }
-                BIND("missing_startedAtTime_on_informing_activity" AS ?issue)
+                ?payment a prov:Activity ;
+                         rdfs:label "Payment Handled" ;
+                         wf:belongsToCase ?case .
+                FILTER NOT EXISTS {
+                    ?request a prov:Activity ;
+                             rdfs:label "Request Payment" ;
+                             wf:belongsToCase ?case .
+                    ?payment prov:wasInformedBy+ ?request .
+                }
+                BIND(?payment AS ?activity)
+                BIND("missing_succession_precedence_request_before_payment" AS ?issue)
             }
         }
-        ORDER BY ?activity
+        ORDER BY ?case ?activity
     """,
 )
 
@@ -221,11 +256,30 @@ R6_PAYMENT_PROVENANCE_CHAIN = ValidationRule(
 
 
 VALIDATION_RULES: tuple[ValidationRule, ...] = (
-    R1_ACTIVITY_BELONGS_TO_CASE,
-    R2_ACTIVITY_HAS_STARTED_AT_TIME,
-    R3_ACTIVITY_HAS_AGENT,
-    R4_WAS_INFORMED_BY_TEMPORAL_CONSISTENCY,
+    R1_SUBMISSION_EXISTENCE,
+    R2_APPROVAL_REQUEST_RESPONSE,
+    R3_REQUEST_BEFORE_PAYMENT,
+    R4_REQUEST_PAYMENT_SUCCESSION,
     R5_PAYMENT_HANDLED_BY_SYSTEM,
     R5B_PAYMENT_HANDLED_NOT_BY_EMPLOYEE,
     R6_PAYMENT_PROVENANCE_CHAIN,
 )
+
+# Canonical DECLARE model matching R1–R4 (for PM4Py conformance_declare).
+DECLARE_MODEL_R1_R4: dict[str, dict] = {
+    "existence": {
+        "Declaration SUBMITTED by EMPLOYEE": {"support": 1.0, "confidence": 1.0},
+    },
+    "response": {
+        (
+            "Declaration FINAL_APPROVED by SUPERVISOR",
+            "Request Payment",
+        ): {"support": 1.0, "confidence": 1.0},
+    },
+    "precedence": {
+        ("Request Payment", "Payment Handled"): {"support": 1.0, "confidence": 1.0},
+    },
+    "succession": {
+        ("Request Payment", "Payment Handled"): {"support": 1.0, "confidence": 1.0},
+    },
+}

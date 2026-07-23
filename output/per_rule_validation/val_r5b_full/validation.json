@@ -2,9 +2,9 @@
   "status": "FAILED",
   "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r5b_full\\DomesticDeclarations.corrupted.prov.ttl",
   "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r5b_full\\validation.json",
-  "started_at": "2026-07-22T10:10:47.817553+00:00",
-  "finished_at": "2026-07-22T10:10:48.712832+00:00",
-  "duration_seconds": 0.892168,
+  "started_at": "2026-07-23T10:46:23.262047+00:00",
+  "finished_at": "2026-07-23T10:46:23.958901+00:00",
+  "duration_seconds": 0.696418,
   "total_violations": 100,
   "rules_run": [
     "R5B"
@@ -16,7 +16,7 @@
       "description": "Every 'Payment Handled' activity must not be associated with role EMPLOYEE (xes-attr:org_role).",
       "status": "FAILED",
       "violation_count": 100,
-      "duration_seconds": 0.892148,
+      "duration_seconds": 0.6964,
       "violations": [
         {
           "issue": "payment_handled_by_employee",

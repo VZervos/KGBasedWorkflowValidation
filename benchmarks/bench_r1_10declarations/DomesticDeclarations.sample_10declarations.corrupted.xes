@@ -11,13 +11,6 @@
 		<string key="DeclarationNumber" value="declaration number 86792" />
 		<float key="Amount" value="26.85120450862128" />
 		<event>
-			<string key="id" value="st_step 86794_0" />
-			<string key="org:resource" value="STAFF MEMBER" />
-			<string key="concept:name" value="Declaration SUBMITTED by EMPLOYEE" />
-			<date key="time:timestamp" value="2017-01-09T09:49:50.000+01:00" />
-			<string key="org:role" value="EMPLOYEE" />
-		</event>
-		<event>
 			<string key="id" value="st_step 86793_0" />
 			<string key="org:resource" value="STAFF MEMBER" />
 			<string key="concept:name" value="Declaration FINAL_APPROVED by SUPERVISOR" />
@@ -45,13 +38,6 @@
 		<string key="BudgetNumber" value="budget 86566" />
 		<string key="DeclarationNumber" value="declaration number 86796" />
 		<float key="Amount" value="182.46417204248664" />
-		<event>
-			<string key="id" value="st_step 86798_0" />
-			<string key="org:resource" value="STAFF MEMBER" />
-			<string key="concept:name" value="Declaration SUBMITTED by EMPLOYEE" />
-			<date key="time:timestamp" value="2017-01-09T10:26:14.000+01:00" />
-			<string key="org:role" value="EMPLOYEE" />
-		</event>
 		<event>
 			<string key="id" value="st_step 86799_0" />
 			<string key="org:resource" value="STAFF MEMBER" />
@@ -165,13 +151,6 @@
 		<string key="DeclarationNumber" value="declaration number 86736" />
 		<float key="Amount" value="134.4041690919802" />
 		<event>
-			<string key="id" value="st_step 86738_0" />
-			<string key="org:resource" value="STAFF MEMBER" />
-			<string key="concept:name" value="Declaration SUBMITTED by EMPLOYEE" />
-			<date key="time:timestamp" value="2017-01-09T11:30:26.000+01:00" />
-			<string key="org:role" value="EMPLOYEE" />
-		</event>
-		<event>
 			<string key="id" value="st_step 86737_0" />
 			<string key="org:resource" value="STAFF MEMBER" />
 			<string key="concept:name" value="Declaration FINAL_APPROVED by SUPERVISOR" />
@@ -235,13 +214,6 @@
 		<string key="DeclarationNumber" value="declaration number 86810" />
 		<float key="Amount" value="333.4409095020257" />
 		<event>
-			<string key="id" value="st_step 86814_0" />
-			<string key="org:resource" value="STAFF MEMBER" />
-			<string key="concept:name" value="Declaration SUBMITTED by EMPLOYEE" />
-			<date key="time:timestamp" value="2017-01-09T12:14:36.000+01:00" />
-			<string key="org:role" value="EMPLOYEE" />
-		</event>
-		<event>
 			<string key="id" value="st_step 86813_0" />
 			<string key="org:resource" value="STAFF MEMBER" />
 			<string key="concept:name" value="Declaration FINAL_APPROVED by SUPERVISOR" />
@@ -254,13 +226,6 @@
 			<string key="concept:name" value="Declaration REJECTED by MISSING" />
 			<date key="time:timestamp" value="2017-01-10T15:35:19.000+01:00" />
 			<string key="org:role" value="MISSING" />
-		</event>
-		<event>
-			<string key="id" value="st_step 86812_0" />
-			<string key="org:resource" value="STAFF MEMBER" />
-			<string key="concept:name" value="Declaration SUBMITTED by EMPLOYEE" />
-			<date key="time:timestamp" value="2017-01-20T14:43:27.000+01:00" />
-			<string key="org:role" value="EMPLOYEE" />
 		</event>
 		<event>
 			<string key="id" value="st_step 86811_0" />
@@ -361,13 +326,6 @@
 		<string key="DeclarationNumber" value="declaration number 86721" />
 		<float key="Amount" value="105.60407429637942" />
 		<event>
-			<string key="id" value="st_step 86728_0" />
-			<string key="org:resource" value="STAFF MEMBER" />
-			<string key="concept:name" value="Declaration SUBMITTED by EMPLOYEE" />
-			<date key="time:timestamp" value="2017-01-09T15:57:21.000+01:00" />
-			<string key="org:role" value="EMPLOYEE" />
-		</event>
-		<event>
 			<string key="id" value="st_step 86729_0" />
 			<string key="org:resource" value="STAFF MEMBER" />
 			<string key="concept:name" value="Declaration FINAL_APPROVED by SUPERVISOR" />
@@ -382,13 +340,6 @@
 			<string key="org:role" value="MISSING" />
 		</event>
 		<event>
-			<string key="id" value="st_step 86725_0" />
-			<string key="org:resource" value="STAFF MEMBER" />
-			<string key="concept:name" value="Declaration SUBMITTED by EMPLOYEE" />
-			<date key="time:timestamp" value="2017-01-17T16:51:42.000+01:00" />
-			<string key="org:role" value="EMPLOYEE" />
-		</event>
-		<event>
 			<string key="id" value="st_step 86726_0" />
 			<string key="org:resource" value="STAFF MEMBER" />
 			<string key="concept:name" value="Declaration REJECTED by PRE_APPROVER" />
@@ -400,13 +351,6 @@
 			<string key="org:resource" value="STAFF MEMBER" />
 			<string key="concept:name" value="Declaration REJECTED by EMPLOYEE" />
 			<date key="time:timestamp" value="2017-01-19T12:19:38.000+01:00" />
-			<string key="org:role" value="EMPLOYEE" />
-		</event>
-		<event>
-			<string key="id" value="st_step 86724_0" />
-			<string key="org:resource" value="STAFF MEMBER" />
-			<string key="concept:name" value="Declaration SUBMITTED by EMPLOYEE" />
-			<date key="time:timestamp" value="2017-01-19T16:13:16.000+01:00" />
 			<string key="org:role" value="EMPLOYEE" />
 		</event>
 		<event>

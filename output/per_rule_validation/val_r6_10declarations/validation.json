@@ -2,9 +2,9 @@
   "status": "FAILED",
   "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r6_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
   "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r6_10declarations\\validation.json",
-  "started_at": "2026-07-22T09:48:52.988820+00:00",
-  "finished_at": "2026-07-22T09:48:52.989827+00:00",
-  "duration_seconds": 0.00093,
+  "started_at": "2026-07-23T10:21:24.959366+00:00",
+  "finished_at": "2026-07-23T10:21:24.962370+00:00",
+  "duration_seconds": 0.002771,
   "total_violations": 5,
   "rules_run": [
     "R6"
@@ -16,7 +16,7 @@
       "description": "A payment is valid only if Payment Handled wasInformedBy Request Payment, which wasInformedBy Final Approval, which wasInformedBy Declaration Submission, and all belong to the same case (prov:wasInformedBy+; optional steps such as PRE_APPROVER may appear between these milestones).",
       "status": "FAILED",
       "violation_count": 5,
-      "duration_seconds": 0.000918,
+      "duration_seconds": 0.002747,
       "violations": [
         {
           "issue": "invalid_payment_provenance_chain",

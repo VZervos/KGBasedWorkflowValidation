@@ -2,50 +2,69 @@
   "status": "FAILED",
   "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r2_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
   "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r2_10declarations\\validation.json",
-  "started_at": "2026-07-22T09:48:52.346588+00:00",
-  "finished_at": "2026-07-22T09:48:52.355516+00:00",
-  "duration_seconds": 0.010576,
-  "total_violations": 5,
+  "started_at": "2026-07-23T10:21:23.342530+00:00",
+  "finished_at": "2026-07-23T10:21:23.343530+00:00",
+  "duration_seconds": 0.000833,
+  "total_violations": 7,
   "rules_run": [
     "R2"
   ],
   "results": [
     {
       "rule_id": "R2",
-      "name": "ACTIVITY_HAS_STARTED_AT_TIME",
-      "description": "Every prov:Activity must have prov:startedAtTime.",
+      "name": "APPROVAL_REQUEST_RESPONSE",
+      "description": "If a case has 'Declaration FINAL_APPROVED by SUPERVISOR', then 'Request Payment' must occur later in the same case (DECLARE response; KG: request wasInformedBy+ approval).",
       "status": "FAILED",
-      "violation_count": 5,
-      "duration_seconds": 0.010562,
+      "violation_count": 7,
+      "duration_seconds": 0.000822,
       "violations": [
         {
-          "issue": "missing_startedAtTime",
+          "issue": "missing_response_request_after_approval",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86716_20"
+            "case": "http://kg.workflow.validation/case/declaration_86720",
+            "approval": "http://kg.workflow.validation/activity/st_step_86722_0"
           }
         },
         {
-          "issue": "missing_startedAtTime",
+          "issue": "missing_response_request_after_approval",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86731_20"
+            "case": "http://kg.workflow.validation/case/declaration_86720",
+            "approval": "http://kg.workflow.validation/activity/st_step_86729_0"
           }
         },
         {
-          "issue": "missing_startedAtTime",
+          "issue": "missing_response_request_after_approval",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86795_19"
+            "case": "http://kg.workflow.validation/case/declaration_86735",
+            "approval": "http://kg.workflow.validation/activity/st_step_86737_0"
           }
         },
         {
-          "issue": "missing_startedAtTime",
+          "issue": "missing_response_request_after_approval",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86724_0"
+            "case": "http://kg.workflow.validation/case/declaration_86791",
+            "approval": "http://kg.workflow.validation/activity/st_step_86793_0"
           }
         },
         {
-          "issue": "missing_startedAtTime",
+          "issue": "missing_response_request_after_approval",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86793_0"
+            "case": "http://kg.workflow.validation/case/declaration_86795",
+            "approval": "http://kg.workflow.validation/activity/st_step_86797_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86809",
+            "approval": "http://kg.workflow.validation/activity/st_step_86811_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86809",
+            "approval": "http://kg.workflow.validation/activity/st_step_86813_0"
           }
         }
       ]

@@ -2,9 +2,9 @@
   "status": "FAILED",
   "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\benchmarks\\bench_r3_10declarations\\DomesticDeclarations.sample_10declarations.corrupted.prov.ttl",
   "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\output\\per_rule_validation\\val_r3_10declarations\\validation.json",
-  "started_at": "2026-07-22T09:48:52.477081+00:00",
-  "finished_at": "2026-07-22T09:48:52.486056+00:00",
-  "duration_seconds": 0.009181,
+  "started_at": "2026-07-23T10:21:23.478763+00:00",
+  "finished_at": "2026-07-23T10:21:23.479765+00:00",
+  "duration_seconds": 0.000822,
   "total_violations": 5,
   "rules_run": [
     "R3"
@@ -12,40 +12,45 @@
   "results": [
     {
       "rule_id": "R3",
-      "name": "ACTIVITY_HAS_AGENT",
-      "description": "Every prov:Activity must have prov:wasAssociatedWith an agent.",
+      "name": "REQUEST_BEFORE_PAYMENT",
+      "description": "A 'Payment Handled' activity is valid only if 'Request Payment' occurred earlier in the same case (DECLARE precedence; KG: payment wasInformedBy+ request).",
       "status": "FAILED",
       "violation_count": 5,
-      "duration_seconds": 0.009163,
+      "duration_seconds": 0.000808,
       "violations": [
         {
-          "issue": "missing_agent_association",
+          "issue": "missing_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/dd_declaration_86791_19"
+            "case": "http://kg.workflow.validation/case/declaration_86720",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86720_20"
           }
         },
         {
-          "issue": "missing_agent_association",
+          "issue": "missing_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86719_0"
+            "case": "http://kg.workflow.validation/case/declaration_86735",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86735_20"
           }
         },
         {
-          "issue": "missing_agent_association",
+          "issue": "missing_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86726_0"
+            "case": "http://kg.workflow.validation/case/declaration_86791",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86791_20"
           }
         },
         {
-          "issue": "missing_agent_association",
+          "issue": "missing_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86733_0"
+            "case": "http://kg.workflow.validation/case/declaration_86795",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86795_20"
           }
         },
         {
-          "issue": "missing_agent_association",
+          "issue": "missing_precedence_request_before_payment",
           "details": {
-            "activity": "http://kg.workflow.validation/activity/st_step_86799_0"
+            "case": "http://kg.workflow.validation/case/declaration_86809",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_86809_20"
           }
         }
       ]

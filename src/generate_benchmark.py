@@ -2,19 +2,19 @@
 
 Takes a clean XES log and injects intentional faults targeting R1–R6 / R5B.
 
-Because some PROV relations are created during conversion (not present as XES
-attributes), corruptions are applied where they actually produce rule violations:
+R1–R4 are DECLARE-aligned control-flow faults injected in XES (then converted):
 
-- R2: remove ``time:timestamp`` from random XES events, then convert
-- R1: remove ``wf:belongsToCase`` from random activities in the generated KG
-- R3: remove ``prov:wasAssociatedWith`` from random activities in the KG
-- R4: break temporal order on random ``wasInformedBy`` edges
-  (``later.startedAtTime < earlier``)
-- R5: rewrite ``Payment Handled`` resource away from SYSTEM to a random
-  invalid / nonexistent value
+- R1 (existence): remove ``Declaration SUBMITTED by EMPLOYEE`` from a case
+- R2 (response): remove ``Request Payment`` after a final approval
+- R3 (precedence): swap labels of ``Request Payment`` / ``Payment Handled``
+  (timestamps stay in place so conversion order flips)
+- R4 (succession): same Request/Payment label swap (breaks both directions)
+
+R5–R6 remain KG-level domain corruptions:
+
+- R5: rewrite ``Payment Handled`` resource away from SYSTEM
 - R5B: set ``Payment Handled`` role to EMPLOYEE
 - R6: scramble order, insert a bogus stage, or remove ``wasInformedBy`` links
-  (chosen at random per payment)
 
 When ``count`` is set, that many eligible items are corrupted (or all if fewer
 exist). When ``percent`` is set, the target is
@@ -30,14 +30,14 @@ import random
 import shutil
 import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, field
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
 from urllib.parse import quote
 
 from rdflib import Graph, Literal, URIRef
-from rdflib.namespace import PROV, RDF, RDFS, XSD
+from rdflib.namespace import PROV, RDF, RDFS
 
 from src.xes_to_prov_kg import ATTR, BASE, WF, convert_xes_to_prov_kg
 
@@ -51,6 +51,12 @@ PAYMENT_HANDLED = Literal("Payment Handled")
 REQUEST_PAYMENT = Literal("Request Payment")
 FINAL_APPROVAL = Literal("Declaration FINAL_APPROVED by SUPERVISOR")
 SUBMISSION = Literal("Declaration SUBMITTED by EMPLOYEE")
+
+LABEL_SUBMITTED = "Declaration SUBMITTED by EMPLOYEE"
+LABEL_FINAL_APPROVED = "Declaration FINAL_APPROVED by SUPERVISOR"
+LABEL_REQUEST_PAYMENT = "Request Payment"
+LABEL_PAYMENT_HANDLED = "Payment Handled"
+SWAP_ATTR_KEYS = ("id", "concept:name", "org:resource", "org:role")
 
 
 @dataclass(frozen=True)
@@ -220,7 +226,7 @@ def load_benchmark_config(
     )
 
 
-def _iter_events(root: ET.Element):
+def _iter_traces(root: ET.Element):
     for trace in root:
         if _tag(trace) != "trace":
             continue
@@ -233,9 +239,7 @@ def _iter_events(root: ET.Element):
             ):
                 trace_id = child.get("value", "(unknown)")
                 break
-        for event in trace:
-            if _tag(event) == "event":
-                yield trace_id, event
+        yield trace_id, trace
 
 
 def _event_id(event: ET.Element) -> str:
@@ -245,13 +249,45 @@ def _event_id(event: ET.Element) -> str:
     return "(unknown)"
 
 
-def _find_timestamp_nodes(event: ET.Element) -> list[ET.Element]:
-    return [
-        child
-        for child in list(event)
-        if _tag(child) in {"string", "date", "int", "float", "boolean"}
-        and child.get("key") == "time:timestamp"
-    ]
+def _event_activity(event: ET.Element) -> str:
+    for child in event:
+        if child.get("key") == "concept:name" and child.get("value"):
+            return child.get("value", "")
+    return ""
+
+
+def _events_in_trace(trace: ET.Element) -> list[ET.Element]:
+    return [child for child in trace if _tag(child) == "event"]
+
+
+def _find_events_with_label(trace: ET.Element, label: str) -> list[ET.Element]:
+    return [event for event in _events_in_trace(trace) if _event_activity(event) == label]
+
+
+def _remove_event(trace: ET.Element, event: ET.Element) -> None:
+    trace.remove(event)
+
+
+def _swap_event_identity_attrs(left: ET.Element, right: ET.Element) -> None:
+    """Swap activity identity attrs; keep timestamps so conversion order flips."""
+    for key in SWAP_ATTR_KEYS:
+        left_nodes = [c for c in list(left) if c.get("key") == key]
+        right_nodes = [c for c in list(right) if c.get("key") == key]
+        left_vals = [n.get("value", "") for n in left_nodes]
+        right_vals = [n.get("value", "") for n in right_nodes]
+        for node, value in zip(left_nodes, right_vals):
+            node.set("value", value)
+        for node, value in zip(right_nodes, left_vals):
+            node.set("value", value)
+        # If one side is missing an attribute the other has, move the extras.
+        if len(left_nodes) < len(right_nodes):
+            for node in right_nodes[len(left_nodes) :]:
+                right.remove(node)
+                left.append(node)
+        elif len(right_nodes) < len(left_nodes):
+            for node in left_nodes[len(right_nodes) :]:
+                left.remove(node)
+                right.append(node)
 
 
 def _write_xes(root: ET.Element, path: Path) -> None:
@@ -271,10 +307,6 @@ def _parse_xes(path: Path) -> ET.Element:
                 shutil.copyfileobj(src, dst)
             return ET.parse(tmp_path).getroot()
     return ET.parse(path).getroot()
-
-
-def _parse_xsd_datetime(value: Literal) -> datetime:
-    return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
 
 
 def _activities_with_label(graph: Graph, label: Literal) -> list:
@@ -545,6 +577,39 @@ def _apply_r6_kg(
     return len(eligible), applied
 
 
+def _apply_r1_xes(
+    root: ET.Element,
+    *,
+    target_count: int,
+    rng: random.Random,
+    records: list[CorruptionRecord],
+) -> tuple[int, int]:
+    """Remove all Declaration SUBMITTED events to break DECLARE existence / KG R1."""
+    eligible = [
+        (trace_id, trace, events)
+        for trace_id, trace in _iter_traces(root)
+        if (events := _find_events_with_label(trace, LABEL_SUBMITTED))
+    ]
+    chosen = rng.sample(eligible, k=min(target_count, len(eligible)))
+    for trace_id, trace, events in chosen:
+        removed_ids = [_event_id(event) for event in events]
+        for event in events:
+            _remove_event(trace, event)
+        records.append(
+            CorruptionRecord(
+                rule_id="R1",
+                action="removed_submission_events",
+                details={
+                    "trace_id": trace_id,
+                    "event_ids": "; ".join(removed_ids),
+                    "removed_count": str(len(removed_ids)),
+                    "activity": LABEL_SUBMITTED,
+                },
+            )
+        )
+    return len(eligible), len(chosen)
+
+
 def _apply_r2_xes(
     root: ET.Element,
     *,
@@ -552,90 +617,134 @@ def _apply_r2_xes(
     rng: random.Random,
     records: list[CorruptionRecord],
 ) -> tuple[int, int]:
-    eligible = [
-        (trace_id, event, _find_timestamp_nodes(event))
-        for trace_id, event in _iter_events(root)
-        if _find_timestamp_nodes(event)
-    ]
+    """Remove all Request Payment events after final approval (DECLARE response / KG R2)."""
+    eligible = []
+    for trace_id, trace in _iter_traces(root):
+        if not _find_events_with_label(trace, LABEL_FINAL_APPROVED):
+            continue
+        requests = _find_events_with_label(trace, LABEL_REQUEST_PAYMENT)
+        if requests:
+            eligible.append((trace_id, trace, requests))
     chosen = rng.sample(eligible, k=min(target_count, len(eligible)))
-    for trace_id, event, nodes in chosen:
-        event_id = _event_id(event)
-        removed_values = [node.get("value", "") for node in nodes]
-        for node in nodes:
-            event.remove(node)
+    for trace_id, trace, events in chosen:
+        removed_ids = [_event_id(event) for event in events]
+        for event in events:
+            _remove_event(trace, event)
         records.append(
             CorruptionRecord(
                 rule_id="R2",
-                action="removed_time_timestamp",
+                action="removed_request_payment_after_approval",
                 details={
                     "trace_id": trace_id,
-                    "event_id": event_id,
-                    "removed_values": "; ".join(removed_values),
+                    "event_ids": "; ".join(removed_ids),
+                    "removed_count": str(len(removed_ids)),
+                    "activity": LABEL_REQUEST_PAYMENT,
                 },
             )
         )
     return len(eligible), len(chosen)
 
 
-def _apply_r1_kg(
-    graph: Graph,
+def _apply_request_payment_swap_xes(
+    root: ET.Element,
+    *,
+    rule_id: str,
+    action: str,
+    target_count: int,
+    rng: random.Random,
+    records: list[CorruptionRecord],
+    exclude_traces: set[str] | None = None,
+) -> tuple[int, int]:
+    """Swap Request Payment / Payment Handled labels (keep timestamps)."""
+    exclude_traces = exclude_traces or set()
+    eligible = []
+    for trace_id, trace in _iter_traces(root):
+        if trace_id in exclude_traces:
+            continue
+        requests = _find_events_with_label(trace, LABEL_REQUEST_PAYMENT)
+        payments = _find_events_with_label(trace, LABEL_PAYMENT_HANDLED)
+        if requests and payments:
+            eligible.append((trace_id, requests[0], payments[0]))
+    chosen = rng.sample(eligible, k=min(target_count, len(eligible)))
+    for trace_id, request, payment in chosen:
+        request_id_before = _event_id(request)
+        payment_id_before = _event_id(payment)
+        _swap_event_identity_attrs(request, payment)
+        records.append(
+            CorruptionRecord(
+                rule_id=rule_id,
+                action=action,
+                details={
+                    "trace_id": trace_id,
+                    "request_event_id_before": request_id_before,
+                    "payment_event_id_before": payment_id_before,
+                    "request_event_id_after": _event_id(request),
+                    "payment_event_id_after": _event_id(payment),
+                    "note": (
+                        "Timestamps stayed on their slots so conversion order "
+                        "places Payment before Request."
+                    ),
+                },
+            )
+        )
+    return len(eligible), len(chosen)
+
+
+def _apply_r3_xes(
+    root: ET.Element,
     *,
     target_count: int,
     rng: random.Random,
     records: list[CorruptionRecord],
+    exclude_traces: set[str] | None = None,
 ) -> tuple[int, int]:
-    activities = [
-        activity
-        for activity in graph.subjects(RDF.type, PROV.Activity)
-        if list(graph.objects(activity, WF.belongsToCase))
-    ]
-    chosen = rng.sample(activities, k=min(target_count, len(activities)))
-    for activity in chosen:
-        cases = list(graph.objects(activity, WF.belongsToCase))
-        for case in cases:
-            graph.remove((activity, WF.belongsToCase, case))
-        records.append(
-            CorruptionRecord(
-                rule_id="R1",
-                action="removed_belongsToCase",
-                details={
-                    "activity": str(activity),
-                    "removed_cases": "; ".join(str(case) for case in cases),
-                    "case_count_before": str(len(cases)),
-                },
-            )
-        )
-    return len(activities), len(chosen)
+    return _apply_request_payment_swap_xes(
+        root,
+        rule_id="R3",
+        action="swapped_request_payment_for_precedence",
+        target_count=target_count,
+        rng=rng,
+        records=records,
+        exclude_traces=exclude_traces,
+    )
 
 
-def _apply_r3_kg(
-    graph: Graph,
+def _apply_r4_xes(
+    root: ET.Element,
     *,
     target_count: int,
     rng: random.Random,
     records: list[CorruptionRecord],
+    exclude_traces: set[str] | None = None,
 ) -> tuple[int, int]:
-    activities = [
-        activity
-        for activity in graph.subjects(RDF.type, PROV.Activity)
-        if list(graph.objects(activity, PROV.wasAssociatedWith))
-    ]
-    chosen = rng.sample(activities, k=min(target_count, len(activities)))
-    for activity in chosen:
-        agents = list(graph.objects(activity, PROV.wasAssociatedWith))
-        for agent in agents:
-            graph.remove((activity, PROV.wasAssociatedWith, agent))
+    """Remove Payment Handled after Request Payment (DECLARE succession / KG R4)."""
+    exclude_traces = exclude_traces or set()
+    eligible = []
+    for trace_id, trace in _iter_traces(root):
+        if trace_id in exclude_traces:
+            continue
+        requests = _find_events_with_label(trace, LABEL_REQUEST_PAYMENT)
+        payments = _find_events_with_label(trace, LABEL_PAYMENT_HANDLED)
+        if requests and payments:
+            eligible.append((trace_id, trace, payments))
+    chosen = rng.sample(eligible, k=min(target_count, len(eligible)))
+    for trace_id, trace, events in chosen:
+        removed_ids = [_event_id(event) for event in events]
+        for event in events:
+            _remove_event(trace, event)
         records.append(
             CorruptionRecord(
-                rule_id="R3",
-                action="removed_wasAssociatedWith",
+                rule_id="R4",
+                action="removed_payment_handled_for_succession",
                 details={
-                    "activity": str(activity),
-                    "removed_agents": "; ".join(str(agent) for agent in agents),
+                    "trace_id": trace_id,
+                    "event_ids": "; ".join(removed_ids),
+                    "removed_count": str(len(removed_ids)),
+                    "activity": LABEL_PAYMENT_HANDLED,
                 },
             )
         )
-    return len(activities), len(chosen)
+    return len(eligible), len(chosen)
 
 
 INVALID_PAYMENT_RESOURCES = (
@@ -657,103 +766,6 @@ def _random_invalid_payment_resource(rng: random.Random) -> str:
     if rng.random() < 0.35:
         return f"BOGUS_RESOURCE_{rng.randint(1000, 9999)}"
     return rng.choice(INVALID_PAYMENT_RESOURCES)
-
-
-def _apply_r4_break_order(
-    graph: Graph,
-    *,
-    later,
-    earlier,
-    rng: random.Random,
-) -> CorruptionRecord | None:
-    earlier_times = list(graph.objects(earlier, PROV.startedAtTime))
-    later_times = list(graph.objects(later, PROV.startedAtTime))
-    if not earlier_times or not later_times:
-        return None
-
-    earlier_time = earlier_times[0]
-    later_time_before = later_times[0]
-    earlier_dt = _parse_xsd_datetime(earlier_time)
-    broken_dt = earlier_dt - timedelta(seconds=rng.randint(1, 3600))
-    broken_literal = Literal(broken_dt.isoformat(), datatype=XSD.dateTime)
-
-    for old in list(graph.objects(later, PROV.startedAtTime)):
-        graph.remove((later, PROV.startedAtTime, old))
-    for old in list(graph.objects(later, PROV.endedAtTime)):
-        graph.remove((later, PROV.endedAtTime, old))
-    graph.add((later, PROV.startedAtTime, broken_literal))
-    graph.add((later, PROV.endedAtTime, broken_literal))
-
-    return CorruptionRecord(
-        rule_id="R4",
-        action="broke_wasInformedBy_temporal_order",
-        details={
-            "later_activity": str(later),
-            "earlier_activity": str(earlier),
-            "later_time_before": str(later_time_before),
-            "earlier_time": str(earlier_time),
-            "later_time_after": str(broken_literal),
-        },
-    )
-
-
-def _apply_r4_remove_started_at_time(
-    graph: Graph,
-    *,
-    later,
-    earlier,
-) -> CorruptionRecord | None:
-    starts = list(graph.objects(later, PROV.startedAtTime))
-    if not starts:
-        return None
-
-    ends = list(graph.objects(later, PROV.endedAtTime))
-    # Keep an end time even if none existed (use former start).
-    if not ends:
-        graph.add((later, PROV.endedAtTime, starts[0]))
-        ends = [starts[0]]
-
-    for old in starts:
-        graph.remove((later, PROV.startedAtTime, old))
-
-    return CorruptionRecord(
-        rule_id="R4",
-        action="removed_startedAtTime_kept_endedAtTime",
-        details={
-            "later_activity": str(later),
-            "earlier_activity": str(earlier),
-            "removed_startedAtTime": "; ".join(str(t) for t in starts),
-            "kept_endedAtTime": "; ".join(str(t) for t in ends),
-        },
-    )
-
-
-def _apply_r4_kg(
-    graph: Graph,
-    *,
-    target_count: int,
-    rng: random.Random,
-    records: list[CorruptionRecord],
-) -> tuple[int, int]:
-    edges = [
-        (later, earlier)
-        for later, _, earlier in graph.triples((None, PROV.wasInformedBy, None))
-        if list(graph.objects(later, PROV.startedAtTime))
-        and list(graph.objects(earlier, PROV.startedAtTime))
-    ]
-    rng.shuffle(edges)
-    applied = 0
-    for later, earlier in edges:
-        if applied >= target_count:
-            break
-        record = _apply_r4_break_order(
-            graph, later=later, earlier=earlier, rng=rng
-        )
-        if record is None:
-            continue
-        records.append(record)
-        applied += 1
-    return len(edges), applied
 
 
 def _apply_r5_kg(
@@ -854,20 +866,83 @@ def generate_benchmark(cfg: BenchmarkConfig) -> BenchmarkStats:
     xes_line_count = _count_lines(cfg.input_path)
     root = _parse_xes(cfg.input_path)
 
-    r2_eligible = sum(
-        1 for _trace_id, event in _iter_events(root) if _find_timestamp_nodes(event)
-    )
-    r2_target = _resolve_target_count(
-        cfg.r2,
-        xes_line_count=xes_line_count,
-        eligible_count=r2_eligible,
-        rule_id="R2",
-    )
-    r2_applied = 0
-    if cfg.r2.enabled:
-        r2_eligible, r2_applied = _apply_r2_xes(
-            root, target_count=r2_target, rng=rng, records=records
+    def run_xes_rule(
+        rule_id: str,
+        rule_cfg: RuleCorruptionConfig,
+        apply_fn,
+        eligible_count: int,
+        **apply_kwargs,
+    ):
+        target = _resolve_target_count(
+            rule_cfg,
+            xes_line_count=xes_line_count,
+            eligible_count=eligible_count,
+            rule_id=rule_id,
         )
+        applied = 0
+        eligible = eligible_count
+        if rule_cfg.enabled:
+            eligible, applied = apply_fn(
+                root, target_count=target, rng=rng, records=records, **apply_kwargs
+            )
+        return eligible, target, applied
+
+    def _trace_ids_for_rule(rule_id: str) -> set[str]:
+        out: set[str] = set()
+        for corr in records:
+            if corr.rule_id != rule_id:
+                continue
+            tid = corr.details.get("trace_id")
+            if tid:
+                out.add(str(tid))
+        return out
+
+    r1_elig_count = sum(
+        1
+        for _tid, trace in _iter_traces(root)
+        if _find_events_with_label(trace, LABEL_SUBMITTED)
+    )
+    r1_eligible, r1_target, r1_applied = run_xes_rule(
+        "R1", cfg.r1, _apply_r1_xes, r1_elig_count
+    )
+
+    r2_elig_count = sum(
+        1
+        for _tid, trace in _iter_traces(root)
+        if _find_events_with_label(trace, LABEL_FINAL_APPROVED)
+        and _find_events_with_label(trace, LABEL_REQUEST_PAYMENT)
+    )
+    r2_eligible, r2_target, r2_applied = run_xes_rule(
+        "R2", cfg.r2, _apply_r2_xes, r2_elig_count
+    )
+
+    def _pair_eligible_count(exclude: set[str]) -> int:
+        return sum(
+            1
+            for tid, trace in _iter_traces(root)
+            if tid not in exclude
+            and _find_events_with_label(trace, LABEL_REQUEST_PAYMENT)
+            and _find_events_with_label(trace, LABEL_PAYMENT_HANDLED)
+        )
+
+    # R4 before R3, on disjoint traces: R4 removes payments; R3 swaps remaining pairs.
+    r4_exclude = _trace_ids_for_rule("R1") | _trace_ids_for_rule("R2")
+    r4_eligible, r4_target, r4_applied = run_xes_rule(
+        "R4",
+        cfg.r4,
+        _apply_r4_xes,
+        _pair_eligible_count(r4_exclude),
+        exclude_traces=r4_exclude,
+    )
+
+    r3_exclude = r4_exclude | _trace_ids_for_rule("R4")
+    r3_eligible, r3_target, r3_applied = run_xes_rule(
+        "R3",
+        cfg.r3,
+        _apply_r3_xes,
+        _pair_eligible_count(r3_exclude),
+        exclude_traces=r3_exclude,
+    )
 
     stem = cfg.input_path.name.replace(".xes.gz", "").replace(".xes", "")
     corrupted_xes = run_dir / f"{stem}.corrupted.xes"
@@ -895,26 +970,6 @@ def generate_benchmark(cfg: BenchmarkConfig) -> BenchmarkStats:
             )
         return eligible, target, applied
 
-    r1_eligible, r1_target, r1_applied = run_kg_rule(
-        "R1",
-        cfg.r1,
-        _apply_r1_kg,
-        lambda: sum(
-            1
-            for activity in graph.subjects(RDF.type, PROV.Activity)
-            if list(graph.objects(activity, WF.belongsToCase))
-        ),
-    )
-    r3_eligible, r3_target, r3_applied = run_kg_rule(
-        "R3",
-        cfg.r3,
-        _apply_r3_kg,
-        lambda: sum(
-            1
-            for activity in graph.subjects(RDF.type, PROV.Activity)
-            if list(graph.objects(activity, PROV.wasAssociatedWith))
-        ),
-    )
     r5_eligible, r5_target, r5_applied = run_kg_rule(
         "R5",
         cfg.r5,
@@ -935,8 +990,6 @@ def generate_benchmark(cfg: BenchmarkConfig) -> BenchmarkStats:
             if Literal("EMPLOYEE") not in set(graph.objects(activity, ROLE_PRED))
         ),
     )
-    # R6 before R4: R6 rewires wasInformedBy edges; applying R4 afterward keeps
-    # temporal breaks on the final graph topology used at validation time.
     r6_eligible, r6_target, r6_applied = run_kg_rule(
         "R6",
         cfg.r6,
@@ -945,17 +998,6 @@ def generate_benchmark(cfg: BenchmarkConfig) -> BenchmarkStats:
             1
             for activity in _activities_with_label(graph, PAYMENT_HANDLED)
             if _has_valid_payment_chain(graph, activity)
-        ),
-    )
-    r4_eligible, r4_target, r4_applied = run_kg_rule(
-        "R4",
-        cfg.r4,
-        _apply_r4_kg,
-        lambda: sum(
-            1
-            for later, _, earlier in graph.triples((None, PROV.wasInformedBy, None))
-            if list(graph.objects(later, PROV.startedAtTime))
-            and list(graph.objects(earlier, PROV.startedAtTime))
         ),
     )
 
@@ -1014,20 +1056,22 @@ def generate_benchmark(cfg: BenchmarkConfig) -> BenchmarkStats:
         },
         "notes": {
             "r1": (
-                "wf:belongsToCase is created during conversion, so R1 faults are "
-                "injected on the generated KG by removing belongsToCase links."
+                "R1 (DECLARE existence): remove Declaration SUBMITTED by EMPLOYEE "
+                "from selected XES traces before conversion."
             ),
             "r2": (
-                "time:timestamp attributes are removed from random XES events "
-                "before conversion, so activities lack prov:startedAtTime."
+                "R2 (DECLARE response): remove Request Payment from traces that "
+                "have Declaration FINAL_APPROVED by SUPERVISOR."
             ),
             "r3": (
-                "prov:wasAssociatedWith is created during conversion, so R3 faults "
-                "are injected on the KG by removing agent associations."
+                "R3 (DECLARE precedence): swap Request Payment / Payment Handled "
+                "identity attributes while keeping timestamps, so conversion order "
+                "places payment before request."
             ),
             "r4": (
-                "R4 faults are injected on the KG by breaking wasInformedBy "
-                "temporal order (later.startedAtTime < earlier)."
+                "R4 (DECLARE succession): remove Payment Handled from traces that "
+                "still have Request Payment (distinct from R3 swap, so combined "
+                "injection does not cancel R3)."
             ),
             "r5": (
                 "Payment Handled activities that use SYSTEM get a random invalid "
