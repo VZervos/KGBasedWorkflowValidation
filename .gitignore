@@ -1,2 +1,7 @@
 .venv
 .idea
+**/__pycache__/
+*.pyc
+benchmarks/_suite_*.ini
+output/per_rule_validation/_smoke.json
+output/per_rule_validation/*.log

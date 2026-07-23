@@ -1,6 +1,6 @@
 # KG-Based Workflow Validation
 
-Convert XES event logs into a PROV-O provenance knowledge graph, visualize it, and validate workflow executions with graph rules (SPARQL + an efficient traversal for R6).
+Convert XES event logs into a PROV-O provenance knowledge graph, visualize it, and validate workflow executions with graph rules. Control-flow rules R1–R4 are aligned with DECLARE templates so the same faults can be checked on XES (PM4Py DECLARE) and on the KG. Domain rules R5–R6 are evaluated on the KG.
 
 ## Workflow
 
@@ -22,7 +22,7 @@ XES event log → Mapping (XES → KG) → Provenance KG → Validation rules �
 ## Requirements
 
 - Python 3.11+
-- Dependencies in `requirements.txt` (`rdflib`, `pyvis`)
+- Dependencies in `requirements.txt` (`rdflib`, `pyvis`, `pm4py`)
 
 ## Setup
 
@@ -41,6 +41,12 @@ python -m src.run_pipeline
 ```
 
 Enable stages with `true`/`false` in `config.ini`. Each run writes a folder under `output_dir`, e.g. `output/out_conv_vis_val_r1_r2_r3_r4_r5_r5b_r6_20260719_120530/`.
+
+To **reproduce the full paper experiment** (isolated + combined, both datasets, KG + DECLARE), see [Experiment reproduction](#experiment-reproduction):
+
+```bash
+python scripts/run_full_experiment_suite.py all
+```
 
 ## Configuration
 
@@ -109,7 +115,7 @@ validation = false
 
 ```ini
 output_dir = output
-knowledge_graph = output/out_conv_.../file.prov.ttl
+knowledge_graph = benchmarks/bench_r1_full/DomesticDeclarations.corrupted.prov.ttl
 conversion = false
 visualization = false
 validation = true
@@ -119,7 +125,7 @@ validation = true
 
 ```ini
 output_dir = output
-knowledge_graph = output/out_conv_.../file.prov.ttl
+knowledge_graph = benchmarks/bench_r1_full/DomesticDeclarations.corrupted.prov.ttl
 conversion = false
 visualization = true
 validation = false
@@ -179,7 +185,7 @@ An internet connection is needed when viewing the HTML (vis-network CDN).
 
 ## Validation
 
-Rules live in `src/validation_rules.py` and are executed by `src/validate_kg.py`.
+Rules live in `src/validation_rules.py` (SPARQL definitions + DECLARE model) and are executed by `src/validate_kg.py`.
 
 ### How validation runs
 
@@ -187,14 +193,16 @@ Rules live in `src/validation_rules.py` and are executed by `src/validate_kg.py`
 2. For each enabled rule, collect violation rows.
 3. Aggregate into `validation.json` (overall status, per-rule status/counts/timings, and detailed findings).
 
-**R1–R5B** are SPARQL `SELECT` queries: **each answer row = one violation**, with an `issue` code and entity bindings.
+**Execution note.** SPARQL in `validation_rules.py` is the semantic definition of each rule. On large graphs, **R1–R4 and R6** are evaluated with equivalent **Python graph walks** in `validate_kg.py` (RDFLib property paths are too slow at full-dataset scale). **R5 and R5B** still run as SPARQL `SELECT` queries.
 
-**R6** has the same intended semantics as a SPARQL property-path query, but on large graphs it is evaluated with an equivalent **in-memory BFS / ancestor search** over `prov:wasInformedBy`, because RDFLib property paths are too slow at full-dataset scale.
+Each answer / finding row is one violation, with an `issue` code and entity bindings.
 
 ### Rules overview
 
 Activity labels match the BPI Challenge 2020 *Domestic Declarations* log.
-**R1–R4** are control-flow rules aligned with DECLARE templates so the same faults can be checked with PM4Py DECLARE on XES and with SPARQL on the KG. **R5–R6** are KG-only domain rules.
+
+- **R1–R4** — control-flow constraints aligned with DECLARE (`existence` / `response` / `precedence` / `succession`). The same faults can be checked with PM4Py DECLARE on XES and with the KG validator.
+- **R5 / R5B / R6** — domain and provenance constraints around payment handling. Standard DECLARE templates do not cover these attribute- and path-level checks; we evaluate them on the KG.
 
 | Rule | Name | DECLARE template | Violation issue(s) |
 |------|------|------------------|--------------------|
@@ -202,9 +210,9 @@ Activity labels match the BPI Challenge 2020 *Domestic Declarations* log.
 | **R2** | `APPROVAL_REQUEST_RESPONSE` | `response` | `missing_response_request_after_approval` |
 | **R3** | `REQUEST_BEFORE_PAYMENT` | `precedence` | `missing_precedence_request_before_payment` |
 | **R4** | `REQUEST_PAYMENT_SUCCESSION` | `succession` | `missing_succession_response_payment_after_request`, `missing_succession_precedence_request_before_payment` |
-| **R5** | `PAYMENT_HANDLED_BY_SYSTEM` | (KG-only) | `payment_not_handled_by_system` |
-| **R5B** | `PAYMENT_HANDLED_NOT_BY_EMPLOYEE` | (KG-only) | `payment_handled_by_employee` |
-| **R6** | `PAYMENT_PROVENANCE_CHAIN` | (KG-only) | `invalid_payment_provenance_chain` |
+| **R5** | `PAYMENT_HANDLED_BY_SYSTEM` | (KG) | `payment_not_handled_by_system` |
+| **R5B** | `PAYMENT_HANDLED_NOT_BY_EMPLOYEE` | (KG) | `payment_handled_by_employee` |
+| **R6** | `PAYMENT_PROVENANCE_CHAIN` | (KG) | `invalid_payment_provenance_chain` |
 
 Canonical DECLARE model for R1–R4: `DECLARE_MODEL_R1_R4` in `src/validation_rules.py`.
 
@@ -212,15 +220,16 @@ Canonical DECLARE model for R1–R4: `DECLARE_MODEL_R1_R4` in `src/validation_ru
 
 #### R1 — submission existence (DECLARE `existence`)
 
-- **Mechanism:** SPARQL over cases; require an activity labelled `Declaration SUBMITTED by EMPLOYEE`.
+- **Mechanism:** every case must contain an activity labelled `Declaration SUBMITTED by EMPLOYEE`.
 - **Fails when:** a case has no submission activity.
 - **Reports:** the case IRI.
 
 #### R2 — approval → request response (DECLARE `response`)
 
-- **Mechanism:** for each final approval, require a same-case `Request Payment` with `request wasInformedBy+ approval`.
+- **Mechanism:** for each final approval, require a same-case `Request Payment` reachable via `request wasInformedBy+ approval`.
 - **Fails when:** approval exists but no later request is reachable in the provenance chain.
 - **Reports:** case and approval IRIs.
+- **Note:** multiple approvals in one case can yield multiple rows for the same case.
 
 #### R3 — request before payment (DECLARE `precedence`)
 
@@ -233,7 +242,7 @@ Canonical DECLARE model for R1–R4: `DECLARE_MODEL_R1_R4` in `src/validation_ru
 - **Mechanism:** both halves of succession: every request must be followed by a payment, and every payment must be preceded by a request (via `wasInformedBy+`).
 - **Fails when:** either direction is missing.
 - **Reports:** case and the violating request or payment IRI.
-- **Note:** one Request/Payment order swap can produce **two** R4 rows.
+- **Note:** one broken case may produce **two** R4 rows (one per succession half).
 
 #### R5 — payment handled by SYSTEM
 
@@ -250,7 +259,7 @@ Canonical DECLARE model for R1–R4: `DECLARE_MODEL_R1_R4` in `src/validation_ru
 
 #### R6 — payment provenance chain
 
-- **Mechanism:** for each `Payment Handled` with a case, search ancestors via `prov:wasInformedBy` (BFS in Python on large graphs; SPARQL `wasInformedBy+` is the semantic definition).
+- **Mechanism:** for each `Payment Handled` with a case, search ancestors via `prov:wasInformedBy` (BFS in Python; SPARQL `wasInformedBy+` is the semantic definition).
 - **Valid iff** there exist same-case milestones:
 
 ```
@@ -287,21 +296,10 @@ python -m src.generate_benchmark
 
 Configuration is in `benchmark.ini` (separate from `config.ini`).
 
-### DECLARE baseline comparison (R1–R4)
-
-R1–R4 map 1:1 onto a fixed DECLARE model (`DECLARE_MODEL_R1_R4`). Compare KG SPARQL
-with PM4Py DECLARE on the same corrupted XES / converted KG:
-
-```bash
-python scripts/run_declare_baseline_comparison.py
-```
-
-Outputs land in `output/declare_baseline_comparison/`. R5/R5B/R6 stay KG-only.
-
 ### How injection works
 
 1. Load a clean XES log.
-2. Apply **XES-level** control-flow corruptions for enabled **R1–R4**.
+2. Apply **XES-level** control-flow corruptions for enabled **R1–R4** (order: R1 → R2 → R4 → R3; R3/R4 use disjoint traces so they do not cancel each other).
 3. Convert the corrupted XES into a PROV-O KG.
 4. Apply **KG-level** corruptions for enabled **R5, R5B, R6**.
 5. Write outputs under a stable name: `benchmarks/bench_<rule>_<label>/`
@@ -325,8 +323,8 @@ Use **either** `count` **or** `percent`, not both. Shared `seed` makes sampling 
 | Rule | Layer | Eligible items | Corruption action |
 |------|-------|----------------|-------------------|
 | **R1** | XES | Traces with `Declaration SUBMITTED by EMPLOYEE` | Remove the submission event |
-| **R2** | XES | Traces with final approval and `Request Payment` | Remove `Request Payment` |
-| **R3** | XES | Traces with both Request and Payment | Swap identity attrs (keep timestamps) so payment precedes request |
+| **R2** | XES | Traces with final approval and `Request Payment` | Remove `Request Payment` after approval |
+| **R3** | XES | Traces with both Request and Payment | Swap identity attrs (keep timestamps) so conversion order places Payment before Request |
 | **R4** | XES | Traces with both Request and Payment | Remove `Payment Handled` (breaks succession without undoing R3) |
 | **R5** | KG | `Payment Handled` with resource `SYSTEM` | Rewrite resource to a random invalid value |
 | **R5B** | KG | `Payment Handled` whose role is not already `EMPLOYEE` | Set role to `EMPLOYEE` |
@@ -367,33 +365,121 @@ enabled = false
 
 ### Evaluating a benchmark
 
-For **R1–R4**, you may validate either the corrupted XES with DECLARE or the converted KG with SPARQL.
+For **R1–R4**, validate the corrupted XES with DECLARE and/or the converted KG with the KG validator. Compare on **violated cases** (injected `trace_id`), not raw row counts (the KG may emit multiple rows per case).
+
 For **R5–R6**, point the pipeline at the **corrupted KG** with conversion off (re-converting from XES would erase those KG-only faults):
 
 ```ini
 [pipeline]
 output_dir = output
-knowledge_graph = benchmarks/bench_r1_full/DomesticDeclarations.corrupted.prov.ttl
+knowledge_graph = benchmarks/bench_r5_full/DomesticDeclarations.corrupted.prov.ttl
 conversion = false
 visualization = false
 validation = true
 ```
 
-When several rules are injected together, corruptions can create **collateral** violations of other rules. For clean per-rule ground truth, enable one rule at a time (or treat `statistics.json` applied counts as the intentional faults).
+When several rules are injected together, corruptions can create **collateral** violations of other rules. For clean per-rule ground truth, enable one rule at a time (or treat `statistics.json` applied counts as the intentional faults). Precision below 1 often reflects pre-existing faults in the clean BPI log and/or collateral effects, not missed injections (recall of injected faults is the main correctness check).
 
-### Experiment helper scripts
+## Experiment reproduction
+
+This is the end-to-end path used for the paper evaluation: regenerate all benchmarks, validate with the KG method (and DECLARE on R1–R4), then write the experiment report.
+
+### What the suite does
+
+| Phase | What runs |
+|-------|-----------|
+| **Isolated** | For each rule R1–R6 × each dataset: inject faults, convert, KG-validate; for R1–R4 also run PM4Py DECLARE on the corrupted XES |
+| **Combined** | Inject all rules into one artifact per dataset, KG-validate all rules, DECLARE on R1–R4 templates |
+| **Report** | Writes `output/per_rule_validation/experiment_report.md` and `.json` with sizes, timings, detections, precision/recall |
+
+| Dataset | Input | Faults / rule | Seed |
+|---------|-------|---------------|------|
+| `10declarations` | `dataset/DomesticDeclarations.sample_10declarations.xes` | 5 | 42 |
+| `full` | `dataset/DomesticDeclarations.xes.gz` | 100 | 42 |
+
+**Part 1 — R1–R4:** KG vs DECLARE on violated **cases**.  
+**Part 2 — R5–R6:** KG only on violation **entities**.
+
+### Prerequisites
+
+1. Python 3.11+ and a virtualenv.
+2. Install dependencies (includes `pm4py` for DECLARE):
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Ensure the dataset files exist under `dataset/` (see table above). The full log must be present as `dataset/DomesticDeclarations.xes.gz`.
+4. Run commands from the **repository root**.
+
+### Reproduce the full experiment (recommended)
+
+One command regenerates everything and updates the report:
+
+```bash
+python scripts/run_full_experiment_suite.py all
+```
+
+Expected behaviour:
+
+- Prints progress per dataset/rule (`generating…`, `KG validating…`, `DECLARE validating…`, `PASS`/`FAIL`).
+- Overwrites `benchmarks/bench_*` directories for the suite rules and `output/per_rule_validation/` suite outputs.
+- Exits non-zero if any isolated or combined check fails.
+- On success, ends with `Done.`
+
+**Runtime (order of magnitude on a modern laptop):** the 10-declaration half finishes in seconds to a couple of minutes; the full-log half is dominated by XES→KG conversion and loading (often ~1–3+ hours wall time for all isolated rules plus combined). Do not treat a quiet console during conversion as a hang.
+
+### Run phases separately
+
+Useful if you already have isolated benches and only want to refresh the combined run (or vice versa):
+
+```bash
+python scripts/run_full_experiment_suite.py isolated
+python scripts/run_full_experiment_suite.py combined
+```
+
+- `isolated` writes the base report.
+- `combined` extends the same report with the all-rules section.
+
+### Where to find results
+
+| Kind | Path |
+|------|------|
+| Experiment report (human) | `output/per_rule_validation/experiment_report.md` |
+| Experiment report (machine) | `output/per_rule_validation/experiment_report.json` |
+| Suite pass/fail summary | `output/per_rule_validation/suite_summary.json` |
+| Isolated benchmarks | `benchmarks/bench_<rule>_<dataset>/` |
+| Combined benchmarks | `benchmarks/bench_all_<dataset>/` |
+| KG validation JSON | `output/per_rule_validation/val_<rule>_<dataset>/validation.json` |
+| Combined KG validation | `output/per_rule_validation/val_all_<dataset>/validation.json` |
+| DECLARE JSON (R1–R4) | `output/per_rule_validation/declare_<rule>_<dataset>/declare.json` |
+| Combined DECLARE | `output/per_rule_validation/declare_all_<dataset>/r{1-4}.json` |
+
+Each benchmark folder also contains `*.corrupted.xes`, `*.corrupted.prov.ttl`, and `statistics.json` (injection ground truth).
+
+### How to verify a successful run
+
+1. Console shows `PASS` for every isolated rule on both datasets and for both combined datasets, then `Done.`
+2. `experiment_report.md` lists isolated **14/14** passed and combined **2/2** passed.
+3. For every rule, **recall of injected faults is 1.0** (precision may be &lt; 1 because of baseline BPI violations and combined collateral).
+4. On isolated full-log R1–R4, KG and DECLARE violated-case sets match.
+
+### Optional: lightweight DECLARE smoke check
+
+After isolated R1–R4 benches exist, a smaller DECLARE vs KG check on the 10-declaration set:
+
+```bash
+python scripts/run_declare_baseline_comparison.py
+```
+
+### Helper scripts
 
 | Script | Purpose |
 |--------|---------|
-| `scripts/run_per_rule_benchmark_suite.py` | One isolated benchmark per rule + verify detection |
-| `scripts/run_combined_benchmark_experiment.py` | All rules in one benchmark + verify + extend report |
-| `scripts/run_declare_baseline_comparison.py` | PM4Py DECLARE vs KG on 10-decl R1–R4 |
-| `scripts/regenerate_r4_and_report.py` | Legacy helper (R4 no longer uses timestamp break-order) |
+| `scripts/run_full_experiment_suite.py` | **Main reproduction entrypoint** (`all` / `isolated` / `combined`) |
+| `scripts/run_declare_baseline_comparison.py` | Lightweight DECLARE vs KG check on 10-decl R1–R4 |
 | `scripts/extract_declaration_samples.py` | Extract N full declaration traces into sample XES files |
 | `scripts/extract_xes_samples.py` | Extract small event/trace samples for demos |
-| `scripts/rename_experiment_artifacts.py` | Rename older suite output folders to stable names |
-
-Validation outputs for suite runs use stable names such as `output/per_rule_validation/val_r1_full/` and `val_all_full/`.
 
 ## Dataset
 
@@ -404,26 +490,32 @@ The primary dataset is BPI Challenge 2020 *Domestic Declarations* (`dataset/Dome
 - ~850k RDF triples after conversion
 - ~470k lines in the compressed XES source
 
-Smaller samples under `dataset/` (e.g. `DomesticDeclarations.declaration_86795.xes`) are useful for demos and paper figures.
+Smaller samples under `dataset/` (e.g. `DomesticDeclarations.sample_10declarations.xes`, `DomesticDeclarations.declaration_86795.xes`) are useful for demos and paper figures.
 
 ## Project structure
 
 ```
 KGBasedWorkflowValidation/
-├── config.ini                  # Pipeline stages + validation rule toggles
-├── benchmark.ini               # Fault-injection settings
-├── dataset/                    # XES logs and samples
-├── benchmarks/                 # bench_<rule>_<label>/ corrupted datasets
-├── output/                     # Pipeline and experiment outputs
-├── scripts/                    # Suite / sample helpers
+├── config.ini                      # Pipeline stages + validation rule toggles
+├── benchmark.ini                   # Fault-injection settings
+├── dataset/                        # XES logs and samples
+├── benchmarks/                     # bench_<rule>_<label>/ corrupted datasets
+├── output/                         # Pipeline and experiment outputs
+│   └── per_rule_validation/        # Suite results + experiment_report.*
+├── scripts/
+│   ├── run_full_experiment_suite.py
+│   ├── run_declare_baseline_comparison.py
+│   ├── extract_declaration_samples.py
+│   └── extract_xes_samples.py
 ├── src/
-│   ├── xes_to_prov_kg.py       # Streaming XES → PROV-O conversion
-│   ├── visualize_prov_kg.py    # HTML visualization
-│   ├── validation_rules.py     # Rule definitions (SPARQL)
-│   ├── validate_kg.py          # Validation runner (+ R6 traversal)
-│   ├── generate_benchmark.py   # Intentional fault injection
+│   ├── xes_to_prov_kg.py           # Streaming XES → PROV-O conversion
+│   ├── visualize_prov_kg.py        # HTML visualization
+│   ├── validation_rules.py         # Rule defs (SPARQL) + DECLARE model
+│   ├── validate_kg.py              # KG validation (Python R1–R4/R6; SPARQL R5/R5B)
+│   ├── validate_declare_baseline.py# PM4Py DECLARE helpers
+│   ├── generate_benchmark.py       # Intentional fault injection
 │   ├── pipeline_config.py
-│   └── run_pipeline.py         # Main pipeline runner
+│   └── run_pipeline.py             # Main pipeline runner
 └── requirements.txt
 ```
 
@@ -431,5 +523,6 @@ KGBasedWorkflowValidation/
 
 - Conversion streams trace-by-trace (does not keep the full XES/KG in memory while writing).
 - Validation loads the serialized Turtle graph into memory.
-- Full-log conversion and loading typically take tens of seconds; validation cost follows rule complexity (case/label scans for R1–R4, `O(P)` for R5/R5B, `O(P · E_case)` for R6).
+- Full-log conversion and loading typically take tens to low hundreds of seconds; once loaded, KG validation per rule is usually under a few seconds.
+- Validation cost follows rule complexity (case/label scans for R1–R4, `O(P)` for R5/R5B, `O(P · E_case)` for R6).
 - Visualizing the **full** graph can be slow; prefer per-case or small-sample HTML.
