@@ -1,0 +1,1437 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r1_full\\DomesticDeclarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\multi_run_n10\\run_07\\validation\\val_r1_full\\validation.json",
+  "engine": "sparql",
+  "query_endpoint": "http://localhost:3030/ds/sparql",
+  "load_seconds": 8.869799,
+  "started_at": "2026-08-04T15:04:59.667570+00:00",
+  "finished_at": "2026-08-04T15:04:59.747442+00:00",
+  "duration_seconds": 0.079857,
+  "total_violations": 235,
+  "rules_run": [
+    "R1"
+  ],
+  "results": [
+    {
+      "rule_id": "R1",
+      "name": "SUBMISSION_EXISTENCE",
+      "description": "Every case must contain at least one activity labelled 'Declaration SUBMITTED by EMPLOYEE' (DECLARE existence).",
+      "status": "FAILED",
+      "violation_count": 235,
+      "duration_seconds": 0.079836,
+      "violations": [
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_100417"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_101014"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_102953"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103236"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103393"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103549"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103844"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103869"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103955"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104162"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104182"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104198"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104947"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_105183"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_105700"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106171"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106554"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106701"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106769"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_107249"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_107692"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108637"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108939"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109680"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109696"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109874"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_110654"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_110660"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_112452"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_113019"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_113592"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_114342"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_114789"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_116098"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_116487"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_116804"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117730"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117911"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_118547"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_119930"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_120274"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_120676"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_120705"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_121746"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_122745"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_125557"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_125721"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126025"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126221"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126604"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126817"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_127102"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_127454"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_127839"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_128803"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_129039"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_129520"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_130991"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_131407"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_131498"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_133610"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_133866"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_134498"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_134860"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_136747"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_137020"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_138137"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_139190"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_139320"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_140430"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_140648"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141077"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_142941"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_87229"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_88422"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_88440"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_88798"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89000"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89346"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_90408"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91512"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92163"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92278"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92870"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93629"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94206"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94389"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94838"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95149"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95779"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95848"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96063"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96342"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96517"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_98684"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99381"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99606"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103576"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89830"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_90685"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96175"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_100880"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_101426"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_101610"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_101987"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_102047"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_102261"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103681"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103874"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104366"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104701"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104830"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104930"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_105059"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_105561"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_105730"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106270"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108034"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108171"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108479"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108681"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108835"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109050"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109435"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109437"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109624"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_110524"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_111167"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_111175"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_111640"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_113079"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_113257"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_113339"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_113442"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_113526"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_114407"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115177"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115374"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115481"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115887"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_116602"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_116796"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117417"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117854"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_118067"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_118069"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_118366"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_119040"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_119076"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_119341"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_120051"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_120083"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_120090"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_120194"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_121512"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_121579"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_121637"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_122732"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_122842"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_123986"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126488"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126969"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_128850"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_128914"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_129263"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_130303"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_130883"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132366"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132490"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132735"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132743"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_133631"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_133975"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_134848"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_135183"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_135260"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_135703"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_135715"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_136047"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_138954"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_139064"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_139130"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_139516"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_140147"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_140673"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141426"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141547"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141748"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_142010"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_142294"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_142908"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_143064"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_143066"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86662"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86702"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86750"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86933"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_87447"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_87502"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_88150"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_88660"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89072"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89136"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89762"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89820"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89848"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_90306"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_90795"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_90797"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_90946"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91066"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91651"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91965"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92226"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93080"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93261"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93535"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94426"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94446"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94462"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94489"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94957"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95182"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95535"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95964"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96255"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96364"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96649"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96998"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_97095"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_97401"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_98055"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99093"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99493"
+          }
+        },
+        {
+          "issue": "missing_submission_existence",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99961"
+          }
+        }
+      ]
+    }
+  ]
+}

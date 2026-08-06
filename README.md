@@ -22,7 +22,8 @@ XES event log → Mapping (XES → KG) → Provenance KG → Validation rules �
 ## Requirements
 
 - Python 3.11+
-- Dependencies in `requirements.txt` (`rdflib`, `pyvis`, `pm4py`)
+- Dependencies in `requirements.txt` (`rdflib`, `pyvis`, `pm4py`, `requests`)
+- A SPARQL 1.1 triple store with Graph Store Protocol (Apache Jena Fuseki via Docker is the default)
 
 ## Setup
 
@@ -34,19 +35,94 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
+## Triple-store (SPARQL) validation
+
+KG validation is **SPARQL-only**: every rule (R1–R6) is a SPARQL `SELECT` executed on a remote triple store after the Turtle KG is bulk-loaded. Conversion still uses `rdflib` locally; validation does not.
+
+The previous in-memory Python traversal engine is archived under `archive/python_rdflib_validation/`.
+
+### 1. Start Fuseki
+
+```powershell
+# PowerShell — dot-source so env vars apply to your shell
+. .\scripts\start_triplestore.ps1
+```
+
+```bash
+# Linux / macOS / Git Bash
+source scripts/start_triplestore.sh
+```
+
+Or manually:
+
+```bash
+docker compose -f docker-compose.fuseki.yml up -d
+```
+
+### 2. Configure endpoints (Fuseki defaults)
+
+`start_triplestore.*` sets these for you. Manual equivalent:
+
+```bash
+# PowerShell
+$env:KG_SPARQL_QUERY_ENDPOINT = "http://localhost:3030/ds/sparql"
+$env:KG_SPARQL_UPDATE_ENDPOINT = "http://localhost:3030/ds/update"
+$env:KG_SPARQL_GSP_ENDPOINT = "http://localhost:3030/ds/data"
+$env:KG_SPARQL_USER = "admin"
+$env:KG_SPARQL_PASSWORD = "admin"
+```
+
+Any SPARQL 1.1 store with Graph Store Protocol works (GraphDB, Blazegraph, …): point the three endpoint URLs at that server.
+
+Stop later with `.\scripts\stop_triplestore.ps1` or `source scripts/stop_triplestore.sh`.
+
+### 3. Smoke-test / single file
+
+```bash
+python scripts/run_triplestore_validation.py --ping
+python scripts/run_triplestore_validation.py experiments/baseline_single_run/benchmarks/bench_r1_full/*.prov.ttl --rule R1
+```
+
+### 4. Run experiments
+
+Paper multi-run (recommended):
+
+```bash
+python scripts/run_multi_run_experiment.py 10
+```
+
+Regenerate benches from scratch (optional, slower):
+
+```bash
+python scripts/run_full_experiment_suite.py all
+```
+
+| Env var | Meaning |
+|---------|---------|
+| `KG_SPARQL_QUERY_ENDPOINT` | SPARQL query URL (**required**) |
+| `KG_SPARQL_UPDATE_ENDPOINT` | SPARQL update URL (CLEAR) |
+| `KG_SPARQL_GSP_ENDPOINT` | Graph Store Protocol URL (Turtle upload) |
+| `KG_SPARQL_USER` / `KG_SPARQL_PASSWORD` | Optional HTTP basic auth |
+| `KG_SPARQL_TIMEOUT_SECONDS` | Per-request timeout (default 3600) |
+
+Load time is CLEAR + Turtle upload; rule times are SPARQL query latency.
+
 ## Quick start
 
 ```bash
+# Fuseki must be up and KG_SPARQL_* set (see above)
 python -m src.run_pipeline
 ```
 
 Enable stages with `true`/`false` in `config.ini`. Each run writes a folder under `output_dir`, e.g. `output/out_conv_vis_val_r1_r2_r3_r4_r5_r5b_r6_20260719_120530/`.
 
-To **reproduce the full paper experiment** (isolated + combined, both datasets, KG + DECLARE), see [Experiment reproduction](#experiment-reproduction):
+To **reproduce the paper multi-run timings** (full log ×10, SPARQL + DECLARE), see `experiments/README.md`:
 
 ```bash
-python scripts/run_full_experiment_suite.py all
+python scripts/run_multi_run_experiment.py 10
 ```
+
+To **regenerate all benches from scratch**, use `python scripts/run_full_experiment_suite.py all` (requires Fuseki; see [Experiment reproduction](#experiment-reproduction)).
 
 ## Configuration
 
@@ -115,7 +191,7 @@ validation = false
 
 ```ini
 output_dir = output
-knowledge_graph = benchmarks/bench_r1_full/DomesticDeclarations.corrupted.prov.ttl
+knowledge_graph = experiments/baseline_single_run/benchmarks/bench_r1_full/DomesticDeclarations.corrupted.prov.ttl
 conversion = false
 visualization = false
 validation = true
@@ -125,7 +201,7 @@ validation = true
 
 ```ini
 output_dir = output
-knowledge_graph = benchmarks/bench_r1_full/DomesticDeclarations.corrupted.prov.ttl
+knowledge_graph = experiments/baseline_single_run/benchmarks/bench_r1_full/DomesticDeclarations.corrupted.prov.ttl
 conversion = false
 visualization = true
 validation = false
@@ -185,17 +261,17 @@ An internet connection is needed when viewing the HTML (vis-network CDN).
 
 ## Validation
 
-Rules live in `src/validation_rules.py` (SPARQL definitions + DECLARE model) and are executed by `src/validate_kg.py`.
+Rules live in `src/validation_rules.py` (SPARQL definitions + DECLARE model) and are executed by `src/validate_kg.py` against a configured triple store (`src/sparql_endpoint.py`).
 
 ### How validation runs
 
-1. Load the Turtle KG into an in-memory RDFLib graph.
-2. For each enabled rule, collect violation rows.
+1. `CLEAR` the store and bulk-upload the Turtle KG (Graph Store Protocol).
+2. For each enabled rule, run its SPARQL `SELECT` on the query endpoint.
 3. Aggregate into `validation.json` (overall status, per-rule status/counts/timings, and detailed findings).
 
-**Execution note.** SPARQL in `validation_rules.py` is the semantic definition of each rule. On large graphs, **R1–R4 and R6** are evaluated with equivalent **Python graph walks** in `validate_kg.py` (RDFLib property paths are too slow at full-dataset scale). **R5 and R5B** still run as SPARQL `SELECT` queries.
-
 Each answer / finding row is one violation, with an `issue` code and entity bindings.
+
+The former in-memory Python traversals are archived under `archive/python_rdflib_validation/` and are not used.
 
 ### Rules overview
 
@@ -259,7 +335,7 @@ Canonical DECLARE model for R1–R4: `DECLARE_MODEL_R1_R4` in `src/validation_ru
 
 #### R6 — payment provenance chain
 
-- **Mechanism:** for each `Payment Handled` with a case, search ancestors via `prov:wasInformedBy` (BFS in Python; SPARQL `wasInformedBy+` is the semantic definition).
+- **Mechanism:** for each `Payment Handled` with a case, SPARQL `prov:wasInformedBy+` property paths must reach same-case Request Payment → final approval → submission milestones.
 - **Valid iff** there exist same-case milestones:
 
 ```
@@ -372,7 +448,7 @@ For **R5–R6**, point the pipeline at the **corrupted KG** with conversion off 
 ```ini
 [pipeline]
 output_dir = output
-knowledge_graph = benchmarks/bench_r5_full/DomesticDeclarations.corrupted.prov.ttl
+knowledge_graph = experiments/baseline_single_run/benchmarks/bench_r5_full/DomesticDeclarations.corrupted.prov.ttl
 conversion = false
 visualization = false
 validation = true
@@ -382,104 +458,76 @@ When several rules are injected together, corruptions can create **collateral** 
 
 ## Experiment reproduction
 
-This is the end-to-end path used for the paper evaluation: regenerate all benchmarks, validate with the KG method (and DECLARE on R1–R4), then write the experiment report.
+Paper timings and SPARQL validation results come from the **10× full-log multi-run** on shared benches
+(see `experiments/README.md`). The full suite script can regenerate benches from scratch if needed.
 
-### What the suite does
+### Recommended: reproduce paper timings (SPARQL ×10)
 
-| Phase | What runs |
-|-------|-----------|
-| **Isolated** | For each rule R1–R6 × each dataset: inject faults, convert, KG-validate; for R1–R4 also run PM4Py DECLARE on the corrupted XES |
-| **Combined** | Inject all rules into one artifact per dataset, KG-validate all rules, DECLARE on R1–R4 templates |
-| **Report** | Writes `output/per_rule_validation/experiment_report.md` and `.json` with sizes, timings, detections, precision/recall |
+```powershell
+. .\scripts\start_triplestore.ps1
+python scripts\run_multi_run_experiment.py 10
+.\scripts\stop_triplestore.ps1
+```
+
+```bash
+source scripts/start_triplestore.sh
+python scripts/run_multi_run_experiment.py 10
+source scripts/stop_triplestore.sh
+```
+
+- Reuses `experiments/baseline_single_run/benchmarks` (seed 42, full log).
+- Runs KG SPARQL validation (+ DECLARE on R1–R4) ten times; writes mean/min/max to `experiments/multi_run_n10/`.
+- Progress: console + `experiments/multi_run_n10/experiment.log`.
+- KG-only (skip DECLARE): add `--skip-declare`.
+
+**Runtime:** roughly 15–20 minutes with DECLARE on a modern laptop (dominated by Turtle uploads to Fuseki).
+
+### Optional: regenerate all benches from scratch
+
+Requires Fuseki + `KG_SPARQL_*` (use `start_triplestore`). Regenerates isolated/combined benches for both datasets and writes under `benchmarks/` + `output/per_rule_validation/`:
+
+```bash
+python scripts/run_full_experiment_suite.py all
+```
 
 | Dataset | Input | Faults / rule | Seed |
 |---------|-------|---------------|------|
 | `10declarations` | `dataset/DomesticDeclarations.sample_10declarations.xes` | 5 | 42 |
 | `full` | `dataset/DomesticDeclarations.xes.gz` | 100 | 42 |
 
-**Part 1 — R1–R4:** KG vs DECLARE on violated **cases**.  
-**Part 2 — R5–R6:** KG only on violation **entities**.
+Phases: `isolated` | `combined` | `all`. Full-log regeneration is dominated by XES→KG conversion (often much longer than the multi-run validation-only study).
 
-### Prerequisites
-
-1. Python 3.11+ and a virtualenv.
-2. Install dependencies (includes `pm4py` for DECLARE):
-
-```bash
-pip install -r requirements.txt
-```
-
-3. Ensure the dataset files exist under `dataset/` (see table above). The full log must be present as `dataset/DomesticDeclarations.xes.gz`.
-4. Run commands from the **repository root**.
-
-### Reproduce the full experiment (recommended)
-
-One command regenerates everything and updates the report:
-
-```bash
-python scripts/run_full_experiment_suite.py all
-```
-
-Expected behaviour:
-
-- Prints progress per dataset/rule (`generating…`, `KG validating…`, `DECLARE validating…`, `PASS`/`FAIL`).
-- Overwrites `benchmarks/bench_*` directories for the suite rules and `output/per_rule_validation/` suite outputs.
-- Exits non-zero if any isolated or combined check fails.
-- On success, ends with `Done.`
-
-**Runtime (order of magnitude on a modern laptop):** the 10-declaration half finishes in seconds to a couple of minutes; the full-log half is dominated by XES→KG conversion and loading (often ~1–3+ hours wall time for all isolated rules plus combined). Do not treat a quiet console during conversion as a hang.
-
-### Run phases separately
-
-Useful if you already have isolated benches and only want to refresh the combined run (or vice versa):
-
-```bash
-python scripts/run_full_experiment_suite.py isolated
-python scripts/run_full_experiment_suite.py combined
-```
-
-- `isolated` writes the base report.
-- `combined` extends the same report with the all-rules section.
-
-### Where to find results
+### Where to find paper results
 
 | Kind | Path |
 |------|------|
-| Experiment report (human) | `output/per_rule_validation/experiment_report.md` |
-| Experiment report (machine) | `output/per_rule_validation/experiment_report.json` |
-| Suite pass/fail summary | `output/per_rule_validation/suite_summary.json` |
-| Isolated benchmarks | `benchmarks/bench_<rule>_<dataset>/` |
-| Combined benchmarks | `benchmarks/bench_all_<dataset>/` |
-| KG validation JSON | `output/per_rule_validation/val_<rule>_<dataset>/validation.json` |
-| Combined KG validation | `output/per_rule_validation/val_all_<dataset>/validation.json` |
-| DECLARE JSON (R1–R4) | `output/per_rule_validation/declare_<rule>_<dataset>/declare.json` |
-| Combined DECLARE | `output/per_rule_validation/declare_all_<dataset>/r{1-4}.json` |
+| Multi-run report (human) | `experiments/multi_run_n10/experiment_report.md` |
+| Multi-run report (machine) | `experiments/multi_run_n10/experiment_report.json` |
+| Shared benches | `experiments/baseline_single_run/benchmarks/bench_*_full/` |
+| Live log | `experiments/multi_run_n10/experiment.log` |
 
-Each benchmark folder also contains `*.corrupted.xes`, `*.corrupted.prov.ttl`, and `statistics.json` (injection ground truth).
+Archived python-engine multi-run: `archive/python_engine_multi_run_n10/`.  
+Archived in-memory validators: `archive/python_rdflib_validation/`.
 
-### How to verify a successful run
+### How to verify a successful multi-run
 
-1. Console shows `PASS` for every isolated rule on both datasets and for both combined datasets, then `Done.`
-2. `experiment_report.md` lists isolated **14/14** passed and combined **2/2** passed.
-3. For every rule, **recall of injected faults is 1.0** (precision may be &lt; 1 because of baseline BPI violations and combined collateral).
-4. On isolated full-log R1–R4, KG and DECLARE violated-case sets match.
-
-### Optional: lightweight DECLARE smoke check
-
-After isolated R1–R4 benches exist, a smaller DECLARE vs KG check on the 10-declaration set:
-
-```bash
-python scripts/run_declare_baseline_comparison.py
-```
+1. Console ends with `Multi-run experiment Done` and every run `PASS`.
+2. Isolated row counts match baseline (R1–R6: 235 / 134 / 107 / 110 / 100 / 100 / 109); combined total **1829**.
+3. Injected-fault recall is **1.0** for every rule; isolated R1–R4 KG and DECLARE case sets match.
 
 ### Helper scripts
 
 | Script | Purpose |
 |--------|---------|
-| `scripts/run_full_experiment_suite.py` | **Main reproduction entrypoint** (`all` / `isolated` / `combined`) |
-| `scripts/run_declare_baseline_comparison.py` | Lightweight DECLARE vs KG check on 10-decl R1–R4 |
-| `scripts/extract_declaration_samples.py` | Extract N full declaration traces into sample XES files |
+| `scripts/start_triplestore.ps1` / `.sh` | Start Fuseki + set `KG_SPARQL_*` |
+| `scripts/stop_triplestore.ps1` / `.sh` | Stop Fuseki |
+| `scripts/run_triplestore_validation.py` | Ping store / validate one Turtle file |
+| `scripts/run_multi_run_experiment.py` | **Paper multi-run** (`[N] [--skip-declare]`) |
+| `scripts/run_full_experiment_suite.py` | Regenerate suite benches (`all` / `isolated` / `combined`) |
+| `scripts/run_declare_baseline_comparison.py` | Lightweight DECLARE vs KG on 10-decl R1–R4 |
+| `scripts/extract_declaration_samples.py` | Extract N full declaration traces into sample XES |
 | `scripts/extract_xes_samples.py` | Extract small event/trace samples for demos |
+| `scripts/experiment_logging.py` | Shared progress logging + SPARQL preflight |
 
 ## Dataset
 
@@ -498,31 +546,41 @@ Smaller samples under `dataset/` (e.g. `DomesticDeclarations.sample_10declaratio
 KGBasedWorkflowValidation/
 ├── config.ini                      # Pipeline stages + validation rule toggles
 ├── benchmark.ini                   # Fault-injection settings
+├── docker-compose.fuseki.yml       # Local Apache Jena Fuseki
 ├── dataset/                        # XES logs and samples
-├── benchmarks/                     # bench_<rule>_<label>/ corrupted datasets
-├── output/                         # Pipeline and experiment outputs
-│   └── per_rule_validation/        # Suite results + experiment_report.*
+├── experiments/
+│   ├── baseline_single_run/        # Shared benches (seed 42) + archived single-run
+│   ├── multi_run_n10/              # Paper SPARQL ×10 results
+│   └── README.md
+├── archive/
+│   ├── python_rdflib_validation/   # Old in-memory validators (unused)
+│   └── python_engine_multi_run_n10/# Old python-engine ×10 timings
+├── output/                         # Ad-hoc pipeline outputs
 ├── scripts/
+│   ├── start_triplestore.ps1/.sh
+│   ├── stop_triplestore.ps1/.sh
+│   ├── run_multi_run_experiment.py
 │   ├── run_full_experiment_suite.py
-│   ├── run_declare_baseline_comparison.py
-│   ├── extract_declaration_samples.py
-│   └── extract_xes_samples.py
+│   ├── run_triplestore_validation.py
+│   └── …
 ├── src/
 │   ├── xes_to_prov_kg.py           # Streaming XES → PROV-O conversion
 │   ├── visualize_prov_kg.py        # HTML visualization
-│   ├── validation_rules.py         # Rule defs (SPARQL) + DECLARE model
-│   ├── validate_kg.py              # KG validation (Python R1–R4/R6; SPARQL R5/R5B)
-│   ├── validate_declare_baseline.py# PM4Py DECLARE helpers
-│   ├── generate_benchmark.py       # Intentional fault injection
+│   ├── validation_rules.py         # SPARQL rules + DECLARE model
+│   ├── sparql_endpoint.py          # SPARQL / Graph Store client
+│   ├── validate_kg.py              # SPARQL-only KG validation
+│   ├── validate_declare_baseline.py
+│   ├── generate_benchmark.py
 │   ├── pipeline_config.py
-│   └── run_pipeline.py             # Main pipeline runner
+│   └── run_pipeline.py
 └── requirements.txt
 ```
 
 ## Performance notes
 
 - Conversion streams trace-by-trace (does not keep the full XES/KG in memory while writing).
-- Validation loads the serialized Turtle graph into memory.
-- Full-log conversion and loading typically take tens to low hundreds of seconds; once loaded, KG validation per rule is usually under a few seconds.
+- Validation uploads Turtle to Fuseki, then runs SPARQL `SELECT`s (R1–R6).
+- Full-log conversion typically takes tens to low hundreds of seconds; store load is ~10\,s per ~850k-triple graph; SPARQL queries are usually well under 1\,s per rule (R6 ~1\,s).
+- DECLARE on the full log is typically ~2\,s per R1–R4 template.
 - Validation cost follows rule complexity (case/label scans for R1–R4, `O(P)` for R5/R5B, `O(P · E_case)` for R6).
 - Visualizing the **full** graph can be slow; prefer per-case or small-sample HTML.

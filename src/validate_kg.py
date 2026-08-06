@@ -1,7 +1,13 @@
-"""Independent SPARQL validation of a generated PROV-O knowledge graph.
+"""SPARQL validation of a PROV-O workflow knowledge graph on a triple store.
 
-Can be run alone (python -m src.validate_kg) or as a pipeline stage.
-Does not depend on XES conversion; it only reads the KG path from config.
+All rules (R1–R6) are executed as SPARQL SELECT queries against a remote SPARQL 1.1
+endpoint after the Turtle KG is bulk-loaded via the Graph Store Protocol.
+
+Requires endpoint env vars (see ``src.sparql_endpoint`` / README). Start a local
+Fuseki with: ``docker compose -f docker-compose.fuseki.yml up -d``.
+
+The previous in-memory Python traversal engine is archived under
+``archive/python_rdflib_validation/``.
 """
 
 from __future__ import annotations
@@ -12,13 +18,9 @@ from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
-from rdflib import Graph, Literal
-from rdflib.namespace import PROV, RDF, RDFS
-from rdflib.query import ResultRow
-
 from src.pipeline_config import load_pipeline_config
+from src.sparql_endpoint import SparqlEndpoint, SparqlEndpointError
 from src.validation_rules import VALIDATION_RULES, ValidationRule
-from src.xes_to_prov_kg import WF, load_graph
 
 
 @dataclass(frozen=True)
@@ -49,236 +51,28 @@ class ValidationReport:
     total_violations: int
     rules_run: tuple[str, ...]
     results: tuple[RuleResult, ...]
+    load_seconds: float | None = None
+    query_endpoint: str | None = None
 
     @property
     def passed(self) -> bool:
         return self.status == "PASSED"
 
 
-def _row_bindings(row: ResultRow) -> dict[str, str]:
-    bindings: dict[str, str] = {}
-    for name in row.labels:
-        value = row[name]
-        if value is not None:
-            bindings[str(name)] = str(value)
-    return bindings
-
-
-def _ancestors(graph: Graph, start) -> set:
-    seen: set = set()
-    stack = [start]
-    while stack:
-        node = stack.pop()
-        if node in seen:
-            continue
-        seen.add(node)
-        for earlier in graph.objects(node, PROV.wasInformedBy):
-            stack.append(earlier)
-    return seen
-
-
-def _activities_by_label(graph: Graph, label: Literal) -> list:
-    return [
-        activity
-        for activity in graph.subjects(RDF.type, PROV.Activity)
-        if label in set(graph.objects(activity, RDFS.label))
-    ]
-
-
-def _run_r1_python(graph: Graph) -> list[RuleViolation]:
-    """DECLARE existence: every case must contain a submission activity."""
-    submission = Literal("Declaration SUBMITTED by EMPLOYEE")
-    cases = {case for _act, _p, case in graph.triples((None, WF.belongsToCase, None))}
-    cases_with_submission = {
-        case
-        for act in _activities_by_label(graph, submission)
-        for case in graph.objects(act, WF.belongsToCase)
-    }
-    return [
-        RuleViolation(
-            issue="missing_submission_existence",
-            details={"case": str(case)},
-        )
-        for case in sorted(cases - cases_with_submission, key=str)
-    ]
-
-
-def _run_r2_python(graph: Graph) -> list[RuleViolation]:
-    """DECLARE response: Request Payment must follow FINAL_APPROVED via wasInformedBy+."""
-    approval_label = Literal("Declaration FINAL_APPROVED by SUPERVISOR")
-    request_label = Literal("Request Payment")
-    approvals = _activities_by_label(graph, approval_label)
-    covered: set = set()
-    for request in _activities_by_label(graph, request_label):
-        cases = list(graph.objects(request, WF.belongsToCase))
-        if not cases:
-            continue
-        case = cases[0]
-        for anc in _ancestors(graph, request):
-            if approval_label in set(graph.objects(anc, RDFS.label)):
-                if case in set(graph.objects(anc, WF.belongsToCase)):
-                    covered.add(anc)
+def _violations_from_sparql_rows(rows: list[dict[str, str]]) -> list[RuleViolation]:
     violations: list[RuleViolation] = []
-    for approval in approvals:
-        if approval in covered:
-            continue
-        cases = list(graph.objects(approval, WF.belongsToCase))
-        if not cases:
-            continue
-        violations.append(
-            RuleViolation(
-                issue="missing_response_request_after_approval",
-                details={"case": str(cases[0]), "approval": str(approval)},
-            )
-        )
+    for row in rows:
+        details = dict(row)
+        issue = details.pop("issue", "violation")
+        violations.append(RuleViolation(issue=issue, details=details))
     return violations
 
 
-def _run_r3_python(graph: Graph) -> list[RuleViolation]:
-    """DECLARE precedence: Payment Handled must have Request Payment ancestor."""
-    payment_label = Literal("Payment Handled")
-    request_label = Literal("Request Payment")
-    violations: list[RuleViolation] = []
-    for payment in _activities_by_label(graph, payment_label):
-        cases = list(graph.objects(payment, WF.belongsToCase))
-        if not cases:
-            continue
-        case = cases[0]
-        ok = any(
-            request_label in set(graph.objects(anc, RDFS.label))
-            and case in set(graph.objects(anc, WF.belongsToCase))
-            for anc in _ancestors(graph, payment)
-        )
-        if not ok:
-            violations.append(
-                RuleViolation(
-                    issue="missing_precedence_request_before_payment",
-                    details={"case": str(case), "payment": str(payment)},
-                )
-            )
-    return violations
-
-
-def _run_r4_python(graph: Graph) -> list[RuleViolation]:
-    """DECLARE succession: request→payment and payment←request."""
-    payment_label = Literal("Payment Handled")
-    request_label = Literal("Request Payment")
-    requests = _activities_by_label(graph, request_label)
-    payments = _activities_by_label(graph, payment_label)
-    violations: list[RuleViolation] = []
-
-    covered_requests: set = set()
-    for payment in payments:
-        cases = list(graph.objects(payment, WF.belongsToCase))
-        if not cases:
-            continue
-        case = cases[0]
-        ancs = _ancestors(graph, payment)
-        has_request = False
-        for anc in ancs:
-            if request_label in set(graph.objects(anc, RDFS.label)):
-                if case in set(graph.objects(anc, WF.belongsToCase)):
-                    covered_requests.add(anc)
-                    has_request = True
-        if not has_request:
-            violations.append(
-                RuleViolation(
-                    issue="missing_succession_precedence_request_before_payment",
-                    details={"case": str(case), "activity": str(payment)},
-                )
-            )
-
-    for request in requests:
-        if request in covered_requests:
-            continue
-        cases = list(graph.objects(request, WF.belongsToCase))
-        if not cases:
-            continue
-        violations.append(
-            RuleViolation(
-                issue="missing_succession_response_payment_after_request",
-                details={"case": str(cases[0]), "activity": str(request)},
-            )
-        )
-    return violations
-
-
-def _has_valid_payment_chain(graph: Graph, payment) -> bool:
-    """Same semantics as R6 SPARQL, but O(edges) BFS instead of SPARQL property paths."""
-    cases = list(graph.objects(payment, WF.belongsToCase))
-    if len(cases) != 1:
-        return False
-    case = cases[0]
-    request_label = Literal("Request Payment")
-    approval_label = Literal("Declaration FINAL_APPROVED by SUPERVISOR")
-    submission_label = Literal("Declaration SUBMITTED by EMPLOYEE")
-
-    for request in _ancestors(graph, payment):
-        if request_label not in set(graph.objects(request, RDFS.label)):
-            continue
-        if case not in set(graph.objects(request, WF.belongsToCase)):
-            continue
-        for approval in _ancestors(graph, request):
-            if approval_label not in set(graph.objects(approval, RDFS.label)):
-                continue
-            if case not in set(graph.objects(approval, WF.belongsToCase)):
-                continue
-            for submission in _ancestors(graph, approval):
-                if submission_label not in set(graph.objects(submission, RDFS.label)):
-                    continue
-                if case in set(graph.objects(submission, WF.belongsToCase)):
-                    return True
-    return False
-
-
-def _run_r6_python(graph: Graph) -> list[RuleViolation]:
-    payment_label = Literal("Payment Handled")
-    violations: list[RuleViolation] = []
-    for payment in graph.subjects(RDF.type, PROV.Activity):
-        if payment_label not in set(graph.objects(payment, RDFS.label)):
-            continue
-        cases = list(graph.objects(payment, WF.belongsToCase))
-        if not cases:
-            violations.append(
-                RuleViolation(
-                    issue="invalid_payment_provenance_chain",
-                    details={"payment": str(payment), "case": "(missing)"},
-                )
-            )
-            continue
-        # One violation per payment if no valid chain for its primary case.
-        case = cases[0]
-        if not _has_valid_payment_chain(graph, payment):
-            violations.append(
-                RuleViolation(
-                    issue="invalid_payment_provenance_chain",
-                    details={"payment": str(payment), "case": str(case)},
-                )
-            )
-    return violations
-
-
-def _run_rule(graph: Graph, rule: ValidationRule) -> RuleResult:
+def _run_rule(endpoint: SparqlEndpoint, rule: ValidationRule) -> RuleResult:
     started = time.perf_counter()
-    # rdflib SPARQL (esp. property paths / NOT EXISTS) is too slow on full BPI graphs.
-    if rule.rule_id == "R1":
-        violations = _run_r1_python(graph)
-    elif rule.rule_id == "R2":
-        violations = _run_r2_python(graph)
-    elif rule.rule_id == "R3":
-        violations = _run_r3_python(graph)
-    elif rule.rule_id == "R4":
-        violations = _run_r4_python(graph)
-    elif rule.rule_id == "R6":
-        violations = _run_r6_python(graph)
-    else:
-        violations = []
-        for row in graph.query(rule.query):
-            details = _row_bindings(row)
-            issue = details.pop("issue", "violation")
-            violations.append(RuleViolation(issue=issue, details=details))
+    rows = endpoint.select(rule.query)
+    violations = _violations_from_sparql_rows(rows)
     duration = round(time.perf_counter() - started, 6)
-
     return RuleResult(
         rule_id=rule.rule_id,
         name=rule.name,
@@ -291,15 +85,18 @@ def _run_rule(graph: Graph, rule: ValidationRule) -> RuleResult:
 
 
 def validate_knowledge_graph(
-    graph: Graph,
     *,
     knowledge_graph_path: Path,
     report_path: Path,
     rules: tuple[ValidationRule, ...] = VALIDATION_RULES,
+    sparql_endpoint: SparqlEndpoint | None = None,
+    load_seconds: float | None = None,
 ) -> ValidationReport:
+    """Run SPARQL rules against an already-loaded triple store."""
+    endpoint = sparql_endpoint or SparqlEndpoint()
     started_at = datetime.now(timezone.utc).isoformat()
     wall_started = time.perf_counter()
-    results = tuple(_run_rule(graph, rule) for rule in rules)
+    results = tuple(_run_rule(endpoint, rule) for rule in rules)
     duration = round(time.perf_counter() - wall_started, 6)
     finished_at = datetime.now(timezone.utc).isoformat()
     total_violations = sum(result.violation_count for result in results)
@@ -315,9 +112,41 @@ def validate_knowledge_graph(
         total_violations=total_violations,
         rules_run=tuple(rule.rule_id for rule in rules),
         results=results,
+        load_seconds=load_seconds,
+        query_endpoint=endpoint.config.query_endpoint,
     )
     _write_report(report, report_path)
     return report
+
+
+def validate_ttl(
+    knowledge_graph_path: Path,
+    *,
+    report_path: Path,
+    rules: tuple[ValidationRule, ...] = VALIDATION_RULES,
+    sparql_endpoint: SparqlEndpoint | None = None,
+) -> tuple[ValidationReport, float]:
+    """Load Turtle into the store, then run SPARQL validation.
+
+    Returns ``(report, load_seconds)`` where load is CLEAR + Graph Store upload.
+    """
+    ttl = Path(knowledge_graph_path)
+    if not ttl.is_file():
+        raise FileNotFoundError(ttl)
+
+    endpoint = sparql_endpoint or SparqlEndpoint()
+    load_started = time.perf_counter()
+    endpoint.load_turtle(ttl)  # CLEAR + upload
+    load_seconds = round(time.perf_counter() - load_started, 6)
+
+    report = validate_knowledge_graph(
+        knowledge_graph_path=ttl,
+        report_path=report_path,
+        rules=rules,
+        sparql_endpoint=endpoint,
+        load_seconds=load_seconds,
+    )
+    return report, load_seconds
 
 
 def _write_report(report: ValidationReport, report_path: Path) -> None:
@@ -326,6 +155,9 @@ def _write_report(report: ValidationReport, report_path: Path) -> None:
         "status": report.status,
         "knowledge_graph": report.knowledge_graph,
         "report_path": report.report_path,
+        "engine": "sparql",
+        "query_endpoint": report.query_endpoint,
+        "load_seconds": report.load_seconds,
         "started_at": report.started_at,
         "finished_at": report.finished_at,
         "duration_seconds": report.duration_seconds,
@@ -348,9 +180,13 @@ def _write_report(report: ValidationReport, report_path: Path) -> None:
 
 
 def log_validation_summary(report: ValidationReport) -> None:
-    print(f"Validation {report.status}.")
+    print(f"Validation {report.status} (SPARQL triple store).")
     print(f"Knowledge graph: {report.knowledge_graph}")
+    if report.query_endpoint:
+        print(f"Query endpoint: {report.query_endpoint}")
     print(f"Report written to: {report.report_path}")
+    if report.load_seconds is not None:
+        print(f"Load duration (CLEAR+upload): {report.load_seconds:.4f}s")
     print(f"Rules run: {', '.join(report.rules_run)}")
     print(f"Total violations: {report.total_violations}")
     print(f"Validation duration: {report.duration_seconds:.4f}s")
@@ -382,15 +218,13 @@ def run_from_config(config_path: Path | None = None) -> ValidationReport:
             "Run conversion first or set knowledge_graph to an existing .ttl file."
         )
 
-    graph = load_graph(config.knowledge_graph_path)
     rules = config.selected_validation_rules()
     if not rules:
         raise ValueError(
             "No validation rules enabled. Set e.g. R1 = true under [validation]."
         )
-    report = validate_knowledge_graph(
-        graph,
-        knowledge_graph_path=config.knowledge_graph_path,
+    report, _load = validate_ttl(
+        config.knowledge_graph_path,
         report_path=config.validation_report_path,
         rules=rules,
     )
@@ -399,7 +233,10 @@ def run_from_config(config_path: Path | None = None) -> ValidationReport:
 
 
 def main() -> None:
-    run_from_config()
+    try:
+        run_from_config()
+    except SparqlEndpointError as exc:
+        raise SystemExit(str(exc)) from exc
 
 
 if __name__ == "__main__":

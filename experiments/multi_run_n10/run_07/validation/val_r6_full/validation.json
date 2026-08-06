@@ -1,0 +1,790 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r6_full\\DomesticDeclarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\multi_run_n10\\run_07\\validation\\val_r6_full\\validation.json",
+  "engine": "sparql",
+  "query_endpoint": "http://localhost:3030/ds/sparql",
+  "load_seconds": 9.025479,
+  "started_at": "2026-08-04T15:06:02.731068+00:00",
+  "finished_at": "2026-08-04T15:06:03.689539+00:00",
+  "duration_seconds": 0.958446,
+  "total_violations": 109,
+  "rules_run": [
+    "R6"
+  ],
+  "results": [
+    {
+      "rule_id": "R6",
+      "name": "PAYMENT_PROVENANCE_CHAIN",
+      "description": "A payment is valid only if Payment Handled wasInformedBy Request Payment, which wasInformedBy Final Approval, which wasInformedBy Declaration Submission, and all belong to the same case (prov:wasInformedBy+; optional steps such as PRE_APPROVER may appear between these milestones).",
+      "status": "FAILED",
+      "violation_count": 109,
+      "duration_seconds": 0.958428,
+      "violations": [
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_100149_20",
+            "case": "http://kg.workflow.validation/case/declaration_100149"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_100999_20",
+            "case": "http://kg.workflow.validation/case/declaration_100999"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_101379_20",
+            "case": "http://kg.workflow.validation/case/declaration_101379"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_101538_20",
+            "case": "http://kg.workflow.validation/case/declaration_101538"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_101612_20",
+            "case": "http://kg.workflow.validation/case/declaration_101612"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_102947_20",
+            "case": "http://kg.workflow.validation/case/declaration_102947"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_103335_20",
+            "case": "http://kg.workflow.validation/case/declaration_103335"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_104396_20",
+            "case": "http://kg.workflow.validation/case/declaration_104396"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_104402_20",
+            "case": "http://kg.workflow.validation/case/declaration_104402"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_104485_20",
+            "case": "http://kg.workflow.validation/case/declaration_104485"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_104497_20",
+            "case": "http://kg.workflow.validation/case/declaration_104497"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_104517_20",
+            "case": "http://kg.workflow.validation/case/declaration_104517"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_104727_20",
+            "case": "http://kg.workflow.validation/case/declaration_104727"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_105199_20",
+            "case": "http://kg.workflow.validation/case/declaration_105199"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_105663_20",
+            "case": "http://kg.workflow.validation/case/declaration_105663"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_106634_20",
+            "case": "http://kg.workflow.validation/case/declaration_106634"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_106933_20",
+            "case": "http://kg.workflow.validation/case/declaration_106933"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_106943_20",
+            "case": "http://kg.workflow.validation/case/declaration_106943"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_107265_20",
+            "case": "http://kg.workflow.validation/case/declaration_107265"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_107327_20",
+            "case": "http://kg.workflow.validation/case/declaration_107327"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_107799_20",
+            "case": "http://kg.workflow.validation/case/declaration_107799"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_108780_20",
+            "case": "http://kg.workflow.validation/case/declaration_108780"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_108862_20",
+            "case": "http://kg.workflow.validation/case/declaration_108862"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_109131_20",
+            "case": "http://kg.workflow.validation/case/declaration_109131"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_109346_20",
+            "case": "http://kg.workflow.validation/case/declaration_109346"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_109459_20",
+            "case": "http://kg.workflow.validation/case/declaration_109459"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_109897_20",
+            "case": "http://kg.workflow.validation/case/declaration_109897"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_110091_20",
+            "case": "http://kg.workflow.validation/case/declaration_110091"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_110987_20",
+            "case": "http://kg.workflow.validation/case/declaration_110987"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_112059_20",
+            "case": "http://kg.workflow.validation/case/declaration_112059"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_113240_20",
+            "case": "http://kg.workflow.validation/case/declaration_113240"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_114356_20",
+            "case": "http://kg.workflow.validation/case/declaration_114356"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_114756_20",
+            "case": "http://kg.workflow.validation/case/declaration_114756"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_115669_20",
+            "case": "http://kg.workflow.validation/case/declaration_115669"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_117045_20",
+            "case": "http://kg.workflow.validation/case/declaration_117045"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_117407_20",
+            "case": "http://kg.workflow.validation/case/declaration_117407"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_117633_20",
+            "case": "http://kg.workflow.validation/case/declaration_117633"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_118439_20",
+            "case": "http://kg.workflow.validation/case/declaration_118439"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_118655_20",
+            "case": "http://kg.workflow.validation/case/declaration_118655"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_120078_20",
+            "case": "http://kg.workflow.validation/case/declaration_120078"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_120085_20",
+            "case": "http://kg.workflow.validation/case/declaration_120085"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_121586_20",
+            "case": "http://kg.workflow.validation/case/declaration_121586"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_121677_20",
+            "case": "http://kg.workflow.validation/case/declaration_121677"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_121869_20",
+            "case": "http://kg.workflow.validation/case/declaration_121869"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_121936_20",
+            "case": "http://kg.workflow.validation/case/declaration_121936"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_122953_20",
+            "case": "http://kg.workflow.validation/case/declaration_122953"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_122973_20",
+            "case": "http://kg.workflow.validation/case/declaration_122973"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_123125_20",
+            "case": "http://kg.workflow.validation/case/declaration_123125"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_124535_20",
+            "case": "http://kg.workflow.validation/case/declaration_124535"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_125518_20",
+            "case": "http://kg.workflow.validation/case/declaration_125518"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_126105_20",
+            "case": "http://kg.workflow.validation/case/declaration_126105"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_126526_20",
+            "case": "http://kg.workflow.validation/case/declaration_126526"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_126765_20",
+            "case": "http://kg.workflow.validation/case/declaration_126765"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_127623_20",
+            "case": "http://kg.workflow.validation/case/declaration_127623"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_127937_20",
+            "case": "http://kg.workflow.validation/case/declaration_127937"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_128009_20",
+            "case": "http://kg.workflow.validation/case/declaration_128009"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_129410_20",
+            "case": "http://kg.workflow.validation/case/declaration_129410"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_131631_20",
+            "case": "http://kg.workflow.validation/case/declaration_131631"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_132368_20",
+            "case": "http://kg.workflow.validation/case/declaration_132368"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_132839_20",
+            "case": "http://kg.workflow.validation/case/declaration_132839"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_133647_20",
+            "case": "http://kg.workflow.validation/case/declaration_133647"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_134177_20",
+            "case": "http://kg.workflow.validation/case/declaration_134177"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_134415_20",
+            "case": "http://kg.workflow.validation/case/declaration_134415"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_134717_20",
+            "case": "http://kg.workflow.validation/case/declaration_134717"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_135869_20",
+            "case": "http://kg.workflow.validation/case/declaration_135869"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_136354_20",
+            "case": "http://kg.workflow.validation/case/declaration_136354"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_136527_20",
+            "case": "http://kg.workflow.validation/case/declaration_136527"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_136903_20",
+            "case": "http://kg.workflow.validation/case/declaration_136903"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_136996_20",
+            "case": "http://kg.workflow.validation/case/declaration_136996"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_138147_20",
+            "case": "http://kg.workflow.validation/case/declaration_138147"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_138710_20",
+            "case": "http://kg.workflow.validation/case/declaration_138710"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_138737_20",
+            "case": "http://kg.workflow.validation/case/declaration_138737"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_139387_20",
+            "case": "http://kg.workflow.validation/case/declaration_139387"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_140379_20",
+            "case": "http://kg.workflow.validation/case/declaration_140379"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_141310_20",
+            "case": "http://kg.workflow.validation/case/declaration_141310"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_142992_20",
+            "case": "http://kg.workflow.validation/case/declaration_142992"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_143018_20",
+            "case": "http://kg.workflow.validation/case/declaration_143018"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_143050_20",
+            "case": "http://kg.workflow.validation/case/declaration_143050"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_87871_20",
+            "case": "http://kg.workflow.validation/case/declaration_87871"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_88413_20",
+            "case": "http://kg.workflow.validation/case/declaration_88413"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_89208_20",
+            "case": "http://kg.workflow.validation/case/declaration_89208"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_89680_20",
+            "case": "http://kg.workflow.validation/case/declaration_89680"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_89835_20",
+            "case": "http://kg.workflow.validation/case/declaration_89835"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_89862_20",
+            "case": "http://kg.workflow.validation/case/declaration_89862"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_89957_20",
+            "case": "http://kg.workflow.validation/case/declaration_89957"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_91299_20",
+            "case": "http://kg.workflow.validation/case/declaration_91299"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_91724_20",
+            "case": "http://kg.workflow.validation/case/declaration_91724"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_92100_20",
+            "case": "http://kg.workflow.validation/case/declaration_92100"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_92130_20",
+            "case": "http://kg.workflow.validation/case/declaration_92130"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_92874_20",
+            "case": "http://kg.workflow.validation/case/declaration_92874"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_93208_20",
+            "case": "http://kg.workflow.validation/case/declaration_93208"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_94418_20",
+            "case": "http://kg.workflow.validation/case/declaration_94418"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_94464_20",
+            "case": "http://kg.workflow.validation/case/declaration_94464"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_94823_20",
+            "case": "http://kg.workflow.validation/case/declaration_94823"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_95149_20",
+            "case": "http://kg.workflow.validation/case/declaration_95149"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_95288_20",
+            "case": "http://kg.workflow.validation/case/declaration_95288"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_95882_20",
+            "case": "http://kg.workflow.validation/case/declaration_95882"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_95903_20",
+            "case": "http://kg.workflow.validation/case/declaration_95903"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_95995_20",
+            "case": "http://kg.workflow.validation/case/declaration_95995"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_96126_20",
+            "case": "http://kg.workflow.validation/case/declaration_96126"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_96302_20",
+            "case": "http://kg.workflow.validation/case/declaration_96302"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_96366_20",
+            "case": "http://kg.workflow.validation/case/declaration_96366"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_96874_20",
+            "case": "http://kg.workflow.validation/case/declaration_96874"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_96902_20",
+            "case": "http://kg.workflow.validation/case/declaration_96902"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_96913_20",
+            "case": "http://kg.workflow.validation/case/declaration_96913"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_98717_20",
+            "case": "http://kg.workflow.validation/case/declaration_98717"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_99387_20",
+            "case": "http://kg.workflow.validation/case/declaration_99387"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_99478_20",
+            "case": "http://kg.workflow.validation/case/declaration_99478"
+          }
+        },
+        {
+          "issue": "invalid_payment_provenance_chain",
+          "details": {
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_90815_20",
+            "case": "http://kg.workflow.validation/case/declaration_90815"
+          }
+        }
+      ]
+    }
+  ]
+}

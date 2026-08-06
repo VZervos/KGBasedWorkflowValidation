@@ -1,0 +1,724 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r5_full\\DomesticDeclarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\multi_run_n10\\run_04\\validation\\val_r5_full\\validation.json",
+  "started_at": "2026-07-24T13:41:01.042215+00:00",
+  "finished_at": "2026-07-24T13:41:02.191879+00:00",
+  "duration_seconds": 1.149946,
+  "total_violations": 100,
+  "rules_run": [
+    "R5"
+  ],
+  "results": [
+    {
+      "rule_id": "R5",
+      "name": "PAYMENT_HANDLED_BY_SYSTEM",
+      "description": "Every 'Payment Handled' activity must be associated with resource SYSTEM (xes-attr:org_resource).",
+      "status": "FAILED",
+      "violation_count": 100,
+      "duration_seconds": 1.149928,
+      "violations": [
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100137_20",
+            "resource": "UNDEFINED"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100473_20",
+            "resource": "SUPERVISOR"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100994_20",
+            "resource": "UNDEFINED"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_101533_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_101731_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_101758_20",
+            "resource": "BOGUS_RESOURCE_5861"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_102157_20",
+            "resource": "UNDEFINED"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_102521_20",
+            "resource": "SUPERVISOR"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_103011_20",
+            "resource": "STAFF MEMBER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_103341_20",
+            "resource": "SUPERVISOR"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104146_20",
+            "resource": "PRE_APPROVER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104396_20",
+            "resource": "SUPERVISOR"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104763_20",
+            "resource": "BOGUS_RESOURCE_6138"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104962_20",
+            "resource": "UNKNOWN"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_105638_20",
+            "resource": "ADMIN"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_106138_20",
+            "resource": "ADMIN"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_106177_20",
+            "resource": "BOGUS_RESOURCE_5915"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_106938_20",
+            "resource": "BOGUS_RESOURCE_7596"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_107580_20",
+            "resource": "BOGUS_RESOURCE_8973"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_108346_20",
+            "resource": "ADMIN"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_108830_20",
+            "resource": "PRE_APPROVER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_109366_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_109588_20",
+            "resource": "STAFF MEMBER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110081_20",
+            "resource": "NULL"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110120_20",
+            "resource": "BOGUS_RESOURCE_2113"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110392_20",
+            "resource": "BOGUS_RESOURCE_5808"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_111426_20",
+            "resource": "SUPERVISOR"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_112005_20",
+            "resource": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_112182_20",
+            "resource": "BOGUS_RESOURCE_4770"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_112457_20",
+            "resource": "NONEXISTENT_HANDLER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_113226_20",
+            "resource": "STAFF MEMBER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_113327_20",
+            "resource": "STAFF MEMBER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_113539_20",
+            "resource": ""
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_114348_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_114726_20",
+            "resource": "BOGUS_RESOURCE_7484"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_115715_20",
+            "resource": "PRE_APPROVER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_115903_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_117866_20",
+            "resource": "STAFF MEMBER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_118091_20",
+            "resource": "BOGUS_RESOURCE_4116"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_118431_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_119078_20",
+            "resource": "BOGUS_RESOURCE_1651"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_119724_20",
+            "resource": "BOGUS_RESOURCE_4492"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_120508_20",
+            "resource": "BOGUS_RESOURCE_4946"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_121152_20",
+            "resource": "BOGUS_RESOURCE_2638"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_121857_20",
+            "resource": "ADMIN"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_122319_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_124766_20",
+            "resource": "BOGUS_RESOURCE_9320"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_126015_20",
+            "resource": "UNDEFINED"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_126072_20",
+            "resource": "NONEXISTENT_HANDLER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_126251_20",
+            "resource": "BOGUS_RESOURCE_1514"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_126447_20",
+            "resource": "BOGUS_RESOURCE_9856"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_127115_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_128889_20",
+            "resource": "BOGUS_RESOURCE_1958"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_130558_20",
+            "resource": "BOGUS_RESOURCE_6147"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_131498_20",
+            "resource": "SUPERVISOR"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_132044_20",
+            "resource": "BOGUS_RESOURCE_8454"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_132492_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_132509_20",
+            "resource": "UNDEFINED"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_135509_20",
+            "resource": "STAFF MEMBER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_136517_20",
+            "resource": "ADMIN"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_137089_20",
+            "resource": "PRE_APPROVER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_137530_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_141555_20",
+            "resource": "STAFF MEMBER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_141613_20",
+            "resource": "NULL"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_142606_20",
+            "resource": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_142835_20",
+            "resource": "NONEXISTENT_HANDLER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_142953_20",
+            "resource": "NULL"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_142997_20",
+            "resource": "BOGUS_RESOURCE_5315"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_143184_20",
+            "resource": "BOGUS_RESOURCE_8811"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89680_20",
+            "resource": "BOGUS_RESOURCE_8019"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89835_20",
+            "resource": "STAFF MEMBER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89862_20",
+            "resource": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89957_20",
+            "resource": "PRE_APPROVER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_90488_20",
+            "resource": "BOGUS_RESOURCE_4044"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91196_20",
+            "resource": "UNDEFINED"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91299_20",
+            "resource": "BOGUS_RESOURCE_6947"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91591_20",
+            "resource": "PRE_APPROVER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91957_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92092_20",
+            "resource": "BOGUS_RESOURCE_1964"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92195_20",
+            "resource": "BOGUS_RESOURCE_3621"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92704_20",
+            "resource": "UNKNOWN"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92874_20",
+            "resource": "SUPERVISOR"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93056_20",
+            "resource": "Fictional Payment Handler"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93171_20",
+            "resource": "BOGUS_RESOURCE_6539"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93204_20",
+            "resource": "UNDEFINED"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93885_20",
+            "resource": "BOGUS_RESOURCE_9645"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_94189_20",
+            "resource": "BOGUS_RESOURCE_2588"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_94406_20",
+            "resource": "STAFF MEMBER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_94558_20",
+            "resource": "STAFF MEMBER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_95500_20",
+            "resource": "NONEXISTENT_HANDLER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96220_20",
+            "resource": "UNDEFINED"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96315_20",
+            "resource": ""
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96891_20",
+            "resource": "BOGUS_RESOURCE_8962"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96902_20",
+            "resource": "SUPERVISOR"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96918_20",
+            "resource": "BOGUS_RESOURCE_1319"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_97606_20",
+            "resource": ""
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_98103_20",
+            "resource": "BOGUS_RESOURCE_8179"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_98346_20",
+            "resource": "STAFF MEMBER"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_99009_20",
+            "resource": "BOGUS_RESOURCE_8956"
+          }
+        },
+        {
+          "issue": "payment_not_handled_by_system",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_99019_20",
+            "resource": "UNDEFINED"
+          }
+        }
+      ]
+    }
+  ]
+}

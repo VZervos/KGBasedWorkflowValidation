@@ -1,0 +1,962 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r2_full\\DomesticDeclarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\multi_run_n10\\run_06\\validation\\val_r2_full\\validation.json",
+  "started_at": "2026-07-24T13:47:25.747869+00:00",
+  "finished_at": "2026-07-24T13:47:26.932679+00:00",
+  "duration_seconds": 1.184331,
+  "total_violations": 134,
+  "rules_run": [
+    "R2"
+  ],
+  "results": [
+    {
+      "rule_id": "R2",
+      "name": "APPROVAL_REQUEST_RESPONSE",
+      "description": "If a case has 'Declaration FINAL_APPROVED by SUPERVISOR', then 'Request Payment' must occur later in the same case (DECLARE response; KG: request wasInformedBy+ approval).",
+      "status": "FAILED",
+      "violation_count": 134,
+      "duration_seconds": 1.184305,
+      "violations": [
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_100027",
+            "approval": "http://kg.workflow.validation/activity/st_step_100030_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_100131",
+            "approval": "http://kg.workflow.validation/activity/st_step_100133_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_102645",
+            "approval": "http://kg.workflow.validation/activity/st_step_102650_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103291",
+            "approval": "http://kg.workflow.validation/activity/st_step_103294_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103429",
+            "approval": "http://kg.workflow.validation/activity/st_step_103433_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104491",
+            "approval": "http://kg.workflow.validation/activity/st_step_104494_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104721",
+            "approval": "http://kg.workflow.validation/activity/st_step_104723_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104758",
+            "approval": "http://kg.workflow.validation/activity/st_step_104762_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_105604",
+            "approval": "http://kg.workflow.validation/activity/st_step_105606_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106112",
+            "approval": "http://kg.workflow.validation/activity/st_step_106115_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106212",
+            "approval": "http://kg.workflow.validation/activity/st_step_106214_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106488",
+            "approval": "http://kg.workflow.validation/activity/st_step_106492_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106927",
+            "approval": "http://kg.workflow.validation/activity/st_step_106931_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106933",
+            "approval": "http://kg.workflow.validation/activity/st_step_106937_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_107140",
+            "approval": "http://kg.workflow.validation/activity/st_step_107144_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_107317",
+            "approval": "http://kg.workflow.validation/activity/st_step_107319_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_107788",
+            "approval": "http://kg.workflow.validation/activity/st_step_107791_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108018",
+            "approval": "http://kg.workflow.validation/activity/st_step_108021_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108857",
+            "approval": "http://kg.workflow.validation/activity/st_step_108859_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109126",
+            "approval": "http://kg.workflow.validation/activity/st_step_109130_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109334",
+            "approval": "http://kg.workflow.validation/activity/st_step_109337_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109398",
+            "approval": "http://kg.workflow.validation/activity/st_step_109400_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109588",
+            "approval": "http://kg.workflow.validation/activity/st_step_109591_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109781",
+            "approval": "http://kg.workflow.validation/activity/st_step_109784_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109829",
+            "approval": "http://kg.workflow.validation/activity/st_step_109832_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_110115",
+            "approval": "http://kg.workflow.validation/activity/st_step_110117_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_111435",
+            "approval": "http://kg.workflow.validation/activity/st_step_111439_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_111685",
+            "approval": "http://kg.workflow.validation/activity/st_step_111688_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_112005",
+            "approval": "http://kg.workflow.validation/activity/st_step_112008_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_112447",
+            "approval": "http://kg.workflow.validation/activity/st_step_112450_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_112775",
+            "approval": "http://kg.workflow.validation/activity/st_step_112777_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_113545",
+            "approval": "http://kg.workflow.validation/activity/st_step_113547_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_113812",
+            "approval": "http://kg.workflow.validation/activity/st_step_113816_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_114219",
+            "approval": "http://kg.workflow.validation/activity/st_step_114222_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115669",
+            "approval": "http://kg.workflow.validation/activity/st_step_115671_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115715",
+            "approval": "http://kg.workflow.validation/activity/st_step_115718_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117496",
+            "approval": "http://kg.workflow.validation/activity/st_step_117498_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117871",
+            "approval": "http://kg.workflow.validation/activity/st_step_117874_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_119729",
+            "approval": "http://kg.workflow.validation/activity/st_step_119732_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_119760",
+            "approval": "http://kg.workflow.validation/activity/st_step_119762_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_120066",
+            "approval": "http://kg.workflow.validation/activity/st_step_120071_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_120078",
+            "approval": "http://kg.workflow.validation/activity/st_step_120080_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_121238",
+            "approval": "http://kg.workflow.validation/activity/st_step_121240_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_121863",
+            "approval": "http://kg.workflow.validation/activity/st_step_121865_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_121952",
+            "approval": "http://kg.workflow.validation/activity/st_step_121954_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_122324",
+            "approval": "http://kg.workflow.validation/activity/st_step_122327_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_123203",
+            "approval": "http://kg.workflow.validation/activity/st_step_123205_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_123921",
+            "approval": "http://kg.workflow.validation/activity/st_step_123925_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_124535",
+            "approval": "http://kg.workflow.validation/activity/st_step_124539_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_125949",
+            "approval": "http://kg.workflow.validation/activity/st_step_125951_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126020",
+            "approval": "http://kg.workflow.validation/activity/st_step_126022_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126261",
+            "approval": "http://kg.workflow.validation/activity/st_step_126263_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126609",
+            "approval": "http://kg.workflow.validation/activity/st_step_126614_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_128004",
+            "approval": "http://kg.workflow.validation/activity/st_step_128008_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_128377",
+            "approval": "http://kg.workflow.validation/activity/st_step_128382_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_130563",
+            "approval": "http://kg.workflow.validation/activity/st_step_130565_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132173",
+            "approval": "http://kg.workflow.validation/activity/st_step_132177_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132384",
+            "approval": "http://kg.workflow.validation/activity/st_step_132388_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132582",
+            "approval": "http://kg.workflow.validation/activity/st_step_132586_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132927",
+            "approval": "http://kg.workflow.validation/activity/st_step_132929_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_133439",
+            "approval": "http://kg.workflow.validation/activity/st_step_133441_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_133703",
+            "approval": "http://kg.workflow.validation/activity/st_step_133707_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_134866",
+            "approval": "http://kg.workflow.validation/activity/st_step_134869_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_136996",
+            "approval": "http://kg.workflow.validation/activity/st_step_136999_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_137094",
+            "approval": "http://kg.workflow.validation/activity/st_step_137096_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_138147",
+            "approval": "http://kg.workflow.validation/activity/st_step_138151_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_138710",
+            "approval": "http://kg.workflow.validation/activity/st_step_138712_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_139180",
+            "approval": "http://kg.workflow.validation/activity/st_step_139184_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141310",
+            "approval": "http://kg.workflow.validation/activity/st_step_141314_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141560",
+            "approval": "http://kg.workflow.validation/activity/st_step_141564_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141618",
+            "approval": "http://kg.workflow.validation/activity/st_step_141620_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_142612",
+            "approval": "http://kg.workflow.validation/activity/st_step_142616_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_142849",
+            "approval": "http://kg.workflow.validation/activity/st_step_142853_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_142992",
+            "approval": "http://kg.workflow.validation/activity/st_step_142995_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_143013",
+            "approval": "http://kg.workflow.validation/activity/st_step_143015_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_143106",
+            "approval": "http://kg.workflow.validation/activity/st_step_143111_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_143189",
+            "approval": "http://kg.workflow.validation/activity/st_step_143193_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86998",
+            "approval": "http://kg.workflow.validation/activity/st_step_87000_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_86998",
+            "approval": "http://kg.workflow.validation/activity/st_step_87002_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_87054",
+            "approval": "http://kg.workflow.validation/activity/st_step_87057_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_87145",
+            "approval": "http://kg.workflow.validation/activity/st_step_87148_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_87407",
+            "approval": "http://kg.workflow.validation/activity/st_step_87410_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_87411",
+            "approval": "http://kg.workflow.validation/activity/st_step_87413_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_87917",
+            "approval": "http://kg.workflow.validation/activity/st_step_87918_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_88413",
+            "approval": "http://kg.workflow.validation/activity/st_step_88415_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_88595",
+            "approval": "http://kg.workflow.validation/activity/st_step_88598_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_88610",
+            "approval": "http://kg.workflow.validation/activity/st_step_88611_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_88770",
+            "approval": "http://kg.workflow.validation/activity/st_step_88772_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_88834",
+            "approval": "http://kg.workflow.validation/activity/st_step_88837_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89208",
+            "approval": "http://kg.workflow.validation/activity/st_step_89210_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89275",
+            "approval": "http://kg.workflow.validation/activity/st_step_89276_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89680",
+            "approval": "http://kg.workflow.validation/activity/st_step_89683_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89835",
+            "approval": "http://kg.workflow.validation/activity/st_step_89839_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89862",
+            "approval": "http://kg.workflow.validation/activity/st_step_89865_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89957",
+            "approval": "http://kg.workflow.validation/activity/st_step_89960_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_90094",
+            "approval": "http://kg.workflow.validation/activity/st_step_90097_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91299",
+            "approval": "http://kg.workflow.validation/activity/st_step_91301_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91384",
+            "approval": "http://kg.workflow.validation/activity/st_step_91387_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91719",
+            "approval": "http://kg.workflow.validation/activity/st_step_91722_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92087",
+            "approval": "http://kg.workflow.validation/activity/st_step_92089_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92874",
+            "approval": "http://kg.workflow.validation/activity/st_step_92877_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92942",
+            "approval": "http://kg.workflow.validation/activity/st_step_92945_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92971",
+            "approval": "http://kg.workflow.validation/activity/st_step_92972_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93104",
+            "approval": "http://kg.workflow.validation/activity/st_step_93106_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93117",
+            "approval": "http://kg.workflow.validation/activity/st_step_93118_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93204",
+            "approval": "http://kg.workflow.validation/activity/st_step_93206_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93444",
+            "approval": "http://kg.workflow.validation/activity/st_step_93446_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93457",
+            "approval": "http://kg.workflow.validation/activity/st_step_93458_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94194",
+            "approval": "http://kg.workflow.validation/activity/st_step_94196_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94566",
+            "approval": "http://kg.workflow.validation/activity/st_step_94568_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94570",
+            "approval": "http://kg.workflow.validation/activity/st_step_94571_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94949",
+            "approval": "http://kg.workflow.validation/activity/st_step_94952_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95288",
+            "approval": "http://kg.workflow.validation/activity/st_step_95291_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95870",
+            "approval": "http://kg.workflow.validation/activity/st_step_95872_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95882",
+            "approval": "http://kg.workflow.validation/activity/st_step_95884_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95903",
+            "approval": "http://kg.workflow.validation/activity/st_step_95905_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95995",
+            "approval": "http://kg.workflow.validation/activity/st_step_95997_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96089",
+            "approval": "http://kg.workflow.validation/activity/st_step_96092_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96098",
+            "approval": "http://kg.workflow.validation/activity/st_step_96100_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96171",
+            "approval": "http://kg.workflow.validation/activity/st_step_96173_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96175",
+            "approval": "http://kg.workflow.validation/activity/st_step_96177_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96220",
+            "approval": "http://kg.workflow.validation/activity/st_step_96223_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96220",
+            "approval": "http://kg.workflow.validation/activity/st_step_96225_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96302",
+            "approval": "http://kg.workflow.validation/activity/st_step_96304_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96311",
+            "approval": "http://kg.workflow.validation/activity/st_step_96313_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96315",
+            "approval": "http://kg.workflow.validation/activity/st_step_96317_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96335",
+            "approval": "http://kg.workflow.validation/activity/st_step_96338_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96897",
+            "approval": "http://kg.workflow.validation/activity/st_step_96899_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96913",
+            "approval": "http://kg.workflow.validation/activity/st_step_96917_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_97213",
+            "approval": "http://kg.workflow.validation/activity/st_step_97215_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_98325",
+            "approval": "http://kg.workflow.validation/activity/st_step_98329_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99004",
+            "approval": "http://kg.workflow.validation/activity/st_step_99007_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99473",
+            "approval": "http://kg.workflow.validation/activity/st_step_99476_0"
+          }
+        },
+        {
+          "issue": "missing_response_request_after_approval",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99509",
+            "approval": "http://kg.workflow.validation/activity/st_step_99511_0"
+          }
+        }
+      ]
+    }
+  ]
+}

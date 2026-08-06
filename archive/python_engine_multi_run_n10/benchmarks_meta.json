@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-07-24T13:26:51.115939+00:00",
+  "seed": 42,
+  "dataset": "full",
+  "source": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks",
+  "isolated": [
+    {
+      "rule": "R1",
+      "applied": 100,
+      "traces": 10500,
+      "events": 56331,
+      "triples": 848194,
+      "conversion_seconds": 71.122808,
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r1_full"
+    },
+    {
+      "rule": "R2",
+      "applied": 100,
+      "traces": 10500,
+      "events": 56337,
+      "triples": 848364,
+      "conversion_seconds": 174.691051,
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r2_full"
+    },
+    {
+      "rule": "R3",
+      "applied": 100,
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849664,
+      "conversion_seconds": 102.077207,
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r3_full"
+    },
+    {
+      "rule": "R4",
+      "applied": 100,
+      "traces": 10500,
+      "events": 56337,
+      "triples": 848364,
+      "conversion_seconds": 110.696296,
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r4_full"
+    },
+    {
+      "rule": "R5",
+      "applied": 100,
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849664,
+      "conversion_seconds": 99.361741,
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r5_full"
+    },
+    {
+      "rule": "R5B",
+      "applied": 100,
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849664,
+      "conversion_seconds": 76.780133,
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r5b_full"
+    },
+    {
+      "rule": "R6",
+      "applied": 100,
+      "traces": 10500,
+      "events": 56437,
+      "triples": 849664,
+      "conversion_seconds": 62.256448,
+      "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r6_full"
+    }
+  ],
+  "combined": {
+    "traces": 10500,
+    "events": 56131,
+    "triples": 845594,
+    "conversion_seconds": 68.732201,
+    "bench_dir": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_all_full"
+  }
+}

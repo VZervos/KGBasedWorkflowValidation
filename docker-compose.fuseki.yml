@@ -1,0 +1,20 @@
+services:
+  fuseki:
+    image: stain/jena-fuseki:5.1.0
+    ports:
+      - "3030:3030"
+    environment:
+      ADMIN_PASSWORD: admin
+      FUSEKI_DATASET_1: ds
+      # Modest heap bump; default is often too small for ~850k-triple uploads/queries.
+      JVM_ARGS: -Xmx4g
+    volumes:
+      - fuseki_data:/fuseki
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3030/$/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+volumes:
+  fuseki_data:

@@ -1,0 +1,776 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r3_full\\DomesticDeclarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\multi_run_n10\\run_08\\validation\\val_r3_full\\validation.json",
+  "engine": "sparql",
+  "query_endpoint": "http://localhost:3030/ds/sparql",
+  "load_seconds": 9.833277,
+  "started_at": "2026-08-04T15:06:59.036353+00:00",
+  "finished_at": "2026-08-04T15:06:59.145455+00:00",
+  "duration_seconds": 0.109088,
+  "total_violations": 107,
+  "rules_run": [
+    "R3"
+  ],
+  "results": [
+    {
+      "rule_id": "R3",
+      "name": "REQUEST_BEFORE_PAYMENT",
+      "description": "A 'Payment Handled' activity is valid only if 'Request Payment' occurred earlier in the same case (DECLARE precedence; KG: payment wasInformedBy+ request).",
+      "status": "FAILED",
+      "violation_count": 107,
+      "duration_seconds": 0.10907,
+      "violations": [
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_100137",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_100137_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_100473",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_100473_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_100994",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_100994_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_101533",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_101533_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_101731",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_101731_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_101758",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_101758_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_102157",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_102157_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_102521",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_102521_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103011",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_103011_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103341",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_103341_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104146",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_104146_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104396",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_104396_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104763",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_104763_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104962",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_104962_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_105638",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_105638_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106138",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_106138_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106177",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_106177_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106938",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_106938_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_107580",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_107580_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108346",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_108346_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108830",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_108830_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109366",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_109366_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109588",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_109588_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_110081",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_110081_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_110120",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_110120_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_110392",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_110392_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_111444",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_111444_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_111833",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_111833_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_112780",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_112780_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_113777",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_113777_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_114731",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_114731_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115669",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_115669_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115845",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_115845_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115950",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_115950_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117374",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_117374_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117623",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_117623_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117740",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_117740_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117969",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_117969_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_118096",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_118096_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_118650",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_118650_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_119734",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_119734_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_120933",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_120933_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_121250",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_121250_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_121958",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_121958_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_122963",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_122963_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_123932",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_123932_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_124535",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_124535_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_125218",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_125218_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_125954",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_125954_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126267",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_126267_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126277",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_126277_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126760",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_126760_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_127778",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_127778_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_128383",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_128383_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_129886",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_129886_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132049",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_132049_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132178",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_132178_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132932",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_132932_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_133444",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_133444_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_133712",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_133712_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_134872",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_134872_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_135443",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_135443_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_136587",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_136587_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_136996",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_136996_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_137099",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_137099_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_138147",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_138147_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_138710",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_138710_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_139365",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_139365_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_140930",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_140930_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141014",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_141014_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141310",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_141310_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141565",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_141565_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141623",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_141623_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_142618",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_142618_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_142992",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_142992_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_143112",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_143112_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89680",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_89680_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89835",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_89835_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89862",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_89862_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89957",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_89957_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_90488",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_90488_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91196",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_91196_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91299",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_91299_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91591",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_91591_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91957",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_91957_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92092",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_92092_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92195",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_92195_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92704",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_92704_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92874",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_92874_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93056",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_93056_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93171",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_93171_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93204",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_93204_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93885",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_93885_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94189",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_94189_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94406",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_94406_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94558",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_94558_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95500",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_95500_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96220",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_96220_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96315",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_96315_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96891",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_96891_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96902",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_96902_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96918",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_96918_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_97606",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_97606_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_98103",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_98103_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_98346",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_98346_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99009",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_99009_20"
+          }
+        },
+        {
+          "issue": "missing_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99019",
+            "payment": "http://kg.workflow.validation/activity/dd_declaration_99019_20"
+          }
+        }
+      ]
+    }
+  ]
+}

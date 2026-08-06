@@ -20,19 +20,29 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts"))
 
+import experiment_logging as elog
 import pm4py
 
 from src.generate_benchmark import generate_benchmark, load_benchmark_config
 from src.validate_declare_baseline import declare_model_for_rule, load_xes
-from src.validate_kg import validate_knowledge_graph
+from src.validate_kg import validate_ttl
 from src.validation_rules import VALIDATION_RULES
-from src.xes_to_prov_kg import load_graph
 
 BENCH_ROOT = ROOT / "benchmarks"
 OUT_ROOT = ROOT / "output" / "per_rule_validation"
 REPORT_MD = OUT_ROOT / "experiment_report.md"
 REPORT_JSON = OUT_ROOT / "experiment_report.json"
+
+
+def configure_paths(*, bench_root: Path, out_root: Path) -> None:
+    """Redirect suite I/O (used by multi-run experiments)."""
+    global BENCH_ROOT, OUT_ROOT, REPORT_MD, REPORT_JSON
+    BENCH_ROOT = Path(bench_root)
+    OUT_ROOT = Path(out_root)
+    REPORT_MD = OUT_ROOT / "experiment_report.md"
+    REPORT_JSON = OUT_ROOT / "experiment_report.json"
 
 RULES = ("r1", "r2", "r3", "r4", "r5", "r5b", "r6")
 DECLARE_RULES = frozenset({"r1", "r2", "r3", "r4"})
@@ -51,15 +61,21 @@ MULTI_ROW = frozenset({"R2", "R4", "R6"})
 DATASETS = (
     {
         "name": "10declarations",
-        "input": "../dataset/DomesticDeclarations.sample_10declarations.xes",
+        "input": str(ROOT / "dataset" / "DomesticDeclarations.sample_10declarations.xes"),
         "count": 5,
     },
     {
         "name": "full",
-        "input": "../dataset/DomesticDeclarations.xes.gz",
+        "input": str(ROOT / "dataset" / "DomesticDeclarations.xes.gz"),
         "count": 100,
     },
 )
+
+FULL_DATASET = {
+    "name": "full",
+    "input": str(ROOT / "dataset" / "DomesticDeclarations.xes.gz"),
+    "count": 100,
+}
 
 COMPLEXITY = {
     "R1": "DECLARE existence / case-level submission presence",
@@ -68,7 +84,7 @@ COMPLEXITY = {
     "R4": "DECLARE succession / request↔payment",
     "R5": "O(P) Payment Handled resource check",
     "R5B": "O(P) Payment Handled role check",
-    "R6": "O(P·E_case) payment provenance chain BFS",
+    "R6": "O(P·E_case) payment provenance chain (SPARQL property paths)",
 }
 
 
@@ -209,12 +225,8 @@ def _run_declare_cases(xes_path: Path, rule_id: str) -> dict:
 def _validate_kg_rule(ttl: Path, rule_id: str, val_dir: Path) -> tuple[dict, float, float]:
     val_dir.mkdir(parents=True, exist_ok=True)
     report_path = val_dir / "validation.json"
-    load_started = time.perf_counter()
-    graph = load_graph(ttl)
-    load_seconds = round(time.perf_counter() - load_started, 6)
-    report = validate_knowledge_graph(
-        graph,
-        knowledge_graph_path=ttl,
+    report, load_seconds = validate_ttl(
+        ttl,
         report_path=report_path,
         rules=(_rule_obj(rule_id),),
     )
@@ -263,13 +275,13 @@ def run_isolated_rule(dataset: dict, rule: str, *, regenerate: bool = True) -> d
     if regenerate:
         cfg_path = BENCH_ROOT / f"_suite_{dataset['name']}_{rule}.ini"
         cfg_path.write_text(_benchmark_ini(dataset, rule), encoding="utf-8")
-        print(f"  [{dataset['name']}/{rule_id}] generating...", flush=True)
+        elog.log(f"  [{dataset['name']}/{rule_id}] generating...")
         stats = generate_benchmark(load_benchmark_config(cfg_path))
         bench_dir = Path(stats.run_dir)
     else:
         if not bench_dir.is_dir():
             raise FileNotFoundError(f"Missing benchmark: {bench_dir}")
-        print(f"  [{dataset['name']}/{rule_id}] reusing {bench_dir.name}...", flush=True)
+        elog.log(f"  [{dataset['name']}/{rule_id}] reusing {bench_dir.name}...")
 
     stats_path = bench_dir / "statistics.json"
     bench_stats = json.loads(stats_path.read_text(encoding="utf-8"))
@@ -279,7 +291,7 @@ def run_isolated_rule(dataset: dict, rule: str, *, regenerate: bool = True) -> d
     corruptions = [c for c in bench_stats["corruptions"] if c["rule_id"] == rule_id]
     conversion = bench_stats.get("conversion") or {}
 
-    print(f"  [{dataset['name']}/{rule_id}] KG validating...", flush=True)
+    elog.log(f"  [{dataset['name']}/{rule_id}] KG validating...")
     kg_payload, load_seconds, _ = _validate_kg_rule(ttl, rule_id, val_dir)
     kg_result = kg_payload["results"][0]
     kg_rows = kg_result["violation_count"]
@@ -289,7 +301,7 @@ def run_isolated_rule(dataset: dict, rule: str, *, regenerate: bool = True) -> d
     case_pr = None
     entity_pr = None
     if rule in DECLARE_RULES:
-        print(f"  [{dataset['name']}/{rule_id}] DECLARE validating...", flush=True)
+        elog.log(f"  [{dataset['name']}/{rule_id}] DECLARE validating...")
         declare_info = _run_declare_cases(xes, rule_id)
         declare_dir.mkdir(parents=True, exist_ok=True)
         (declare_dir / "declare.json").write_text(
@@ -315,10 +327,10 @@ def run_isolated_rule(dataset: dict, rule: str, *, regenerate: bool = True) -> d
         ok, note = _verify_isolated(rule_id, applied, kg_rows, None, entity_pr)
 
     status = "PASS" if ok else "FAIL"
-    print(
+    elog.log(
         f"  [{dataset['name']}/{rule_id}] {status}: applied={applied} "
-        f"KG_rows={kg_rows} ({note})",
-        flush=True,
+        f"KG_rows={kg_rows} load={load_seconds:.3f}s "
+        f"kg={kg_result['duration_seconds']:.3f}s ({note})"
     )
     return {
         "dataset": dataset["name"],
@@ -463,8 +475,8 @@ def write_isolated_report(results: list[dict]) -> None:
         json.dumps({"generated_at": now, "phase": "isolated", "results": results}, indent=2),
         encoding="utf-8",
     )
-    print(f"Wrote {REPORT_MD}", flush=True)
-    print(f"Wrote {REPORT_JSON}", flush=True)
+    elog.log(f"Wrote {REPORT_MD}")
+    elog.log(f"Wrote {REPORT_JSON}")
 
 
 def _fmt(value, digits: int = 4) -> str:
@@ -479,7 +491,7 @@ def run_isolated_phase() -> list[dict]:
     OUT_ROOT.mkdir(parents=True, exist_ok=True)
     results: list[dict] = []
     for dataset in DATASETS:
-        print(f"\n=== Isolated dataset: {dataset['name']} ===", flush=True)
+        elog.log(f"=== Isolated dataset: {dataset['name']} ===")
         for rule in RULES:
             results.append(run_isolated_rule(dataset, rule, regenerate=True))
     write_isolated_report(results)
@@ -497,28 +509,29 @@ def run_isolated_phase() -> list[dict]:
 def run_combined_for_dataset(dataset: dict) -> dict:
     cfg_path = BENCH_ROOT / f"_suite_{dataset['name']}_all.ini"
     cfg_path.write_text(_benchmark_ini(dataset, None), encoding="utf-8")
-    print(f"[{dataset['name']}/ALL] generating...", flush=True)
+    elog.log(f"[{dataset['name']}/ALL] generating...")
     stats = generate_benchmark(load_benchmark_config(cfg_path))
     bench_stats = json.loads(Path(stats.outputs["statistics"]).read_text(encoding="utf-8"))
     ttl = Path(stats.outputs["corrupted_knowledge_graph"])
     xes = Path(stats.outputs["corrupted_xes"])
 
-    print(f"[{dataset['name']}/ALL] loading + validating all KG rules...", flush=True)
-    load_started = time.perf_counter()
-    graph = load_graph(ttl)
-    load_seconds = round(time.perf_counter() - load_started, 6)
+    elog.log(f"[{dataset['name']}/ALL] loading + validating all KG rules...")
     val_dir = OUT_ROOT / f"val_all_{dataset['name']}"
     val_dir.mkdir(parents=True, exist_ok=True)
     report_path = val_dir / "validation.json"
-    report = validate_knowledge_graph(
-        graph,
-        knowledge_graph_path=ttl,
+    report, load_seconds = validate_ttl(
+        ttl,
         report_path=report_path,
         rules=VALIDATION_RULES,
     )
     val_payload = json.loads(report_path.read_text(encoding="utf-8"))
+    elog.log(
+        f"[{dataset['name']}/ALL] KG done: load={load_seconds:.3f}s "
+        f"val_total={report.duration_seconds:.3f}s "
+        f"violations={val_payload['total_violations']}"
+    )
 
-    print(f"[{dataset['name']}/ALL] DECLARE on R1–R4 templates...", flush=True)
+    elog.log(f"[{dataset['name']}/ALL] DECLARE on R1–R4 templates...")
     declare_by_rule = {}
     for rule in sorted(DECLARE_RULES):
         rid = RULE_ID[rule]
@@ -570,7 +583,7 @@ def run_combined_for_dataset(dataset: dict) -> dict:
         entry["ok"] = ok
         entry["note"] = note
         all_ok = all_ok and ok
-        print(f"  [{rid}] {'PASS' if ok else 'FAIL'}: {note}", flush=True)
+        elog.log(f"  [{rid}] {'PASS' if ok else 'FAIL'}: {note}")
         per_rule.append(entry)
 
     conversion = bench_stats.get("conversion") or {}
@@ -659,13 +672,13 @@ def extend_combined_report(combined_cases: list[dict]) -> None:
     existing_json["combined"] = {"updated_at": now, "cases": combined_cases}
     existing_json["generated_at"] = existing_json.get("generated_at", now)
     REPORT_JSON.write_text(json.dumps(existing_json, indent=2), encoding="utf-8")
-    print(f"Updated {REPORT_MD}", flush=True)
+    elog.log(f"Updated {REPORT_MD}")
 
 
 def run_combined_phase() -> list[dict]:
     cases = []
     for dataset in DATASETS:
-        print(f"\n=== Combined dataset: {dataset['name']} ===", flush=True)
+        elog.log(f"=== Combined dataset: {dataset['name']} ===")
         cases.append(run_combined_for_dataset(dataset))
     extend_combined_report(cases)
     if any(not c["ok"] for c in cases):
@@ -680,14 +693,31 @@ def main() -> None:
     if phase not in {"isolated", "combined", "all"}:
         raise SystemExit("Usage: run_full_experiment_suite.py [isolated|combined|all]")
 
-    BENCH_ROOT.mkdir(parents=True, exist_ok=True)
     OUT_ROOT.mkdir(parents=True, exist_ok=True)
+    tee = elog.TeeStdout(OUT_ROOT / "experiment.log")
+    sys.stdout = tee  # type: ignore[assignment]
+    try:
+        elog.log(f"Full experiment suite phase={phase}")
+        elog.log("KG validation: SPARQL triple store (see KG_SPARQL_* env vars)")
+        elog.log(f"Live log file: {OUT_ROOT / 'experiment.log'}")
+        elog.preflight_sparql(label="full experiment suite")
 
-    if phase in {"isolated", "all"}:
-        run_isolated_phase()
-    if phase in {"combined", "all"}:
-        run_combined_phase()
-    print("\nDone.", flush=True)
+        BENCH_ROOT.mkdir(parents=True, exist_ok=True)
+
+        started = time.perf_counter()
+        if phase in {"isolated", "all"}:
+            elog.log("--- phase: isolated ---")
+            run_isolated_phase()
+            elog.log(f"Isolated phase finished in {elog.fmt_eta(time.perf_counter() - started)}")
+        if phase in {"combined", "all"}:
+            t_comb = time.perf_counter()
+            elog.log("--- phase: combined ---")
+            run_combined_phase()
+            elog.log(f"Combined phase finished in {elog.fmt_eta(time.perf_counter() - t_comb)}")
+        elog.log(f"Done in {elog.fmt_eta(time.perf_counter() - started)}.")
+    finally:
+        sys.stdout = tee._out  # type: ignore[attr-defined]
+        tee.close()
 
 
 if __name__ == "__main__":

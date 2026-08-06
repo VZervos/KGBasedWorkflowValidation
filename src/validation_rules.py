@@ -5,6 +5,12 @@ faults can be checked on XES (PM4Py DECLARE) and on the provenance KG.
 R5–R6 remain domain-specific KG rules outside classic DECLARE scope.
 
 Each rule exposes a SPARQL SELECT that returns one row per violation.
+
+Query style notes (Fuseki-oriented, semantics unchanged):
+- Prefer MINUS over FILTER NOT EXISTS where equivalent.
+- Drop redundant ``a prov:Activity`` when ``rdfs:label`` already identifies events.
+- Keep ``wasInformedBy+`` (Jena ALP); avoid ``wasInformedBy{1,N}`` — it can explode.
+- Omit ORDER BY (ordering is irrelevant for validation counts).
 """
 
 from __future__ import annotations
@@ -29,7 +35,6 @@ R1_SUBMISSION_EXISTENCE = ValidationRule(
         "'Declaration SUBMITTED by EMPLOYEE' (DECLARE existence)."
     ),
     query="""
-        PREFIX prov: <http://www.w3.org/ns/prov#>
         PREFIX wf: <http://kg.workflow.validation/>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -39,14 +44,12 @@ R1_SUBMISSION_EXISTENCE = ValidationRule(
                 SELECT DISTINCT ?case
                 WHERE { ?activity wf:belongsToCase ?case }
             }
-            FILTER NOT EXISTS {
-                ?submission a prov:Activity ;
-                            rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
+            MINUS {
+                ?submission rdfs:label "Declaration SUBMITTED by EMPLOYEE" ;
                             wf:belongsToCase ?case .
             }
             BIND("missing_submission_existence" AS ?issue)
         }
-        ORDER BY ?case
     """,
 )
 
@@ -67,18 +70,15 @@ R2_APPROVAL_REQUEST_RESPONSE = ValidationRule(
 
         SELECT ?case ?approval ?issue
         WHERE {
-            ?approval a prov:Activity ;
-                      rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
+            ?approval rdfs:label "Declaration FINAL_APPROVED by SUPERVISOR" ;
                       wf:belongsToCase ?case .
-            FILTER NOT EXISTS {
-                ?request a prov:Activity ;
-                         rdfs:label "Request Payment" ;
-                         wf:belongsToCase ?case .
-                ?request prov:wasInformedBy+ ?approval .
+            MINUS {
+                ?request rdfs:label "Request Payment" ;
+                         wf:belongsToCase ?case ;
+                         prov:wasInformedBy+ ?approval .
             }
             BIND("missing_response_request_after_approval" AS ?issue)
         }
-        ORDER BY ?case ?approval
     """,
 )
 
@@ -99,18 +99,15 @@ R3_REQUEST_BEFORE_PAYMENT = ValidationRule(
 
         SELECT ?case ?payment ?issue
         WHERE {
-            ?payment a prov:Activity ;
-                     rdfs:label "Payment Handled" ;
+            ?payment rdfs:label "Payment Handled" ;
                      wf:belongsToCase ?case .
-            FILTER NOT EXISTS {
-                ?request a prov:Activity ;
-                         rdfs:label "Request Payment" ;
+            MINUS {
+                ?request rdfs:label "Request Payment" ;
                          wf:belongsToCase ?case .
                 ?payment prov:wasInformedBy+ ?request .
             }
             BIND("missing_precedence_request_before_payment" AS ?issue)
         }
-        ORDER BY ?case ?payment
     """,
 )
 
@@ -132,26 +129,22 @@ R4_REQUEST_PAYMENT_SUCCESSION = ValidationRule(
         SELECT ?case ?activity ?issue
         WHERE {
             {
-                ?request a prov:Activity ;
-                         rdfs:label "Request Payment" ;
+                ?request rdfs:label "Request Payment" ;
                          wf:belongsToCase ?case .
-                FILTER NOT EXISTS {
-                    ?payment a prov:Activity ;
-                             rdfs:label "Payment Handled" ;
-                             wf:belongsToCase ?case .
-                    ?payment prov:wasInformedBy+ ?request .
+                MINUS {
+                    ?payment rdfs:label "Payment Handled" ;
+                             wf:belongsToCase ?case ;
+                             prov:wasInformedBy+ ?request .
                 }
                 BIND(?request AS ?activity)
                 BIND("missing_succession_response_payment_after_request" AS ?issue)
             }
             UNION
             {
-                ?payment a prov:Activity ;
-                         rdfs:label "Payment Handled" ;
+                ?payment rdfs:label "Payment Handled" ;
                          wf:belongsToCase ?case .
-                FILTER NOT EXISTS {
-                    ?request a prov:Activity ;
-                             rdfs:label "Request Payment" ;
+                MINUS {
+                    ?request rdfs:label "Request Payment" ;
                              wf:belongsToCase ?case .
                     ?payment prov:wasInformedBy+ ?request .
                 }
@@ -159,7 +152,6 @@ R4_REQUEST_PAYMENT_SUCCESSION = ValidationRule(
                 BIND("missing_succession_precedence_request_before_payment" AS ?issue)
             }
         }
-        ORDER BY ?case ?activity
     """,
 )
 
@@ -173,19 +165,16 @@ R5_PAYMENT_HANDLED_BY_SYSTEM = ValidationRule(
         "SYSTEM (xes-attr:org_resource)."
     ),
     query="""
-        PREFIX prov: <http://www.w3.org/ns/prov#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX attr: <http://www.xes-standard.org/attribute/>
 
         SELECT ?activity ?resource ?issue
         WHERE {
-            ?activity a prov:Activity ;
-                      rdfs:label "Payment Handled" .
-            FILTER NOT EXISTS { ?activity attr:xes-attr_org_resource "SYSTEM" }
+            ?activity rdfs:label "Payment Handled" .
+            MINUS { ?activity attr:xes-attr_org_resource "SYSTEM" }
             OPTIONAL { ?activity attr:xes-attr_org_resource ?resource }
             BIND("payment_not_handled_by_system" AS ?issue)
         }
-        ORDER BY ?activity
     """,
 )
 
@@ -199,19 +188,16 @@ R5B_PAYMENT_HANDLED_NOT_BY_EMPLOYEE = ValidationRule(
         "EMPLOYEE (xes-attr:org_role)."
     ),
     query="""
-        PREFIX prov: <http://www.w3.org/ns/prov#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX attr: <http://www.xes-standard.org/attribute/>
 
         SELECT ?activity ?role ?issue
         WHERE {
-            ?activity a prov:Activity ;
-                      rdfs:label "Payment Handled" ;
+            ?activity rdfs:label "Payment Handled" ;
                       attr:xes-attr_org_role ?role .
             FILTER(?role = "EMPLOYEE")
             BIND("payment_handled_by_employee" AS ?issue)
         }
-        ORDER BY ?activity
     """,
 )
 
@@ -234,10 +220,9 @@ R6_PAYMENT_PROVENANCE_CHAIN = ValidationRule(
 
         SELECT ?payment ?case ?issue
         WHERE {
-            ?payment a prov:Activity ;
-                     rdfs:label "Payment Handled" ;
+            ?payment rdfs:label "Payment Handled" ;
                      wf:belongsToCase ?case .
-            FILTER NOT EXISTS {
+            MINUS {
                 ?payment prov:wasInformedBy+ ?request .
                 ?request rdfs:label "Request Payment" ;
                          wf:belongsToCase ?case .
@@ -250,7 +235,6 @@ R6_PAYMENT_PROVENANCE_CHAIN = ValidationRule(
             }
             BIND("invalid_payment_provenance_chain" AS ?issue)
         }
-        ORDER BY ?payment
     """,
 )
 

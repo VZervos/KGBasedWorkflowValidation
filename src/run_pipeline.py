@@ -11,7 +11,7 @@ from pathlib import Path
 from rdflib import Graph
 
 from src.pipeline_config import PipelineConfig, load_pipeline_config
-from src.validate_kg import ValidationReport, log_validation_summary, validate_knowledge_graph
+from src.validate_kg import ValidationReport, log_validation_summary, validate_ttl
 from src.visualize_prov_kg import VisualizationConfig, visualize_prov_kg
 from src.xes_to_prov_kg import ConversionResult, convert_xes_to_prov_kg, load_graph
 
@@ -69,14 +69,10 @@ def _run_visualization(config: PipelineConfig, graph: Graph) -> StageResult:
     )
 
 
-def _run_validation(
-    config: PipelineConfig,
-    graph: Graph,
-) -> tuple[StageResult, ValidationReport]:
+def _run_validation(config: PipelineConfig) -> tuple[StageResult, ValidationReport]:
     rules = config.selected_validation_rules()
-    report = validate_knowledge_graph(
-        graph,
-        knowledge_graph_path=config.knowledge_graph_path,
+    report, load_seconds = validate_ttl(
+        config.knowledge_graph_path,
         report_path=config.validation_report_path,
         rules=rules,
     )
@@ -86,7 +82,8 @@ def _run_validation(
             stage="validation",
             status="passed" if report.passed else "failed",
             details=(
-                f"Validation {report.status}; report at {config.validation_report_path}"
+                f"Validation {report.status}; store load={load_seconds:.4f}s; "
+                f"report at {config.validation_report_path}"
             ),
             duration_seconds=report.duration_seconds,
         ),
@@ -153,6 +150,9 @@ def _write_statistics(
     if validation is not None:
         payload["validation"] = {
             "status": validation.status,
+            "engine": "sparql",
+            "query_endpoint": validation.query_endpoint,
+            "load_seconds": validation.load_seconds,
             "duration_seconds": validation.duration_seconds,
             "total_violations": validation.total_violations,
             "rules_run": list(validation.rules_run),
@@ -195,18 +195,14 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
                 f"knowledge_graph to an existing file: {config.knowledge_graph_path}"
             )
 
-    if config.visualization or config.validation:
+    if config.visualization:
         load_started = time.perf_counter()
         graph = load_graph(config.knowledge_graph_path)
         graph_load_seconds = round(time.perf_counter() - load_started, 6)
-
-    if config.visualization:
-        assert graph is not None
         stage_results.append(_run_visualization(config, graph))
 
     if config.validation:
-        assert graph is not None
-        stage, validation_report = _run_validation(config, graph)
+        stage, validation_report = _run_validation(config)
         stage_results.append(stage)
 
     pipeline_duration = round(time.perf_counter() - pipeline_started, 6)
@@ -252,6 +248,7 @@ def run_from_config(config_path: Path | None = None) -> PipelineResult:
     )
     if config.validation:
         print(f"Validation rules: {', '.join(config.enabled_rules) or '(none)'}")
+        print("Validation engine: SPARQL triple store")
     return run_pipeline(config)
 
 

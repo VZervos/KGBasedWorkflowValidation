@@ -1,0 +1,724 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r5b_full\\DomesticDeclarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\multi_run_n10\\run_09\\validation\\val_r5b_full\\validation.json",
+  "started_at": "2026-07-24T14:01:20.700241+00:00",
+  "finished_at": "2026-07-24T14:01:21.243129+00:00",
+  "duration_seconds": 0.542713,
+  "total_violations": 100,
+  "rules_run": [
+    "R5B"
+  ],
+  "results": [
+    {
+      "rule_id": "R5B",
+      "name": "PAYMENT_HANDLED_NOT_BY_EMPLOYEE",
+      "description": "Every 'Payment Handled' activity must not be associated with role EMPLOYEE (xes-attr:org_role).",
+      "status": "FAILED",
+      "violation_count": 100,
+      "duration_seconds": 0.542696,
+      "violations": [
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100137_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100473_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100994_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_101533_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_101731_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_101758_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_102157_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_102521_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_103011_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_103341_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104146_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104396_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104763_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104962_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_105638_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_106138_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_106177_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_106938_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_107580_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_108346_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_108830_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_109366_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_109588_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110081_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110120_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110392_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_111426_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_112005_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_112182_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_112457_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_113226_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_113327_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_113539_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_114348_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_114726_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_115715_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_115903_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_117866_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_118091_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_118431_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_119078_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_119724_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_120508_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_121152_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_121857_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_122319_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_124766_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_126015_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_126072_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_126251_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_126447_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_127115_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_128889_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_130558_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_131498_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_132044_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_132492_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_132509_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_135509_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_136517_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_137089_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_137530_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_141555_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_141613_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_142606_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_142835_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_142953_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_142997_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_143184_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89680_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89835_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89862_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89957_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_90488_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91196_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91299_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91591_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91957_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92092_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92195_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92704_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92874_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93056_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93171_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93204_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93885_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_94189_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_94406_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_94558_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_95500_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96220_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96315_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96891_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96902_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96918_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_97606_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_98103_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_98346_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_99009_20",
+            "role": "EMPLOYEE"
+          }
+        },
+        {
+          "issue": "payment_handled_by_employee",
+          "details": {
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_99019_20",
+            "role": "EMPLOYEE"
+          }
+        }
+      ]
+    }
+  ]
+}

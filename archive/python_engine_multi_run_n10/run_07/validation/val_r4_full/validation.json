@@ -1,0 +1,794 @@
+{
+  "status": "FAILED",
+  "knowledge_graph": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\baseline_single_run\\benchmarks\\bench_r4_full\\DomesticDeclarations.corrupted.prov.ttl",
+  "report_path": "C:\\Valantis\\JetBrains\\projects\\isl\\KGBasedWorkflowValidation\\experiments\\multi_run_n10\\run_07\\validation\\val_r4_full\\validation.json",
+  "started_at": "2026-07-24T13:52:21.779918+00:00",
+  "finished_at": "2026-07-24T13:52:23.086949+00:00",
+  "duration_seconds": 1.293439,
+  "total_violations": 110,
+  "rules_run": [
+    "R4"
+  ],
+  "results": [
+    {
+      "rule_id": "R4",
+      "name": "REQUEST_PAYMENT_SUCCESSION",
+      "description": "In each case, 'Request Payment' and 'Payment Handled' must form a succession: every request is followed by a payment, and every payment is preceded by a request (DECLARE succession).",
+      "status": "FAILED",
+      "violation_count": 110,
+      "duration_seconds": 1.293417,
+      "violations": [
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115669",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_115669_20"
+          }
+        },
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_124535",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_124535_20"
+          }
+        },
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_136996",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_136996_20"
+          }
+        },
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_138147",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_138147_20"
+          }
+        },
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_138710",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_138710_20"
+          }
+        },
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141310",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_141310_20"
+          }
+        },
+        {
+          "issue": "missing_succession_precedence_request_before_payment",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_142992",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_142992_20"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_100137",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100137_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_100473",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100473_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_100994",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_100994_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_101533",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_101533_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_101731",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_101731_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_101758",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_101758_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_102157",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_102157_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_102521",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_102521_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103011",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_103011_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_103341",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_103341_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104146",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104146_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104396",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104396_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104763",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104763_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_104962",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_104962_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_105638",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_105638_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106138",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_106138_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106177",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_106177_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_106938",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_106938_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_107580",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_107580_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108346",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_108346_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_108830",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_108830_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109366",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_109366_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_109588",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_109588_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_110081",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110081_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_110120",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110120_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_110392",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_110392_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_111444",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_111444_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_111833",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_111833_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_112780",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_112780_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_113777",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_113777_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_114731",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_114731_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115845",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_115845_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_115950",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_115950_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117374",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_117374_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117623",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_117623_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117740",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_117740_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_117969",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_117969_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_118096",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_118096_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_118650",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_118650_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_119734",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_119734_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_120933",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_120933_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_121250",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_121250_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_121958",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_121958_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_122963",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_122963_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_123932",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_123932_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_125218",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_125218_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_125954",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_125954_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126267",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_126267_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126277",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_126277_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_126760",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_126760_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_127778",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_127778_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_128383",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_128383_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_129886",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_129886_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132049",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_132049_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132178",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_132178_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_132932",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_132932_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_133444",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_133444_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_133712",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_133712_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_134872",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_134872_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_135443",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_135443_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_136587",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_136587_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_137099",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_137099_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_139365",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_139365_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_140930",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_140930_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141014",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_141014_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141565",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_141565_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_141623",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_141623_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_142618",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_142618_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_143112",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_143112_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89680",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89680_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89835",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89835_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89862",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89862_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_89957",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_89957_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_90488",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_90488_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91196",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91196_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91299",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91299_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91591",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91591_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91957",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91957_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92092",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92092_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92195",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92195_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92704",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92704_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_92874",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_92874_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93056",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93056_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93171",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93171_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93204",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93204_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93885",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93885_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94189",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_94189_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94406",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_94406_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_94558",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_94558_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_95500",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_95500_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96220",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96220_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96315",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96315_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96891",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96891_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96902",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96902_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_96918",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_96918_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_97606",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_97606_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_98103",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_98103_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_98346",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_98346_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99009",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_99009_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_99019",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_99019_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_87660",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_87660_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_91936",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_91936_19"
+          }
+        },
+        {
+          "issue": "missing_succession_response_payment_after_request",
+          "details": {
+            "case": "http://kg.workflow.validation/case/declaration_93320",
+            "activity": "http://kg.workflow.validation/activity/dd_declaration_93320_19"
+          }
+        }
+      ]
+    }
+  ]
+}

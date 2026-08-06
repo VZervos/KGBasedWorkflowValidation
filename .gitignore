@@ -3,5 +3,8 @@
 **/__pycache__/
 *.pyc
 benchmarks/_suite_*.ini
-output/per_rule_validation/_smoke.json
-output/per_rule_validation/*.log
+output/**
+!output/.gitkeep
+scripts/triplestore.env.ps1
+scripts/triplestore.env.sh
+experiments/multi_run_n*/experiment.log
